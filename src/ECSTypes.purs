@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -48,10 +47,10 @@ instance encodeAssignPublicIp :: Encode AssignPublicIp where encode = genericEnc
 
 -- | <p>An object representing a container instance or task attachment.</p>
 newtype Attachment = Attachment 
-  { "id" :: NullOrUndefined (String)
-  , "type" :: NullOrUndefined (String)
-  , "status" :: NullOrUndefined (String)
-  , "details" :: NullOrUndefined (AttachmentDetails)
+  { "id" :: Maybe (String)
+  , "type" :: Maybe (String)
+  , "status" :: Maybe (String)
+  , "details" :: Maybe (AttachmentDetails)
   }
 derive instance newtypeAttachment :: Newtype Attachment _
 derive instance repGenericAttachment :: Generic Attachment _
@@ -61,12 +60,12 @@ instance encodeAttachment :: Encode Attachment where encode = genericEncode opti
 
 -- | Constructs Attachment from required parameters
 newAttachment :: Attachment
-newAttachment  = Attachment { "details": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newAttachment  = Attachment { "details": Nothing, "id": Nothing, "status": Nothing, "type": Nothing }
 
 -- | Constructs Attachment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAttachment' :: ( { "id" :: NullOrUndefined (String) , "type" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "details" :: NullOrUndefined (AttachmentDetails) } -> {"id" :: NullOrUndefined (String) , "type" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "details" :: NullOrUndefined (AttachmentDetails) } ) -> Attachment
-newAttachment'  customize = (Attachment <<< customize) { "details": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newAttachment' :: ( { "id" :: Maybe (String) , "type" :: Maybe (String) , "status" :: Maybe (String) , "details" :: Maybe (AttachmentDetails) } -> {"id" :: Maybe (String) , "type" :: Maybe (String) , "status" :: Maybe (String) , "details" :: Maybe (AttachmentDetails) } ) -> Attachment
+newAttachment'  customize = (Attachment <<< customize) { "details": Nothing, "id": Nothing, "status": Nothing, "type": Nothing }
 
 
 
@@ -122,9 +121,9 @@ instance encodeAttachments :: Encode Attachments where encode = genericEncode op
 -- | <p>An attribute is a name-value pair associated with an Amazon ECS object. Attributes enable you to extend the Amazon ECS data model by adding custom metadata to your resources. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 newtype Attribute = Attribute 
   { "name" :: (String)
-  , "value" :: NullOrUndefined (String)
-  , "targetType" :: NullOrUndefined (TargetType)
-  , "targetId" :: NullOrUndefined (String)
+  , "value" :: Maybe (String)
+  , "targetType" :: Maybe (TargetType)
+  , "targetId" :: Maybe (String)
   }
 derive instance newtypeAttribute :: Newtype Attribute _
 derive instance repGenericAttribute :: Generic Attribute _
@@ -134,12 +133,12 @@ instance encodeAttribute :: Encode Attribute where encode = genericEncode option
 
 -- | Constructs Attribute from required parameters
 newAttribute :: String -> Attribute
-newAttribute _name = Attribute { "name": _name, "targetId": (NullOrUndefined Nothing), "targetType": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newAttribute _name = Attribute { "name": _name, "targetId": Nothing, "targetType": Nothing, "value": Nothing }
 
 -- | Constructs Attribute's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAttribute' :: String -> ( { "name" :: (String) , "value" :: NullOrUndefined (String) , "targetType" :: NullOrUndefined (TargetType) , "targetId" :: NullOrUndefined (String) } -> {"name" :: (String) , "value" :: NullOrUndefined (String) , "targetType" :: NullOrUndefined (TargetType) , "targetId" :: NullOrUndefined (String) } ) -> Attribute
-newAttribute' _name customize = (Attribute <<< customize) { "name": _name, "targetId": (NullOrUndefined Nothing), "targetType": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newAttribute' :: String -> ( { "name" :: (String) , "value" :: Maybe (String) , "targetType" :: Maybe (TargetType) , "targetId" :: Maybe (String) } -> {"name" :: (String) , "value" :: Maybe (String) , "targetType" :: Maybe (TargetType) , "targetId" :: Maybe (String) } ) -> Attribute
+newAttribute' _name customize = (Attribute <<< customize) { "name": _name, "targetId": Nothing, "targetType": Nothing, "value": Nothing }
 
 
 
@@ -165,8 +164,8 @@ instance encodeAttributes :: Encode Attributes where encode = genericEncode opti
 -- | <p>An object representing the networking details for a task or service.</p>
 newtype AwsVpcConfiguration = AwsVpcConfiguration 
   { "subnets" :: (StringList)
-  , "securityGroups" :: NullOrUndefined (StringList)
-  , "assignPublicIp" :: NullOrUndefined (AssignPublicIp)
+  , "securityGroups" :: Maybe (StringList)
+  , "assignPublicIp" :: Maybe (AssignPublicIp)
   }
 derive instance newtypeAwsVpcConfiguration :: Newtype AwsVpcConfiguration _
 derive instance repGenericAwsVpcConfiguration :: Generic AwsVpcConfiguration _
@@ -176,12 +175,12 @@ instance encodeAwsVpcConfiguration :: Encode AwsVpcConfiguration where encode = 
 
 -- | Constructs AwsVpcConfiguration from required parameters
 newAwsVpcConfiguration :: StringList -> AwsVpcConfiguration
-newAwsVpcConfiguration _subnets = AwsVpcConfiguration { "subnets": _subnets, "assignPublicIp": (NullOrUndefined Nothing), "securityGroups": (NullOrUndefined Nothing) }
+newAwsVpcConfiguration _subnets = AwsVpcConfiguration { "subnets": _subnets, "assignPublicIp": Nothing, "securityGroups": Nothing }
 
 -- | Constructs AwsVpcConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAwsVpcConfiguration' :: StringList -> ( { "subnets" :: (StringList) , "securityGroups" :: NullOrUndefined (StringList) , "assignPublicIp" :: NullOrUndefined (AssignPublicIp) } -> {"subnets" :: (StringList) , "securityGroups" :: NullOrUndefined (StringList) , "assignPublicIp" :: NullOrUndefined (AssignPublicIp) } ) -> AwsVpcConfiguration
-newAwsVpcConfiguration' _subnets customize = (AwsVpcConfiguration <<< customize) { "subnets": _subnets, "assignPublicIp": (NullOrUndefined Nothing), "securityGroups": (NullOrUndefined Nothing) }
+newAwsVpcConfiguration' :: StringList -> ( { "subnets" :: (StringList) , "securityGroups" :: Maybe (StringList) , "assignPublicIp" :: Maybe (AssignPublicIp) } -> {"subnets" :: (StringList) , "securityGroups" :: Maybe (StringList) , "assignPublicIp" :: Maybe (AssignPublicIp) } ) -> AwsVpcConfiguration
+newAwsVpcConfiguration' _subnets customize = (AwsVpcConfiguration <<< customize) { "subnets": _subnets, "assignPublicIp": Nothing, "securityGroups": Nothing }
 
 
 
@@ -215,7 +214,7 @@ instance encodeBoxedInteger :: Encode BoxedInteger where encode = genericEncode 
 
 -- | <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an identifier that is not valid.</p>
 newtype ClientException = ClientException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeClientException :: Newtype ClientException _
 derive instance repGenericClientException :: Generic ClientException _
@@ -225,25 +224,25 @@ instance encodeClientException :: Encode ClientException where encode = genericE
 
 -- | Constructs ClientException from required parameters
 newClientException :: ClientException
-newClientException  = ClientException { "message": (NullOrUndefined Nothing) }
+newClientException  = ClientException { "message": Nothing }
 
 -- | Constructs ClientException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newClientException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> ClientException
-newClientException'  customize = (ClientException <<< customize) { "message": (NullOrUndefined Nothing) }
+newClientException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> ClientException
+newClientException'  customize = (ClientException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>A regional grouping of one or more container instances on which you can run task requests. Each account receives a default cluster the first time you use the Amazon ECS service, but you may also create other clusters. Clusters may contain more than one instance type simultaneously.</p>
 newtype Cluster = Cluster 
-  { "clusterArn" :: NullOrUndefined (String)
-  , "clusterName" :: NullOrUndefined (String)
-  , "status" :: NullOrUndefined (String)
-  , "registeredContainerInstancesCount" :: NullOrUndefined (Int)
-  , "runningTasksCount" :: NullOrUndefined (Int)
-  , "pendingTasksCount" :: NullOrUndefined (Int)
-  , "activeServicesCount" :: NullOrUndefined (Int)
-  , "statistics" :: NullOrUndefined (Statistics)
+  { "clusterArn" :: Maybe (String)
+  , "clusterName" :: Maybe (String)
+  , "status" :: Maybe (String)
+  , "registeredContainerInstancesCount" :: Maybe (Int)
+  , "runningTasksCount" :: Maybe (Int)
+  , "pendingTasksCount" :: Maybe (Int)
+  , "activeServicesCount" :: Maybe (Int)
+  , "statistics" :: Maybe (Statistics)
   }
 derive instance newtypeCluster :: Newtype Cluster _
 derive instance repGenericCluster :: Generic Cluster _
@@ -253,12 +252,12 @@ instance encodeCluster :: Encode Cluster where encode = genericEncode options
 
 -- | Constructs Cluster from required parameters
 newCluster :: Cluster
-newCluster  = Cluster { "activeServicesCount": (NullOrUndefined Nothing), "clusterArn": (NullOrUndefined Nothing), "clusterName": (NullOrUndefined Nothing), "pendingTasksCount": (NullOrUndefined Nothing), "registeredContainerInstancesCount": (NullOrUndefined Nothing), "runningTasksCount": (NullOrUndefined Nothing), "statistics": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newCluster  = Cluster { "activeServicesCount": Nothing, "clusterArn": Nothing, "clusterName": Nothing, "pendingTasksCount": Nothing, "registeredContainerInstancesCount": Nothing, "runningTasksCount": Nothing, "statistics": Nothing, "status": Nothing }
 
 -- | Constructs Cluster's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCluster' :: ( { "clusterArn" :: NullOrUndefined (String) , "clusterName" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "registeredContainerInstancesCount" :: NullOrUndefined (Int) , "runningTasksCount" :: NullOrUndefined (Int) , "pendingTasksCount" :: NullOrUndefined (Int) , "activeServicesCount" :: NullOrUndefined (Int) , "statistics" :: NullOrUndefined (Statistics) } -> {"clusterArn" :: NullOrUndefined (String) , "clusterName" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "registeredContainerInstancesCount" :: NullOrUndefined (Int) , "runningTasksCount" :: NullOrUndefined (Int) , "pendingTasksCount" :: NullOrUndefined (Int) , "activeServicesCount" :: NullOrUndefined (Int) , "statistics" :: NullOrUndefined (Statistics) } ) -> Cluster
-newCluster'  customize = (Cluster <<< customize) { "activeServicesCount": (NullOrUndefined Nothing), "clusterArn": (NullOrUndefined Nothing), "clusterName": (NullOrUndefined Nothing), "pendingTasksCount": (NullOrUndefined Nothing), "registeredContainerInstancesCount": (NullOrUndefined Nothing), "runningTasksCount": (NullOrUndefined Nothing), "statistics": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newCluster' :: ( { "clusterArn" :: Maybe (String) , "clusterName" :: Maybe (String) , "status" :: Maybe (String) , "registeredContainerInstancesCount" :: Maybe (Int) , "runningTasksCount" :: Maybe (Int) , "pendingTasksCount" :: Maybe (Int) , "activeServicesCount" :: Maybe (Int) , "statistics" :: Maybe (Statistics) } -> {"clusterArn" :: Maybe (String) , "clusterName" :: Maybe (String) , "status" :: Maybe (String) , "registeredContainerInstancesCount" :: Maybe (Int) , "runningTasksCount" :: Maybe (Int) , "pendingTasksCount" :: Maybe (Int) , "activeServicesCount" :: Maybe (Int) , "statistics" :: Maybe (Statistics) } ) -> Cluster
+newCluster'  customize = (Cluster <<< customize) { "activeServicesCount": Nothing, "clusterArn": Nothing, "clusterName": Nothing, "pendingTasksCount": Nothing, "registeredContainerInstancesCount": Nothing, "runningTasksCount": Nothing, "statistics": Nothing, "status": Nothing }
 
 
 
@@ -358,15 +357,15 @@ instance encodeConnectivity :: Encode Connectivity where encode = genericEncode 
 
 -- | <p>A Docker container that is part of a task.</p>
 newtype Container = Container 
-  { "containerArn" :: NullOrUndefined (String)
-  , "taskArn" :: NullOrUndefined (String)
-  , "name" :: NullOrUndefined (String)
-  , "lastStatus" :: NullOrUndefined (String)
-  , "exitCode" :: NullOrUndefined (BoxedInteger)
-  , "reason" :: NullOrUndefined (String)
-  , "networkBindings" :: NullOrUndefined (NetworkBindings)
-  , "networkInterfaces" :: NullOrUndefined (NetworkInterfaces)
-  , "healthStatus" :: NullOrUndefined (HealthStatus)
+  { "containerArn" :: Maybe (String)
+  , "taskArn" :: Maybe (String)
+  , "name" :: Maybe (String)
+  , "lastStatus" :: Maybe (String)
+  , "exitCode" :: Maybe (BoxedInteger)
+  , "reason" :: Maybe (String)
+  , "networkBindings" :: Maybe (NetworkBindings)
+  , "networkInterfaces" :: Maybe (NetworkInterfaces)
+  , "healthStatus" :: Maybe (HealthStatus)
   }
 derive instance newtypeContainer :: Newtype Container _
 derive instance repGenericContainer :: Generic Container _
@@ -376,45 +375,45 @@ instance encodeContainer :: Encode Container where encode = genericEncode option
 
 -- | Constructs Container from required parameters
 newContainer :: Container
-newContainer  = Container { "containerArn": (NullOrUndefined Nothing), "exitCode": (NullOrUndefined Nothing), "healthStatus": (NullOrUndefined Nothing), "lastStatus": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "networkBindings": (NullOrUndefined Nothing), "networkInterfaces": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing), "taskArn": (NullOrUndefined Nothing) }
+newContainer  = Container { "containerArn": Nothing, "exitCode": Nothing, "healthStatus": Nothing, "lastStatus": Nothing, "name": Nothing, "networkBindings": Nothing, "networkInterfaces": Nothing, "reason": Nothing, "taskArn": Nothing }
 
 -- | Constructs Container's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContainer' :: ( { "containerArn" :: NullOrUndefined (String) , "taskArn" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "lastStatus" :: NullOrUndefined (String) , "exitCode" :: NullOrUndefined (BoxedInteger) , "reason" :: NullOrUndefined (String) , "networkBindings" :: NullOrUndefined (NetworkBindings) , "networkInterfaces" :: NullOrUndefined (NetworkInterfaces) , "healthStatus" :: NullOrUndefined (HealthStatus) } -> {"containerArn" :: NullOrUndefined (String) , "taskArn" :: NullOrUndefined (String) , "name" :: NullOrUndefined (String) , "lastStatus" :: NullOrUndefined (String) , "exitCode" :: NullOrUndefined (BoxedInteger) , "reason" :: NullOrUndefined (String) , "networkBindings" :: NullOrUndefined (NetworkBindings) , "networkInterfaces" :: NullOrUndefined (NetworkInterfaces) , "healthStatus" :: NullOrUndefined (HealthStatus) } ) -> Container
-newContainer'  customize = (Container <<< customize) { "containerArn": (NullOrUndefined Nothing), "exitCode": (NullOrUndefined Nothing), "healthStatus": (NullOrUndefined Nothing), "lastStatus": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "networkBindings": (NullOrUndefined Nothing), "networkInterfaces": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing), "taskArn": (NullOrUndefined Nothing) }
+newContainer' :: ( { "containerArn" :: Maybe (String) , "taskArn" :: Maybe (String) , "name" :: Maybe (String) , "lastStatus" :: Maybe (String) , "exitCode" :: Maybe (BoxedInteger) , "reason" :: Maybe (String) , "networkBindings" :: Maybe (NetworkBindings) , "networkInterfaces" :: Maybe (NetworkInterfaces) , "healthStatus" :: Maybe (HealthStatus) } -> {"containerArn" :: Maybe (String) , "taskArn" :: Maybe (String) , "name" :: Maybe (String) , "lastStatus" :: Maybe (String) , "exitCode" :: Maybe (BoxedInteger) , "reason" :: Maybe (String) , "networkBindings" :: Maybe (NetworkBindings) , "networkInterfaces" :: Maybe (NetworkInterfaces) , "healthStatus" :: Maybe (HealthStatus) } ) -> Container
+newContainer'  customize = (Container <<< customize) { "containerArn": Nothing, "exitCode": Nothing, "healthStatus": Nothing, "lastStatus": Nothing, "name": Nothing, "networkBindings": Nothing, "networkInterfaces": Nothing, "reason": Nothing, "taskArn": Nothing }
 
 
 
 -- | <p>Container definitions are used in task definitions to describe the different containers that are launched as part of a task.</p>
 newtype ContainerDefinition = ContainerDefinition 
-  { "name" :: NullOrUndefined (String)
-  , "image" :: NullOrUndefined (String)
-  , "cpu" :: NullOrUndefined (Int)
-  , "memory" :: NullOrUndefined (BoxedInteger)
-  , "memoryReservation" :: NullOrUndefined (BoxedInteger)
-  , "links" :: NullOrUndefined (StringList)
-  , "portMappings" :: NullOrUndefined (PortMappingList)
-  , "essential" :: NullOrUndefined (BoxedBoolean)
-  , "entryPoint" :: NullOrUndefined (StringList)
-  , "command" :: NullOrUndefined (StringList)
-  , "environment" :: NullOrUndefined (EnvironmentVariables)
-  , "mountPoints" :: NullOrUndefined (MountPointList)
-  , "volumesFrom" :: NullOrUndefined (VolumeFromList)
-  , "linuxParameters" :: NullOrUndefined (LinuxParameters)
-  , "hostname" :: NullOrUndefined (String)
-  , "user" :: NullOrUndefined (String)
-  , "workingDirectory" :: NullOrUndefined (String)
-  , "disableNetworking" :: NullOrUndefined (BoxedBoolean)
-  , "privileged" :: NullOrUndefined (BoxedBoolean)
-  , "readonlyRootFilesystem" :: NullOrUndefined (BoxedBoolean)
-  , "dnsServers" :: NullOrUndefined (StringList)
-  , "dnsSearchDomains" :: NullOrUndefined (StringList)
-  , "extraHosts" :: NullOrUndefined (HostEntryList)
-  , "dockerSecurityOptions" :: NullOrUndefined (StringList)
-  , "dockerLabels" :: NullOrUndefined (DockerLabelsMap)
-  , "ulimits" :: NullOrUndefined (UlimitList)
-  , "logConfiguration" :: NullOrUndefined (LogConfiguration)
-  , "healthCheck" :: NullOrUndefined (HealthCheck)
+  { "name" :: Maybe (String)
+  , "image" :: Maybe (String)
+  , "cpu" :: Maybe (Int)
+  , "memory" :: Maybe (BoxedInteger)
+  , "memoryReservation" :: Maybe (BoxedInteger)
+  , "links" :: Maybe (StringList)
+  , "portMappings" :: Maybe (PortMappingList)
+  , "essential" :: Maybe (BoxedBoolean)
+  , "entryPoint" :: Maybe (StringList)
+  , "command" :: Maybe (StringList)
+  , "environment" :: Maybe (EnvironmentVariables)
+  , "mountPoints" :: Maybe (MountPointList)
+  , "volumesFrom" :: Maybe (VolumeFromList)
+  , "linuxParameters" :: Maybe (LinuxParameters)
+  , "hostname" :: Maybe (String)
+  , "user" :: Maybe (String)
+  , "workingDirectory" :: Maybe (String)
+  , "disableNetworking" :: Maybe (BoxedBoolean)
+  , "privileged" :: Maybe (BoxedBoolean)
+  , "readonlyRootFilesystem" :: Maybe (BoxedBoolean)
+  , "dnsServers" :: Maybe (StringList)
+  , "dnsSearchDomains" :: Maybe (StringList)
+  , "extraHosts" :: Maybe (HostEntryList)
+  , "dockerSecurityOptions" :: Maybe (StringList)
+  , "dockerLabels" :: Maybe (DockerLabelsMap)
+  , "ulimits" :: Maybe (UlimitList)
+  , "logConfiguration" :: Maybe (LogConfiguration)
+  , "healthCheck" :: Maybe (HealthCheck)
   }
 derive instance newtypeContainerDefinition :: Newtype ContainerDefinition _
 derive instance repGenericContainerDefinition :: Generic ContainerDefinition _
@@ -424,12 +423,12 @@ instance encodeContainerDefinition :: Encode ContainerDefinition where encode = 
 
 -- | Constructs ContainerDefinition from required parameters
 newContainerDefinition :: ContainerDefinition
-newContainerDefinition  = ContainerDefinition { "command": (NullOrUndefined Nothing), "cpu": (NullOrUndefined Nothing), "disableNetworking": (NullOrUndefined Nothing), "dnsSearchDomains": (NullOrUndefined Nothing), "dnsServers": (NullOrUndefined Nothing), "dockerLabels": (NullOrUndefined Nothing), "dockerSecurityOptions": (NullOrUndefined Nothing), "entryPoint": (NullOrUndefined Nothing), "environment": (NullOrUndefined Nothing), "essential": (NullOrUndefined Nothing), "extraHosts": (NullOrUndefined Nothing), "healthCheck": (NullOrUndefined Nothing), "hostname": (NullOrUndefined Nothing), "image": (NullOrUndefined Nothing), "links": (NullOrUndefined Nothing), "linuxParameters": (NullOrUndefined Nothing), "logConfiguration": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "memoryReservation": (NullOrUndefined Nothing), "mountPoints": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "portMappings": (NullOrUndefined Nothing), "privileged": (NullOrUndefined Nothing), "readonlyRootFilesystem": (NullOrUndefined Nothing), "ulimits": (NullOrUndefined Nothing), "user": (NullOrUndefined Nothing), "volumesFrom": (NullOrUndefined Nothing), "workingDirectory": (NullOrUndefined Nothing) }
+newContainerDefinition  = ContainerDefinition { "command": Nothing, "cpu": Nothing, "disableNetworking": Nothing, "dnsSearchDomains": Nothing, "dnsServers": Nothing, "dockerLabels": Nothing, "dockerSecurityOptions": Nothing, "entryPoint": Nothing, "environment": Nothing, "essential": Nothing, "extraHosts": Nothing, "healthCheck": Nothing, "hostname": Nothing, "image": Nothing, "links": Nothing, "linuxParameters": Nothing, "logConfiguration": Nothing, "memory": Nothing, "memoryReservation": Nothing, "mountPoints": Nothing, "name": Nothing, "portMappings": Nothing, "privileged": Nothing, "readonlyRootFilesystem": Nothing, "ulimits": Nothing, "user": Nothing, "volumesFrom": Nothing, "workingDirectory": Nothing }
 
 -- | Constructs ContainerDefinition's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContainerDefinition' :: ( { "name" :: NullOrUndefined (String) , "image" :: NullOrUndefined (String) , "cpu" :: NullOrUndefined (Int) , "memory" :: NullOrUndefined (BoxedInteger) , "memoryReservation" :: NullOrUndefined (BoxedInteger) , "links" :: NullOrUndefined (StringList) , "portMappings" :: NullOrUndefined (PortMappingList) , "essential" :: NullOrUndefined (BoxedBoolean) , "entryPoint" :: NullOrUndefined (StringList) , "command" :: NullOrUndefined (StringList) , "environment" :: NullOrUndefined (EnvironmentVariables) , "mountPoints" :: NullOrUndefined (MountPointList) , "volumesFrom" :: NullOrUndefined (VolumeFromList) , "linuxParameters" :: NullOrUndefined (LinuxParameters) , "hostname" :: NullOrUndefined (String) , "user" :: NullOrUndefined (String) , "workingDirectory" :: NullOrUndefined (String) , "disableNetworking" :: NullOrUndefined (BoxedBoolean) , "privileged" :: NullOrUndefined (BoxedBoolean) , "readonlyRootFilesystem" :: NullOrUndefined (BoxedBoolean) , "dnsServers" :: NullOrUndefined (StringList) , "dnsSearchDomains" :: NullOrUndefined (StringList) , "extraHosts" :: NullOrUndefined (HostEntryList) , "dockerSecurityOptions" :: NullOrUndefined (StringList) , "dockerLabels" :: NullOrUndefined (DockerLabelsMap) , "ulimits" :: NullOrUndefined (UlimitList) , "logConfiguration" :: NullOrUndefined (LogConfiguration) , "healthCheck" :: NullOrUndefined (HealthCheck) } -> {"name" :: NullOrUndefined (String) , "image" :: NullOrUndefined (String) , "cpu" :: NullOrUndefined (Int) , "memory" :: NullOrUndefined (BoxedInteger) , "memoryReservation" :: NullOrUndefined (BoxedInteger) , "links" :: NullOrUndefined (StringList) , "portMappings" :: NullOrUndefined (PortMappingList) , "essential" :: NullOrUndefined (BoxedBoolean) , "entryPoint" :: NullOrUndefined (StringList) , "command" :: NullOrUndefined (StringList) , "environment" :: NullOrUndefined (EnvironmentVariables) , "mountPoints" :: NullOrUndefined (MountPointList) , "volumesFrom" :: NullOrUndefined (VolumeFromList) , "linuxParameters" :: NullOrUndefined (LinuxParameters) , "hostname" :: NullOrUndefined (String) , "user" :: NullOrUndefined (String) , "workingDirectory" :: NullOrUndefined (String) , "disableNetworking" :: NullOrUndefined (BoxedBoolean) , "privileged" :: NullOrUndefined (BoxedBoolean) , "readonlyRootFilesystem" :: NullOrUndefined (BoxedBoolean) , "dnsServers" :: NullOrUndefined (StringList) , "dnsSearchDomains" :: NullOrUndefined (StringList) , "extraHosts" :: NullOrUndefined (HostEntryList) , "dockerSecurityOptions" :: NullOrUndefined (StringList) , "dockerLabels" :: NullOrUndefined (DockerLabelsMap) , "ulimits" :: NullOrUndefined (UlimitList) , "logConfiguration" :: NullOrUndefined (LogConfiguration) , "healthCheck" :: NullOrUndefined (HealthCheck) } ) -> ContainerDefinition
-newContainerDefinition'  customize = (ContainerDefinition <<< customize) { "command": (NullOrUndefined Nothing), "cpu": (NullOrUndefined Nothing), "disableNetworking": (NullOrUndefined Nothing), "dnsSearchDomains": (NullOrUndefined Nothing), "dnsServers": (NullOrUndefined Nothing), "dockerLabels": (NullOrUndefined Nothing), "dockerSecurityOptions": (NullOrUndefined Nothing), "entryPoint": (NullOrUndefined Nothing), "environment": (NullOrUndefined Nothing), "essential": (NullOrUndefined Nothing), "extraHosts": (NullOrUndefined Nothing), "healthCheck": (NullOrUndefined Nothing), "hostname": (NullOrUndefined Nothing), "image": (NullOrUndefined Nothing), "links": (NullOrUndefined Nothing), "linuxParameters": (NullOrUndefined Nothing), "logConfiguration": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "memoryReservation": (NullOrUndefined Nothing), "mountPoints": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "portMappings": (NullOrUndefined Nothing), "privileged": (NullOrUndefined Nothing), "readonlyRootFilesystem": (NullOrUndefined Nothing), "ulimits": (NullOrUndefined Nothing), "user": (NullOrUndefined Nothing), "volumesFrom": (NullOrUndefined Nothing), "workingDirectory": (NullOrUndefined Nothing) }
+newContainerDefinition' :: ( { "name" :: Maybe (String) , "image" :: Maybe (String) , "cpu" :: Maybe (Int) , "memory" :: Maybe (BoxedInteger) , "memoryReservation" :: Maybe (BoxedInteger) , "links" :: Maybe (StringList) , "portMappings" :: Maybe (PortMappingList) , "essential" :: Maybe (BoxedBoolean) , "entryPoint" :: Maybe (StringList) , "command" :: Maybe (StringList) , "environment" :: Maybe (EnvironmentVariables) , "mountPoints" :: Maybe (MountPointList) , "volumesFrom" :: Maybe (VolumeFromList) , "linuxParameters" :: Maybe (LinuxParameters) , "hostname" :: Maybe (String) , "user" :: Maybe (String) , "workingDirectory" :: Maybe (String) , "disableNetworking" :: Maybe (BoxedBoolean) , "privileged" :: Maybe (BoxedBoolean) , "readonlyRootFilesystem" :: Maybe (BoxedBoolean) , "dnsServers" :: Maybe (StringList) , "dnsSearchDomains" :: Maybe (StringList) , "extraHosts" :: Maybe (HostEntryList) , "dockerSecurityOptions" :: Maybe (StringList) , "dockerLabels" :: Maybe (DockerLabelsMap) , "ulimits" :: Maybe (UlimitList) , "logConfiguration" :: Maybe (LogConfiguration) , "healthCheck" :: Maybe (HealthCheck) } -> {"name" :: Maybe (String) , "image" :: Maybe (String) , "cpu" :: Maybe (Int) , "memory" :: Maybe (BoxedInteger) , "memoryReservation" :: Maybe (BoxedInteger) , "links" :: Maybe (StringList) , "portMappings" :: Maybe (PortMappingList) , "essential" :: Maybe (BoxedBoolean) , "entryPoint" :: Maybe (StringList) , "command" :: Maybe (StringList) , "environment" :: Maybe (EnvironmentVariables) , "mountPoints" :: Maybe (MountPointList) , "volumesFrom" :: Maybe (VolumeFromList) , "linuxParameters" :: Maybe (LinuxParameters) , "hostname" :: Maybe (String) , "user" :: Maybe (String) , "workingDirectory" :: Maybe (String) , "disableNetworking" :: Maybe (BoxedBoolean) , "privileged" :: Maybe (BoxedBoolean) , "readonlyRootFilesystem" :: Maybe (BoxedBoolean) , "dnsServers" :: Maybe (StringList) , "dnsSearchDomains" :: Maybe (StringList) , "extraHosts" :: Maybe (HostEntryList) , "dockerSecurityOptions" :: Maybe (StringList) , "dockerLabels" :: Maybe (DockerLabelsMap) , "ulimits" :: Maybe (UlimitList) , "logConfiguration" :: Maybe (LogConfiguration) , "healthCheck" :: Maybe (HealthCheck) } ) -> ContainerDefinition
+newContainerDefinition'  customize = (ContainerDefinition <<< customize) { "command": Nothing, "cpu": Nothing, "disableNetworking": Nothing, "dnsSearchDomains": Nothing, "dnsServers": Nothing, "dockerLabels": Nothing, "dockerSecurityOptions": Nothing, "entryPoint": Nothing, "environment": Nothing, "essential": Nothing, "extraHosts": Nothing, "healthCheck": Nothing, "hostname": Nothing, "image": Nothing, "links": Nothing, "linuxParameters": Nothing, "logConfiguration": Nothing, "memory": Nothing, "memoryReservation": Nothing, "mountPoints": Nothing, "name": Nothing, "portMappings": Nothing, "privileged": Nothing, "readonlyRootFilesystem": Nothing, "ulimits": Nothing, "user": Nothing, "volumesFrom": Nothing, "workingDirectory": Nothing }
 
 
 
@@ -444,20 +443,20 @@ instance encodeContainerDefinitions :: Encode ContainerDefinitions where encode 
 
 -- | <p>An EC2 instance that is running the Amazon ECS agent and has been registered with a cluster.</p>
 newtype ContainerInstance = ContainerInstance 
-  { "containerInstanceArn" :: NullOrUndefined (String)
-  , "ec2InstanceId" :: NullOrUndefined (String)
-  , "version" :: NullOrUndefined (Number)
-  , "versionInfo" :: NullOrUndefined (VersionInfo)
-  , "remainingResources" :: NullOrUndefined (Resources)
-  , "registeredResources" :: NullOrUndefined (Resources)
-  , "status" :: NullOrUndefined (String)
-  , "agentConnected" :: NullOrUndefined (Boolean)
-  , "runningTasksCount" :: NullOrUndefined (Int)
-  , "pendingTasksCount" :: NullOrUndefined (Int)
-  , "agentUpdateStatus" :: NullOrUndefined (AgentUpdateStatus)
-  , "attributes" :: NullOrUndefined (Attributes)
-  , "registeredAt" :: NullOrUndefined (Types.Timestamp)
-  , "attachments" :: NullOrUndefined (Attachments)
+  { "containerInstanceArn" :: Maybe (String)
+  , "ec2InstanceId" :: Maybe (String)
+  , "version" :: Maybe (Number)
+  , "versionInfo" :: Maybe (VersionInfo)
+  , "remainingResources" :: Maybe (Resources)
+  , "registeredResources" :: Maybe (Resources)
+  , "status" :: Maybe (String)
+  , "agentConnected" :: Maybe (Boolean)
+  , "runningTasksCount" :: Maybe (Int)
+  , "pendingTasksCount" :: Maybe (Int)
+  , "agentUpdateStatus" :: Maybe (AgentUpdateStatus)
+  , "attributes" :: Maybe (Attributes)
+  , "registeredAt" :: Maybe (Types.Timestamp)
+  , "attachments" :: Maybe (Attachments)
   }
 derive instance newtypeContainerInstance :: Newtype ContainerInstance _
 derive instance repGenericContainerInstance :: Generic ContainerInstance _
@@ -467,12 +466,12 @@ instance encodeContainerInstance :: Encode ContainerInstance where encode = gene
 
 -- | Constructs ContainerInstance from required parameters
 newContainerInstance :: ContainerInstance
-newContainerInstance  = ContainerInstance { "agentConnected": (NullOrUndefined Nothing), "agentUpdateStatus": (NullOrUndefined Nothing), "attachments": (NullOrUndefined Nothing), "attributes": (NullOrUndefined Nothing), "containerInstanceArn": (NullOrUndefined Nothing), "ec2InstanceId": (NullOrUndefined Nothing), "pendingTasksCount": (NullOrUndefined Nothing), "registeredAt": (NullOrUndefined Nothing), "registeredResources": (NullOrUndefined Nothing), "remainingResources": (NullOrUndefined Nothing), "runningTasksCount": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "versionInfo": (NullOrUndefined Nothing) }
+newContainerInstance  = ContainerInstance { "agentConnected": Nothing, "agentUpdateStatus": Nothing, "attachments": Nothing, "attributes": Nothing, "containerInstanceArn": Nothing, "ec2InstanceId": Nothing, "pendingTasksCount": Nothing, "registeredAt": Nothing, "registeredResources": Nothing, "remainingResources": Nothing, "runningTasksCount": Nothing, "status": Nothing, "version": Nothing, "versionInfo": Nothing }
 
 -- | Constructs ContainerInstance's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContainerInstance' :: ( { "containerInstanceArn" :: NullOrUndefined (String) , "ec2InstanceId" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Number) , "versionInfo" :: NullOrUndefined (VersionInfo) , "remainingResources" :: NullOrUndefined (Resources) , "registeredResources" :: NullOrUndefined (Resources) , "status" :: NullOrUndefined (String) , "agentConnected" :: NullOrUndefined (Boolean) , "runningTasksCount" :: NullOrUndefined (Int) , "pendingTasksCount" :: NullOrUndefined (Int) , "agentUpdateStatus" :: NullOrUndefined (AgentUpdateStatus) , "attributes" :: NullOrUndefined (Attributes) , "registeredAt" :: NullOrUndefined (Types.Timestamp) , "attachments" :: NullOrUndefined (Attachments) } -> {"containerInstanceArn" :: NullOrUndefined (String) , "ec2InstanceId" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Number) , "versionInfo" :: NullOrUndefined (VersionInfo) , "remainingResources" :: NullOrUndefined (Resources) , "registeredResources" :: NullOrUndefined (Resources) , "status" :: NullOrUndefined (String) , "agentConnected" :: NullOrUndefined (Boolean) , "runningTasksCount" :: NullOrUndefined (Int) , "pendingTasksCount" :: NullOrUndefined (Int) , "agentUpdateStatus" :: NullOrUndefined (AgentUpdateStatus) , "attributes" :: NullOrUndefined (Attributes) , "registeredAt" :: NullOrUndefined (Types.Timestamp) , "attachments" :: NullOrUndefined (Attachments) } ) -> ContainerInstance
-newContainerInstance'  customize = (ContainerInstance <<< customize) { "agentConnected": (NullOrUndefined Nothing), "agentUpdateStatus": (NullOrUndefined Nothing), "attachments": (NullOrUndefined Nothing), "attributes": (NullOrUndefined Nothing), "containerInstanceArn": (NullOrUndefined Nothing), "ec2InstanceId": (NullOrUndefined Nothing), "pendingTasksCount": (NullOrUndefined Nothing), "registeredAt": (NullOrUndefined Nothing), "registeredResources": (NullOrUndefined Nothing), "remainingResources": (NullOrUndefined Nothing), "runningTasksCount": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing), "versionInfo": (NullOrUndefined Nothing) }
+newContainerInstance' :: ( { "containerInstanceArn" :: Maybe (String) , "ec2InstanceId" :: Maybe (String) , "version" :: Maybe (Number) , "versionInfo" :: Maybe (VersionInfo) , "remainingResources" :: Maybe (Resources) , "registeredResources" :: Maybe (Resources) , "status" :: Maybe (String) , "agentConnected" :: Maybe (Boolean) , "runningTasksCount" :: Maybe (Int) , "pendingTasksCount" :: Maybe (Int) , "agentUpdateStatus" :: Maybe (AgentUpdateStatus) , "attributes" :: Maybe (Attributes) , "registeredAt" :: Maybe (Types.Timestamp) , "attachments" :: Maybe (Attachments) } -> {"containerInstanceArn" :: Maybe (String) , "ec2InstanceId" :: Maybe (String) , "version" :: Maybe (Number) , "versionInfo" :: Maybe (VersionInfo) , "remainingResources" :: Maybe (Resources) , "registeredResources" :: Maybe (Resources) , "status" :: Maybe (String) , "agentConnected" :: Maybe (Boolean) , "runningTasksCount" :: Maybe (Int) , "pendingTasksCount" :: Maybe (Int) , "agentUpdateStatus" :: Maybe (AgentUpdateStatus) , "attributes" :: Maybe (Attributes) , "registeredAt" :: Maybe (Types.Timestamp) , "attachments" :: Maybe (Attachments) } ) -> ContainerInstance
+newContainerInstance'  customize = (ContainerInstance <<< customize) { "agentConnected": Nothing, "agentUpdateStatus": Nothing, "attachments": Nothing, "attributes": Nothing, "containerInstanceArn": Nothing, "ec2InstanceId": Nothing, "pendingTasksCount": Nothing, "registeredAt": Nothing, "registeredResources": Nothing, "remainingResources": Nothing, "runningTasksCount": Nothing, "status": Nothing, "version": Nothing, "versionInfo": Nothing }
 
 
 
@@ -496,12 +495,12 @@ instance encodeContainerInstances :: Encode ContainerInstances where encode = ge
 
 -- | <p>The overrides that should be sent to a container.</p>
 newtype ContainerOverride = ContainerOverride 
-  { "name" :: NullOrUndefined (String)
-  , "command" :: NullOrUndefined (StringList)
-  , "environment" :: NullOrUndefined (EnvironmentVariables)
-  , "cpu" :: NullOrUndefined (BoxedInteger)
-  , "memory" :: NullOrUndefined (BoxedInteger)
-  , "memoryReservation" :: NullOrUndefined (BoxedInteger)
+  { "name" :: Maybe (String)
+  , "command" :: Maybe (StringList)
+  , "environment" :: Maybe (EnvironmentVariables)
+  , "cpu" :: Maybe (BoxedInteger)
+  , "memory" :: Maybe (BoxedInteger)
+  , "memoryReservation" :: Maybe (BoxedInteger)
   }
 derive instance newtypeContainerOverride :: Newtype ContainerOverride _
 derive instance repGenericContainerOverride :: Generic ContainerOverride _
@@ -511,12 +510,12 @@ instance encodeContainerOverride :: Encode ContainerOverride where encode = gene
 
 -- | Constructs ContainerOverride from required parameters
 newContainerOverride :: ContainerOverride
-newContainerOverride  = ContainerOverride { "command": (NullOrUndefined Nothing), "cpu": (NullOrUndefined Nothing), "environment": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "memoryReservation": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newContainerOverride  = ContainerOverride { "command": Nothing, "cpu": Nothing, "environment": Nothing, "memory": Nothing, "memoryReservation": Nothing, "name": Nothing }
 
 -- | Constructs ContainerOverride's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContainerOverride' :: ( { "name" :: NullOrUndefined (String) , "command" :: NullOrUndefined (StringList) , "environment" :: NullOrUndefined (EnvironmentVariables) , "cpu" :: NullOrUndefined (BoxedInteger) , "memory" :: NullOrUndefined (BoxedInteger) , "memoryReservation" :: NullOrUndefined (BoxedInteger) } -> {"name" :: NullOrUndefined (String) , "command" :: NullOrUndefined (StringList) , "environment" :: NullOrUndefined (EnvironmentVariables) , "cpu" :: NullOrUndefined (BoxedInteger) , "memory" :: NullOrUndefined (BoxedInteger) , "memoryReservation" :: NullOrUndefined (BoxedInteger) } ) -> ContainerOverride
-newContainerOverride'  customize = (ContainerOverride <<< customize) { "command": (NullOrUndefined Nothing), "cpu": (NullOrUndefined Nothing), "environment": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "memoryReservation": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newContainerOverride' :: ( { "name" :: Maybe (String) , "command" :: Maybe (StringList) , "environment" :: Maybe (EnvironmentVariables) , "cpu" :: Maybe (BoxedInteger) , "memory" :: Maybe (BoxedInteger) , "memoryReservation" :: Maybe (BoxedInteger) } -> {"name" :: Maybe (String) , "command" :: Maybe (StringList) , "environment" :: Maybe (EnvironmentVariables) , "cpu" :: Maybe (BoxedInteger) , "memory" :: Maybe (BoxedInteger) , "memoryReservation" :: Maybe (BoxedInteger) } ) -> ContainerOverride
+newContainerOverride'  customize = (ContainerOverride <<< customize) { "command": Nothing, "cpu": Nothing, "environment": Nothing, "memory": Nothing, "memoryReservation": Nothing, "name": Nothing }
 
 
 
@@ -531,11 +530,11 @@ instance encodeContainerOverrides :: Encode ContainerOverrides where encode = ge
 
 -- | <p>An object representing a change in state for a container.</p>
 newtype ContainerStateChange = ContainerStateChange 
-  { "containerName" :: NullOrUndefined (String)
-  , "exitCode" :: NullOrUndefined (BoxedInteger)
-  , "networkBindings" :: NullOrUndefined (NetworkBindings)
-  , "reason" :: NullOrUndefined (String)
-  , "status" :: NullOrUndefined (String)
+  { "containerName" :: Maybe (String)
+  , "exitCode" :: Maybe (BoxedInteger)
+  , "networkBindings" :: Maybe (NetworkBindings)
+  , "reason" :: Maybe (String)
+  , "status" :: Maybe (String)
   }
 derive instance newtypeContainerStateChange :: Newtype ContainerStateChange _
 derive instance repGenericContainerStateChange :: Generic ContainerStateChange _
@@ -545,12 +544,12 @@ instance encodeContainerStateChange :: Encode ContainerStateChange where encode 
 
 -- | Constructs ContainerStateChange from required parameters
 newContainerStateChange :: ContainerStateChange
-newContainerStateChange  = ContainerStateChange { "containerName": (NullOrUndefined Nothing), "exitCode": (NullOrUndefined Nothing), "networkBindings": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newContainerStateChange  = ContainerStateChange { "containerName": Nothing, "exitCode": Nothing, "networkBindings": Nothing, "reason": Nothing, "status": Nothing }
 
 -- | Constructs ContainerStateChange's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newContainerStateChange' :: ( { "containerName" :: NullOrUndefined (String) , "exitCode" :: NullOrUndefined (BoxedInteger) , "networkBindings" :: NullOrUndefined (NetworkBindings) , "reason" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) } -> {"containerName" :: NullOrUndefined (String) , "exitCode" :: NullOrUndefined (BoxedInteger) , "networkBindings" :: NullOrUndefined (NetworkBindings) , "reason" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) } ) -> ContainerStateChange
-newContainerStateChange'  customize = (ContainerStateChange <<< customize) { "containerName": (NullOrUndefined Nothing), "exitCode": (NullOrUndefined Nothing), "networkBindings": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newContainerStateChange' :: ( { "containerName" :: Maybe (String) , "exitCode" :: Maybe (BoxedInteger) , "networkBindings" :: Maybe (NetworkBindings) , "reason" :: Maybe (String) , "status" :: Maybe (String) } -> {"containerName" :: Maybe (String) , "exitCode" :: Maybe (BoxedInteger) , "networkBindings" :: Maybe (NetworkBindings) , "reason" :: Maybe (String) , "status" :: Maybe (String) } ) -> ContainerStateChange
+newContainerStateChange'  customize = (ContainerStateChange <<< customize) { "containerName": Nothing, "exitCode": Nothing, "networkBindings": Nothing, "reason": Nothing, "status": Nothing }
 
 
 
@@ -573,7 +572,7 @@ instance encodeContainers :: Encode Containers where encode = genericEncode opti
 
 
 newtype CreateClusterRequest = CreateClusterRequest 
-  { "clusterName" :: NullOrUndefined (String)
+  { "clusterName" :: Maybe (String)
   }
 derive instance newtypeCreateClusterRequest :: Newtype CreateClusterRequest _
 derive instance repGenericCreateClusterRequest :: Generic CreateClusterRequest _
@@ -583,17 +582,17 @@ instance encodeCreateClusterRequest :: Encode CreateClusterRequest where encode 
 
 -- | Constructs CreateClusterRequest from required parameters
 newCreateClusterRequest :: CreateClusterRequest
-newCreateClusterRequest  = CreateClusterRequest { "clusterName": (NullOrUndefined Nothing) }
+newCreateClusterRequest  = CreateClusterRequest { "clusterName": Nothing }
 
 -- | Constructs CreateClusterRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateClusterRequest' :: ( { "clusterName" :: NullOrUndefined (String) } -> {"clusterName" :: NullOrUndefined (String) } ) -> CreateClusterRequest
-newCreateClusterRequest'  customize = (CreateClusterRequest <<< customize) { "clusterName": (NullOrUndefined Nothing) }
+newCreateClusterRequest' :: ( { "clusterName" :: Maybe (String) } -> {"clusterName" :: Maybe (String) } ) -> CreateClusterRequest
+newCreateClusterRequest'  customize = (CreateClusterRequest <<< customize) { "clusterName": Nothing }
 
 
 
 newtype CreateClusterResponse = CreateClusterResponse 
-  { "cluster" :: NullOrUndefined (Cluster)
+  { "cluster" :: Maybe (Cluster)
   }
 derive instance newtypeCreateClusterResponse :: Newtype CreateClusterResponse _
 derive instance repGenericCreateClusterResponse :: Generic CreateClusterResponse _
@@ -603,30 +602,30 @@ instance encodeCreateClusterResponse :: Encode CreateClusterResponse where encod
 
 -- | Constructs CreateClusterResponse from required parameters
 newCreateClusterResponse :: CreateClusterResponse
-newCreateClusterResponse  = CreateClusterResponse { "cluster": (NullOrUndefined Nothing) }
+newCreateClusterResponse  = CreateClusterResponse { "cluster": Nothing }
 
 -- | Constructs CreateClusterResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateClusterResponse' :: ( { "cluster" :: NullOrUndefined (Cluster) } -> {"cluster" :: NullOrUndefined (Cluster) } ) -> CreateClusterResponse
-newCreateClusterResponse'  customize = (CreateClusterResponse <<< customize) { "cluster": (NullOrUndefined Nothing) }
+newCreateClusterResponse' :: ( { "cluster" :: Maybe (Cluster) } -> {"cluster" :: Maybe (Cluster) } ) -> CreateClusterResponse
+newCreateClusterResponse'  customize = (CreateClusterResponse <<< customize) { "cluster": Nothing }
 
 
 
 newtype CreateServiceRequest = CreateServiceRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "serviceName" :: (String)
   , "taskDefinition" :: (String)
-  , "loadBalancers" :: NullOrUndefined (LoadBalancers)
+  , "loadBalancers" :: Maybe (LoadBalancers)
   , "desiredCount" :: (BoxedInteger)
-  , "clientToken" :: NullOrUndefined (String)
-  , "launchType" :: NullOrUndefined (LaunchType)
-  , "platformVersion" :: NullOrUndefined (String)
-  , "role" :: NullOrUndefined (String)
-  , "deploymentConfiguration" :: NullOrUndefined (DeploymentConfiguration)
-  , "placementConstraints" :: NullOrUndefined (PlacementConstraints)
-  , "placementStrategy" :: NullOrUndefined (PlacementStrategies)
-  , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration)
-  , "healthCheckGracePeriodSeconds" :: NullOrUndefined (BoxedInteger)
+  , "clientToken" :: Maybe (String)
+  , "launchType" :: Maybe (LaunchType)
+  , "platformVersion" :: Maybe (String)
+  , "role" :: Maybe (String)
+  , "deploymentConfiguration" :: Maybe (DeploymentConfiguration)
+  , "placementConstraints" :: Maybe (PlacementConstraints)
+  , "placementStrategy" :: Maybe (PlacementStrategies)
+  , "networkConfiguration" :: Maybe (NetworkConfiguration)
+  , "healthCheckGracePeriodSeconds" :: Maybe (BoxedInteger)
   }
 derive instance newtypeCreateServiceRequest :: Newtype CreateServiceRequest _
 derive instance repGenericCreateServiceRequest :: Generic CreateServiceRequest _
@@ -636,17 +635,17 @@ instance encodeCreateServiceRequest :: Encode CreateServiceRequest where encode 
 
 -- | Constructs CreateServiceRequest from required parameters
 newCreateServiceRequest :: BoxedInteger -> String -> String -> CreateServiceRequest
-newCreateServiceRequest _desiredCount _serviceName _taskDefinition = CreateServiceRequest { "desiredCount": _desiredCount, "serviceName": _serviceName, "taskDefinition": _taskDefinition, "clientToken": (NullOrUndefined Nothing), "cluster": (NullOrUndefined Nothing), "deploymentConfiguration": (NullOrUndefined Nothing), "healthCheckGracePeriodSeconds": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "loadBalancers": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "placementStrategy": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "role": (NullOrUndefined Nothing) }
+newCreateServiceRequest _desiredCount _serviceName _taskDefinition = CreateServiceRequest { "desiredCount": _desiredCount, "serviceName": _serviceName, "taskDefinition": _taskDefinition, "clientToken": Nothing, "cluster": Nothing, "deploymentConfiguration": Nothing, "healthCheckGracePeriodSeconds": Nothing, "launchType": Nothing, "loadBalancers": Nothing, "networkConfiguration": Nothing, "placementConstraints": Nothing, "placementStrategy": Nothing, "platformVersion": Nothing, "role": Nothing }
 
 -- | Constructs CreateServiceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateServiceRequest' :: BoxedInteger -> String -> String -> ( { "cluster" :: NullOrUndefined (String) , "serviceName" :: (String) , "taskDefinition" :: (String) , "loadBalancers" :: NullOrUndefined (LoadBalancers) , "desiredCount" :: (BoxedInteger) , "clientToken" :: NullOrUndefined (String) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "role" :: NullOrUndefined (String) , "deploymentConfiguration" :: NullOrUndefined (DeploymentConfiguration) , "placementConstraints" :: NullOrUndefined (PlacementConstraints) , "placementStrategy" :: NullOrUndefined (PlacementStrategies) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) , "healthCheckGracePeriodSeconds" :: NullOrUndefined (BoxedInteger) } -> {"cluster" :: NullOrUndefined (String) , "serviceName" :: (String) , "taskDefinition" :: (String) , "loadBalancers" :: NullOrUndefined (LoadBalancers) , "desiredCount" :: (BoxedInteger) , "clientToken" :: NullOrUndefined (String) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "role" :: NullOrUndefined (String) , "deploymentConfiguration" :: NullOrUndefined (DeploymentConfiguration) , "placementConstraints" :: NullOrUndefined (PlacementConstraints) , "placementStrategy" :: NullOrUndefined (PlacementStrategies) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) , "healthCheckGracePeriodSeconds" :: NullOrUndefined (BoxedInteger) } ) -> CreateServiceRequest
-newCreateServiceRequest' _desiredCount _serviceName _taskDefinition customize = (CreateServiceRequest <<< customize) { "desiredCount": _desiredCount, "serviceName": _serviceName, "taskDefinition": _taskDefinition, "clientToken": (NullOrUndefined Nothing), "cluster": (NullOrUndefined Nothing), "deploymentConfiguration": (NullOrUndefined Nothing), "healthCheckGracePeriodSeconds": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "loadBalancers": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "placementStrategy": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "role": (NullOrUndefined Nothing) }
+newCreateServiceRequest' :: BoxedInteger -> String -> String -> ( { "cluster" :: Maybe (String) , "serviceName" :: (String) , "taskDefinition" :: (String) , "loadBalancers" :: Maybe (LoadBalancers) , "desiredCount" :: (BoxedInteger) , "clientToken" :: Maybe (String) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "role" :: Maybe (String) , "deploymentConfiguration" :: Maybe (DeploymentConfiguration) , "placementConstraints" :: Maybe (PlacementConstraints) , "placementStrategy" :: Maybe (PlacementStrategies) , "networkConfiguration" :: Maybe (NetworkConfiguration) , "healthCheckGracePeriodSeconds" :: Maybe (BoxedInteger) } -> {"cluster" :: Maybe (String) , "serviceName" :: (String) , "taskDefinition" :: (String) , "loadBalancers" :: Maybe (LoadBalancers) , "desiredCount" :: (BoxedInteger) , "clientToken" :: Maybe (String) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "role" :: Maybe (String) , "deploymentConfiguration" :: Maybe (DeploymentConfiguration) , "placementConstraints" :: Maybe (PlacementConstraints) , "placementStrategy" :: Maybe (PlacementStrategies) , "networkConfiguration" :: Maybe (NetworkConfiguration) , "healthCheckGracePeriodSeconds" :: Maybe (BoxedInteger) } ) -> CreateServiceRequest
+newCreateServiceRequest' _desiredCount _serviceName _taskDefinition customize = (CreateServiceRequest <<< customize) { "desiredCount": _desiredCount, "serviceName": _serviceName, "taskDefinition": _taskDefinition, "clientToken": Nothing, "cluster": Nothing, "deploymentConfiguration": Nothing, "healthCheckGracePeriodSeconds": Nothing, "launchType": Nothing, "loadBalancers": Nothing, "networkConfiguration": Nothing, "placementConstraints": Nothing, "placementStrategy": Nothing, "platformVersion": Nothing, "role": Nothing }
 
 
 
 newtype CreateServiceResponse = CreateServiceResponse 
-  { "service" :: NullOrUndefined (Service)
+  { "service" :: Maybe (Service)
   }
 derive instance newtypeCreateServiceResponse :: Newtype CreateServiceResponse _
 derive instance repGenericCreateServiceResponse :: Generic CreateServiceResponse _
@@ -656,17 +655,17 @@ instance encodeCreateServiceResponse :: Encode CreateServiceResponse where encod
 
 -- | Constructs CreateServiceResponse from required parameters
 newCreateServiceResponse :: CreateServiceResponse
-newCreateServiceResponse  = CreateServiceResponse { "service": (NullOrUndefined Nothing) }
+newCreateServiceResponse  = CreateServiceResponse { "service": Nothing }
 
 -- | Constructs CreateServiceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateServiceResponse' :: ( { "service" :: NullOrUndefined (Service) } -> {"service" :: NullOrUndefined (Service) } ) -> CreateServiceResponse
-newCreateServiceResponse'  customize = (CreateServiceResponse <<< customize) { "service": (NullOrUndefined Nothing) }
+newCreateServiceResponse' :: ( { "service" :: Maybe (Service) } -> {"service" :: Maybe (Service) } ) -> CreateServiceResponse
+newCreateServiceResponse'  customize = (CreateServiceResponse <<< customize) { "service": Nothing }
 
 
 
 newtype DeleteAttributesRequest = DeleteAttributesRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "attributes" :: (Attributes)
   }
 derive instance newtypeDeleteAttributesRequest :: Newtype DeleteAttributesRequest _
@@ -677,17 +676,17 @@ instance encodeDeleteAttributesRequest :: Encode DeleteAttributesRequest where e
 
 -- | Constructs DeleteAttributesRequest from required parameters
 newDeleteAttributesRequest :: Attributes -> DeleteAttributesRequest
-newDeleteAttributesRequest _attributes = DeleteAttributesRequest { "attributes": _attributes, "cluster": (NullOrUndefined Nothing) }
+newDeleteAttributesRequest _attributes = DeleteAttributesRequest { "attributes": _attributes, "cluster": Nothing }
 
 -- | Constructs DeleteAttributesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteAttributesRequest' :: Attributes -> ( { "cluster" :: NullOrUndefined (String) , "attributes" :: (Attributes) } -> {"cluster" :: NullOrUndefined (String) , "attributes" :: (Attributes) } ) -> DeleteAttributesRequest
-newDeleteAttributesRequest' _attributes customize = (DeleteAttributesRequest <<< customize) { "attributes": _attributes, "cluster": (NullOrUndefined Nothing) }
+newDeleteAttributesRequest' :: Attributes -> ( { "cluster" :: Maybe (String) , "attributes" :: (Attributes) } -> {"cluster" :: Maybe (String) , "attributes" :: (Attributes) } ) -> DeleteAttributesRequest
+newDeleteAttributesRequest' _attributes customize = (DeleteAttributesRequest <<< customize) { "attributes": _attributes, "cluster": Nothing }
 
 
 
 newtype DeleteAttributesResponse = DeleteAttributesResponse 
-  { "attributes" :: NullOrUndefined (Attributes)
+  { "attributes" :: Maybe (Attributes)
   }
 derive instance newtypeDeleteAttributesResponse :: Newtype DeleteAttributesResponse _
 derive instance repGenericDeleteAttributesResponse :: Generic DeleteAttributesResponse _
@@ -697,12 +696,12 @@ instance encodeDeleteAttributesResponse :: Encode DeleteAttributesResponse where
 
 -- | Constructs DeleteAttributesResponse from required parameters
 newDeleteAttributesResponse :: DeleteAttributesResponse
-newDeleteAttributesResponse  = DeleteAttributesResponse { "attributes": (NullOrUndefined Nothing) }
+newDeleteAttributesResponse  = DeleteAttributesResponse { "attributes": Nothing }
 
 -- | Constructs DeleteAttributesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteAttributesResponse' :: ( { "attributes" :: NullOrUndefined (Attributes) } -> {"attributes" :: NullOrUndefined (Attributes) } ) -> DeleteAttributesResponse
-newDeleteAttributesResponse'  customize = (DeleteAttributesResponse <<< customize) { "attributes": (NullOrUndefined Nothing) }
+newDeleteAttributesResponse' :: ( { "attributes" :: Maybe (Attributes) } -> {"attributes" :: Maybe (Attributes) } ) -> DeleteAttributesResponse
+newDeleteAttributesResponse'  customize = (DeleteAttributesResponse <<< customize) { "attributes": Nothing }
 
 
 
@@ -727,7 +726,7 @@ newDeleteClusterRequest' _cluster customize = (DeleteClusterRequest <<< customiz
 
 
 newtype DeleteClusterResponse = DeleteClusterResponse 
-  { "cluster" :: NullOrUndefined (Cluster)
+  { "cluster" :: Maybe (Cluster)
   }
 derive instance newtypeDeleteClusterResponse :: Newtype DeleteClusterResponse _
 derive instance repGenericDeleteClusterResponse :: Generic DeleteClusterResponse _
@@ -737,17 +736,17 @@ instance encodeDeleteClusterResponse :: Encode DeleteClusterResponse where encod
 
 -- | Constructs DeleteClusterResponse from required parameters
 newDeleteClusterResponse :: DeleteClusterResponse
-newDeleteClusterResponse  = DeleteClusterResponse { "cluster": (NullOrUndefined Nothing) }
+newDeleteClusterResponse  = DeleteClusterResponse { "cluster": Nothing }
 
 -- | Constructs DeleteClusterResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteClusterResponse' :: ( { "cluster" :: NullOrUndefined (Cluster) } -> {"cluster" :: NullOrUndefined (Cluster) } ) -> DeleteClusterResponse
-newDeleteClusterResponse'  customize = (DeleteClusterResponse <<< customize) { "cluster": (NullOrUndefined Nothing) }
+newDeleteClusterResponse' :: ( { "cluster" :: Maybe (Cluster) } -> {"cluster" :: Maybe (Cluster) } ) -> DeleteClusterResponse
+newDeleteClusterResponse'  customize = (DeleteClusterResponse <<< customize) { "cluster": Nothing }
 
 
 
 newtype DeleteServiceRequest = DeleteServiceRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "service" :: (String)
   }
 derive instance newtypeDeleteServiceRequest :: Newtype DeleteServiceRequest _
@@ -758,17 +757,17 @@ instance encodeDeleteServiceRequest :: Encode DeleteServiceRequest where encode 
 
 -- | Constructs DeleteServiceRequest from required parameters
 newDeleteServiceRequest :: String -> DeleteServiceRequest
-newDeleteServiceRequest _service = DeleteServiceRequest { "service": _service, "cluster": (NullOrUndefined Nothing) }
+newDeleteServiceRequest _service = DeleteServiceRequest { "service": _service, "cluster": Nothing }
 
 -- | Constructs DeleteServiceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteServiceRequest' :: String -> ( { "cluster" :: NullOrUndefined (String) , "service" :: (String) } -> {"cluster" :: NullOrUndefined (String) , "service" :: (String) } ) -> DeleteServiceRequest
-newDeleteServiceRequest' _service customize = (DeleteServiceRequest <<< customize) { "service": _service, "cluster": (NullOrUndefined Nothing) }
+newDeleteServiceRequest' :: String -> ( { "cluster" :: Maybe (String) , "service" :: (String) } -> {"cluster" :: Maybe (String) , "service" :: (String) } ) -> DeleteServiceRequest
+newDeleteServiceRequest' _service customize = (DeleteServiceRequest <<< customize) { "service": _service, "cluster": Nothing }
 
 
 
 newtype DeleteServiceResponse = DeleteServiceResponse 
-  { "service" :: NullOrUndefined (Service)
+  { "service" :: Maybe (Service)
   }
 derive instance newtypeDeleteServiceResponse :: Newtype DeleteServiceResponse _
 derive instance repGenericDeleteServiceResponse :: Generic DeleteServiceResponse _
@@ -778,28 +777,28 @@ instance encodeDeleteServiceResponse :: Encode DeleteServiceResponse where encod
 
 -- | Constructs DeleteServiceResponse from required parameters
 newDeleteServiceResponse :: DeleteServiceResponse
-newDeleteServiceResponse  = DeleteServiceResponse { "service": (NullOrUndefined Nothing) }
+newDeleteServiceResponse  = DeleteServiceResponse { "service": Nothing }
 
 -- | Constructs DeleteServiceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeleteServiceResponse' :: ( { "service" :: NullOrUndefined (Service) } -> {"service" :: NullOrUndefined (Service) } ) -> DeleteServiceResponse
-newDeleteServiceResponse'  customize = (DeleteServiceResponse <<< customize) { "service": (NullOrUndefined Nothing) }
+newDeleteServiceResponse' :: ( { "service" :: Maybe (Service) } -> {"service" :: Maybe (Service) } ) -> DeleteServiceResponse
+newDeleteServiceResponse'  customize = (DeleteServiceResponse <<< customize) { "service": Nothing }
 
 
 
 -- | <p>The details of an Amazon ECS service deployment.</p>
 newtype Deployment = Deployment 
-  { "id" :: NullOrUndefined (String)
-  , "status" :: NullOrUndefined (String)
-  , "taskDefinition" :: NullOrUndefined (String)
-  , "desiredCount" :: NullOrUndefined (Int)
-  , "pendingCount" :: NullOrUndefined (Int)
-  , "runningCount" :: NullOrUndefined (Int)
-  , "createdAt" :: NullOrUndefined (Types.Timestamp)
-  , "updatedAt" :: NullOrUndefined (Types.Timestamp)
-  , "launchType" :: NullOrUndefined (LaunchType)
-  , "platformVersion" :: NullOrUndefined (String)
-  , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration)
+  { "id" :: Maybe (String)
+  , "status" :: Maybe (String)
+  , "taskDefinition" :: Maybe (String)
+  , "desiredCount" :: Maybe (Int)
+  , "pendingCount" :: Maybe (Int)
+  , "runningCount" :: Maybe (Int)
+  , "createdAt" :: Maybe (Types.Timestamp)
+  , "updatedAt" :: Maybe (Types.Timestamp)
+  , "launchType" :: Maybe (LaunchType)
+  , "platformVersion" :: Maybe (String)
+  , "networkConfiguration" :: Maybe (NetworkConfiguration)
   }
 derive instance newtypeDeployment :: Newtype Deployment _
 derive instance repGenericDeployment :: Generic Deployment _
@@ -809,19 +808,19 @@ instance encodeDeployment :: Encode Deployment where encode = genericEncode opti
 
 -- | Constructs Deployment from required parameters
 newDeployment :: Deployment
-newDeployment  = Deployment { "createdAt": (NullOrUndefined Nothing), "desiredCount": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "pendingCount": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "runningCount": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "taskDefinition": (NullOrUndefined Nothing), "updatedAt": (NullOrUndefined Nothing) }
+newDeployment  = Deployment { "createdAt": Nothing, "desiredCount": Nothing, "id": Nothing, "launchType": Nothing, "networkConfiguration": Nothing, "pendingCount": Nothing, "platformVersion": Nothing, "runningCount": Nothing, "status": Nothing, "taskDefinition": Nothing, "updatedAt": Nothing }
 
 -- | Constructs Deployment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeployment' :: ( { "id" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "taskDefinition" :: NullOrUndefined (String) , "desiredCount" :: NullOrUndefined (Int) , "pendingCount" :: NullOrUndefined (Int) , "runningCount" :: NullOrUndefined (Int) , "createdAt" :: NullOrUndefined (Types.Timestamp) , "updatedAt" :: NullOrUndefined (Types.Timestamp) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) } -> {"id" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "taskDefinition" :: NullOrUndefined (String) , "desiredCount" :: NullOrUndefined (Int) , "pendingCount" :: NullOrUndefined (Int) , "runningCount" :: NullOrUndefined (Int) , "createdAt" :: NullOrUndefined (Types.Timestamp) , "updatedAt" :: NullOrUndefined (Types.Timestamp) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) } ) -> Deployment
-newDeployment'  customize = (Deployment <<< customize) { "createdAt": (NullOrUndefined Nothing), "desiredCount": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "pendingCount": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "runningCount": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "taskDefinition": (NullOrUndefined Nothing), "updatedAt": (NullOrUndefined Nothing) }
+newDeployment' :: ( { "id" :: Maybe (String) , "status" :: Maybe (String) , "taskDefinition" :: Maybe (String) , "desiredCount" :: Maybe (Int) , "pendingCount" :: Maybe (Int) , "runningCount" :: Maybe (Int) , "createdAt" :: Maybe (Types.Timestamp) , "updatedAt" :: Maybe (Types.Timestamp) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "networkConfiguration" :: Maybe (NetworkConfiguration) } -> {"id" :: Maybe (String) , "status" :: Maybe (String) , "taskDefinition" :: Maybe (String) , "desiredCount" :: Maybe (Int) , "pendingCount" :: Maybe (Int) , "runningCount" :: Maybe (Int) , "createdAt" :: Maybe (Types.Timestamp) , "updatedAt" :: Maybe (Types.Timestamp) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "networkConfiguration" :: Maybe (NetworkConfiguration) } ) -> Deployment
+newDeployment'  customize = (Deployment <<< customize) { "createdAt": Nothing, "desiredCount": Nothing, "id": Nothing, "launchType": Nothing, "networkConfiguration": Nothing, "pendingCount": Nothing, "platformVersion": Nothing, "runningCount": Nothing, "status": Nothing, "taskDefinition": Nothing, "updatedAt": Nothing }
 
 
 
 -- | <p>Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.</p>
 newtype DeploymentConfiguration = DeploymentConfiguration 
-  { "maximumPercent" :: NullOrUndefined (BoxedInteger)
-  , "minimumHealthyPercent" :: NullOrUndefined (BoxedInteger)
+  { "maximumPercent" :: Maybe (BoxedInteger)
+  , "minimumHealthyPercent" :: Maybe (BoxedInteger)
   }
 derive instance newtypeDeploymentConfiguration :: Newtype DeploymentConfiguration _
 derive instance repGenericDeploymentConfiguration :: Generic DeploymentConfiguration _
@@ -831,12 +830,12 @@ instance encodeDeploymentConfiguration :: Encode DeploymentConfiguration where e
 
 -- | Constructs DeploymentConfiguration from required parameters
 newDeploymentConfiguration :: DeploymentConfiguration
-newDeploymentConfiguration  = DeploymentConfiguration { "maximumPercent": (NullOrUndefined Nothing), "minimumHealthyPercent": (NullOrUndefined Nothing) }
+newDeploymentConfiguration  = DeploymentConfiguration { "maximumPercent": Nothing, "minimumHealthyPercent": Nothing }
 
 -- | Constructs DeploymentConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeploymentConfiguration' :: ( { "maximumPercent" :: NullOrUndefined (BoxedInteger) , "minimumHealthyPercent" :: NullOrUndefined (BoxedInteger) } -> {"maximumPercent" :: NullOrUndefined (BoxedInteger) , "minimumHealthyPercent" :: NullOrUndefined (BoxedInteger) } ) -> DeploymentConfiguration
-newDeploymentConfiguration'  customize = (DeploymentConfiguration <<< customize) { "maximumPercent": (NullOrUndefined Nothing), "minimumHealthyPercent": (NullOrUndefined Nothing) }
+newDeploymentConfiguration' :: ( { "maximumPercent" :: Maybe (BoxedInteger) , "minimumHealthyPercent" :: Maybe (BoxedInteger) } -> {"maximumPercent" :: Maybe (BoxedInteger) , "minimumHealthyPercent" :: Maybe (BoxedInteger) } ) -> DeploymentConfiguration
+newDeploymentConfiguration'  customize = (DeploymentConfiguration <<< customize) { "maximumPercent": Nothing, "minimumHealthyPercent": Nothing }
 
 
 
@@ -850,9 +849,9 @@ instance encodeDeployments :: Encode Deployments where encode = genericEncode op
 
 
 newtype DeregisterContainerInstanceRequest = DeregisterContainerInstanceRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "containerInstance" :: (String)
-  , "force" :: NullOrUndefined (BoxedBoolean)
+  , "force" :: Maybe (BoxedBoolean)
   }
 derive instance newtypeDeregisterContainerInstanceRequest :: Newtype DeregisterContainerInstanceRequest _
 derive instance repGenericDeregisterContainerInstanceRequest :: Generic DeregisterContainerInstanceRequest _
@@ -862,17 +861,17 @@ instance encodeDeregisterContainerInstanceRequest :: Encode DeregisterContainerI
 
 -- | Constructs DeregisterContainerInstanceRequest from required parameters
 newDeregisterContainerInstanceRequest :: String -> DeregisterContainerInstanceRequest
-newDeregisterContainerInstanceRequest _containerInstance = DeregisterContainerInstanceRequest { "containerInstance": _containerInstance, "cluster": (NullOrUndefined Nothing), "force": (NullOrUndefined Nothing) }
+newDeregisterContainerInstanceRequest _containerInstance = DeregisterContainerInstanceRequest { "containerInstance": _containerInstance, "cluster": Nothing, "force": Nothing }
 
 -- | Constructs DeregisterContainerInstanceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeregisterContainerInstanceRequest' :: String -> ( { "cluster" :: NullOrUndefined (String) , "containerInstance" :: (String) , "force" :: NullOrUndefined (BoxedBoolean) } -> {"cluster" :: NullOrUndefined (String) , "containerInstance" :: (String) , "force" :: NullOrUndefined (BoxedBoolean) } ) -> DeregisterContainerInstanceRequest
-newDeregisterContainerInstanceRequest' _containerInstance customize = (DeregisterContainerInstanceRequest <<< customize) { "containerInstance": _containerInstance, "cluster": (NullOrUndefined Nothing), "force": (NullOrUndefined Nothing) }
+newDeregisterContainerInstanceRequest' :: String -> ( { "cluster" :: Maybe (String) , "containerInstance" :: (String) , "force" :: Maybe (BoxedBoolean) } -> {"cluster" :: Maybe (String) , "containerInstance" :: (String) , "force" :: Maybe (BoxedBoolean) } ) -> DeregisterContainerInstanceRequest
+newDeregisterContainerInstanceRequest' _containerInstance customize = (DeregisterContainerInstanceRequest <<< customize) { "containerInstance": _containerInstance, "cluster": Nothing, "force": Nothing }
 
 
 
 newtype DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse 
-  { "containerInstance" :: NullOrUndefined (ContainerInstance)
+  { "containerInstance" :: Maybe (ContainerInstance)
   }
 derive instance newtypeDeregisterContainerInstanceResponse :: Newtype DeregisterContainerInstanceResponse _
 derive instance repGenericDeregisterContainerInstanceResponse :: Generic DeregisterContainerInstanceResponse _
@@ -882,12 +881,12 @@ instance encodeDeregisterContainerInstanceResponse :: Encode DeregisterContainer
 
 -- | Constructs DeregisterContainerInstanceResponse from required parameters
 newDeregisterContainerInstanceResponse :: DeregisterContainerInstanceResponse
-newDeregisterContainerInstanceResponse  = DeregisterContainerInstanceResponse { "containerInstance": (NullOrUndefined Nothing) }
+newDeregisterContainerInstanceResponse  = DeregisterContainerInstanceResponse { "containerInstance": Nothing }
 
 -- | Constructs DeregisterContainerInstanceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeregisterContainerInstanceResponse' :: ( { "containerInstance" :: NullOrUndefined (ContainerInstance) } -> {"containerInstance" :: NullOrUndefined (ContainerInstance) } ) -> DeregisterContainerInstanceResponse
-newDeregisterContainerInstanceResponse'  customize = (DeregisterContainerInstanceResponse <<< customize) { "containerInstance": (NullOrUndefined Nothing) }
+newDeregisterContainerInstanceResponse' :: ( { "containerInstance" :: Maybe (ContainerInstance) } -> {"containerInstance" :: Maybe (ContainerInstance) } ) -> DeregisterContainerInstanceResponse
+newDeregisterContainerInstanceResponse'  customize = (DeregisterContainerInstanceResponse <<< customize) { "containerInstance": Nothing }
 
 
 
@@ -912,7 +911,7 @@ newDeregisterTaskDefinitionRequest' _taskDefinition customize = (DeregisterTaskD
 
 
 newtype DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse 
-  { "taskDefinition" :: NullOrUndefined (TaskDefinition)
+  { "taskDefinition" :: Maybe (TaskDefinition)
   }
 derive instance newtypeDeregisterTaskDefinitionResponse :: Newtype DeregisterTaskDefinitionResponse _
 derive instance repGenericDeregisterTaskDefinitionResponse :: Generic DeregisterTaskDefinitionResponse _
@@ -922,18 +921,18 @@ instance encodeDeregisterTaskDefinitionResponse :: Encode DeregisterTaskDefiniti
 
 -- | Constructs DeregisterTaskDefinitionResponse from required parameters
 newDeregisterTaskDefinitionResponse :: DeregisterTaskDefinitionResponse
-newDeregisterTaskDefinitionResponse  = DeregisterTaskDefinitionResponse { "taskDefinition": (NullOrUndefined Nothing) }
+newDeregisterTaskDefinitionResponse  = DeregisterTaskDefinitionResponse { "taskDefinition": Nothing }
 
 -- | Constructs DeregisterTaskDefinitionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDeregisterTaskDefinitionResponse' :: ( { "taskDefinition" :: NullOrUndefined (TaskDefinition) } -> {"taskDefinition" :: NullOrUndefined (TaskDefinition) } ) -> DeregisterTaskDefinitionResponse
-newDeregisterTaskDefinitionResponse'  customize = (DeregisterTaskDefinitionResponse <<< customize) { "taskDefinition": (NullOrUndefined Nothing) }
+newDeregisterTaskDefinitionResponse' :: ( { "taskDefinition" :: Maybe (TaskDefinition) } -> {"taskDefinition" :: Maybe (TaskDefinition) } ) -> DeregisterTaskDefinitionResponse
+newDeregisterTaskDefinitionResponse'  customize = (DeregisterTaskDefinitionResponse <<< customize) { "taskDefinition": Nothing }
 
 
 
 newtype DescribeClustersRequest = DescribeClustersRequest 
-  { "clusters" :: NullOrUndefined (StringList)
-  , "include" :: NullOrUndefined (ClusterFieldList)
+  { "clusters" :: Maybe (StringList)
+  , "include" :: Maybe (ClusterFieldList)
   }
 derive instance newtypeDescribeClustersRequest :: Newtype DescribeClustersRequest _
 derive instance repGenericDescribeClustersRequest :: Generic DescribeClustersRequest _
@@ -943,18 +942,18 @@ instance encodeDescribeClustersRequest :: Encode DescribeClustersRequest where e
 
 -- | Constructs DescribeClustersRequest from required parameters
 newDescribeClustersRequest :: DescribeClustersRequest
-newDescribeClustersRequest  = DescribeClustersRequest { "clusters": (NullOrUndefined Nothing), "include": (NullOrUndefined Nothing) }
+newDescribeClustersRequest  = DescribeClustersRequest { "clusters": Nothing, "include": Nothing }
 
 -- | Constructs DescribeClustersRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeClustersRequest' :: ( { "clusters" :: NullOrUndefined (StringList) , "include" :: NullOrUndefined (ClusterFieldList) } -> {"clusters" :: NullOrUndefined (StringList) , "include" :: NullOrUndefined (ClusterFieldList) } ) -> DescribeClustersRequest
-newDescribeClustersRequest'  customize = (DescribeClustersRequest <<< customize) { "clusters": (NullOrUndefined Nothing), "include": (NullOrUndefined Nothing) }
+newDescribeClustersRequest' :: ( { "clusters" :: Maybe (StringList) , "include" :: Maybe (ClusterFieldList) } -> {"clusters" :: Maybe (StringList) , "include" :: Maybe (ClusterFieldList) } ) -> DescribeClustersRequest
+newDescribeClustersRequest'  customize = (DescribeClustersRequest <<< customize) { "clusters": Nothing, "include": Nothing }
 
 
 
 newtype DescribeClustersResponse = DescribeClustersResponse 
-  { "clusters" :: NullOrUndefined (Clusters)
-  , "failures" :: NullOrUndefined (Failures)
+  { "clusters" :: Maybe (Clusters)
+  , "failures" :: Maybe (Failures)
   }
 derive instance newtypeDescribeClustersResponse :: Newtype DescribeClustersResponse _
 derive instance repGenericDescribeClustersResponse :: Generic DescribeClustersResponse _
@@ -964,17 +963,17 @@ instance encodeDescribeClustersResponse :: Encode DescribeClustersResponse where
 
 -- | Constructs DescribeClustersResponse from required parameters
 newDescribeClustersResponse :: DescribeClustersResponse
-newDescribeClustersResponse  = DescribeClustersResponse { "clusters": (NullOrUndefined Nothing), "failures": (NullOrUndefined Nothing) }
+newDescribeClustersResponse  = DescribeClustersResponse { "clusters": Nothing, "failures": Nothing }
 
 -- | Constructs DescribeClustersResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeClustersResponse' :: ( { "clusters" :: NullOrUndefined (Clusters) , "failures" :: NullOrUndefined (Failures) } -> {"clusters" :: NullOrUndefined (Clusters) , "failures" :: NullOrUndefined (Failures) } ) -> DescribeClustersResponse
-newDescribeClustersResponse'  customize = (DescribeClustersResponse <<< customize) { "clusters": (NullOrUndefined Nothing), "failures": (NullOrUndefined Nothing) }
+newDescribeClustersResponse' :: ( { "clusters" :: Maybe (Clusters) , "failures" :: Maybe (Failures) } -> {"clusters" :: Maybe (Clusters) , "failures" :: Maybe (Failures) } ) -> DescribeClustersResponse
+newDescribeClustersResponse'  customize = (DescribeClustersResponse <<< customize) { "clusters": Nothing, "failures": Nothing }
 
 
 
 newtype DescribeContainerInstancesRequest = DescribeContainerInstancesRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "containerInstances" :: (StringList)
   }
 derive instance newtypeDescribeContainerInstancesRequest :: Newtype DescribeContainerInstancesRequest _
@@ -985,18 +984,18 @@ instance encodeDescribeContainerInstancesRequest :: Encode DescribeContainerInst
 
 -- | Constructs DescribeContainerInstancesRequest from required parameters
 newDescribeContainerInstancesRequest :: StringList -> DescribeContainerInstancesRequest
-newDescribeContainerInstancesRequest _containerInstances = DescribeContainerInstancesRequest { "containerInstances": _containerInstances, "cluster": (NullOrUndefined Nothing) }
+newDescribeContainerInstancesRequest _containerInstances = DescribeContainerInstancesRequest { "containerInstances": _containerInstances, "cluster": Nothing }
 
 -- | Constructs DescribeContainerInstancesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeContainerInstancesRequest' :: StringList -> ( { "cluster" :: NullOrUndefined (String) , "containerInstances" :: (StringList) } -> {"cluster" :: NullOrUndefined (String) , "containerInstances" :: (StringList) } ) -> DescribeContainerInstancesRequest
-newDescribeContainerInstancesRequest' _containerInstances customize = (DescribeContainerInstancesRequest <<< customize) { "containerInstances": _containerInstances, "cluster": (NullOrUndefined Nothing) }
+newDescribeContainerInstancesRequest' :: StringList -> ( { "cluster" :: Maybe (String) , "containerInstances" :: (StringList) } -> {"cluster" :: Maybe (String) , "containerInstances" :: (StringList) } ) -> DescribeContainerInstancesRequest
+newDescribeContainerInstancesRequest' _containerInstances customize = (DescribeContainerInstancesRequest <<< customize) { "containerInstances": _containerInstances, "cluster": Nothing }
 
 
 
 newtype DescribeContainerInstancesResponse = DescribeContainerInstancesResponse 
-  { "containerInstances" :: NullOrUndefined (ContainerInstances)
-  , "failures" :: NullOrUndefined (Failures)
+  { "containerInstances" :: Maybe (ContainerInstances)
+  , "failures" :: Maybe (Failures)
   }
 derive instance newtypeDescribeContainerInstancesResponse :: Newtype DescribeContainerInstancesResponse _
 derive instance repGenericDescribeContainerInstancesResponse :: Generic DescribeContainerInstancesResponse _
@@ -1006,17 +1005,17 @@ instance encodeDescribeContainerInstancesResponse :: Encode DescribeContainerIns
 
 -- | Constructs DescribeContainerInstancesResponse from required parameters
 newDescribeContainerInstancesResponse :: DescribeContainerInstancesResponse
-newDescribeContainerInstancesResponse  = DescribeContainerInstancesResponse { "containerInstances": (NullOrUndefined Nothing), "failures": (NullOrUndefined Nothing) }
+newDescribeContainerInstancesResponse  = DescribeContainerInstancesResponse { "containerInstances": Nothing, "failures": Nothing }
 
 -- | Constructs DescribeContainerInstancesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeContainerInstancesResponse' :: ( { "containerInstances" :: NullOrUndefined (ContainerInstances) , "failures" :: NullOrUndefined (Failures) } -> {"containerInstances" :: NullOrUndefined (ContainerInstances) , "failures" :: NullOrUndefined (Failures) } ) -> DescribeContainerInstancesResponse
-newDescribeContainerInstancesResponse'  customize = (DescribeContainerInstancesResponse <<< customize) { "containerInstances": (NullOrUndefined Nothing), "failures": (NullOrUndefined Nothing) }
+newDescribeContainerInstancesResponse' :: ( { "containerInstances" :: Maybe (ContainerInstances) , "failures" :: Maybe (Failures) } -> {"containerInstances" :: Maybe (ContainerInstances) , "failures" :: Maybe (Failures) } ) -> DescribeContainerInstancesResponse
+newDescribeContainerInstancesResponse'  customize = (DescribeContainerInstancesResponse <<< customize) { "containerInstances": Nothing, "failures": Nothing }
 
 
 
 newtype DescribeServicesRequest = DescribeServicesRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "services" :: (StringList)
   }
 derive instance newtypeDescribeServicesRequest :: Newtype DescribeServicesRequest _
@@ -1027,18 +1026,18 @@ instance encodeDescribeServicesRequest :: Encode DescribeServicesRequest where e
 
 -- | Constructs DescribeServicesRequest from required parameters
 newDescribeServicesRequest :: StringList -> DescribeServicesRequest
-newDescribeServicesRequest _services = DescribeServicesRequest { "services": _services, "cluster": (NullOrUndefined Nothing) }
+newDescribeServicesRequest _services = DescribeServicesRequest { "services": _services, "cluster": Nothing }
 
 -- | Constructs DescribeServicesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeServicesRequest' :: StringList -> ( { "cluster" :: NullOrUndefined (String) , "services" :: (StringList) } -> {"cluster" :: NullOrUndefined (String) , "services" :: (StringList) } ) -> DescribeServicesRequest
-newDescribeServicesRequest' _services customize = (DescribeServicesRequest <<< customize) { "services": _services, "cluster": (NullOrUndefined Nothing) }
+newDescribeServicesRequest' :: StringList -> ( { "cluster" :: Maybe (String) , "services" :: (StringList) } -> {"cluster" :: Maybe (String) , "services" :: (StringList) } ) -> DescribeServicesRequest
+newDescribeServicesRequest' _services customize = (DescribeServicesRequest <<< customize) { "services": _services, "cluster": Nothing }
 
 
 
 newtype DescribeServicesResponse = DescribeServicesResponse 
-  { "services" :: NullOrUndefined (Services)
-  , "failures" :: NullOrUndefined (Failures)
+  { "services" :: Maybe (Services)
+  , "failures" :: Maybe (Failures)
   }
 derive instance newtypeDescribeServicesResponse :: Newtype DescribeServicesResponse _
 derive instance repGenericDescribeServicesResponse :: Generic DescribeServicesResponse _
@@ -1048,12 +1047,12 @@ instance encodeDescribeServicesResponse :: Encode DescribeServicesResponse where
 
 -- | Constructs DescribeServicesResponse from required parameters
 newDescribeServicesResponse :: DescribeServicesResponse
-newDescribeServicesResponse  = DescribeServicesResponse { "failures": (NullOrUndefined Nothing), "services": (NullOrUndefined Nothing) }
+newDescribeServicesResponse  = DescribeServicesResponse { "failures": Nothing, "services": Nothing }
 
 -- | Constructs DescribeServicesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeServicesResponse' :: ( { "services" :: NullOrUndefined (Services) , "failures" :: NullOrUndefined (Failures) } -> {"services" :: NullOrUndefined (Services) , "failures" :: NullOrUndefined (Failures) } ) -> DescribeServicesResponse
-newDescribeServicesResponse'  customize = (DescribeServicesResponse <<< customize) { "failures": (NullOrUndefined Nothing), "services": (NullOrUndefined Nothing) }
+newDescribeServicesResponse' :: ( { "services" :: Maybe (Services) , "failures" :: Maybe (Failures) } -> {"services" :: Maybe (Services) , "failures" :: Maybe (Failures) } ) -> DescribeServicesResponse
+newDescribeServicesResponse'  customize = (DescribeServicesResponse <<< customize) { "failures": Nothing, "services": Nothing }
 
 
 
@@ -1078,7 +1077,7 @@ newDescribeTaskDefinitionRequest' _taskDefinition customize = (DescribeTaskDefin
 
 
 newtype DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse 
-  { "taskDefinition" :: NullOrUndefined (TaskDefinition)
+  { "taskDefinition" :: Maybe (TaskDefinition)
   }
 derive instance newtypeDescribeTaskDefinitionResponse :: Newtype DescribeTaskDefinitionResponse _
 derive instance repGenericDescribeTaskDefinitionResponse :: Generic DescribeTaskDefinitionResponse _
@@ -1088,17 +1087,17 @@ instance encodeDescribeTaskDefinitionResponse :: Encode DescribeTaskDefinitionRe
 
 -- | Constructs DescribeTaskDefinitionResponse from required parameters
 newDescribeTaskDefinitionResponse :: DescribeTaskDefinitionResponse
-newDescribeTaskDefinitionResponse  = DescribeTaskDefinitionResponse { "taskDefinition": (NullOrUndefined Nothing) }
+newDescribeTaskDefinitionResponse  = DescribeTaskDefinitionResponse { "taskDefinition": Nothing }
 
 -- | Constructs DescribeTaskDefinitionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTaskDefinitionResponse' :: ( { "taskDefinition" :: NullOrUndefined (TaskDefinition) } -> {"taskDefinition" :: NullOrUndefined (TaskDefinition) } ) -> DescribeTaskDefinitionResponse
-newDescribeTaskDefinitionResponse'  customize = (DescribeTaskDefinitionResponse <<< customize) { "taskDefinition": (NullOrUndefined Nothing) }
+newDescribeTaskDefinitionResponse' :: ( { "taskDefinition" :: Maybe (TaskDefinition) } -> {"taskDefinition" :: Maybe (TaskDefinition) } ) -> DescribeTaskDefinitionResponse
+newDescribeTaskDefinitionResponse'  customize = (DescribeTaskDefinitionResponse <<< customize) { "taskDefinition": Nothing }
 
 
 
 newtype DescribeTasksRequest = DescribeTasksRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "tasks" :: (StringList)
   }
 derive instance newtypeDescribeTasksRequest :: Newtype DescribeTasksRequest _
@@ -1109,18 +1108,18 @@ instance encodeDescribeTasksRequest :: Encode DescribeTasksRequest where encode 
 
 -- | Constructs DescribeTasksRequest from required parameters
 newDescribeTasksRequest :: StringList -> DescribeTasksRequest
-newDescribeTasksRequest _tasks = DescribeTasksRequest { "tasks": _tasks, "cluster": (NullOrUndefined Nothing) }
+newDescribeTasksRequest _tasks = DescribeTasksRequest { "tasks": _tasks, "cluster": Nothing }
 
 -- | Constructs DescribeTasksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTasksRequest' :: StringList -> ( { "cluster" :: NullOrUndefined (String) , "tasks" :: (StringList) } -> {"cluster" :: NullOrUndefined (String) , "tasks" :: (StringList) } ) -> DescribeTasksRequest
-newDescribeTasksRequest' _tasks customize = (DescribeTasksRequest <<< customize) { "tasks": _tasks, "cluster": (NullOrUndefined Nothing) }
+newDescribeTasksRequest' :: StringList -> ( { "cluster" :: Maybe (String) , "tasks" :: (StringList) } -> {"cluster" :: Maybe (String) , "tasks" :: (StringList) } ) -> DescribeTasksRequest
+newDescribeTasksRequest' _tasks customize = (DescribeTasksRequest <<< customize) { "tasks": _tasks, "cluster": Nothing }
 
 
 
 newtype DescribeTasksResponse = DescribeTasksResponse 
-  { "tasks" :: NullOrUndefined (Tasks)
-  , "failures" :: NullOrUndefined (Failures)
+  { "tasks" :: Maybe (Tasks)
+  , "failures" :: Maybe (Failures)
   }
 derive instance newtypeDescribeTasksResponse :: Newtype DescribeTasksResponse _
 derive instance repGenericDescribeTasksResponse :: Generic DescribeTasksResponse _
@@ -1130,12 +1129,12 @@ instance encodeDescribeTasksResponse :: Encode DescribeTasksResponse where encod
 
 -- | Constructs DescribeTasksResponse from required parameters
 newDescribeTasksResponse :: DescribeTasksResponse
-newDescribeTasksResponse  = DescribeTasksResponse { "failures": (NullOrUndefined Nothing), "tasks": (NullOrUndefined Nothing) }
+newDescribeTasksResponse  = DescribeTasksResponse { "failures": Nothing, "tasks": Nothing }
 
 -- | Constructs DescribeTasksResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeTasksResponse' :: ( { "tasks" :: NullOrUndefined (Tasks) , "failures" :: NullOrUndefined (Failures) } -> {"tasks" :: NullOrUndefined (Tasks) , "failures" :: NullOrUndefined (Failures) } ) -> DescribeTasksResponse
-newDescribeTasksResponse'  customize = (DescribeTasksResponse <<< customize) { "failures": (NullOrUndefined Nothing), "tasks": (NullOrUndefined Nothing) }
+newDescribeTasksResponse' :: ( { "tasks" :: Maybe (Tasks) , "failures" :: Maybe (Failures) } -> {"tasks" :: Maybe (Tasks) , "failures" :: Maybe (Failures) } ) -> DescribeTasksResponse
+newDescribeTasksResponse'  customize = (DescribeTasksResponse <<< customize) { "failures": Nothing, "tasks": Nothing }
 
 
 
@@ -1151,8 +1150,8 @@ instance encodeDesiredStatus :: Encode DesiredStatus where encode = genericEncod
 -- | <p>An object representing a container instance host device.</p>
 newtype Device = Device 
   { "hostPath" :: (String)
-  , "containerPath" :: NullOrUndefined (String)
-  , "permissions" :: NullOrUndefined (DeviceCgroupPermissions)
+  , "containerPath" :: Maybe (String)
+  , "permissions" :: Maybe (DeviceCgroupPermissions)
   }
 derive instance newtypeDevice :: Newtype Device _
 derive instance repGenericDevice :: Generic Device _
@@ -1162,12 +1161,12 @@ instance encodeDevice :: Encode Device where encode = genericEncode options
 
 -- | Constructs Device from required parameters
 newDevice :: String -> Device
-newDevice _hostPath = Device { "hostPath": _hostPath, "containerPath": (NullOrUndefined Nothing), "permissions": (NullOrUndefined Nothing) }
+newDevice _hostPath = Device { "hostPath": _hostPath, "containerPath": Nothing, "permissions": Nothing }
 
 -- | Constructs Device's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDevice' :: String -> ( { "hostPath" :: (String) , "containerPath" :: NullOrUndefined (String) , "permissions" :: NullOrUndefined (DeviceCgroupPermissions) } -> {"hostPath" :: (String) , "containerPath" :: NullOrUndefined (String) , "permissions" :: NullOrUndefined (DeviceCgroupPermissions) } ) -> Device
-newDevice' _hostPath customize = (Device <<< customize) { "hostPath": _hostPath, "containerPath": (NullOrUndefined Nothing), "permissions": (NullOrUndefined Nothing) }
+newDevice' :: String -> ( { "hostPath" :: (String) , "containerPath" :: Maybe (String) , "permissions" :: Maybe (DeviceCgroupPermissions) } -> {"hostPath" :: (String) , "containerPath" :: Maybe (String) , "permissions" :: Maybe (DeviceCgroupPermissions) } ) -> Device
+newDevice' _hostPath customize = (Device <<< customize) { "hostPath": _hostPath, "containerPath": Nothing, "permissions": Nothing }
 
 
 
@@ -1199,8 +1198,8 @@ instance encodeDevicesList :: Encode DevicesList where encode = genericEncode op
 
 
 newtype DiscoverPollEndpointRequest = DiscoverPollEndpointRequest 
-  { "containerInstance" :: NullOrUndefined (String)
-  , "cluster" :: NullOrUndefined (String)
+  { "containerInstance" :: Maybe (String)
+  , "cluster" :: Maybe (String)
   }
 derive instance newtypeDiscoverPollEndpointRequest :: Newtype DiscoverPollEndpointRequest _
 derive instance repGenericDiscoverPollEndpointRequest :: Generic DiscoverPollEndpointRequest _
@@ -1210,18 +1209,18 @@ instance encodeDiscoverPollEndpointRequest :: Encode DiscoverPollEndpointRequest
 
 -- | Constructs DiscoverPollEndpointRequest from required parameters
 newDiscoverPollEndpointRequest :: DiscoverPollEndpointRequest
-newDiscoverPollEndpointRequest  = DiscoverPollEndpointRequest { "cluster": (NullOrUndefined Nothing), "containerInstance": (NullOrUndefined Nothing) }
+newDiscoverPollEndpointRequest  = DiscoverPollEndpointRequest { "cluster": Nothing, "containerInstance": Nothing }
 
 -- | Constructs DiscoverPollEndpointRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDiscoverPollEndpointRequest' :: ( { "containerInstance" :: NullOrUndefined (String) , "cluster" :: NullOrUndefined (String) } -> {"containerInstance" :: NullOrUndefined (String) , "cluster" :: NullOrUndefined (String) } ) -> DiscoverPollEndpointRequest
-newDiscoverPollEndpointRequest'  customize = (DiscoverPollEndpointRequest <<< customize) { "cluster": (NullOrUndefined Nothing), "containerInstance": (NullOrUndefined Nothing) }
+newDiscoverPollEndpointRequest' :: ( { "containerInstance" :: Maybe (String) , "cluster" :: Maybe (String) } -> {"containerInstance" :: Maybe (String) , "cluster" :: Maybe (String) } ) -> DiscoverPollEndpointRequest
+newDiscoverPollEndpointRequest'  customize = (DiscoverPollEndpointRequest <<< customize) { "cluster": Nothing, "containerInstance": Nothing }
 
 
 
 newtype DiscoverPollEndpointResponse = DiscoverPollEndpointResponse 
-  { "endpoint" :: NullOrUndefined (String)
-  , "telemetryEndpoint" :: NullOrUndefined (String)
+  { "endpoint" :: Maybe (String)
+  , "telemetryEndpoint" :: Maybe (String)
   }
 derive instance newtypeDiscoverPollEndpointResponse :: Newtype DiscoverPollEndpointResponse _
 derive instance repGenericDiscoverPollEndpointResponse :: Generic DiscoverPollEndpointResponse _
@@ -1231,12 +1230,12 @@ instance encodeDiscoverPollEndpointResponse :: Encode DiscoverPollEndpointRespon
 
 -- | Constructs DiscoverPollEndpointResponse from required parameters
 newDiscoverPollEndpointResponse :: DiscoverPollEndpointResponse
-newDiscoverPollEndpointResponse  = DiscoverPollEndpointResponse { "endpoint": (NullOrUndefined Nothing), "telemetryEndpoint": (NullOrUndefined Nothing) }
+newDiscoverPollEndpointResponse  = DiscoverPollEndpointResponse { "endpoint": Nothing, "telemetryEndpoint": Nothing }
 
 -- | Constructs DiscoverPollEndpointResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDiscoverPollEndpointResponse' :: ( { "endpoint" :: NullOrUndefined (String) , "telemetryEndpoint" :: NullOrUndefined (String) } -> {"endpoint" :: NullOrUndefined (String) , "telemetryEndpoint" :: NullOrUndefined (String) } ) -> DiscoverPollEndpointResponse
-newDiscoverPollEndpointResponse'  customize = (DiscoverPollEndpointResponse <<< customize) { "endpoint": (NullOrUndefined Nothing), "telemetryEndpoint": (NullOrUndefined Nothing) }
+newDiscoverPollEndpointResponse' :: ( { "endpoint" :: Maybe (String) , "telemetryEndpoint" :: Maybe (String) } -> {"endpoint" :: Maybe (String) , "telemetryEndpoint" :: Maybe (String) } ) -> DiscoverPollEndpointResponse
+newDiscoverPollEndpointResponse'  customize = (DiscoverPollEndpointResponse <<< customize) { "endpoint": Nothing, "telemetryEndpoint": Nothing }
 
 
 
@@ -1260,8 +1259,8 @@ instance encodeEnvironmentVariables :: Encode EnvironmentVariables where encode 
 
 -- | <p>A failed resource.</p>
 newtype Failure = Failure 
-  { "arn" :: NullOrUndefined (String)
-  , "reason" :: NullOrUndefined (String)
+  { "arn" :: Maybe (String)
+  , "reason" :: Maybe (String)
   }
 derive instance newtypeFailure :: Newtype Failure _
 derive instance repGenericFailure :: Generic Failure _
@@ -1271,12 +1270,12 @@ instance encodeFailure :: Encode Failure where encode = genericEncode options
 
 -- | Constructs Failure from required parameters
 newFailure :: Failure
-newFailure  = Failure { "arn": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing) }
+newFailure  = Failure { "arn": Nothing, "reason": Nothing }
 
 -- | Constructs Failure's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFailure' :: ( { "arn" :: NullOrUndefined (String) , "reason" :: NullOrUndefined (String) } -> {"arn" :: NullOrUndefined (String) , "reason" :: NullOrUndefined (String) } ) -> Failure
-newFailure'  customize = (Failure <<< customize) { "arn": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing) }
+newFailure' :: ( { "arn" :: Maybe (String) , "reason" :: Maybe (String) } -> {"arn" :: Maybe (String) , "reason" :: Maybe (String) } ) -> Failure
+newFailure'  customize = (Failure <<< customize) { "arn": Nothing, "reason": Nothing }
 
 
 
@@ -1292,10 +1291,10 @@ instance encodeFailures :: Encode Failures where encode = genericEncode options
 -- | <p>An object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile).</p>
 newtype HealthCheck = HealthCheck 
   { "command" :: (StringList)
-  , "interval" :: NullOrUndefined (BoxedInteger)
-  , "timeout" :: NullOrUndefined (BoxedInteger)
-  , "retries" :: NullOrUndefined (BoxedInteger)
-  , "startPeriod" :: NullOrUndefined (BoxedInteger)
+  , "interval" :: Maybe (BoxedInteger)
+  , "timeout" :: Maybe (BoxedInteger)
+  , "retries" :: Maybe (BoxedInteger)
+  , "startPeriod" :: Maybe (BoxedInteger)
   }
 derive instance newtypeHealthCheck :: Newtype HealthCheck _
 derive instance repGenericHealthCheck :: Generic HealthCheck _
@@ -1305,12 +1304,12 @@ instance encodeHealthCheck :: Encode HealthCheck where encode = genericEncode op
 
 -- | Constructs HealthCheck from required parameters
 newHealthCheck :: StringList -> HealthCheck
-newHealthCheck _command = HealthCheck { "command": _command, "interval": (NullOrUndefined Nothing), "retries": (NullOrUndefined Nothing), "startPeriod": (NullOrUndefined Nothing), "timeout": (NullOrUndefined Nothing) }
+newHealthCheck _command = HealthCheck { "command": _command, "interval": Nothing, "retries": Nothing, "startPeriod": Nothing, "timeout": Nothing }
 
 -- | Constructs HealthCheck's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHealthCheck' :: StringList -> ( { "command" :: (StringList) , "interval" :: NullOrUndefined (BoxedInteger) , "timeout" :: NullOrUndefined (BoxedInteger) , "retries" :: NullOrUndefined (BoxedInteger) , "startPeriod" :: NullOrUndefined (BoxedInteger) } -> {"command" :: (StringList) , "interval" :: NullOrUndefined (BoxedInteger) , "timeout" :: NullOrUndefined (BoxedInteger) , "retries" :: NullOrUndefined (BoxedInteger) , "startPeriod" :: NullOrUndefined (BoxedInteger) } ) -> HealthCheck
-newHealthCheck' _command customize = (HealthCheck <<< customize) { "command": _command, "interval": (NullOrUndefined Nothing), "retries": (NullOrUndefined Nothing), "startPeriod": (NullOrUndefined Nothing), "timeout": (NullOrUndefined Nothing) }
+newHealthCheck' :: StringList -> ( { "command" :: (StringList) , "interval" :: Maybe (BoxedInteger) , "timeout" :: Maybe (BoxedInteger) , "retries" :: Maybe (BoxedInteger) , "startPeriod" :: Maybe (BoxedInteger) } -> {"command" :: (StringList) , "interval" :: Maybe (BoxedInteger) , "timeout" :: Maybe (BoxedInteger) , "retries" :: Maybe (BoxedInteger) , "startPeriod" :: Maybe (BoxedInteger) } ) -> HealthCheck
+newHealthCheck' _command customize = (HealthCheck <<< customize) { "command": _command, "interval": Nothing, "retries": Nothing, "startPeriod": Nothing, "timeout": Nothing }
 
 
 
@@ -1356,7 +1355,7 @@ instance encodeHostEntryList :: Encode HostEntryList where encode = genericEncod
 
 -- | <p>Details on a container instance host volume.</p>
 newtype HostVolumeProperties = HostVolumeProperties 
-  { "sourcePath" :: NullOrUndefined (String)
+  { "sourcePath" :: Maybe (String)
   }
 derive instance newtypeHostVolumeProperties :: Newtype HostVolumeProperties _
 derive instance repGenericHostVolumeProperties :: Generic HostVolumeProperties _
@@ -1366,12 +1365,12 @@ instance encodeHostVolumeProperties :: Encode HostVolumeProperties where encode 
 
 -- | Constructs HostVolumeProperties from required parameters
 newHostVolumeProperties :: HostVolumeProperties
-newHostVolumeProperties  = HostVolumeProperties { "sourcePath": (NullOrUndefined Nothing) }
+newHostVolumeProperties  = HostVolumeProperties { "sourcePath": Nothing }
 
 -- | Constructs HostVolumeProperties's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newHostVolumeProperties' :: ( { "sourcePath" :: NullOrUndefined (String) } -> {"sourcePath" :: NullOrUndefined (String) } ) -> HostVolumeProperties
-newHostVolumeProperties'  customize = (HostVolumeProperties <<< customize) { "sourcePath": (NullOrUndefined Nothing) }
+newHostVolumeProperties' :: ( { "sourcePath" :: Maybe (String) } -> {"sourcePath" :: Maybe (String) } ) -> HostVolumeProperties
+newHostVolumeProperties'  customize = (HostVolumeProperties <<< customize) { "sourcePath": Nothing }
 
 
 
@@ -1387,8 +1386,8 @@ instance encodeInvalidParameterException :: Encode InvalidParameterException whe
 
 -- | <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker. For more information on the default capabilities and the non-default available capabilities, see <a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">Runtime privilege and Linux capabilities</a> in the <i>Docker run reference</i>. For more detailed information on these Linux capabilities, see the <a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">capabilities(7)</a> Linux manual page.</p>
 newtype KernelCapabilities = KernelCapabilities 
-  { "add" :: NullOrUndefined (StringList)
-  , "drop" :: NullOrUndefined (StringList)
+  { "add" :: Maybe (StringList)
+  , "drop" :: Maybe (StringList)
   }
 derive instance newtypeKernelCapabilities :: Newtype KernelCapabilities _
 derive instance repGenericKernelCapabilities :: Generic KernelCapabilities _
@@ -1398,19 +1397,19 @@ instance encodeKernelCapabilities :: Encode KernelCapabilities where encode = ge
 
 -- | Constructs KernelCapabilities from required parameters
 newKernelCapabilities :: KernelCapabilities
-newKernelCapabilities  = KernelCapabilities { "add": (NullOrUndefined Nothing), "drop": (NullOrUndefined Nothing) }
+newKernelCapabilities  = KernelCapabilities { "add": Nothing, "drop": Nothing }
 
 -- | Constructs KernelCapabilities's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKernelCapabilities' :: ( { "add" :: NullOrUndefined (StringList) , "drop" :: NullOrUndefined (StringList) } -> {"add" :: NullOrUndefined (StringList) , "drop" :: NullOrUndefined (StringList) } ) -> KernelCapabilities
-newKernelCapabilities'  customize = (KernelCapabilities <<< customize) { "add": (NullOrUndefined Nothing), "drop": (NullOrUndefined Nothing) }
+newKernelCapabilities' :: ( { "add" :: Maybe (StringList) , "drop" :: Maybe (StringList) } -> {"add" :: Maybe (StringList) , "drop" :: Maybe (StringList) } ) -> KernelCapabilities
+newKernelCapabilities'  customize = (KernelCapabilities <<< customize) { "add": Nothing, "drop": Nothing }
 
 
 
 -- | <p>A key and value pair object.</p>
 newtype KeyValuePair = KeyValuePair 
-  { "name" :: NullOrUndefined (String)
-  , "value" :: NullOrUndefined (String)
+  { "name" :: Maybe (String)
+  , "value" :: Maybe (String)
   }
 derive instance newtypeKeyValuePair :: Newtype KeyValuePair _
 derive instance repGenericKeyValuePair :: Generic KeyValuePair _
@@ -1420,12 +1419,12 @@ instance encodeKeyValuePair :: Encode KeyValuePair where encode = genericEncode 
 
 -- | Constructs KeyValuePair from required parameters
 newKeyValuePair :: KeyValuePair
-newKeyValuePair  = KeyValuePair { "name": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newKeyValuePair  = KeyValuePair { "name": Nothing, "value": Nothing }
 
 -- | Constructs KeyValuePair's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newKeyValuePair' :: ( { "name" :: NullOrUndefined (String) , "value" :: NullOrUndefined (String) } -> {"name" :: NullOrUndefined (String) , "value" :: NullOrUndefined (String) } ) -> KeyValuePair
-newKeyValuePair'  customize = (KeyValuePair <<< customize) { "name": (NullOrUndefined Nothing), "value": (NullOrUndefined Nothing) }
+newKeyValuePair' :: ( { "name" :: Maybe (String) , "value" :: Maybe (String) } -> {"name" :: Maybe (String) , "value" :: Maybe (String) } ) -> KeyValuePair
+newKeyValuePair'  customize = (KeyValuePair <<< customize) { "name": Nothing, "value": Nothing }
 
 
 
@@ -1440,9 +1439,9 @@ instance encodeLaunchType :: Encode LaunchType where encode = genericEncode opti
 
 -- | <p>Linux-specific options that are applied to the container, such as Linux <a>KernelCapabilities</a>.</p>
 newtype LinuxParameters = LinuxParameters 
-  { "capabilities" :: NullOrUndefined (KernelCapabilities)
-  , "devices" :: NullOrUndefined (DevicesList)
-  , "initProcessEnabled" :: NullOrUndefined (BoxedBoolean)
+  { "capabilities" :: Maybe (KernelCapabilities)
+  , "devices" :: Maybe (DevicesList)
+  , "initProcessEnabled" :: Maybe (BoxedBoolean)
   }
 derive instance newtypeLinuxParameters :: Newtype LinuxParameters _
 derive instance repGenericLinuxParameters :: Generic LinuxParameters _
@@ -1452,22 +1451,22 @@ instance encodeLinuxParameters :: Encode LinuxParameters where encode = genericE
 
 -- | Constructs LinuxParameters from required parameters
 newLinuxParameters :: LinuxParameters
-newLinuxParameters  = LinuxParameters { "capabilities": (NullOrUndefined Nothing), "devices": (NullOrUndefined Nothing), "initProcessEnabled": (NullOrUndefined Nothing) }
+newLinuxParameters  = LinuxParameters { "capabilities": Nothing, "devices": Nothing, "initProcessEnabled": Nothing }
 
 -- | Constructs LinuxParameters's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLinuxParameters' :: ( { "capabilities" :: NullOrUndefined (KernelCapabilities) , "devices" :: NullOrUndefined (DevicesList) , "initProcessEnabled" :: NullOrUndefined (BoxedBoolean) } -> {"capabilities" :: NullOrUndefined (KernelCapabilities) , "devices" :: NullOrUndefined (DevicesList) , "initProcessEnabled" :: NullOrUndefined (BoxedBoolean) } ) -> LinuxParameters
-newLinuxParameters'  customize = (LinuxParameters <<< customize) { "capabilities": (NullOrUndefined Nothing), "devices": (NullOrUndefined Nothing), "initProcessEnabled": (NullOrUndefined Nothing) }
+newLinuxParameters' :: ( { "capabilities" :: Maybe (KernelCapabilities) , "devices" :: Maybe (DevicesList) , "initProcessEnabled" :: Maybe (BoxedBoolean) } -> {"capabilities" :: Maybe (KernelCapabilities) , "devices" :: Maybe (DevicesList) , "initProcessEnabled" :: Maybe (BoxedBoolean) } ) -> LinuxParameters
+newLinuxParameters'  customize = (LinuxParameters <<< customize) { "capabilities": Nothing, "devices": Nothing, "initProcessEnabled": Nothing }
 
 
 
 newtype ListAttributesRequest = ListAttributesRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "targetType" :: (TargetType)
-  , "attributeName" :: NullOrUndefined (String)
-  , "attributeValue" :: NullOrUndefined (String)
-  , "nextToken" :: NullOrUndefined (String)
-  , "maxResults" :: NullOrUndefined (BoxedInteger)
+  , "attributeName" :: Maybe (String)
+  , "attributeValue" :: Maybe (String)
+  , "nextToken" :: Maybe (String)
+  , "maxResults" :: Maybe (BoxedInteger)
   }
 derive instance newtypeListAttributesRequest :: Newtype ListAttributesRequest _
 derive instance repGenericListAttributesRequest :: Generic ListAttributesRequest _
@@ -1477,18 +1476,18 @@ instance encodeListAttributesRequest :: Encode ListAttributesRequest where encod
 
 -- | Constructs ListAttributesRequest from required parameters
 newListAttributesRequest :: TargetType -> ListAttributesRequest
-newListAttributesRequest _targetType = ListAttributesRequest { "targetType": _targetType, "attributeName": (NullOrUndefined Nothing), "attributeValue": (NullOrUndefined Nothing), "cluster": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListAttributesRequest _targetType = ListAttributesRequest { "targetType": _targetType, "attributeName": Nothing, "attributeValue": Nothing, "cluster": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListAttributesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAttributesRequest' :: TargetType -> ( { "cluster" :: NullOrUndefined (String) , "targetType" :: (TargetType) , "attributeName" :: NullOrUndefined (String) , "attributeValue" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) } -> {"cluster" :: NullOrUndefined (String) , "targetType" :: (TargetType) , "attributeName" :: NullOrUndefined (String) , "attributeValue" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) } ) -> ListAttributesRequest
-newListAttributesRequest' _targetType customize = (ListAttributesRequest <<< customize) { "targetType": _targetType, "attributeName": (NullOrUndefined Nothing), "attributeValue": (NullOrUndefined Nothing), "cluster": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListAttributesRequest' :: TargetType -> ( { "cluster" :: Maybe (String) , "targetType" :: (TargetType) , "attributeName" :: Maybe (String) , "attributeValue" :: Maybe (String) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) } -> {"cluster" :: Maybe (String) , "targetType" :: (TargetType) , "attributeName" :: Maybe (String) , "attributeValue" :: Maybe (String) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) } ) -> ListAttributesRequest
+newListAttributesRequest' _targetType customize = (ListAttributesRequest <<< customize) { "targetType": _targetType, "attributeName": Nothing, "attributeValue": Nothing, "cluster": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListAttributesResponse = ListAttributesResponse 
-  { "attributes" :: NullOrUndefined (Attributes)
-  , "nextToken" :: NullOrUndefined (String)
+  { "attributes" :: Maybe (Attributes)
+  , "nextToken" :: Maybe (String)
   }
 derive instance newtypeListAttributesResponse :: Newtype ListAttributesResponse _
 derive instance repGenericListAttributesResponse :: Generic ListAttributesResponse _
@@ -1498,18 +1497,18 @@ instance encodeListAttributesResponse :: Encode ListAttributesResponse where enc
 
 -- | Constructs ListAttributesResponse from required parameters
 newListAttributesResponse :: ListAttributesResponse
-newListAttributesResponse  = ListAttributesResponse { "attributes": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListAttributesResponse  = ListAttributesResponse { "attributes": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListAttributesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListAttributesResponse' :: ( { "attributes" :: NullOrUndefined (Attributes) , "nextToken" :: NullOrUndefined (String) } -> {"attributes" :: NullOrUndefined (Attributes) , "nextToken" :: NullOrUndefined (String) } ) -> ListAttributesResponse
-newListAttributesResponse'  customize = (ListAttributesResponse <<< customize) { "attributes": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListAttributesResponse' :: ( { "attributes" :: Maybe (Attributes) , "nextToken" :: Maybe (String) } -> {"attributes" :: Maybe (Attributes) , "nextToken" :: Maybe (String) } ) -> ListAttributesResponse
+newListAttributesResponse'  customize = (ListAttributesResponse <<< customize) { "attributes": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListClustersRequest = ListClustersRequest 
-  { "nextToken" :: NullOrUndefined (String)
-  , "maxResults" :: NullOrUndefined (BoxedInteger)
+  { "nextToken" :: Maybe (String)
+  , "maxResults" :: Maybe (BoxedInteger)
   }
 derive instance newtypeListClustersRequest :: Newtype ListClustersRequest _
 derive instance repGenericListClustersRequest :: Generic ListClustersRequest _
@@ -1519,18 +1518,18 @@ instance encodeListClustersRequest :: Encode ListClustersRequest where encode = 
 
 -- | Constructs ListClustersRequest from required parameters
 newListClustersRequest :: ListClustersRequest
-newListClustersRequest  = ListClustersRequest { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListClustersRequest  = ListClustersRequest { "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListClustersRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListClustersRequest' :: ( { "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) } -> {"nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) } ) -> ListClustersRequest
-newListClustersRequest'  customize = (ListClustersRequest <<< customize) { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListClustersRequest' :: ( { "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) } -> {"nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) } ) -> ListClustersRequest
+newListClustersRequest'  customize = (ListClustersRequest <<< customize) { "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListClustersResponse = ListClustersResponse 
-  { "clusterArns" :: NullOrUndefined (StringList)
-  , "nextToken" :: NullOrUndefined (String)
+  { "clusterArns" :: Maybe (StringList)
+  , "nextToken" :: Maybe (String)
   }
 derive instance newtypeListClustersResponse :: Newtype ListClustersResponse _
 derive instance repGenericListClustersResponse :: Generic ListClustersResponse _
@@ -1540,21 +1539,21 @@ instance encodeListClustersResponse :: Encode ListClustersResponse where encode 
 
 -- | Constructs ListClustersResponse from required parameters
 newListClustersResponse :: ListClustersResponse
-newListClustersResponse  = ListClustersResponse { "clusterArns": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListClustersResponse  = ListClustersResponse { "clusterArns": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListClustersResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListClustersResponse' :: ( { "clusterArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } -> {"clusterArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } ) -> ListClustersResponse
-newListClustersResponse'  customize = (ListClustersResponse <<< customize) { "clusterArns": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListClustersResponse' :: ( { "clusterArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } -> {"clusterArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } ) -> ListClustersResponse
+newListClustersResponse'  customize = (ListClustersResponse <<< customize) { "clusterArns": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListContainerInstancesRequest = ListContainerInstancesRequest 
-  { "cluster" :: NullOrUndefined (String)
-  , "filter" :: NullOrUndefined (String)
-  , "nextToken" :: NullOrUndefined (String)
-  , "maxResults" :: NullOrUndefined (BoxedInteger)
-  , "status" :: NullOrUndefined (ContainerInstanceStatus)
+  { "cluster" :: Maybe (String)
+  , "filter" :: Maybe (String)
+  , "nextToken" :: Maybe (String)
+  , "maxResults" :: Maybe (BoxedInteger)
+  , "status" :: Maybe (ContainerInstanceStatus)
   }
 derive instance newtypeListContainerInstancesRequest :: Newtype ListContainerInstancesRequest _
 derive instance repGenericListContainerInstancesRequest :: Generic ListContainerInstancesRequest _
@@ -1564,18 +1563,18 @@ instance encodeListContainerInstancesRequest :: Encode ListContainerInstancesReq
 
 -- | Constructs ListContainerInstancesRequest from required parameters
 newListContainerInstancesRequest :: ListContainerInstancesRequest
-newListContainerInstancesRequest  = ListContainerInstancesRequest { "cluster": (NullOrUndefined Nothing), "filter": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newListContainerInstancesRequest  = ListContainerInstancesRequest { "cluster": Nothing, "filter": Nothing, "maxResults": Nothing, "nextToken": Nothing, "status": Nothing }
 
 -- | Constructs ListContainerInstancesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListContainerInstancesRequest' :: ( { "cluster" :: NullOrUndefined (String) , "filter" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) , "status" :: NullOrUndefined (ContainerInstanceStatus) } -> {"cluster" :: NullOrUndefined (String) , "filter" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) , "status" :: NullOrUndefined (ContainerInstanceStatus) } ) -> ListContainerInstancesRequest
-newListContainerInstancesRequest'  customize = (ListContainerInstancesRequest <<< customize) { "cluster": (NullOrUndefined Nothing), "filter": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newListContainerInstancesRequest' :: ( { "cluster" :: Maybe (String) , "filter" :: Maybe (String) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) , "status" :: Maybe (ContainerInstanceStatus) } -> {"cluster" :: Maybe (String) , "filter" :: Maybe (String) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) , "status" :: Maybe (ContainerInstanceStatus) } ) -> ListContainerInstancesRequest
+newListContainerInstancesRequest'  customize = (ListContainerInstancesRequest <<< customize) { "cluster": Nothing, "filter": Nothing, "maxResults": Nothing, "nextToken": Nothing, "status": Nothing }
 
 
 
 newtype ListContainerInstancesResponse = ListContainerInstancesResponse 
-  { "containerInstanceArns" :: NullOrUndefined (StringList)
-  , "nextToken" :: NullOrUndefined (String)
+  { "containerInstanceArns" :: Maybe (StringList)
+  , "nextToken" :: Maybe (String)
   }
 derive instance newtypeListContainerInstancesResponse :: Newtype ListContainerInstancesResponse _
 derive instance repGenericListContainerInstancesResponse :: Generic ListContainerInstancesResponse _
@@ -1585,20 +1584,20 @@ instance encodeListContainerInstancesResponse :: Encode ListContainerInstancesRe
 
 -- | Constructs ListContainerInstancesResponse from required parameters
 newListContainerInstancesResponse :: ListContainerInstancesResponse
-newListContainerInstancesResponse  = ListContainerInstancesResponse { "containerInstanceArns": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListContainerInstancesResponse  = ListContainerInstancesResponse { "containerInstanceArns": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListContainerInstancesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListContainerInstancesResponse' :: ( { "containerInstanceArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } -> {"containerInstanceArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } ) -> ListContainerInstancesResponse
-newListContainerInstancesResponse'  customize = (ListContainerInstancesResponse <<< customize) { "containerInstanceArns": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListContainerInstancesResponse' :: ( { "containerInstanceArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } -> {"containerInstanceArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } ) -> ListContainerInstancesResponse
+newListContainerInstancesResponse'  customize = (ListContainerInstancesResponse <<< customize) { "containerInstanceArns": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListServicesRequest = ListServicesRequest 
-  { "cluster" :: NullOrUndefined (String)
-  , "nextToken" :: NullOrUndefined (String)
-  , "maxResults" :: NullOrUndefined (BoxedInteger)
-  , "launchType" :: NullOrUndefined (LaunchType)
+  { "cluster" :: Maybe (String)
+  , "nextToken" :: Maybe (String)
+  , "maxResults" :: Maybe (BoxedInteger)
+  , "launchType" :: Maybe (LaunchType)
   }
 derive instance newtypeListServicesRequest :: Newtype ListServicesRequest _
 derive instance repGenericListServicesRequest :: Generic ListServicesRequest _
@@ -1608,18 +1607,18 @@ instance encodeListServicesRequest :: Encode ListServicesRequest where encode = 
 
 -- | Constructs ListServicesRequest from required parameters
 newListServicesRequest :: ListServicesRequest
-newListServicesRequest  = ListServicesRequest { "cluster": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListServicesRequest  = ListServicesRequest { "cluster": Nothing, "launchType": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListServicesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListServicesRequest' :: ( { "cluster" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) , "launchType" :: NullOrUndefined (LaunchType) } -> {"cluster" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) , "launchType" :: NullOrUndefined (LaunchType) } ) -> ListServicesRequest
-newListServicesRequest'  customize = (ListServicesRequest <<< customize) { "cluster": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListServicesRequest' :: ( { "cluster" :: Maybe (String) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) , "launchType" :: Maybe (LaunchType) } -> {"cluster" :: Maybe (String) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) , "launchType" :: Maybe (LaunchType) } ) -> ListServicesRequest
+newListServicesRequest'  customize = (ListServicesRequest <<< customize) { "cluster": Nothing, "launchType": Nothing, "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListServicesResponse = ListServicesResponse 
-  { "serviceArns" :: NullOrUndefined (StringList)
-  , "nextToken" :: NullOrUndefined (String)
+  { "serviceArns" :: Maybe (StringList)
+  , "nextToken" :: Maybe (String)
   }
 derive instance newtypeListServicesResponse :: Newtype ListServicesResponse _
 derive instance repGenericListServicesResponse :: Generic ListServicesResponse _
@@ -1629,20 +1628,20 @@ instance encodeListServicesResponse :: Encode ListServicesResponse where encode 
 
 -- | Constructs ListServicesResponse from required parameters
 newListServicesResponse :: ListServicesResponse
-newListServicesResponse  = ListServicesResponse { "nextToken": (NullOrUndefined Nothing), "serviceArns": (NullOrUndefined Nothing) }
+newListServicesResponse  = ListServicesResponse { "nextToken": Nothing, "serviceArns": Nothing }
 
 -- | Constructs ListServicesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListServicesResponse' :: ( { "serviceArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } -> {"serviceArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } ) -> ListServicesResponse
-newListServicesResponse'  customize = (ListServicesResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "serviceArns": (NullOrUndefined Nothing) }
+newListServicesResponse' :: ( { "serviceArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } -> {"serviceArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } ) -> ListServicesResponse
+newListServicesResponse'  customize = (ListServicesResponse <<< customize) { "nextToken": Nothing, "serviceArns": Nothing }
 
 
 
 newtype ListTaskDefinitionFamiliesRequest = ListTaskDefinitionFamiliesRequest 
-  { "familyPrefix" :: NullOrUndefined (String)
-  , "status" :: NullOrUndefined (TaskDefinitionFamilyStatus)
-  , "nextToken" :: NullOrUndefined (String)
-  , "maxResults" :: NullOrUndefined (BoxedInteger)
+  { "familyPrefix" :: Maybe (String)
+  , "status" :: Maybe (TaskDefinitionFamilyStatus)
+  , "nextToken" :: Maybe (String)
+  , "maxResults" :: Maybe (BoxedInteger)
   }
 derive instance newtypeListTaskDefinitionFamiliesRequest :: Newtype ListTaskDefinitionFamiliesRequest _
 derive instance repGenericListTaskDefinitionFamiliesRequest :: Generic ListTaskDefinitionFamiliesRequest _
@@ -1652,18 +1651,18 @@ instance encodeListTaskDefinitionFamiliesRequest :: Encode ListTaskDefinitionFam
 
 -- | Constructs ListTaskDefinitionFamiliesRequest from required parameters
 newListTaskDefinitionFamiliesRequest :: ListTaskDefinitionFamiliesRequest
-newListTaskDefinitionFamiliesRequest  = ListTaskDefinitionFamiliesRequest { "familyPrefix": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newListTaskDefinitionFamiliesRequest  = ListTaskDefinitionFamiliesRequest { "familyPrefix": Nothing, "maxResults": Nothing, "nextToken": Nothing, "status": Nothing }
 
 -- | Constructs ListTaskDefinitionFamiliesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTaskDefinitionFamiliesRequest' :: ( { "familyPrefix" :: NullOrUndefined (String) , "status" :: NullOrUndefined (TaskDefinitionFamilyStatus) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) } -> {"familyPrefix" :: NullOrUndefined (String) , "status" :: NullOrUndefined (TaskDefinitionFamilyStatus) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) } ) -> ListTaskDefinitionFamiliesRequest
-newListTaskDefinitionFamiliesRequest'  customize = (ListTaskDefinitionFamiliesRequest <<< customize) { "familyPrefix": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newListTaskDefinitionFamiliesRequest' :: ( { "familyPrefix" :: Maybe (String) , "status" :: Maybe (TaskDefinitionFamilyStatus) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) } -> {"familyPrefix" :: Maybe (String) , "status" :: Maybe (TaskDefinitionFamilyStatus) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) } ) -> ListTaskDefinitionFamiliesRequest
+newListTaskDefinitionFamiliesRequest'  customize = (ListTaskDefinitionFamiliesRequest <<< customize) { "familyPrefix": Nothing, "maxResults": Nothing, "nextToken": Nothing, "status": Nothing }
 
 
 
 newtype ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse 
-  { "families" :: NullOrUndefined (StringList)
-  , "nextToken" :: NullOrUndefined (String)
+  { "families" :: Maybe (StringList)
+  , "nextToken" :: Maybe (String)
   }
 derive instance newtypeListTaskDefinitionFamiliesResponse :: Newtype ListTaskDefinitionFamiliesResponse _
 derive instance repGenericListTaskDefinitionFamiliesResponse :: Generic ListTaskDefinitionFamiliesResponse _
@@ -1673,21 +1672,21 @@ instance encodeListTaskDefinitionFamiliesResponse :: Encode ListTaskDefinitionFa
 
 -- | Constructs ListTaskDefinitionFamiliesResponse from required parameters
 newListTaskDefinitionFamiliesResponse :: ListTaskDefinitionFamiliesResponse
-newListTaskDefinitionFamiliesResponse  = ListTaskDefinitionFamiliesResponse { "families": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListTaskDefinitionFamiliesResponse  = ListTaskDefinitionFamiliesResponse { "families": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListTaskDefinitionFamiliesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTaskDefinitionFamiliesResponse' :: ( { "families" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } -> {"families" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } ) -> ListTaskDefinitionFamiliesResponse
-newListTaskDefinitionFamiliesResponse'  customize = (ListTaskDefinitionFamiliesResponse <<< customize) { "families": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListTaskDefinitionFamiliesResponse' :: ( { "families" :: Maybe (StringList) , "nextToken" :: Maybe (String) } -> {"families" :: Maybe (StringList) , "nextToken" :: Maybe (String) } ) -> ListTaskDefinitionFamiliesResponse
+newListTaskDefinitionFamiliesResponse'  customize = (ListTaskDefinitionFamiliesResponse <<< customize) { "families": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListTaskDefinitionsRequest = ListTaskDefinitionsRequest 
-  { "familyPrefix" :: NullOrUndefined (String)
-  , "status" :: NullOrUndefined (TaskDefinitionStatus)
-  , "sort" :: NullOrUndefined (SortOrder)
-  , "nextToken" :: NullOrUndefined (String)
-  , "maxResults" :: NullOrUndefined (BoxedInteger)
+  { "familyPrefix" :: Maybe (String)
+  , "status" :: Maybe (TaskDefinitionStatus)
+  , "sort" :: Maybe (SortOrder)
+  , "nextToken" :: Maybe (String)
+  , "maxResults" :: Maybe (BoxedInteger)
   }
 derive instance newtypeListTaskDefinitionsRequest :: Newtype ListTaskDefinitionsRequest _
 derive instance repGenericListTaskDefinitionsRequest :: Generic ListTaskDefinitionsRequest _
@@ -1697,18 +1696,18 @@ instance encodeListTaskDefinitionsRequest :: Encode ListTaskDefinitionsRequest w
 
 -- | Constructs ListTaskDefinitionsRequest from required parameters
 newListTaskDefinitionsRequest :: ListTaskDefinitionsRequest
-newListTaskDefinitionsRequest  = ListTaskDefinitionsRequest { "familyPrefix": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "sort": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newListTaskDefinitionsRequest  = ListTaskDefinitionsRequest { "familyPrefix": Nothing, "maxResults": Nothing, "nextToken": Nothing, "sort": Nothing, "status": Nothing }
 
 -- | Constructs ListTaskDefinitionsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTaskDefinitionsRequest' :: ( { "familyPrefix" :: NullOrUndefined (String) , "status" :: NullOrUndefined (TaskDefinitionStatus) , "sort" :: NullOrUndefined (SortOrder) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) } -> {"familyPrefix" :: NullOrUndefined (String) , "status" :: NullOrUndefined (TaskDefinitionStatus) , "sort" :: NullOrUndefined (SortOrder) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) } ) -> ListTaskDefinitionsRequest
-newListTaskDefinitionsRequest'  customize = (ListTaskDefinitionsRequest <<< customize) { "familyPrefix": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "sort": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newListTaskDefinitionsRequest' :: ( { "familyPrefix" :: Maybe (String) , "status" :: Maybe (TaskDefinitionStatus) , "sort" :: Maybe (SortOrder) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) } -> {"familyPrefix" :: Maybe (String) , "status" :: Maybe (TaskDefinitionStatus) , "sort" :: Maybe (SortOrder) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) } ) -> ListTaskDefinitionsRequest
+newListTaskDefinitionsRequest'  customize = (ListTaskDefinitionsRequest <<< customize) { "familyPrefix": Nothing, "maxResults": Nothing, "nextToken": Nothing, "sort": Nothing, "status": Nothing }
 
 
 
 newtype ListTaskDefinitionsResponse = ListTaskDefinitionsResponse 
-  { "taskDefinitionArns" :: NullOrUndefined (StringList)
-  , "nextToken" :: NullOrUndefined (String)
+  { "taskDefinitionArns" :: Maybe (StringList)
+  , "nextToken" :: Maybe (String)
   }
 derive instance newtypeListTaskDefinitionsResponse :: Newtype ListTaskDefinitionsResponse _
 derive instance repGenericListTaskDefinitionsResponse :: Generic ListTaskDefinitionsResponse _
@@ -1718,25 +1717,25 @@ instance encodeListTaskDefinitionsResponse :: Encode ListTaskDefinitionsResponse
 
 -- | Constructs ListTaskDefinitionsResponse from required parameters
 newListTaskDefinitionsResponse :: ListTaskDefinitionsResponse
-newListTaskDefinitionsResponse  = ListTaskDefinitionsResponse { "nextToken": (NullOrUndefined Nothing), "taskDefinitionArns": (NullOrUndefined Nothing) }
+newListTaskDefinitionsResponse  = ListTaskDefinitionsResponse { "nextToken": Nothing, "taskDefinitionArns": Nothing }
 
 -- | Constructs ListTaskDefinitionsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTaskDefinitionsResponse' :: ( { "taskDefinitionArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } -> {"taskDefinitionArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } ) -> ListTaskDefinitionsResponse
-newListTaskDefinitionsResponse'  customize = (ListTaskDefinitionsResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "taskDefinitionArns": (NullOrUndefined Nothing) }
+newListTaskDefinitionsResponse' :: ( { "taskDefinitionArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } -> {"taskDefinitionArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } ) -> ListTaskDefinitionsResponse
+newListTaskDefinitionsResponse'  customize = (ListTaskDefinitionsResponse <<< customize) { "nextToken": Nothing, "taskDefinitionArns": Nothing }
 
 
 
 newtype ListTasksRequest = ListTasksRequest 
-  { "cluster" :: NullOrUndefined (String)
-  , "containerInstance" :: NullOrUndefined (String)
-  , "family" :: NullOrUndefined (String)
-  , "nextToken" :: NullOrUndefined (String)
-  , "maxResults" :: NullOrUndefined (BoxedInteger)
-  , "startedBy" :: NullOrUndefined (String)
-  , "serviceName" :: NullOrUndefined (String)
-  , "desiredStatus" :: NullOrUndefined (DesiredStatus)
-  , "launchType" :: NullOrUndefined (LaunchType)
+  { "cluster" :: Maybe (String)
+  , "containerInstance" :: Maybe (String)
+  , "family" :: Maybe (String)
+  , "nextToken" :: Maybe (String)
+  , "maxResults" :: Maybe (BoxedInteger)
+  , "startedBy" :: Maybe (String)
+  , "serviceName" :: Maybe (String)
+  , "desiredStatus" :: Maybe (DesiredStatus)
+  , "launchType" :: Maybe (LaunchType)
   }
 derive instance newtypeListTasksRequest :: Newtype ListTasksRequest _
 derive instance repGenericListTasksRequest :: Generic ListTasksRequest _
@@ -1746,18 +1745,18 @@ instance encodeListTasksRequest :: Encode ListTasksRequest where encode = generi
 
 -- | Constructs ListTasksRequest from required parameters
 newListTasksRequest :: ListTasksRequest
-newListTasksRequest  = ListTasksRequest { "cluster": (NullOrUndefined Nothing), "containerInstance": (NullOrUndefined Nothing), "desiredStatus": (NullOrUndefined Nothing), "family": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "serviceName": (NullOrUndefined Nothing), "startedBy": (NullOrUndefined Nothing) }
+newListTasksRequest  = ListTasksRequest { "cluster": Nothing, "containerInstance": Nothing, "desiredStatus": Nothing, "family": Nothing, "launchType": Nothing, "maxResults": Nothing, "nextToken": Nothing, "serviceName": Nothing, "startedBy": Nothing }
 
 -- | Constructs ListTasksRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTasksRequest' :: ( { "cluster" :: NullOrUndefined (String) , "containerInstance" :: NullOrUndefined (String) , "family" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) , "startedBy" :: NullOrUndefined (String) , "serviceName" :: NullOrUndefined (String) , "desiredStatus" :: NullOrUndefined (DesiredStatus) , "launchType" :: NullOrUndefined (LaunchType) } -> {"cluster" :: NullOrUndefined (String) , "containerInstance" :: NullOrUndefined (String) , "family" :: NullOrUndefined (String) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (BoxedInteger) , "startedBy" :: NullOrUndefined (String) , "serviceName" :: NullOrUndefined (String) , "desiredStatus" :: NullOrUndefined (DesiredStatus) , "launchType" :: NullOrUndefined (LaunchType) } ) -> ListTasksRequest
-newListTasksRequest'  customize = (ListTasksRequest <<< customize) { "cluster": (NullOrUndefined Nothing), "containerInstance": (NullOrUndefined Nothing), "desiredStatus": (NullOrUndefined Nothing), "family": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "serviceName": (NullOrUndefined Nothing), "startedBy": (NullOrUndefined Nothing) }
+newListTasksRequest' :: ( { "cluster" :: Maybe (String) , "containerInstance" :: Maybe (String) , "family" :: Maybe (String) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) , "startedBy" :: Maybe (String) , "serviceName" :: Maybe (String) , "desiredStatus" :: Maybe (DesiredStatus) , "launchType" :: Maybe (LaunchType) } -> {"cluster" :: Maybe (String) , "containerInstance" :: Maybe (String) , "family" :: Maybe (String) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (BoxedInteger) , "startedBy" :: Maybe (String) , "serviceName" :: Maybe (String) , "desiredStatus" :: Maybe (DesiredStatus) , "launchType" :: Maybe (LaunchType) } ) -> ListTasksRequest
+newListTasksRequest'  customize = (ListTasksRequest <<< customize) { "cluster": Nothing, "containerInstance": Nothing, "desiredStatus": Nothing, "family": Nothing, "launchType": Nothing, "maxResults": Nothing, "nextToken": Nothing, "serviceName": Nothing, "startedBy": Nothing }
 
 
 
 newtype ListTasksResponse = ListTasksResponse 
-  { "taskArns" :: NullOrUndefined (StringList)
-  , "nextToken" :: NullOrUndefined (String)
+  { "taskArns" :: Maybe (StringList)
+  , "nextToken" :: Maybe (String)
   }
 derive instance newtypeListTasksResponse :: Newtype ListTasksResponse _
 derive instance repGenericListTasksResponse :: Generic ListTasksResponse _
@@ -1767,21 +1766,21 @@ instance encodeListTasksResponse :: Encode ListTasksResponse where encode = gene
 
 -- | Constructs ListTasksResponse from required parameters
 newListTasksResponse :: ListTasksResponse
-newListTasksResponse  = ListTasksResponse { "nextToken": (NullOrUndefined Nothing), "taskArns": (NullOrUndefined Nothing) }
+newListTasksResponse  = ListTasksResponse { "nextToken": Nothing, "taskArns": Nothing }
 
 -- | Constructs ListTasksResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListTasksResponse' :: ( { "taskArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } -> {"taskArns" :: NullOrUndefined (StringList) , "nextToken" :: NullOrUndefined (String) } ) -> ListTasksResponse
-newListTasksResponse'  customize = (ListTasksResponse <<< customize) { "nextToken": (NullOrUndefined Nothing), "taskArns": (NullOrUndefined Nothing) }
+newListTasksResponse' :: ( { "taskArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } -> {"taskArns" :: Maybe (StringList) , "nextToken" :: Maybe (String) } ) -> ListTasksResponse
+newListTasksResponse'  customize = (ListTasksResponse <<< customize) { "nextToken": Nothing, "taskArns": Nothing }
 
 
 
 -- | <p>Details on a load balancer that is used with a service.</p>
 newtype LoadBalancer = LoadBalancer 
-  { "targetGroupArn" :: NullOrUndefined (String)
-  , "loadBalancerName" :: NullOrUndefined (String)
-  , "containerName" :: NullOrUndefined (String)
-  , "containerPort" :: NullOrUndefined (BoxedInteger)
+  { "targetGroupArn" :: Maybe (String)
+  , "loadBalancerName" :: Maybe (String)
+  , "containerName" :: Maybe (String)
+  , "containerPort" :: Maybe (BoxedInteger)
   }
 derive instance newtypeLoadBalancer :: Newtype LoadBalancer _
 derive instance repGenericLoadBalancer :: Generic LoadBalancer _
@@ -1791,12 +1790,12 @@ instance encodeLoadBalancer :: Encode LoadBalancer where encode = genericEncode 
 
 -- | Constructs LoadBalancer from required parameters
 newLoadBalancer :: LoadBalancer
-newLoadBalancer  = LoadBalancer { "containerName": (NullOrUndefined Nothing), "containerPort": (NullOrUndefined Nothing), "loadBalancerName": (NullOrUndefined Nothing), "targetGroupArn": (NullOrUndefined Nothing) }
+newLoadBalancer  = LoadBalancer { "containerName": Nothing, "containerPort": Nothing, "loadBalancerName": Nothing, "targetGroupArn": Nothing }
 
 -- | Constructs LoadBalancer's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLoadBalancer' :: ( { "targetGroupArn" :: NullOrUndefined (String) , "loadBalancerName" :: NullOrUndefined (String) , "containerName" :: NullOrUndefined (String) , "containerPort" :: NullOrUndefined (BoxedInteger) } -> {"targetGroupArn" :: NullOrUndefined (String) , "loadBalancerName" :: NullOrUndefined (String) , "containerName" :: NullOrUndefined (String) , "containerPort" :: NullOrUndefined (BoxedInteger) } ) -> LoadBalancer
-newLoadBalancer'  customize = (LoadBalancer <<< customize) { "containerName": (NullOrUndefined Nothing), "containerPort": (NullOrUndefined Nothing), "loadBalancerName": (NullOrUndefined Nothing), "targetGroupArn": (NullOrUndefined Nothing) }
+newLoadBalancer' :: ( { "targetGroupArn" :: Maybe (String) , "loadBalancerName" :: Maybe (String) , "containerName" :: Maybe (String) , "containerPort" :: Maybe (BoxedInteger) } -> {"targetGroupArn" :: Maybe (String) , "loadBalancerName" :: Maybe (String) , "containerName" :: Maybe (String) , "containerPort" :: Maybe (BoxedInteger) } ) -> LoadBalancer
+newLoadBalancer'  customize = (LoadBalancer <<< customize) { "containerName": Nothing, "containerPort": Nothing, "loadBalancerName": Nothing, "targetGroupArn": Nothing }
 
 
 
@@ -1812,7 +1811,7 @@ instance encodeLoadBalancers :: Encode LoadBalancers where encode = genericEncod
 -- | <p>Log configuration options to send to a custom log driver for the container.</p>
 newtype LogConfiguration = LogConfiguration 
   { "logDriver" :: (LogDriver)
-  , "options" :: NullOrUndefined (LogConfigurationOptionsMap)
+  , "options" :: Maybe (LogConfigurationOptionsMap)
   }
 derive instance newtypeLogConfiguration :: Newtype LogConfiguration _
 derive instance repGenericLogConfiguration :: Generic LogConfiguration _
@@ -1822,12 +1821,12 @@ instance encodeLogConfiguration :: Encode LogConfiguration where encode = generi
 
 -- | Constructs LogConfiguration from required parameters
 newLogConfiguration :: LogDriver -> LogConfiguration
-newLogConfiguration _logDriver = LogConfiguration { "logDriver": _logDriver, "options": (NullOrUndefined Nothing) }
+newLogConfiguration _logDriver = LogConfiguration { "logDriver": _logDriver, "options": Nothing }
 
 -- | Constructs LogConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLogConfiguration' :: LogDriver -> ( { "logDriver" :: (LogDriver) , "options" :: NullOrUndefined (LogConfigurationOptionsMap) } -> {"logDriver" :: (LogDriver) , "options" :: NullOrUndefined (LogConfigurationOptionsMap) } ) -> LogConfiguration
-newLogConfiguration' _logDriver customize = (LogConfiguration <<< customize) { "logDriver": _logDriver, "options": (NullOrUndefined Nothing) }
+newLogConfiguration' :: LogDriver -> ( { "logDriver" :: (LogDriver) , "options" :: Maybe (LogConfigurationOptionsMap) } -> {"logDriver" :: (LogDriver) , "options" :: Maybe (LogConfigurationOptionsMap) } ) -> LogConfiguration
+newLogConfiguration' _logDriver customize = (LogConfiguration <<< customize) { "logDriver": _logDriver, "options": Nothing }
 
 
 
@@ -1861,9 +1860,9 @@ instance encodeMissingVersionException :: Encode MissingVersionException where e
 
 -- | <p>Details on a volume mount point that is used in a container definition.</p>
 newtype MountPoint = MountPoint 
-  { "sourceVolume" :: NullOrUndefined (String)
-  , "containerPath" :: NullOrUndefined (String)
-  , "readOnly" :: NullOrUndefined (BoxedBoolean)
+  { "sourceVolume" :: Maybe (String)
+  , "containerPath" :: Maybe (String)
+  , "readOnly" :: Maybe (BoxedBoolean)
   }
 derive instance newtypeMountPoint :: Newtype MountPoint _
 derive instance repGenericMountPoint :: Generic MountPoint _
@@ -1873,12 +1872,12 @@ instance encodeMountPoint :: Encode MountPoint where encode = genericEncode opti
 
 -- | Constructs MountPoint from required parameters
 newMountPoint :: MountPoint
-newMountPoint  = MountPoint { "containerPath": (NullOrUndefined Nothing), "readOnly": (NullOrUndefined Nothing), "sourceVolume": (NullOrUndefined Nothing) }
+newMountPoint  = MountPoint { "containerPath": Nothing, "readOnly": Nothing, "sourceVolume": Nothing }
 
 -- | Constructs MountPoint's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newMountPoint' :: ( { "sourceVolume" :: NullOrUndefined (String) , "containerPath" :: NullOrUndefined (String) , "readOnly" :: NullOrUndefined (BoxedBoolean) } -> {"sourceVolume" :: NullOrUndefined (String) , "containerPath" :: NullOrUndefined (String) , "readOnly" :: NullOrUndefined (BoxedBoolean) } ) -> MountPoint
-newMountPoint'  customize = (MountPoint <<< customize) { "containerPath": (NullOrUndefined Nothing), "readOnly": (NullOrUndefined Nothing), "sourceVolume": (NullOrUndefined Nothing) }
+newMountPoint' :: ( { "sourceVolume" :: Maybe (String) , "containerPath" :: Maybe (String) , "readOnly" :: Maybe (BoxedBoolean) } -> {"sourceVolume" :: Maybe (String) , "containerPath" :: Maybe (String) , "readOnly" :: Maybe (BoxedBoolean) } ) -> MountPoint
+newMountPoint'  customize = (MountPoint <<< customize) { "containerPath": Nothing, "readOnly": Nothing, "sourceVolume": Nothing }
 
 
 
@@ -1893,10 +1892,10 @@ instance encodeMountPointList :: Encode MountPointList where encode = genericEnc
 
 -- | <p>Details on the network bindings between a container and its host container instance. After a task reaches the <code>RUNNING</code> status, manual and automatic host and container port assignments are visible in the <code>networkBindings</code> section of <a>DescribeTasks</a> API responses.</p>
 newtype NetworkBinding = NetworkBinding 
-  { "bindIP" :: NullOrUndefined (String)
-  , "containerPort" :: NullOrUndefined (BoxedInteger)
-  , "hostPort" :: NullOrUndefined (BoxedInteger)
-  , "protocol" :: NullOrUndefined (TransportProtocol)
+  { "bindIP" :: Maybe (String)
+  , "containerPort" :: Maybe (BoxedInteger)
+  , "hostPort" :: Maybe (BoxedInteger)
+  , "protocol" :: Maybe (TransportProtocol)
   }
 derive instance newtypeNetworkBinding :: Newtype NetworkBinding _
 derive instance repGenericNetworkBinding :: Generic NetworkBinding _
@@ -1906,12 +1905,12 @@ instance encodeNetworkBinding :: Encode NetworkBinding where encode = genericEnc
 
 -- | Constructs NetworkBinding from required parameters
 newNetworkBinding :: NetworkBinding
-newNetworkBinding  = NetworkBinding { "bindIP": (NullOrUndefined Nothing), "containerPort": (NullOrUndefined Nothing), "hostPort": (NullOrUndefined Nothing), "protocol": (NullOrUndefined Nothing) }
+newNetworkBinding  = NetworkBinding { "bindIP": Nothing, "containerPort": Nothing, "hostPort": Nothing, "protocol": Nothing }
 
 -- | Constructs NetworkBinding's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNetworkBinding' :: ( { "bindIP" :: NullOrUndefined (String) , "containerPort" :: NullOrUndefined (BoxedInteger) , "hostPort" :: NullOrUndefined (BoxedInteger) , "protocol" :: NullOrUndefined (TransportProtocol) } -> {"bindIP" :: NullOrUndefined (String) , "containerPort" :: NullOrUndefined (BoxedInteger) , "hostPort" :: NullOrUndefined (BoxedInteger) , "protocol" :: NullOrUndefined (TransportProtocol) } ) -> NetworkBinding
-newNetworkBinding'  customize = (NetworkBinding <<< customize) { "bindIP": (NullOrUndefined Nothing), "containerPort": (NullOrUndefined Nothing), "hostPort": (NullOrUndefined Nothing), "protocol": (NullOrUndefined Nothing) }
+newNetworkBinding' :: ( { "bindIP" :: Maybe (String) , "containerPort" :: Maybe (BoxedInteger) , "hostPort" :: Maybe (BoxedInteger) , "protocol" :: Maybe (TransportProtocol) } -> {"bindIP" :: Maybe (String) , "containerPort" :: Maybe (BoxedInteger) , "hostPort" :: Maybe (BoxedInteger) , "protocol" :: Maybe (TransportProtocol) } ) -> NetworkBinding
+newNetworkBinding'  customize = (NetworkBinding <<< customize) { "bindIP": Nothing, "containerPort": Nothing, "hostPort": Nothing, "protocol": Nothing }
 
 
 
@@ -1926,7 +1925,7 @@ instance encodeNetworkBindings :: Encode NetworkBindings where encode = genericE
 
 -- | <p>An object representing the network configuration for a task or service.</p>
 newtype NetworkConfiguration = NetworkConfiguration 
-  { "awsvpcConfiguration" :: NullOrUndefined (AwsVpcConfiguration)
+  { "awsvpcConfiguration" :: Maybe (AwsVpcConfiguration)
   }
 derive instance newtypeNetworkConfiguration :: Newtype NetworkConfiguration _
 derive instance repGenericNetworkConfiguration :: Generic NetworkConfiguration _
@@ -1936,20 +1935,20 @@ instance encodeNetworkConfiguration :: Encode NetworkConfiguration where encode 
 
 -- | Constructs NetworkConfiguration from required parameters
 newNetworkConfiguration :: NetworkConfiguration
-newNetworkConfiguration  = NetworkConfiguration { "awsvpcConfiguration": (NullOrUndefined Nothing) }
+newNetworkConfiguration  = NetworkConfiguration { "awsvpcConfiguration": Nothing }
 
 -- | Constructs NetworkConfiguration's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNetworkConfiguration' :: ( { "awsvpcConfiguration" :: NullOrUndefined (AwsVpcConfiguration) } -> {"awsvpcConfiguration" :: NullOrUndefined (AwsVpcConfiguration) } ) -> NetworkConfiguration
-newNetworkConfiguration'  customize = (NetworkConfiguration <<< customize) { "awsvpcConfiguration": (NullOrUndefined Nothing) }
+newNetworkConfiguration' :: ( { "awsvpcConfiguration" :: Maybe (AwsVpcConfiguration) } -> {"awsvpcConfiguration" :: Maybe (AwsVpcConfiguration) } ) -> NetworkConfiguration
+newNetworkConfiguration'  customize = (NetworkConfiguration <<< customize) { "awsvpcConfiguration": Nothing }
 
 
 
 -- | <p>An object representing the Elastic Network Interface for tasks that use the <code>awsvpc</code> network mode.</p>
 newtype NetworkInterface = NetworkInterface 
-  { "attachmentId" :: NullOrUndefined (String)
-  , "privateIpv4Address" :: NullOrUndefined (String)
-  , "ipv6Address" :: NullOrUndefined (String)
+  { "attachmentId" :: Maybe (String)
+  , "privateIpv4Address" :: Maybe (String)
+  , "ipv6Address" :: Maybe (String)
   }
 derive instance newtypeNetworkInterface :: Newtype NetworkInterface _
 derive instance repGenericNetworkInterface :: Generic NetworkInterface _
@@ -1959,12 +1958,12 @@ instance encodeNetworkInterface :: Encode NetworkInterface where encode = generi
 
 -- | Constructs NetworkInterface from required parameters
 newNetworkInterface :: NetworkInterface
-newNetworkInterface  = NetworkInterface { "attachmentId": (NullOrUndefined Nothing), "ipv6Address": (NullOrUndefined Nothing), "privateIpv4Address": (NullOrUndefined Nothing) }
+newNetworkInterface  = NetworkInterface { "attachmentId": Nothing, "ipv6Address": Nothing, "privateIpv4Address": Nothing }
 
 -- | Constructs NetworkInterface's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newNetworkInterface' :: ( { "attachmentId" :: NullOrUndefined (String) , "privateIpv4Address" :: NullOrUndefined (String) , "ipv6Address" :: NullOrUndefined (String) } -> {"attachmentId" :: NullOrUndefined (String) , "privateIpv4Address" :: NullOrUndefined (String) , "ipv6Address" :: NullOrUndefined (String) } ) -> NetworkInterface
-newNetworkInterface'  customize = (NetworkInterface <<< customize) { "attachmentId": (NullOrUndefined Nothing), "ipv6Address": (NullOrUndefined Nothing), "privateIpv4Address": (NullOrUndefined Nothing) }
+newNetworkInterface' :: ( { "attachmentId" :: Maybe (String) , "privateIpv4Address" :: Maybe (String) , "ipv6Address" :: Maybe (String) } -> {"attachmentId" :: Maybe (String) , "privateIpv4Address" :: Maybe (String) , "ipv6Address" :: Maybe (String) } ) -> NetworkInterface
+newNetworkInterface'  customize = (NetworkInterface <<< customize) { "attachmentId": Nothing, "ipv6Address": Nothing, "privateIpv4Address": Nothing }
 
 
 
@@ -1998,8 +1997,8 @@ instance encodeNoUpdateAvailableException :: Encode NoUpdateAvailableException w
 
 -- | <p>An object representing a constraint on task placement. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 newtype PlacementConstraint = PlacementConstraint 
-  { "type" :: NullOrUndefined (PlacementConstraintType)
-  , "expression" :: NullOrUndefined (String)
+  { "type" :: Maybe (PlacementConstraintType)
+  , "expression" :: Maybe (String)
   }
 derive instance newtypePlacementConstraint :: Newtype PlacementConstraint _
 derive instance repGenericPlacementConstraint :: Generic PlacementConstraint _
@@ -2009,12 +2008,12 @@ instance encodePlacementConstraint :: Encode PlacementConstraint where encode = 
 
 -- | Constructs PlacementConstraint from required parameters
 newPlacementConstraint :: PlacementConstraint
-newPlacementConstraint  = PlacementConstraint { "expression": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newPlacementConstraint  = PlacementConstraint { "expression": Nothing, "type": Nothing }
 
 -- | Constructs PlacementConstraint's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPlacementConstraint' :: ( { "type" :: NullOrUndefined (PlacementConstraintType) , "expression" :: NullOrUndefined (String) } -> {"type" :: NullOrUndefined (PlacementConstraintType) , "expression" :: NullOrUndefined (String) } ) -> PlacementConstraint
-newPlacementConstraint'  customize = (PlacementConstraint <<< customize) { "expression": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newPlacementConstraint' :: ( { "type" :: Maybe (PlacementConstraintType) , "expression" :: Maybe (String) } -> {"type" :: Maybe (PlacementConstraintType) , "expression" :: Maybe (String) } ) -> PlacementConstraint
+newPlacementConstraint'  customize = (PlacementConstraint <<< customize) { "expression": Nothing, "type": Nothing }
 
 
 
@@ -2047,8 +2046,8 @@ instance encodePlacementStrategies :: Encode PlacementStrategies where encode = 
 
 -- | <p>The task placement strategy for a task or service. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 newtype PlacementStrategy = PlacementStrategy 
-  { "type" :: NullOrUndefined (PlacementStrategyType)
-  , "field" :: NullOrUndefined (String)
+  { "type" :: Maybe (PlacementStrategyType)
+  , "field" :: Maybe (String)
   }
 derive instance newtypePlacementStrategy :: Newtype PlacementStrategy _
 derive instance repGenericPlacementStrategy :: Generic PlacementStrategy _
@@ -2058,12 +2057,12 @@ instance encodePlacementStrategy :: Encode PlacementStrategy where encode = gene
 
 -- | Constructs PlacementStrategy from required parameters
 newPlacementStrategy :: PlacementStrategy
-newPlacementStrategy  = PlacementStrategy { "field": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newPlacementStrategy  = PlacementStrategy { "field": Nothing, "type": Nothing }
 
 -- | Constructs PlacementStrategy's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPlacementStrategy' :: ( { "type" :: NullOrUndefined (PlacementStrategyType) , "field" :: NullOrUndefined (String) } -> {"type" :: NullOrUndefined (PlacementStrategyType) , "field" :: NullOrUndefined (String) } ) -> PlacementStrategy
-newPlacementStrategy'  customize = (PlacementStrategy <<< customize) { "field": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newPlacementStrategy' :: ( { "type" :: Maybe (PlacementStrategyType) , "field" :: Maybe (String) } -> {"type" :: Maybe (PlacementStrategyType) , "field" :: Maybe (String) } ) -> PlacementStrategy
+newPlacementStrategy'  customize = (PlacementStrategy <<< customize) { "field": Nothing, "type": Nothing }
 
 
 
@@ -2098,9 +2097,9 @@ instance encodePlatformUnknownException :: Encode PlatformUnknownException where
 
 -- | <p>Port mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of the container definition.</p> <p>If using containers in a task with the <code>awsvpc</code> or <code>host</code> network mode, exposed ports should be specified using <code>containerPort</code>. The <code>hostPort</code> can be left blank or it must be the same value as the <code>containerPort</code>.</p> <p>After a task reaches the <code>RUNNING</code> status, manual and automatic host and container port assignments are visible in the <code>networkBindings</code> section of <a>DescribeTasks</a> API responses.</p>
 newtype PortMapping = PortMapping 
-  { "containerPort" :: NullOrUndefined (BoxedInteger)
-  , "hostPort" :: NullOrUndefined (BoxedInteger)
-  , "protocol" :: NullOrUndefined (TransportProtocol)
+  { "containerPort" :: Maybe (BoxedInteger)
+  , "hostPort" :: Maybe (BoxedInteger)
+  , "protocol" :: Maybe (TransportProtocol)
   }
 derive instance newtypePortMapping :: Newtype PortMapping _
 derive instance repGenericPortMapping :: Generic PortMapping _
@@ -2110,12 +2109,12 @@ instance encodePortMapping :: Encode PortMapping where encode = genericEncode op
 
 -- | Constructs PortMapping from required parameters
 newPortMapping :: PortMapping
-newPortMapping  = PortMapping { "containerPort": (NullOrUndefined Nothing), "hostPort": (NullOrUndefined Nothing), "protocol": (NullOrUndefined Nothing) }
+newPortMapping  = PortMapping { "containerPort": Nothing, "hostPort": Nothing, "protocol": Nothing }
 
 -- | Constructs PortMapping's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPortMapping' :: ( { "containerPort" :: NullOrUndefined (BoxedInteger) , "hostPort" :: NullOrUndefined (BoxedInteger) , "protocol" :: NullOrUndefined (TransportProtocol) } -> {"containerPort" :: NullOrUndefined (BoxedInteger) , "hostPort" :: NullOrUndefined (BoxedInteger) , "protocol" :: NullOrUndefined (TransportProtocol) } ) -> PortMapping
-newPortMapping'  customize = (PortMapping <<< customize) { "containerPort": (NullOrUndefined Nothing), "hostPort": (NullOrUndefined Nothing), "protocol": (NullOrUndefined Nothing) }
+newPortMapping' :: ( { "containerPort" :: Maybe (BoxedInteger) , "hostPort" :: Maybe (BoxedInteger) , "protocol" :: Maybe (TransportProtocol) } -> {"containerPort" :: Maybe (BoxedInteger) , "hostPort" :: Maybe (BoxedInteger) , "protocol" :: Maybe (TransportProtocol) } ) -> PortMapping
+newPortMapping'  customize = (PortMapping <<< customize) { "containerPort": Nothing, "hostPort": Nothing, "protocol": Nothing }
 
 
 
@@ -2129,7 +2128,7 @@ instance encodePortMappingList :: Encode PortMappingList where encode = genericE
 
 
 newtype PutAttributesRequest = PutAttributesRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "attributes" :: (Attributes)
   }
 derive instance newtypePutAttributesRequest :: Newtype PutAttributesRequest _
@@ -2140,17 +2139,17 @@ instance encodePutAttributesRequest :: Encode PutAttributesRequest where encode 
 
 -- | Constructs PutAttributesRequest from required parameters
 newPutAttributesRequest :: Attributes -> PutAttributesRequest
-newPutAttributesRequest _attributes = PutAttributesRequest { "attributes": _attributes, "cluster": (NullOrUndefined Nothing) }
+newPutAttributesRequest _attributes = PutAttributesRequest { "attributes": _attributes, "cluster": Nothing }
 
 -- | Constructs PutAttributesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutAttributesRequest' :: Attributes -> ( { "cluster" :: NullOrUndefined (String) , "attributes" :: (Attributes) } -> {"cluster" :: NullOrUndefined (String) , "attributes" :: (Attributes) } ) -> PutAttributesRequest
-newPutAttributesRequest' _attributes customize = (PutAttributesRequest <<< customize) { "attributes": _attributes, "cluster": (NullOrUndefined Nothing) }
+newPutAttributesRequest' :: Attributes -> ( { "cluster" :: Maybe (String) , "attributes" :: (Attributes) } -> {"cluster" :: Maybe (String) , "attributes" :: (Attributes) } ) -> PutAttributesRequest
+newPutAttributesRequest' _attributes customize = (PutAttributesRequest <<< customize) { "attributes": _attributes, "cluster": Nothing }
 
 
 
 newtype PutAttributesResponse = PutAttributesResponse 
-  { "attributes" :: NullOrUndefined (Attributes)
+  { "attributes" :: Maybe (Attributes)
   }
 derive instance newtypePutAttributesResponse :: Newtype PutAttributesResponse _
 derive instance repGenericPutAttributesResponse :: Generic PutAttributesResponse _
@@ -2160,23 +2159,23 @@ instance encodePutAttributesResponse :: Encode PutAttributesResponse where encod
 
 -- | Constructs PutAttributesResponse from required parameters
 newPutAttributesResponse :: PutAttributesResponse
-newPutAttributesResponse  = PutAttributesResponse { "attributes": (NullOrUndefined Nothing) }
+newPutAttributesResponse  = PutAttributesResponse { "attributes": Nothing }
 
 -- | Constructs PutAttributesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPutAttributesResponse' :: ( { "attributes" :: NullOrUndefined (Attributes) } -> {"attributes" :: NullOrUndefined (Attributes) } ) -> PutAttributesResponse
-newPutAttributesResponse'  customize = (PutAttributesResponse <<< customize) { "attributes": (NullOrUndefined Nothing) }
+newPutAttributesResponse' :: ( { "attributes" :: Maybe (Attributes) } -> {"attributes" :: Maybe (Attributes) } ) -> PutAttributesResponse
+newPutAttributesResponse'  customize = (PutAttributesResponse <<< customize) { "attributes": Nothing }
 
 
 
 newtype RegisterContainerInstanceRequest = RegisterContainerInstanceRequest 
-  { "cluster" :: NullOrUndefined (String)
-  , "instanceIdentityDocument" :: NullOrUndefined (String)
-  , "instanceIdentityDocumentSignature" :: NullOrUndefined (String)
-  , "totalResources" :: NullOrUndefined (Resources)
-  , "versionInfo" :: NullOrUndefined (VersionInfo)
-  , "containerInstanceArn" :: NullOrUndefined (String)
-  , "attributes" :: NullOrUndefined (Attributes)
+  { "cluster" :: Maybe (String)
+  , "instanceIdentityDocument" :: Maybe (String)
+  , "instanceIdentityDocumentSignature" :: Maybe (String)
+  , "totalResources" :: Maybe (Resources)
+  , "versionInfo" :: Maybe (VersionInfo)
+  , "containerInstanceArn" :: Maybe (String)
+  , "attributes" :: Maybe (Attributes)
   }
 derive instance newtypeRegisterContainerInstanceRequest :: Newtype RegisterContainerInstanceRequest _
 derive instance repGenericRegisterContainerInstanceRequest :: Generic RegisterContainerInstanceRequest _
@@ -2186,17 +2185,17 @@ instance encodeRegisterContainerInstanceRequest :: Encode RegisterContainerInsta
 
 -- | Constructs RegisterContainerInstanceRequest from required parameters
 newRegisterContainerInstanceRequest :: RegisterContainerInstanceRequest
-newRegisterContainerInstanceRequest  = RegisterContainerInstanceRequest { "attributes": (NullOrUndefined Nothing), "cluster": (NullOrUndefined Nothing), "containerInstanceArn": (NullOrUndefined Nothing), "instanceIdentityDocument": (NullOrUndefined Nothing), "instanceIdentityDocumentSignature": (NullOrUndefined Nothing), "totalResources": (NullOrUndefined Nothing), "versionInfo": (NullOrUndefined Nothing) }
+newRegisterContainerInstanceRequest  = RegisterContainerInstanceRequest { "attributes": Nothing, "cluster": Nothing, "containerInstanceArn": Nothing, "instanceIdentityDocument": Nothing, "instanceIdentityDocumentSignature": Nothing, "totalResources": Nothing, "versionInfo": Nothing }
 
 -- | Constructs RegisterContainerInstanceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRegisterContainerInstanceRequest' :: ( { "cluster" :: NullOrUndefined (String) , "instanceIdentityDocument" :: NullOrUndefined (String) , "instanceIdentityDocumentSignature" :: NullOrUndefined (String) , "totalResources" :: NullOrUndefined (Resources) , "versionInfo" :: NullOrUndefined (VersionInfo) , "containerInstanceArn" :: NullOrUndefined (String) , "attributes" :: NullOrUndefined (Attributes) } -> {"cluster" :: NullOrUndefined (String) , "instanceIdentityDocument" :: NullOrUndefined (String) , "instanceIdentityDocumentSignature" :: NullOrUndefined (String) , "totalResources" :: NullOrUndefined (Resources) , "versionInfo" :: NullOrUndefined (VersionInfo) , "containerInstanceArn" :: NullOrUndefined (String) , "attributes" :: NullOrUndefined (Attributes) } ) -> RegisterContainerInstanceRequest
-newRegisterContainerInstanceRequest'  customize = (RegisterContainerInstanceRequest <<< customize) { "attributes": (NullOrUndefined Nothing), "cluster": (NullOrUndefined Nothing), "containerInstanceArn": (NullOrUndefined Nothing), "instanceIdentityDocument": (NullOrUndefined Nothing), "instanceIdentityDocumentSignature": (NullOrUndefined Nothing), "totalResources": (NullOrUndefined Nothing), "versionInfo": (NullOrUndefined Nothing) }
+newRegisterContainerInstanceRequest' :: ( { "cluster" :: Maybe (String) , "instanceIdentityDocument" :: Maybe (String) , "instanceIdentityDocumentSignature" :: Maybe (String) , "totalResources" :: Maybe (Resources) , "versionInfo" :: Maybe (VersionInfo) , "containerInstanceArn" :: Maybe (String) , "attributes" :: Maybe (Attributes) } -> {"cluster" :: Maybe (String) , "instanceIdentityDocument" :: Maybe (String) , "instanceIdentityDocumentSignature" :: Maybe (String) , "totalResources" :: Maybe (Resources) , "versionInfo" :: Maybe (VersionInfo) , "containerInstanceArn" :: Maybe (String) , "attributes" :: Maybe (Attributes) } ) -> RegisterContainerInstanceRequest
+newRegisterContainerInstanceRequest'  customize = (RegisterContainerInstanceRequest <<< customize) { "attributes": Nothing, "cluster": Nothing, "containerInstanceArn": Nothing, "instanceIdentityDocument": Nothing, "instanceIdentityDocumentSignature": Nothing, "totalResources": Nothing, "versionInfo": Nothing }
 
 
 
 newtype RegisterContainerInstanceResponse = RegisterContainerInstanceResponse 
-  { "containerInstance" :: NullOrUndefined (ContainerInstance)
+  { "containerInstance" :: Maybe (ContainerInstance)
   }
 derive instance newtypeRegisterContainerInstanceResponse :: Newtype RegisterContainerInstanceResponse _
 derive instance repGenericRegisterContainerInstanceResponse :: Generic RegisterContainerInstanceResponse _
@@ -2206,26 +2205,26 @@ instance encodeRegisterContainerInstanceResponse :: Encode RegisterContainerInst
 
 -- | Constructs RegisterContainerInstanceResponse from required parameters
 newRegisterContainerInstanceResponse :: RegisterContainerInstanceResponse
-newRegisterContainerInstanceResponse  = RegisterContainerInstanceResponse { "containerInstance": (NullOrUndefined Nothing) }
+newRegisterContainerInstanceResponse  = RegisterContainerInstanceResponse { "containerInstance": Nothing }
 
 -- | Constructs RegisterContainerInstanceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRegisterContainerInstanceResponse' :: ( { "containerInstance" :: NullOrUndefined (ContainerInstance) } -> {"containerInstance" :: NullOrUndefined (ContainerInstance) } ) -> RegisterContainerInstanceResponse
-newRegisterContainerInstanceResponse'  customize = (RegisterContainerInstanceResponse <<< customize) { "containerInstance": (NullOrUndefined Nothing) }
+newRegisterContainerInstanceResponse' :: ( { "containerInstance" :: Maybe (ContainerInstance) } -> {"containerInstance" :: Maybe (ContainerInstance) } ) -> RegisterContainerInstanceResponse
+newRegisterContainerInstanceResponse'  customize = (RegisterContainerInstanceResponse <<< customize) { "containerInstance": Nothing }
 
 
 
 newtype RegisterTaskDefinitionRequest = RegisterTaskDefinitionRequest 
   { "family" :: (String)
-  , "taskRoleArn" :: NullOrUndefined (String)
-  , "executionRoleArn" :: NullOrUndefined (String)
-  , "networkMode" :: NullOrUndefined (NetworkMode)
+  , "taskRoleArn" :: Maybe (String)
+  , "executionRoleArn" :: Maybe (String)
+  , "networkMode" :: Maybe (NetworkMode)
   , "containerDefinitions" :: (ContainerDefinitions)
-  , "volumes" :: NullOrUndefined (VolumeList)
-  , "placementConstraints" :: NullOrUndefined (TaskDefinitionPlacementConstraints)
-  , "requiresCompatibilities" :: NullOrUndefined (CompatibilityList)
-  , "cpu" :: NullOrUndefined (String)
-  , "memory" :: NullOrUndefined (String)
+  , "volumes" :: Maybe (VolumeList)
+  , "placementConstraints" :: Maybe (TaskDefinitionPlacementConstraints)
+  , "requiresCompatibilities" :: Maybe (CompatibilityList)
+  , "cpu" :: Maybe (String)
+  , "memory" :: Maybe (String)
   }
 derive instance newtypeRegisterTaskDefinitionRequest :: Newtype RegisterTaskDefinitionRequest _
 derive instance repGenericRegisterTaskDefinitionRequest :: Generic RegisterTaskDefinitionRequest _
@@ -2235,17 +2234,17 @@ instance encodeRegisterTaskDefinitionRequest :: Encode RegisterTaskDefinitionReq
 
 -- | Constructs RegisterTaskDefinitionRequest from required parameters
 newRegisterTaskDefinitionRequest :: ContainerDefinitions -> String -> RegisterTaskDefinitionRequest
-newRegisterTaskDefinitionRequest _containerDefinitions _family = RegisterTaskDefinitionRequest { "containerDefinitions": _containerDefinitions, "family": _family, "cpu": (NullOrUndefined Nothing), "executionRoleArn": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "networkMode": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "requiresCompatibilities": (NullOrUndefined Nothing), "taskRoleArn": (NullOrUndefined Nothing), "volumes": (NullOrUndefined Nothing) }
+newRegisterTaskDefinitionRequest _containerDefinitions _family = RegisterTaskDefinitionRequest { "containerDefinitions": _containerDefinitions, "family": _family, "cpu": Nothing, "executionRoleArn": Nothing, "memory": Nothing, "networkMode": Nothing, "placementConstraints": Nothing, "requiresCompatibilities": Nothing, "taskRoleArn": Nothing, "volumes": Nothing }
 
 -- | Constructs RegisterTaskDefinitionRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRegisterTaskDefinitionRequest' :: ContainerDefinitions -> String -> ( { "family" :: (String) , "taskRoleArn" :: NullOrUndefined (String) , "executionRoleArn" :: NullOrUndefined (String) , "networkMode" :: NullOrUndefined (NetworkMode) , "containerDefinitions" :: (ContainerDefinitions) , "volumes" :: NullOrUndefined (VolumeList) , "placementConstraints" :: NullOrUndefined (TaskDefinitionPlacementConstraints) , "requiresCompatibilities" :: NullOrUndefined (CompatibilityList) , "cpu" :: NullOrUndefined (String) , "memory" :: NullOrUndefined (String) } -> {"family" :: (String) , "taskRoleArn" :: NullOrUndefined (String) , "executionRoleArn" :: NullOrUndefined (String) , "networkMode" :: NullOrUndefined (NetworkMode) , "containerDefinitions" :: (ContainerDefinitions) , "volumes" :: NullOrUndefined (VolumeList) , "placementConstraints" :: NullOrUndefined (TaskDefinitionPlacementConstraints) , "requiresCompatibilities" :: NullOrUndefined (CompatibilityList) , "cpu" :: NullOrUndefined (String) , "memory" :: NullOrUndefined (String) } ) -> RegisterTaskDefinitionRequest
-newRegisterTaskDefinitionRequest' _containerDefinitions _family customize = (RegisterTaskDefinitionRequest <<< customize) { "containerDefinitions": _containerDefinitions, "family": _family, "cpu": (NullOrUndefined Nothing), "executionRoleArn": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "networkMode": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "requiresCompatibilities": (NullOrUndefined Nothing), "taskRoleArn": (NullOrUndefined Nothing), "volumes": (NullOrUndefined Nothing) }
+newRegisterTaskDefinitionRequest' :: ContainerDefinitions -> String -> ( { "family" :: (String) , "taskRoleArn" :: Maybe (String) , "executionRoleArn" :: Maybe (String) , "networkMode" :: Maybe (NetworkMode) , "containerDefinitions" :: (ContainerDefinitions) , "volumes" :: Maybe (VolumeList) , "placementConstraints" :: Maybe (TaskDefinitionPlacementConstraints) , "requiresCompatibilities" :: Maybe (CompatibilityList) , "cpu" :: Maybe (String) , "memory" :: Maybe (String) } -> {"family" :: (String) , "taskRoleArn" :: Maybe (String) , "executionRoleArn" :: Maybe (String) , "networkMode" :: Maybe (NetworkMode) , "containerDefinitions" :: (ContainerDefinitions) , "volumes" :: Maybe (VolumeList) , "placementConstraints" :: Maybe (TaskDefinitionPlacementConstraints) , "requiresCompatibilities" :: Maybe (CompatibilityList) , "cpu" :: Maybe (String) , "memory" :: Maybe (String) } ) -> RegisterTaskDefinitionRequest
+newRegisterTaskDefinitionRequest' _containerDefinitions _family customize = (RegisterTaskDefinitionRequest <<< customize) { "containerDefinitions": _containerDefinitions, "family": _family, "cpu": Nothing, "executionRoleArn": Nothing, "memory": Nothing, "networkMode": Nothing, "placementConstraints": Nothing, "requiresCompatibilities": Nothing, "taskRoleArn": Nothing, "volumes": Nothing }
 
 
 
 newtype RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse 
-  { "taskDefinition" :: NullOrUndefined (TaskDefinition)
+  { "taskDefinition" :: Maybe (TaskDefinition)
   }
 derive instance newtypeRegisterTaskDefinitionResponse :: Newtype RegisterTaskDefinitionResponse _
 derive instance repGenericRegisterTaskDefinitionResponse :: Generic RegisterTaskDefinitionResponse _
@@ -2255,12 +2254,12 @@ instance encodeRegisterTaskDefinitionResponse :: Encode RegisterTaskDefinitionRe
 
 -- | Constructs RegisterTaskDefinitionResponse from required parameters
 newRegisterTaskDefinitionResponse :: RegisterTaskDefinitionResponse
-newRegisterTaskDefinitionResponse  = RegisterTaskDefinitionResponse { "taskDefinition": (NullOrUndefined Nothing) }
+newRegisterTaskDefinitionResponse  = RegisterTaskDefinitionResponse { "taskDefinition": Nothing }
 
 -- | Constructs RegisterTaskDefinitionResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRegisterTaskDefinitionResponse' :: ( { "taskDefinition" :: NullOrUndefined (TaskDefinition) } -> {"taskDefinition" :: NullOrUndefined (TaskDefinition) } ) -> RegisterTaskDefinitionResponse
-newRegisterTaskDefinitionResponse'  customize = (RegisterTaskDefinitionResponse <<< customize) { "taskDefinition": (NullOrUndefined Nothing) }
+newRegisterTaskDefinitionResponse' :: ( { "taskDefinition" :: Maybe (TaskDefinition) } -> {"taskDefinition" :: Maybe (TaskDefinition) } ) -> RegisterTaskDefinitionResponse
+newRegisterTaskDefinitionResponse'  customize = (RegisterTaskDefinitionResponse <<< customize) { "taskDefinition": Nothing }
 
 
 
@@ -2275,12 +2274,12 @@ instance encodeRequiresAttributes :: Encode RequiresAttributes where encode = ge
 
 -- | <p>Describes the resources available for a container instance.</p>
 newtype Resource = Resource 
-  { "name" :: NullOrUndefined (String)
-  , "type" :: NullOrUndefined (String)
-  , "doubleValue" :: NullOrUndefined (Number)
-  , "longValue" :: NullOrUndefined (Number)
-  , "integerValue" :: NullOrUndefined (Int)
-  , "stringSetValue" :: NullOrUndefined (StringList)
+  { "name" :: Maybe (String)
+  , "type" :: Maybe (String)
+  , "doubleValue" :: Maybe (Number)
+  , "longValue" :: Maybe (Number)
+  , "integerValue" :: Maybe (Int)
+  , "stringSetValue" :: Maybe (StringList)
   }
 derive instance newtypeResource :: Newtype Resource _
 derive instance repGenericResource :: Generic Resource _
@@ -2290,12 +2289,12 @@ instance encodeResource :: Encode Resource where encode = genericEncode options
 
 -- | Constructs Resource from required parameters
 newResource :: Resource
-newResource  = Resource { "doubleValue": (NullOrUndefined Nothing), "integerValue": (NullOrUndefined Nothing), "longValue": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "stringSetValue": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newResource  = Resource { "doubleValue": Nothing, "integerValue": Nothing, "longValue": Nothing, "name": Nothing, "stringSetValue": Nothing, "type": Nothing }
 
 -- | Constructs Resource's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResource' :: ( { "name" :: NullOrUndefined (String) , "type" :: NullOrUndefined (String) , "doubleValue" :: NullOrUndefined (Number) , "longValue" :: NullOrUndefined (Number) , "integerValue" :: NullOrUndefined (Int) , "stringSetValue" :: NullOrUndefined (StringList) } -> {"name" :: NullOrUndefined (String) , "type" :: NullOrUndefined (String) , "doubleValue" :: NullOrUndefined (Number) , "longValue" :: NullOrUndefined (Number) , "integerValue" :: NullOrUndefined (Int) , "stringSetValue" :: NullOrUndefined (StringList) } ) -> Resource
-newResource'  customize = (Resource <<< customize) { "doubleValue": (NullOrUndefined Nothing), "integerValue": (NullOrUndefined Nothing), "longValue": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "stringSetValue": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newResource' :: ( { "name" :: Maybe (String) , "type" :: Maybe (String) , "doubleValue" :: Maybe (Number) , "longValue" :: Maybe (Number) , "integerValue" :: Maybe (Int) , "stringSetValue" :: Maybe (StringList) } -> {"name" :: Maybe (String) , "type" :: Maybe (String) , "doubleValue" :: Maybe (Number) , "longValue" :: Maybe (Number) , "integerValue" :: Maybe (Int) , "stringSetValue" :: Maybe (StringList) } ) -> Resource
+newResource'  customize = (Resource <<< customize) { "doubleValue": Nothing, "integerValue": Nothing, "longValue": Nothing, "name": Nothing, "stringSetValue": Nothing, "type": Nothing }
 
 
 
@@ -2309,17 +2308,17 @@ instance encodeResources :: Encode Resources where encode = genericEncode option
 
 
 newtype RunTaskRequest = RunTaskRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "taskDefinition" :: (String)
-  , "overrides" :: NullOrUndefined (TaskOverride)
-  , "count" :: NullOrUndefined (BoxedInteger)
-  , "startedBy" :: NullOrUndefined (String)
-  , "group" :: NullOrUndefined (String)
-  , "placementConstraints" :: NullOrUndefined (PlacementConstraints)
-  , "placementStrategy" :: NullOrUndefined (PlacementStrategies)
-  , "launchType" :: NullOrUndefined (LaunchType)
-  , "platformVersion" :: NullOrUndefined (String)
-  , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration)
+  , "overrides" :: Maybe (TaskOverride)
+  , "count" :: Maybe (BoxedInteger)
+  , "startedBy" :: Maybe (String)
+  , "group" :: Maybe (String)
+  , "placementConstraints" :: Maybe (PlacementConstraints)
+  , "placementStrategy" :: Maybe (PlacementStrategies)
+  , "launchType" :: Maybe (LaunchType)
+  , "platformVersion" :: Maybe (String)
+  , "networkConfiguration" :: Maybe (NetworkConfiguration)
   }
 derive instance newtypeRunTaskRequest :: Newtype RunTaskRequest _
 derive instance repGenericRunTaskRequest :: Generic RunTaskRequest _
@@ -2329,18 +2328,18 @@ instance encodeRunTaskRequest :: Encode RunTaskRequest where encode = genericEnc
 
 -- | Constructs RunTaskRequest from required parameters
 newRunTaskRequest :: String -> RunTaskRequest
-newRunTaskRequest _taskDefinition = RunTaskRequest { "taskDefinition": _taskDefinition, "cluster": (NullOrUndefined Nothing), "count": (NullOrUndefined Nothing), "group": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "overrides": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "placementStrategy": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "startedBy": (NullOrUndefined Nothing) }
+newRunTaskRequest _taskDefinition = RunTaskRequest { "taskDefinition": _taskDefinition, "cluster": Nothing, "count": Nothing, "group": Nothing, "launchType": Nothing, "networkConfiguration": Nothing, "overrides": Nothing, "placementConstraints": Nothing, "placementStrategy": Nothing, "platformVersion": Nothing, "startedBy": Nothing }
 
 -- | Constructs RunTaskRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRunTaskRequest' :: String -> ( { "cluster" :: NullOrUndefined (String) , "taskDefinition" :: (String) , "overrides" :: NullOrUndefined (TaskOverride) , "count" :: NullOrUndefined (BoxedInteger) , "startedBy" :: NullOrUndefined (String) , "group" :: NullOrUndefined (String) , "placementConstraints" :: NullOrUndefined (PlacementConstraints) , "placementStrategy" :: NullOrUndefined (PlacementStrategies) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) } -> {"cluster" :: NullOrUndefined (String) , "taskDefinition" :: (String) , "overrides" :: NullOrUndefined (TaskOverride) , "count" :: NullOrUndefined (BoxedInteger) , "startedBy" :: NullOrUndefined (String) , "group" :: NullOrUndefined (String) , "placementConstraints" :: NullOrUndefined (PlacementConstraints) , "placementStrategy" :: NullOrUndefined (PlacementStrategies) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) } ) -> RunTaskRequest
-newRunTaskRequest' _taskDefinition customize = (RunTaskRequest <<< customize) { "taskDefinition": _taskDefinition, "cluster": (NullOrUndefined Nothing), "count": (NullOrUndefined Nothing), "group": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "overrides": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "placementStrategy": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "startedBy": (NullOrUndefined Nothing) }
+newRunTaskRequest' :: String -> ( { "cluster" :: Maybe (String) , "taskDefinition" :: (String) , "overrides" :: Maybe (TaskOverride) , "count" :: Maybe (BoxedInteger) , "startedBy" :: Maybe (String) , "group" :: Maybe (String) , "placementConstraints" :: Maybe (PlacementConstraints) , "placementStrategy" :: Maybe (PlacementStrategies) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "networkConfiguration" :: Maybe (NetworkConfiguration) } -> {"cluster" :: Maybe (String) , "taskDefinition" :: (String) , "overrides" :: Maybe (TaskOverride) , "count" :: Maybe (BoxedInteger) , "startedBy" :: Maybe (String) , "group" :: Maybe (String) , "placementConstraints" :: Maybe (PlacementConstraints) , "placementStrategy" :: Maybe (PlacementStrategies) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "networkConfiguration" :: Maybe (NetworkConfiguration) } ) -> RunTaskRequest
+newRunTaskRequest' _taskDefinition customize = (RunTaskRequest <<< customize) { "taskDefinition": _taskDefinition, "cluster": Nothing, "count": Nothing, "group": Nothing, "launchType": Nothing, "networkConfiguration": Nothing, "overrides": Nothing, "placementConstraints": Nothing, "placementStrategy": Nothing, "platformVersion": Nothing, "startedBy": Nothing }
 
 
 
 newtype RunTaskResponse = RunTaskResponse 
-  { "tasks" :: NullOrUndefined (Tasks)
-  , "failures" :: NullOrUndefined (Failures)
+  { "tasks" :: Maybe (Tasks)
+  , "failures" :: Maybe (Failures)
   }
 derive instance newtypeRunTaskResponse :: Newtype RunTaskResponse _
 derive instance repGenericRunTaskResponse :: Generic RunTaskResponse _
@@ -2350,18 +2349,18 @@ instance encodeRunTaskResponse :: Encode RunTaskResponse where encode = genericE
 
 -- | Constructs RunTaskResponse from required parameters
 newRunTaskResponse :: RunTaskResponse
-newRunTaskResponse  = RunTaskResponse { "failures": (NullOrUndefined Nothing), "tasks": (NullOrUndefined Nothing) }
+newRunTaskResponse  = RunTaskResponse { "failures": Nothing, "tasks": Nothing }
 
 -- | Constructs RunTaskResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRunTaskResponse' :: ( { "tasks" :: NullOrUndefined (Tasks) , "failures" :: NullOrUndefined (Failures) } -> {"tasks" :: NullOrUndefined (Tasks) , "failures" :: NullOrUndefined (Failures) } ) -> RunTaskResponse
-newRunTaskResponse'  customize = (RunTaskResponse <<< customize) { "failures": (NullOrUndefined Nothing), "tasks": (NullOrUndefined Nothing) }
+newRunTaskResponse' :: ( { "tasks" :: Maybe (Tasks) , "failures" :: Maybe (Failures) } -> {"tasks" :: Maybe (Tasks) , "failures" :: Maybe (Failures) } ) -> RunTaskResponse
+newRunTaskResponse'  customize = (RunTaskResponse <<< customize) { "failures": Nothing, "tasks": Nothing }
 
 
 
 -- | <p>These errors are usually caused by a server issue.</p>
 newtype ServerException = ServerException 
-  { "message" :: NullOrUndefined (String)
+  { "message" :: Maybe (String)
   }
 derive instance newtypeServerException :: Newtype ServerException _
 derive instance repGenericServerException :: Generic ServerException _
@@ -2371,37 +2370,37 @@ instance encodeServerException :: Encode ServerException where encode = genericE
 
 -- | Constructs ServerException from required parameters
 newServerException :: ServerException
-newServerException  = ServerException { "message": (NullOrUndefined Nothing) }
+newServerException  = ServerException { "message": Nothing }
 
 -- | Constructs ServerException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServerException' :: ( { "message" :: NullOrUndefined (String) } -> {"message" :: NullOrUndefined (String) } ) -> ServerException
-newServerException'  customize = (ServerException <<< customize) { "message": (NullOrUndefined Nothing) }
+newServerException' :: ( { "message" :: Maybe (String) } -> {"message" :: Maybe (String) } ) -> ServerException
+newServerException'  customize = (ServerException <<< customize) { "message": Nothing }
 
 
 
 -- | <p>Details on a service within a cluster</p>
 newtype Service = Service 
-  { "serviceArn" :: NullOrUndefined (String)
-  , "serviceName" :: NullOrUndefined (String)
-  , "clusterArn" :: NullOrUndefined (String)
-  , "loadBalancers" :: NullOrUndefined (LoadBalancers)
-  , "status" :: NullOrUndefined (String)
-  , "desiredCount" :: NullOrUndefined (Int)
-  , "runningCount" :: NullOrUndefined (Int)
-  , "pendingCount" :: NullOrUndefined (Int)
-  , "launchType" :: NullOrUndefined (LaunchType)
-  , "platformVersion" :: NullOrUndefined (String)
-  , "taskDefinition" :: NullOrUndefined (String)
-  , "deploymentConfiguration" :: NullOrUndefined (DeploymentConfiguration)
-  , "deployments" :: NullOrUndefined (Deployments)
-  , "roleArn" :: NullOrUndefined (String)
-  , "events" :: NullOrUndefined (ServiceEvents)
-  , "createdAt" :: NullOrUndefined (Types.Timestamp)
-  , "placementConstraints" :: NullOrUndefined (PlacementConstraints)
-  , "placementStrategy" :: NullOrUndefined (PlacementStrategies)
-  , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration)
-  , "healthCheckGracePeriodSeconds" :: NullOrUndefined (BoxedInteger)
+  { "serviceArn" :: Maybe (String)
+  , "serviceName" :: Maybe (String)
+  , "clusterArn" :: Maybe (String)
+  , "loadBalancers" :: Maybe (LoadBalancers)
+  , "status" :: Maybe (String)
+  , "desiredCount" :: Maybe (Int)
+  , "runningCount" :: Maybe (Int)
+  , "pendingCount" :: Maybe (Int)
+  , "launchType" :: Maybe (LaunchType)
+  , "platformVersion" :: Maybe (String)
+  , "taskDefinition" :: Maybe (String)
+  , "deploymentConfiguration" :: Maybe (DeploymentConfiguration)
+  , "deployments" :: Maybe (Deployments)
+  , "roleArn" :: Maybe (String)
+  , "events" :: Maybe (ServiceEvents)
+  , "createdAt" :: Maybe (Types.Timestamp)
+  , "placementConstraints" :: Maybe (PlacementConstraints)
+  , "placementStrategy" :: Maybe (PlacementStrategies)
+  , "networkConfiguration" :: Maybe (NetworkConfiguration)
+  , "healthCheckGracePeriodSeconds" :: Maybe (BoxedInteger)
   }
 derive instance newtypeService :: Newtype Service _
 derive instance repGenericService :: Generic Service _
@@ -2411,20 +2410,20 @@ instance encodeService :: Encode Service where encode = genericEncode options
 
 -- | Constructs Service from required parameters
 newService :: Service
-newService  = Service { "clusterArn": (NullOrUndefined Nothing), "createdAt": (NullOrUndefined Nothing), "deploymentConfiguration": (NullOrUndefined Nothing), "deployments": (NullOrUndefined Nothing), "desiredCount": (NullOrUndefined Nothing), "events": (NullOrUndefined Nothing), "healthCheckGracePeriodSeconds": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "loadBalancers": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "pendingCount": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "placementStrategy": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "roleArn": (NullOrUndefined Nothing), "runningCount": (NullOrUndefined Nothing), "serviceArn": (NullOrUndefined Nothing), "serviceName": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "taskDefinition": (NullOrUndefined Nothing) }
+newService  = Service { "clusterArn": Nothing, "createdAt": Nothing, "deploymentConfiguration": Nothing, "deployments": Nothing, "desiredCount": Nothing, "events": Nothing, "healthCheckGracePeriodSeconds": Nothing, "launchType": Nothing, "loadBalancers": Nothing, "networkConfiguration": Nothing, "pendingCount": Nothing, "placementConstraints": Nothing, "placementStrategy": Nothing, "platformVersion": Nothing, "roleArn": Nothing, "runningCount": Nothing, "serviceArn": Nothing, "serviceName": Nothing, "status": Nothing, "taskDefinition": Nothing }
 
 -- | Constructs Service's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newService' :: ( { "serviceArn" :: NullOrUndefined (String) , "serviceName" :: NullOrUndefined (String) , "clusterArn" :: NullOrUndefined (String) , "loadBalancers" :: NullOrUndefined (LoadBalancers) , "status" :: NullOrUndefined (String) , "desiredCount" :: NullOrUndefined (Int) , "runningCount" :: NullOrUndefined (Int) , "pendingCount" :: NullOrUndefined (Int) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "taskDefinition" :: NullOrUndefined (String) , "deploymentConfiguration" :: NullOrUndefined (DeploymentConfiguration) , "deployments" :: NullOrUndefined (Deployments) , "roleArn" :: NullOrUndefined (String) , "events" :: NullOrUndefined (ServiceEvents) , "createdAt" :: NullOrUndefined (Types.Timestamp) , "placementConstraints" :: NullOrUndefined (PlacementConstraints) , "placementStrategy" :: NullOrUndefined (PlacementStrategies) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) , "healthCheckGracePeriodSeconds" :: NullOrUndefined (BoxedInteger) } -> {"serviceArn" :: NullOrUndefined (String) , "serviceName" :: NullOrUndefined (String) , "clusterArn" :: NullOrUndefined (String) , "loadBalancers" :: NullOrUndefined (LoadBalancers) , "status" :: NullOrUndefined (String) , "desiredCount" :: NullOrUndefined (Int) , "runningCount" :: NullOrUndefined (Int) , "pendingCount" :: NullOrUndefined (Int) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "taskDefinition" :: NullOrUndefined (String) , "deploymentConfiguration" :: NullOrUndefined (DeploymentConfiguration) , "deployments" :: NullOrUndefined (Deployments) , "roleArn" :: NullOrUndefined (String) , "events" :: NullOrUndefined (ServiceEvents) , "createdAt" :: NullOrUndefined (Types.Timestamp) , "placementConstraints" :: NullOrUndefined (PlacementConstraints) , "placementStrategy" :: NullOrUndefined (PlacementStrategies) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) , "healthCheckGracePeriodSeconds" :: NullOrUndefined (BoxedInteger) } ) -> Service
-newService'  customize = (Service <<< customize) { "clusterArn": (NullOrUndefined Nothing), "createdAt": (NullOrUndefined Nothing), "deploymentConfiguration": (NullOrUndefined Nothing), "deployments": (NullOrUndefined Nothing), "desiredCount": (NullOrUndefined Nothing), "events": (NullOrUndefined Nothing), "healthCheckGracePeriodSeconds": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "loadBalancers": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "pendingCount": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "placementStrategy": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "roleArn": (NullOrUndefined Nothing), "runningCount": (NullOrUndefined Nothing), "serviceArn": (NullOrUndefined Nothing), "serviceName": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "taskDefinition": (NullOrUndefined Nothing) }
+newService' :: ( { "serviceArn" :: Maybe (String) , "serviceName" :: Maybe (String) , "clusterArn" :: Maybe (String) , "loadBalancers" :: Maybe (LoadBalancers) , "status" :: Maybe (String) , "desiredCount" :: Maybe (Int) , "runningCount" :: Maybe (Int) , "pendingCount" :: Maybe (Int) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "taskDefinition" :: Maybe (String) , "deploymentConfiguration" :: Maybe (DeploymentConfiguration) , "deployments" :: Maybe (Deployments) , "roleArn" :: Maybe (String) , "events" :: Maybe (ServiceEvents) , "createdAt" :: Maybe (Types.Timestamp) , "placementConstraints" :: Maybe (PlacementConstraints) , "placementStrategy" :: Maybe (PlacementStrategies) , "networkConfiguration" :: Maybe (NetworkConfiguration) , "healthCheckGracePeriodSeconds" :: Maybe (BoxedInteger) } -> {"serviceArn" :: Maybe (String) , "serviceName" :: Maybe (String) , "clusterArn" :: Maybe (String) , "loadBalancers" :: Maybe (LoadBalancers) , "status" :: Maybe (String) , "desiredCount" :: Maybe (Int) , "runningCount" :: Maybe (Int) , "pendingCount" :: Maybe (Int) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "taskDefinition" :: Maybe (String) , "deploymentConfiguration" :: Maybe (DeploymentConfiguration) , "deployments" :: Maybe (Deployments) , "roleArn" :: Maybe (String) , "events" :: Maybe (ServiceEvents) , "createdAt" :: Maybe (Types.Timestamp) , "placementConstraints" :: Maybe (PlacementConstraints) , "placementStrategy" :: Maybe (PlacementStrategies) , "networkConfiguration" :: Maybe (NetworkConfiguration) , "healthCheckGracePeriodSeconds" :: Maybe (BoxedInteger) } ) -> Service
+newService'  customize = (Service <<< customize) { "clusterArn": Nothing, "createdAt": Nothing, "deploymentConfiguration": Nothing, "deployments": Nothing, "desiredCount": Nothing, "events": Nothing, "healthCheckGracePeriodSeconds": Nothing, "launchType": Nothing, "loadBalancers": Nothing, "networkConfiguration": Nothing, "pendingCount": Nothing, "placementConstraints": Nothing, "placementStrategy": Nothing, "platformVersion": Nothing, "roleArn": Nothing, "runningCount": Nothing, "serviceArn": Nothing, "serviceName": Nothing, "status": Nothing, "taskDefinition": Nothing }
 
 
 
 -- | <p>Details on an event associated with a service.</p>
 newtype ServiceEvent = ServiceEvent 
-  { "id" :: NullOrUndefined (String)
-  , "createdAt" :: NullOrUndefined (Types.Timestamp)
-  , "message" :: NullOrUndefined (String)
+  { "id" :: Maybe (String)
+  , "createdAt" :: Maybe (Types.Timestamp)
+  , "message" :: Maybe (String)
   }
 derive instance newtypeServiceEvent :: Newtype ServiceEvent _
 derive instance repGenericServiceEvent :: Generic ServiceEvent _
@@ -2434,12 +2433,12 @@ instance encodeServiceEvent :: Encode ServiceEvent where encode = genericEncode 
 
 -- | Constructs ServiceEvent from required parameters
 newServiceEvent :: ServiceEvent
-newServiceEvent  = ServiceEvent { "createdAt": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newServiceEvent  = ServiceEvent { "createdAt": Nothing, "id": Nothing, "message": Nothing }
 
 -- | Constructs ServiceEvent's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServiceEvent' :: ( { "id" :: NullOrUndefined (String) , "createdAt" :: NullOrUndefined (Types.Timestamp) , "message" :: NullOrUndefined (String) } -> {"id" :: NullOrUndefined (String) , "createdAt" :: NullOrUndefined (Types.Timestamp) , "message" :: NullOrUndefined (String) } ) -> ServiceEvent
-newServiceEvent'  customize = (ServiceEvent <<< customize) { "createdAt": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "message": (NullOrUndefined Nothing) }
+newServiceEvent' :: ( { "id" :: Maybe (String) , "createdAt" :: Maybe (Types.Timestamp) , "message" :: Maybe (String) } -> {"id" :: Maybe (String) , "createdAt" :: Maybe (Types.Timestamp) , "message" :: Maybe (String) } ) -> ServiceEvent
+newServiceEvent'  customize = (ServiceEvent <<< customize) { "createdAt": Nothing, "id": Nothing, "message": Nothing }
 
 
 
@@ -2491,13 +2490,13 @@ instance encodeSortOrder :: Encode SortOrder where encode = genericEncode option
 
 
 newtype StartTaskRequest = StartTaskRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "taskDefinition" :: (String)
-  , "overrides" :: NullOrUndefined (TaskOverride)
+  , "overrides" :: Maybe (TaskOverride)
   , "containerInstances" :: (StringList)
-  , "startedBy" :: NullOrUndefined (String)
-  , "group" :: NullOrUndefined (String)
-  , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration)
+  , "startedBy" :: Maybe (String)
+  , "group" :: Maybe (String)
+  , "networkConfiguration" :: Maybe (NetworkConfiguration)
   }
 derive instance newtypeStartTaskRequest :: Newtype StartTaskRequest _
 derive instance repGenericStartTaskRequest :: Generic StartTaskRequest _
@@ -2507,18 +2506,18 @@ instance encodeStartTaskRequest :: Encode StartTaskRequest where encode = generi
 
 -- | Constructs StartTaskRequest from required parameters
 newStartTaskRequest :: StringList -> String -> StartTaskRequest
-newStartTaskRequest _containerInstances _taskDefinition = StartTaskRequest { "containerInstances": _containerInstances, "taskDefinition": _taskDefinition, "cluster": (NullOrUndefined Nothing), "group": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "overrides": (NullOrUndefined Nothing), "startedBy": (NullOrUndefined Nothing) }
+newStartTaskRequest _containerInstances _taskDefinition = StartTaskRequest { "containerInstances": _containerInstances, "taskDefinition": _taskDefinition, "cluster": Nothing, "group": Nothing, "networkConfiguration": Nothing, "overrides": Nothing, "startedBy": Nothing }
 
 -- | Constructs StartTaskRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartTaskRequest' :: StringList -> String -> ( { "cluster" :: NullOrUndefined (String) , "taskDefinition" :: (String) , "overrides" :: NullOrUndefined (TaskOverride) , "containerInstances" :: (StringList) , "startedBy" :: NullOrUndefined (String) , "group" :: NullOrUndefined (String) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) } -> {"cluster" :: NullOrUndefined (String) , "taskDefinition" :: (String) , "overrides" :: NullOrUndefined (TaskOverride) , "containerInstances" :: (StringList) , "startedBy" :: NullOrUndefined (String) , "group" :: NullOrUndefined (String) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) } ) -> StartTaskRequest
-newStartTaskRequest' _containerInstances _taskDefinition customize = (StartTaskRequest <<< customize) { "containerInstances": _containerInstances, "taskDefinition": _taskDefinition, "cluster": (NullOrUndefined Nothing), "group": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "overrides": (NullOrUndefined Nothing), "startedBy": (NullOrUndefined Nothing) }
+newStartTaskRequest' :: StringList -> String -> ( { "cluster" :: Maybe (String) , "taskDefinition" :: (String) , "overrides" :: Maybe (TaskOverride) , "containerInstances" :: (StringList) , "startedBy" :: Maybe (String) , "group" :: Maybe (String) , "networkConfiguration" :: Maybe (NetworkConfiguration) } -> {"cluster" :: Maybe (String) , "taskDefinition" :: (String) , "overrides" :: Maybe (TaskOverride) , "containerInstances" :: (StringList) , "startedBy" :: Maybe (String) , "group" :: Maybe (String) , "networkConfiguration" :: Maybe (NetworkConfiguration) } ) -> StartTaskRequest
+newStartTaskRequest' _containerInstances _taskDefinition customize = (StartTaskRequest <<< customize) { "containerInstances": _containerInstances, "taskDefinition": _taskDefinition, "cluster": Nothing, "group": Nothing, "networkConfiguration": Nothing, "overrides": Nothing, "startedBy": Nothing }
 
 
 
 newtype StartTaskResponse = StartTaskResponse 
-  { "tasks" :: NullOrUndefined (Tasks)
-  , "failures" :: NullOrUndefined (Failures)
+  { "tasks" :: Maybe (Tasks)
+  , "failures" :: Maybe (Failures)
   }
 derive instance newtypeStartTaskResponse :: Newtype StartTaskResponse _
 derive instance repGenericStartTaskResponse :: Generic StartTaskResponse _
@@ -2528,12 +2527,12 @@ instance encodeStartTaskResponse :: Encode StartTaskResponse where encode = gene
 
 -- | Constructs StartTaskResponse from required parameters
 newStartTaskResponse :: StartTaskResponse
-newStartTaskResponse  = StartTaskResponse { "failures": (NullOrUndefined Nothing), "tasks": (NullOrUndefined Nothing) }
+newStartTaskResponse  = StartTaskResponse { "failures": Nothing, "tasks": Nothing }
 
 -- | Constructs StartTaskResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartTaskResponse' :: ( { "tasks" :: NullOrUndefined (Tasks) , "failures" :: NullOrUndefined (Failures) } -> {"tasks" :: NullOrUndefined (Tasks) , "failures" :: NullOrUndefined (Failures) } ) -> StartTaskResponse
-newStartTaskResponse'  customize = (StartTaskResponse <<< customize) { "failures": (NullOrUndefined Nothing), "tasks": (NullOrUndefined Nothing) }
+newStartTaskResponse' :: ( { "tasks" :: Maybe (Tasks) , "failures" :: Maybe (Failures) } -> {"tasks" :: Maybe (Tasks) , "failures" :: Maybe (Failures) } ) -> StartTaskResponse
+newStartTaskResponse'  customize = (StartTaskResponse <<< customize) { "failures": Nothing, "tasks": Nothing }
 
 
 
@@ -2547,9 +2546,9 @@ instance encodeStatistics :: Encode Statistics where encode = genericEncode opti
 
 
 newtype StopTaskRequest = StopTaskRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "task" :: (String)
-  , "reason" :: NullOrUndefined (String)
+  , "reason" :: Maybe (String)
   }
 derive instance newtypeStopTaskRequest :: Newtype StopTaskRequest _
 derive instance repGenericStopTaskRequest :: Generic StopTaskRequest _
@@ -2559,17 +2558,17 @@ instance encodeStopTaskRequest :: Encode StopTaskRequest where encode = genericE
 
 -- | Constructs StopTaskRequest from required parameters
 newStopTaskRequest :: String -> StopTaskRequest
-newStopTaskRequest _task = StopTaskRequest { "task": _task, "cluster": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing) }
+newStopTaskRequest _task = StopTaskRequest { "task": _task, "cluster": Nothing, "reason": Nothing }
 
 -- | Constructs StopTaskRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStopTaskRequest' :: String -> ( { "cluster" :: NullOrUndefined (String) , "task" :: (String) , "reason" :: NullOrUndefined (String) } -> {"cluster" :: NullOrUndefined (String) , "task" :: (String) , "reason" :: NullOrUndefined (String) } ) -> StopTaskRequest
-newStopTaskRequest' _task customize = (StopTaskRequest <<< customize) { "task": _task, "cluster": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing) }
+newStopTaskRequest' :: String -> ( { "cluster" :: Maybe (String) , "task" :: (String) , "reason" :: Maybe (String) } -> {"cluster" :: Maybe (String) , "task" :: (String) , "reason" :: Maybe (String) } ) -> StopTaskRequest
+newStopTaskRequest' _task customize = (StopTaskRequest <<< customize) { "task": _task, "cluster": Nothing, "reason": Nothing }
 
 
 
 newtype StopTaskResponse = StopTaskResponse 
-  { "task" :: NullOrUndefined (Task)
+  { "task" :: Maybe (Task)
   }
 derive instance newtypeStopTaskResponse :: Newtype StopTaskResponse _
 derive instance repGenericStopTaskResponse :: Generic StopTaskResponse _
@@ -2579,12 +2578,12 @@ instance encodeStopTaskResponse :: Encode StopTaskResponse where encode = generi
 
 -- | Constructs StopTaskResponse from required parameters
 newStopTaskResponse :: StopTaskResponse
-newStopTaskResponse  = StopTaskResponse { "task": (NullOrUndefined Nothing) }
+newStopTaskResponse  = StopTaskResponse { "task": Nothing }
 
 -- | Constructs StopTaskResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStopTaskResponse' :: ( { "task" :: NullOrUndefined (Task) } -> {"task" :: NullOrUndefined (Task) } ) -> StopTaskResponse
-newStopTaskResponse'  customize = (StopTaskResponse <<< customize) { "task": (NullOrUndefined Nothing) }
+newStopTaskResponse' :: ( { "task" :: Maybe (Task) } -> {"task" :: Maybe (Task) } ) -> StopTaskResponse
+newStopTaskResponse'  customize = (StopTaskResponse <<< customize) { "task": Nothing }
 
 
 
@@ -2598,13 +2597,13 @@ instance encodeStringList :: Encode StringList where encode = genericEncode opti
 
 
 newtype SubmitContainerStateChangeRequest = SubmitContainerStateChangeRequest 
-  { "cluster" :: NullOrUndefined (String)
-  , "task" :: NullOrUndefined (String)
-  , "containerName" :: NullOrUndefined (String)
-  , "status" :: NullOrUndefined (String)
-  , "exitCode" :: NullOrUndefined (BoxedInteger)
-  , "reason" :: NullOrUndefined (String)
-  , "networkBindings" :: NullOrUndefined (NetworkBindings)
+  { "cluster" :: Maybe (String)
+  , "task" :: Maybe (String)
+  , "containerName" :: Maybe (String)
+  , "status" :: Maybe (String)
+  , "exitCode" :: Maybe (BoxedInteger)
+  , "reason" :: Maybe (String)
+  , "networkBindings" :: Maybe (NetworkBindings)
   }
 derive instance newtypeSubmitContainerStateChangeRequest :: Newtype SubmitContainerStateChangeRequest _
 derive instance repGenericSubmitContainerStateChangeRequest :: Generic SubmitContainerStateChangeRequest _
@@ -2614,17 +2613,17 @@ instance encodeSubmitContainerStateChangeRequest :: Encode SubmitContainerStateC
 
 -- | Constructs SubmitContainerStateChangeRequest from required parameters
 newSubmitContainerStateChangeRequest :: SubmitContainerStateChangeRequest
-newSubmitContainerStateChangeRequest  = SubmitContainerStateChangeRequest { "cluster": (NullOrUndefined Nothing), "containerName": (NullOrUndefined Nothing), "exitCode": (NullOrUndefined Nothing), "networkBindings": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "task": (NullOrUndefined Nothing) }
+newSubmitContainerStateChangeRequest  = SubmitContainerStateChangeRequest { "cluster": Nothing, "containerName": Nothing, "exitCode": Nothing, "networkBindings": Nothing, "reason": Nothing, "status": Nothing, "task": Nothing }
 
 -- | Constructs SubmitContainerStateChangeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSubmitContainerStateChangeRequest' :: ( { "cluster" :: NullOrUndefined (String) , "task" :: NullOrUndefined (String) , "containerName" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "exitCode" :: NullOrUndefined (BoxedInteger) , "reason" :: NullOrUndefined (String) , "networkBindings" :: NullOrUndefined (NetworkBindings) } -> {"cluster" :: NullOrUndefined (String) , "task" :: NullOrUndefined (String) , "containerName" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "exitCode" :: NullOrUndefined (BoxedInteger) , "reason" :: NullOrUndefined (String) , "networkBindings" :: NullOrUndefined (NetworkBindings) } ) -> SubmitContainerStateChangeRequest
-newSubmitContainerStateChangeRequest'  customize = (SubmitContainerStateChangeRequest <<< customize) { "cluster": (NullOrUndefined Nothing), "containerName": (NullOrUndefined Nothing), "exitCode": (NullOrUndefined Nothing), "networkBindings": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "task": (NullOrUndefined Nothing) }
+newSubmitContainerStateChangeRequest' :: ( { "cluster" :: Maybe (String) , "task" :: Maybe (String) , "containerName" :: Maybe (String) , "status" :: Maybe (String) , "exitCode" :: Maybe (BoxedInteger) , "reason" :: Maybe (String) , "networkBindings" :: Maybe (NetworkBindings) } -> {"cluster" :: Maybe (String) , "task" :: Maybe (String) , "containerName" :: Maybe (String) , "status" :: Maybe (String) , "exitCode" :: Maybe (BoxedInteger) , "reason" :: Maybe (String) , "networkBindings" :: Maybe (NetworkBindings) } ) -> SubmitContainerStateChangeRequest
+newSubmitContainerStateChangeRequest'  customize = (SubmitContainerStateChangeRequest <<< customize) { "cluster": Nothing, "containerName": Nothing, "exitCode": Nothing, "networkBindings": Nothing, "reason": Nothing, "status": Nothing, "task": Nothing }
 
 
 
 newtype SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse 
-  { "acknowledgment" :: NullOrUndefined (String)
+  { "acknowledgment" :: Maybe (String)
   }
 derive instance newtypeSubmitContainerStateChangeResponse :: Newtype SubmitContainerStateChangeResponse _
 derive instance repGenericSubmitContainerStateChangeResponse :: Generic SubmitContainerStateChangeResponse _
@@ -2634,25 +2633,25 @@ instance encodeSubmitContainerStateChangeResponse :: Encode SubmitContainerState
 
 -- | Constructs SubmitContainerStateChangeResponse from required parameters
 newSubmitContainerStateChangeResponse :: SubmitContainerStateChangeResponse
-newSubmitContainerStateChangeResponse  = SubmitContainerStateChangeResponse { "acknowledgment": (NullOrUndefined Nothing) }
+newSubmitContainerStateChangeResponse  = SubmitContainerStateChangeResponse { "acknowledgment": Nothing }
 
 -- | Constructs SubmitContainerStateChangeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSubmitContainerStateChangeResponse' :: ( { "acknowledgment" :: NullOrUndefined (String) } -> {"acknowledgment" :: NullOrUndefined (String) } ) -> SubmitContainerStateChangeResponse
-newSubmitContainerStateChangeResponse'  customize = (SubmitContainerStateChangeResponse <<< customize) { "acknowledgment": (NullOrUndefined Nothing) }
+newSubmitContainerStateChangeResponse' :: ( { "acknowledgment" :: Maybe (String) } -> {"acknowledgment" :: Maybe (String) } ) -> SubmitContainerStateChangeResponse
+newSubmitContainerStateChangeResponse'  customize = (SubmitContainerStateChangeResponse <<< customize) { "acknowledgment": Nothing }
 
 
 
 newtype SubmitTaskStateChangeRequest = SubmitTaskStateChangeRequest 
-  { "cluster" :: NullOrUndefined (String)
-  , "task" :: NullOrUndefined (String)
-  , "status" :: NullOrUndefined (String)
-  , "reason" :: NullOrUndefined (String)
-  , "containers" :: NullOrUndefined (ContainerStateChanges)
-  , "attachments" :: NullOrUndefined (AttachmentStateChanges)
-  , "pullStartedAt" :: NullOrUndefined (Types.Timestamp)
-  , "pullStoppedAt" :: NullOrUndefined (Types.Timestamp)
-  , "executionStoppedAt" :: NullOrUndefined (Types.Timestamp)
+  { "cluster" :: Maybe (String)
+  , "task" :: Maybe (String)
+  , "status" :: Maybe (String)
+  , "reason" :: Maybe (String)
+  , "containers" :: Maybe (ContainerStateChanges)
+  , "attachments" :: Maybe (AttachmentStateChanges)
+  , "pullStartedAt" :: Maybe (Types.Timestamp)
+  , "pullStoppedAt" :: Maybe (Types.Timestamp)
+  , "executionStoppedAt" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeSubmitTaskStateChangeRequest :: Newtype SubmitTaskStateChangeRequest _
 derive instance repGenericSubmitTaskStateChangeRequest :: Generic SubmitTaskStateChangeRequest _
@@ -2662,17 +2661,17 @@ instance encodeSubmitTaskStateChangeRequest :: Encode SubmitTaskStateChangeReque
 
 -- | Constructs SubmitTaskStateChangeRequest from required parameters
 newSubmitTaskStateChangeRequest :: SubmitTaskStateChangeRequest
-newSubmitTaskStateChangeRequest  = SubmitTaskStateChangeRequest { "attachments": (NullOrUndefined Nothing), "cluster": (NullOrUndefined Nothing), "containers": (NullOrUndefined Nothing), "executionStoppedAt": (NullOrUndefined Nothing), "pullStartedAt": (NullOrUndefined Nothing), "pullStoppedAt": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "task": (NullOrUndefined Nothing) }
+newSubmitTaskStateChangeRequest  = SubmitTaskStateChangeRequest { "attachments": Nothing, "cluster": Nothing, "containers": Nothing, "executionStoppedAt": Nothing, "pullStartedAt": Nothing, "pullStoppedAt": Nothing, "reason": Nothing, "status": Nothing, "task": Nothing }
 
 -- | Constructs SubmitTaskStateChangeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSubmitTaskStateChangeRequest' :: ( { "cluster" :: NullOrUndefined (String) , "task" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "reason" :: NullOrUndefined (String) , "containers" :: NullOrUndefined (ContainerStateChanges) , "attachments" :: NullOrUndefined (AttachmentStateChanges) , "pullStartedAt" :: NullOrUndefined (Types.Timestamp) , "pullStoppedAt" :: NullOrUndefined (Types.Timestamp) , "executionStoppedAt" :: NullOrUndefined (Types.Timestamp) } -> {"cluster" :: NullOrUndefined (String) , "task" :: NullOrUndefined (String) , "status" :: NullOrUndefined (String) , "reason" :: NullOrUndefined (String) , "containers" :: NullOrUndefined (ContainerStateChanges) , "attachments" :: NullOrUndefined (AttachmentStateChanges) , "pullStartedAt" :: NullOrUndefined (Types.Timestamp) , "pullStoppedAt" :: NullOrUndefined (Types.Timestamp) , "executionStoppedAt" :: NullOrUndefined (Types.Timestamp) } ) -> SubmitTaskStateChangeRequest
-newSubmitTaskStateChangeRequest'  customize = (SubmitTaskStateChangeRequest <<< customize) { "attachments": (NullOrUndefined Nothing), "cluster": (NullOrUndefined Nothing), "containers": (NullOrUndefined Nothing), "executionStoppedAt": (NullOrUndefined Nothing), "pullStartedAt": (NullOrUndefined Nothing), "pullStoppedAt": (NullOrUndefined Nothing), "reason": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "task": (NullOrUndefined Nothing) }
+newSubmitTaskStateChangeRequest' :: ( { "cluster" :: Maybe (String) , "task" :: Maybe (String) , "status" :: Maybe (String) , "reason" :: Maybe (String) , "containers" :: Maybe (ContainerStateChanges) , "attachments" :: Maybe (AttachmentStateChanges) , "pullStartedAt" :: Maybe (Types.Timestamp) , "pullStoppedAt" :: Maybe (Types.Timestamp) , "executionStoppedAt" :: Maybe (Types.Timestamp) } -> {"cluster" :: Maybe (String) , "task" :: Maybe (String) , "status" :: Maybe (String) , "reason" :: Maybe (String) , "containers" :: Maybe (ContainerStateChanges) , "attachments" :: Maybe (AttachmentStateChanges) , "pullStartedAt" :: Maybe (Types.Timestamp) , "pullStoppedAt" :: Maybe (Types.Timestamp) , "executionStoppedAt" :: Maybe (Types.Timestamp) } ) -> SubmitTaskStateChangeRequest
+newSubmitTaskStateChangeRequest'  customize = (SubmitTaskStateChangeRequest <<< customize) { "attachments": Nothing, "cluster": Nothing, "containers": Nothing, "executionStoppedAt": Nothing, "pullStartedAt": Nothing, "pullStoppedAt": Nothing, "reason": Nothing, "status": Nothing, "task": Nothing }
 
 
 
 newtype SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse 
-  { "acknowledgment" :: NullOrUndefined (String)
+  { "acknowledgment" :: Maybe (String)
   }
 derive instance newtypeSubmitTaskStateChangeResponse :: Newtype SubmitTaskStateChangeResponse _
 derive instance repGenericSubmitTaskStateChangeResponse :: Generic SubmitTaskStateChangeResponse _
@@ -2682,12 +2681,12 @@ instance encodeSubmitTaskStateChangeResponse :: Encode SubmitTaskStateChangeResp
 
 -- | Constructs SubmitTaskStateChangeResponse from required parameters
 newSubmitTaskStateChangeResponse :: SubmitTaskStateChangeResponse
-newSubmitTaskStateChangeResponse  = SubmitTaskStateChangeResponse { "acknowledgment": (NullOrUndefined Nothing) }
+newSubmitTaskStateChangeResponse  = SubmitTaskStateChangeResponse { "acknowledgment": Nothing }
 
 -- | Constructs SubmitTaskStateChangeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newSubmitTaskStateChangeResponse' :: ( { "acknowledgment" :: NullOrUndefined (String) } -> {"acknowledgment" :: NullOrUndefined (String) } ) -> SubmitTaskStateChangeResponse
-newSubmitTaskStateChangeResponse'  customize = (SubmitTaskStateChangeResponse <<< customize) { "acknowledgment": (NullOrUndefined Nothing) }
+newSubmitTaskStateChangeResponse' :: ( { "acknowledgment" :: Maybe (String) } -> {"acknowledgment" :: Maybe (String) } ) -> SubmitTaskStateChangeResponse
+newSubmitTaskStateChangeResponse'  customize = (SubmitTaskStateChangeResponse <<< customize) { "acknowledgment": Nothing }
 
 
 
@@ -2712,33 +2711,33 @@ instance encodeTargetType :: Encode TargetType where encode = genericEncode opti
 
 -- | <p>Details on a task in a cluster.</p>
 newtype Task = Task 
-  { "taskArn" :: NullOrUndefined (String)
-  , "clusterArn" :: NullOrUndefined (String)
-  , "taskDefinitionArn" :: NullOrUndefined (String)
-  , "containerInstanceArn" :: NullOrUndefined (String)
-  , "overrides" :: NullOrUndefined (TaskOverride)
-  , "lastStatus" :: NullOrUndefined (String)
-  , "desiredStatus" :: NullOrUndefined (String)
-  , "cpu" :: NullOrUndefined (String)
-  , "memory" :: NullOrUndefined (String)
-  , "containers" :: NullOrUndefined (Containers)
-  , "startedBy" :: NullOrUndefined (String)
-  , "version" :: NullOrUndefined (Number)
-  , "stoppedReason" :: NullOrUndefined (String)
-  , "connectivity" :: NullOrUndefined (Connectivity)
-  , "connectivityAt" :: NullOrUndefined (Types.Timestamp)
-  , "pullStartedAt" :: NullOrUndefined (Types.Timestamp)
-  , "pullStoppedAt" :: NullOrUndefined (Types.Timestamp)
-  , "executionStoppedAt" :: NullOrUndefined (Types.Timestamp)
-  , "createdAt" :: NullOrUndefined (Types.Timestamp)
-  , "startedAt" :: NullOrUndefined (Types.Timestamp)
-  , "stoppingAt" :: NullOrUndefined (Types.Timestamp)
-  , "stoppedAt" :: NullOrUndefined (Types.Timestamp)
-  , "group" :: NullOrUndefined (String)
-  , "launchType" :: NullOrUndefined (LaunchType)
-  , "platformVersion" :: NullOrUndefined (String)
-  , "attachments" :: NullOrUndefined (Attachments)
-  , "healthStatus" :: NullOrUndefined (HealthStatus)
+  { "taskArn" :: Maybe (String)
+  , "clusterArn" :: Maybe (String)
+  , "taskDefinitionArn" :: Maybe (String)
+  , "containerInstanceArn" :: Maybe (String)
+  , "overrides" :: Maybe (TaskOverride)
+  , "lastStatus" :: Maybe (String)
+  , "desiredStatus" :: Maybe (String)
+  , "cpu" :: Maybe (String)
+  , "memory" :: Maybe (String)
+  , "containers" :: Maybe (Containers)
+  , "startedBy" :: Maybe (String)
+  , "version" :: Maybe (Number)
+  , "stoppedReason" :: Maybe (String)
+  , "connectivity" :: Maybe (Connectivity)
+  , "connectivityAt" :: Maybe (Types.Timestamp)
+  , "pullStartedAt" :: Maybe (Types.Timestamp)
+  , "pullStoppedAt" :: Maybe (Types.Timestamp)
+  , "executionStoppedAt" :: Maybe (Types.Timestamp)
+  , "createdAt" :: Maybe (Types.Timestamp)
+  , "startedAt" :: Maybe (Types.Timestamp)
+  , "stoppingAt" :: Maybe (Types.Timestamp)
+  , "stoppedAt" :: Maybe (Types.Timestamp)
+  , "group" :: Maybe (String)
+  , "launchType" :: Maybe (LaunchType)
+  , "platformVersion" :: Maybe (String)
+  , "attachments" :: Maybe (Attachments)
+  , "healthStatus" :: Maybe (HealthStatus)
   }
 derive instance newtypeTask :: Newtype Task _
 derive instance repGenericTask :: Generic Task _
@@ -2748,32 +2747,32 @@ instance encodeTask :: Encode Task where encode = genericEncode options
 
 -- | Constructs Task from required parameters
 newTask :: Task
-newTask  = Task { "attachments": (NullOrUndefined Nothing), "clusterArn": (NullOrUndefined Nothing), "connectivity": (NullOrUndefined Nothing), "connectivityAt": (NullOrUndefined Nothing), "containerInstanceArn": (NullOrUndefined Nothing), "containers": (NullOrUndefined Nothing), "cpu": (NullOrUndefined Nothing), "createdAt": (NullOrUndefined Nothing), "desiredStatus": (NullOrUndefined Nothing), "executionStoppedAt": (NullOrUndefined Nothing), "group": (NullOrUndefined Nothing), "healthStatus": (NullOrUndefined Nothing), "lastStatus": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "overrides": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "pullStartedAt": (NullOrUndefined Nothing), "pullStoppedAt": (NullOrUndefined Nothing), "startedAt": (NullOrUndefined Nothing), "startedBy": (NullOrUndefined Nothing), "stoppedAt": (NullOrUndefined Nothing), "stoppedReason": (NullOrUndefined Nothing), "stoppingAt": (NullOrUndefined Nothing), "taskArn": (NullOrUndefined Nothing), "taskDefinitionArn": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newTask  = Task { "attachments": Nothing, "clusterArn": Nothing, "connectivity": Nothing, "connectivityAt": Nothing, "containerInstanceArn": Nothing, "containers": Nothing, "cpu": Nothing, "createdAt": Nothing, "desiredStatus": Nothing, "executionStoppedAt": Nothing, "group": Nothing, "healthStatus": Nothing, "lastStatus": Nothing, "launchType": Nothing, "memory": Nothing, "overrides": Nothing, "platformVersion": Nothing, "pullStartedAt": Nothing, "pullStoppedAt": Nothing, "startedAt": Nothing, "startedBy": Nothing, "stoppedAt": Nothing, "stoppedReason": Nothing, "stoppingAt": Nothing, "taskArn": Nothing, "taskDefinitionArn": Nothing, "version": Nothing }
 
 -- | Constructs Task's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTask' :: ( { "taskArn" :: NullOrUndefined (String) , "clusterArn" :: NullOrUndefined (String) , "taskDefinitionArn" :: NullOrUndefined (String) , "containerInstanceArn" :: NullOrUndefined (String) , "overrides" :: NullOrUndefined (TaskOverride) , "lastStatus" :: NullOrUndefined (String) , "desiredStatus" :: NullOrUndefined (String) , "cpu" :: NullOrUndefined (String) , "memory" :: NullOrUndefined (String) , "containers" :: NullOrUndefined (Containers) , "startedBy" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Number) , "stoppedReason" :: NullOrUndefined (String) , "connectivity" :: NullOrUndefined (Connectivity) , "connectivityAt" :: NullOrUndefined (Types.Timestamp) , "pullStartedAt" :: NullOrUndefined (Types.Timestamp) , "pullStoppedAt" :: NullOrUndefined (Types.Timestamp) , "executionStoppedAt" :: NullOrUndefined (Types.Timestamp) , "createdAt" :: NullOrUndefined (Types.Timestamp) , "startedAt" :: NullOrUndefined (Types.Timestamp) , "stoppingAt" :: NullOrUndefined (Types.Timestamp) , "stoppedAt" :: NullOrUndefined (Types.Timestamp) , "group" :: NullOrUndefined (String) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "attachments" :: NullOrUndefined (Attachments) , "healthStatus" :: NullOrUndefined (HealthStatus) } -> {"taskArn" :: NullOrUndefined (String) , "clusterArn" :: NullOrUndefined (String) , "taskDefinitionArn" :: NullOrUndefined (String) , "containerInstanceArn" :: NullOrUndefined (String) , "overrides" :: NullOrUndefined (TaskOverride) , "lastStatus" :: NullOrUndefined (String) , "desiredStatus" :: NullOrUndefined (String) , "cpu" :: NullOrUndefined (String) , "memory" :: NullOrUndefined (String) , "containers" :: NullOrUndefined (Containers) , "startedBy" :: NullOrUndefined (String) , "version" :: NullOrUndefined (Number) , "stoppedReason" :: NullOrUndefined (String) , "connectivity" :: NullOrUndefined (Connectivity) , "connectivityAt" :: NullOrUndefined (Types.Timestamp) , "pullStartedAt" :: NullOrUndefined (Types.Timestamp) , "pullStoppedAt" :: NullOrUndefined (Types.Timestamp) , "executionStoppedAt" :: NullOrUndefined (Types.Timestamp) , "createdAt" :: NullOrUndefined (Types.Timestamp) , "startedAt" :: NullOrUndefined (Types.Timestamp) , "stoppingAt" :: NullOrUndefined (Types.Timestamp) , "stoppedAt" :: NullOrUndefined (Types.Timestamp) , "group" :: NullOrUndefined (String) , "launchType" :: NullOrUndefined (LaunchType) , "platformVersion" :: NullOrUndefined (String) , "attachments" :: NullOrUndefined (Attachments) , "healthStatus" :: NullOrUndefined (HealthStatus) } ) -> Task
-newTask'  customize = (Task <<< customize) { "attachments": (NullOrUndefined Nothing), "clusterArn": (NullOrUndefined Nothing), "connectivity": (NullOrUndefined Nothing), "connectivityAt": (NullOrUndefined Nothing), "containerInstanceArn": (NullOrUndefined Nothing), "containers": (NullOrUndefined Nothing), "cpu": (NullOrUndefined Nothing), "createdAt": (NullOrUndefined Nothing), "desiredStatus": (NullOrUndefined Nothing), "executionStoppedAt": (NullOrUndefined Nothing), "group": (NullOrUndefined Nothing), "healthStatus": (NullOrUndefined Nothing), "lastStatus": (NullOrUndefined Nothing), "launchType": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "overrides": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "pullStartedAt": (NullOrUndefined Nothing), "pullStoppedAt": (NullOrUndefined Nothing), "startedAt": (NullOrUndefined Nothing), "startedBy": (NullOrUndefined Nothing), "stoppedAt": (NullOrUndefined Nothing), "stoppedReason": (NullOrUndefined Nothing), "stoppingAt": (NullOrUndefined Nothing), "taskArn": (NullOrUndefined Nothing), "taskDefinitionArn": (NullOrUndefined Nothing), "version": (NullOrUndefined Nothing) }
+newTask' :: ( { "taskArn" :: Maybe (String) , "clusterArn" :: Maybe (String) , "taskDefinitionArn" :: Maybe (String) , "containerInstanceArn" :: Maybe (String) , "overrides" :: Maybe (TaskOverride) , "lastStatus" :: Maybe (String) , "desiredStatus" :: Maybe (String) , "cpu" :: Maybe (String) , "memory" :: Maybe (String) , "containers" :: Maybe (Containers) , "startedBy" :: Maybe (String) , "version" :: Maybe (Number) , "stoppedReason" :: Maybe (String) , "connectivity" :: Maybe (Connectivity) , "connectivityAt" :: Maybe (Types.Timestamp) , "pullStartedAt" :: Maybe (Types.Timestamp) , "pullStoppedAt" :: Maybe (Types.Timestamp) , "executionStoppedAt" :: Maybe (Types.Timestamp) , "createdAt" :: Maybe (Types.Timestamp) , "startedAt" :: Maybe (Types.Timestamp) , "stoppingAt" :: Maybe (Types.Timestamp) , "stoppedAt" :: Maybe (Types.Timestamp) , "group" :: Maybe (String) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "attachments" :: Maybe (Attachments) , "healthStatus" :: Maybe (HealthStatus) } -> {"taskArn" :: Maybe (String) , "clusterArn" :: Maybe (String) , "taskDefinitionArn" :: Maybe (String) , "containerInstanceArn" :: Maybe (String) , "overrides" :: Maybe (TaskOverride) , "lastStatus" :: Maybe (String) , "desiredStatus" :: Maybe (String) , "cpu" :: Maybe (String) , "memory" :: Maybe (String) , "containers" :: Maybe (Containers) , "startedBy" :: Maybe (String) , "version" :: Maybe (Number) , "stoppedReason" :: Maybe (String) , "connectivity" :: Maybe (Connectivity) , "connectivityAt" :: Maybe (Types.Timestamp) , "pullStartedAt" :: Maybe (Types.Timestamp) , "pullStoppedAt" :: Maybe (Types.Timestamp) , "executionStoppedAt" :: Maybe (Types.Timestamp) , "createdAt" :: Maybe (Types.Timestamp) , "startedAt" :: Maybe (Types.Timestamp) , "stoppingAt" :: Maybe (Types.Timestamp) , "stoppedAt" :: Maybe (Types.Timestamp) , "group" :: Maybe (String) , "launchType" :: Maybe (LaunchType) , "platformVersion" :: Maybe (String) , "attachments" :: Maybe (Attachments) , "healthStatus" :: Maybe (HealthStatus) } ) -> Task
+newTask'  customize = (Task <<< customize) { "attachments": Nothing, "clusterArn": Nothing, "connectivity": Nothing, "connectivityAt": Nothing, "containerInstanceArn": Nothing, "containers": Nothing, "cpu": Nothing, "createdAt": Nothing, "desiredStatus": Nothing, "executionStoppedAt": Nothing, "group": Nothing, "healthStatus": Nothing, "lastStatus": Nothing, "launchType": Nothing, "memory": Nothing, "overrides": Nothing, "platformVersion": Nothing, "pullStartedAt": Nothing, "pullStoppedAt": Nothing, "startedAt": Nothing, "startedBy": Nothing, "stoppedAt": Nothing, "stoppedReason": Nothing, "stoppingAt": Nothing, "taskArn": Nothing, "taskDefinitionArn": Nothing, "version": Nothing }
 
 
 
 -- | <p>Details of a task definition.</p>
 newtype TaskDefinition = TaskDefinition 
-  { "taskDefinitionArn" :: NullOrUndefined (String)
-  , "containerDefinitions" :: NullOrUndefined (ContainerDefinitions)
-  , "family" :: NullOrUndefined (String)
-  , "taskRoleArn" :: NullOrUndefined (String)
-  , "executionRoleArn" :: NullOrUndefined (String)
-  , "networkMode" :: NullOrUndefined (NetworkMode)
-  , "revision" :: NullOrUndefined (Int)
-  , "volumes" :: NullOrUndefined (VolumeList)
-  , "status" :: NullOrUndefined (TaskDefinitionStatus)
-  , "requiresAttributes" :: NullOrUndefined (RequiresAttributes)
-  , "placementConstraints" :: NullOrUndefined (TaskDefinitionPlacementConstraints)
-  , "compatibilities" :: NullOrUndefined (CompatibilityList)
-  , "requiresCompatibilities" :: NullOrUndefined (CompatibilityList)
-  , "cpu" :: NullOrUndefined (String)
-  , "memory" :: NullOrUndefined (String)
+  { "taskDefinitionArn" :: Maybe (String)
+  , "containerDefinitions" :: Maybe (ContainerDefinitions)
+  , "family" :: Maybe (String)
+  , "taskRoleArn" :: Maybe (String)
+  , "executionRoleArn" :: Maybe (String)
+  , "networkMode" :: Maybe (NetworkMode)
+  , "revision" :: Maybe (Int)
+  , "volumes" :: Maybe (VolumeList)
+  , "status" :: Maybe (TaskDefinitionStatus)
+  , "requiresAttributes" :: Maybe (RequiresAttributes)
+  , "placementConstraints" :: Maybe (TaskDefinitionPlacementConstraints)
+  , "compatibilities" :: Maybe (CompatibilityList)
+  , "requiresCompatibilities" :: Maybe (CompatibilityList)
+  , "cpu" :: Maybe (String)
+  , "memory" :: Maybe (String)
   }
 derive instance newtypeTaskDefinition :: Newtype TaskDefinition _
 derive instance repGenericTaskDefinition :: Generic TaskDefinition _
@@ -2783,12 +2782,12 @@ instance encodeTaskDefinition :: Encode TaskDefinition where encode = genericEnc
 
 -- | Constructs TaskDefinition from required parameters
 newTaskDefinition :: TaskDefinition
-newTaskDefinition  = TaskDefinition { "compatibilities": (NullOrUndefined Nothing), "containerDefinitions": (NullOrUndefined Nothing), "cpu": (NullOrUndefined Nothing), "executionRoleArn": (NullOrUndefined Nothing), "family": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "networkMode": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "requiresAttributes": (NullOrUndefined Nothing), "requiresCompatibilities": (NullOrUndefined Nothing), "revision": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "taskDefinitionArn": (NullOrUndefined Nothing), "taskRoleArn": (NullOrUndefined Nothing), "volumes": (NullOrUndefined Nothing) }
+newTaskDefinition  = TaskDefinition { "compatibilities": Nothing, "containerDefinitions": Nothing, "cpu": Nothing, "executionRoleArn": Nothing, "family": Nothing, "memory": Nothing, "networkMode": Nothing, "placementConstraints": Nothing, "requiresAttributes": Nothing, "requiresCompatibilities": Nothing, "revision": Nothing, "status": Nothing, "taskDefinitionArn": Nothing, "taskRoleArn": Nothing, "volumes": Nothing }
 
 -- | Constructs TaskDefinition's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTaskDefinition' :: ( { "taskDefinitionArn" :: NullOrUndefined (String) , "containerDefinitions" :: NullOrUndefined (ContainerDefinitions) , "family" :: NullOrUndefined (String) , "taskRoleArn" :: NullOrUndefined (String) , "executionRoleArn" :: NullOrUndefined (String) , "networkMode" :: NullOrUndefined (NetworkMode) , "revision" :: NullOrUndefined (Int) , "volumes" :: NullOrUndefined (VolumeList) , "status" :: NullOrUndefined (TaskDefinitionStatus) , "requiresAttributes" :: NullOrUndefined (RequiresAttributes) , "placementConstraints" :: NullOrUndefined (TaskDefinitionPlacementConstraints) , "compatibilities" :: NullOrUndefined (CompatibilityList) , "requiresCompatibilities" :: NullOrUndefined (CompatibilityList) , "cpu" :: NullOrUndefined (String) , "memory" :: NullOrUndefined (String) } -> {"taskDefinitionArn" :: NullOrUndefined (String) , "containerDefinitions" :: NullOrUndefined (ContainerDefinitions) , "family" :: NullOrUndefined (String) , "taskRoleArn" :: NullOrUndefined (String) , "executionRoleArn" :: NullOrUndefined (String) , "networkMode" :: NullOrUndefined (NetworkMode) , "revision" :: NullOrUndefined (Int) , "volumes" :: NullOrUndefined (VolumeList) , "status" :: NullOrUndefined (TaskDefinitionStatus) , "requiresAttributes" :: NullOrUndefined (RequiresAttributes) , "placementConstraints" :: NullOrUndefined (TaskDefinitionPlacementConstraints) , "compatibilities" :: NullOrUndefined (CompatibilityList) , "requiresCompatibilities" :: NullOrUndefined (CompatibilityList) , "cpu" :: NullOrUndefined (String) , "memory" :: NullOrUndefined (String) } ) -> TaskDefinition
-newTaskDefinition'  customize = (TaskDefinition <<< customize) { "compatibilities": (NullOrUndefined Nothing), "containerDefinitions": (NullOrUndefined Nothing), "cpu": (NullOrUndefined Nothing), "executionRoleArn": (NullOrUndefined Nothing), "family": (NullOrUndefined Nothing), "memory": (NullOrUndefined Nothing), "networkMode": (NullOrUndefined Nothing), "placementConstraints": (NullOrUndefined Nothing), "requiresAttributes": (NullOrUndefined Nothing), "requiresCompatibilities": (NullOrUndefined Nothing), "revision": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing), "taskDefinitionArn": (NullOrUndefined Nothing), "taskRoleArn": (NullOrUndefined Nothing), "volumes": (NullOrUndefined Nothing) }
+newTaskDefinition' :: ( { "taskDefinitionArn" :: Maybe (String) , "containerDefinitions" :: Maybe (ContainerDefinitions) , "family" :: Maybe (String) , "taskRoleArn" :: Maybe (String) , "executionRoleArn" :: Maybe (String) , "networkMode" :: Maybe (NetworkMode) , "revision" :: Maybe (Int) , "volumes" :: Maybe (VolumeList) , "status" :: Maybe (TaskDefinitionStatus) , "requiresAttributes" :: Maybe (RequiresAttributes) , "placementConstraints" :: Maybe (TaskDefinitionPlacementConstraints) , "compatibilities" :: Maybe (CompatibilityList) , "requiresCompatibilities" :: Maybe (CompatibilityList) , "cpu" :: Maybe (String) , "memory" :: Maybe (String) } -> {"taskDefinitionArn" :: Maybe (String) , "containerDefinitions" :: Maybe (ContainerDefinitions) , "family" :: Maybe (String) , "taskRoleArn" :: Maybe (String) , "executionRoleArn" :: Maybe (String) , "networkMode" :: Maybe (NetworkMode) , "revision" :: Maybe (Int) , "volumes" :: Maybe (VolumeList) , "status" :: Maybe (TaskDefinitionStatus) , "requiresAttributes" :: Maybe (RequiresAttributes) , "placementConstraints" :: Maybe (TaskDefinitionPlacementConstraints) , "compatibilities" :: Maybe (CompatibilityList) , "requiresCompatibilities" :: Maybe (CompatibilityList) , "cpu" :: Maybe (String) , "memory" :: Maybe (String) } ) -> TaskDefinition
+newTaskDefinition'  customize = (TaskDefinition <<< customize) { "compatibilities": Nothing, "containerDefinitions": Nothing, "cpu": Nothing, "executionRoleArn": Nothing, "family": Nothing, "memory": Nothing, "networkMode": Nothing, "placementConstraints": Nothing, "requiresAttributes": Nothing, "requiresCompatibilities": Nothing, "revision": Nothing, "status": Nothing, "taskDefinitionArn": Nothing, "taskRoleArn": Nothing, "volumes": Nothing }
 
 
 
@@ -2803,8 +2802,8 @@ instance encodeTaskDefinitionFamilyStatus :: Encode TaskDefinitionFamilyStatus w
 
 -- | <p>An object representing a constraint on task placement in the task definition.</p> <p>If you are using the Fargate launch type, task placement constraints are not supported.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
 newtype TaskDefinitionPlacementConstraint = TaskDefinitionPlacementConstraint 
-  { "type" :: NullOrUndefined (TaskDefinitionPlacementConstraintType)
-  , "expression" :: NullOrUndefined (String)
+  { "type" :: Maybe (TaskDefinitionPlacementConstraintType)
+  , "expression" :: Maybe (String)
   }
 derive instance newtypeTaskDefinitionPlacementConstraint :: Newtype TaskDefinitionPlacementConstraint _
 derive instance repGenericTaskDefinitionPlacementConstraint :: Generic TaskDefinitionPlacementConstraint _
@@ -2814,12 +2813,12 @@ instance encodeTaskDefinitionPlacementConstraint :: Encode TaskDefinitionPlaceme
 
 -- | Constructs TaskDefinitionPlacementConstraint from required parameters
 newTaskDefinitionPlacementConstraint :: TaskDefinitionPlacementConstraint
-newTaskDefinitionPlacementConstraint  = TaskDefinitionPlacementConstraint { "expression": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newTaskDefinitionPlacementConstraint  = TaskDefinitionPlacementConstraint { "expression": Nothing, "type": Nothing }
 
 -- | Constructs TaskDefinitionPlacementConstraint's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTaskDefinitionPlacementConstraint' :: ( { "type" :: NullOrUndefined (TaskDefinitionPlacementConstraintType) , "expression" :: NullOrUndefined (String) } -> {"type" :: NullOrUndefined (TaskDefinitionPlacementConstraintType) , "expression" :: NullOrUndefined (String) } ) -> TaskDefinitionPlacementConstraint
-newTaskDefinitionPlacementConstraint'  customize = (TaskDefinitionPlacementConstraint <<< customize) { "expression": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newTaskDefinitionPlacementConstraint' :: ( { "type" :: Maybe (TaskDefinitionPlacementConstraintType) , "expression" :: Maybe (String) } -> {"type" :: Maybe (TaskDefinitionPlacementConstraintType) , "expression" :: Maybe (String) } ) -> TaskDefinitionPlacementConstraint
+newTaskDefinitionPlacementConstraint'  customize = (TaskDefinitionPlacementConstraint <<< customize) { "expression": Nothing, "type": Nothing }
 
 
 
@@ -2852,9 +2851,9 @@ instance encodeTaskDefinitionStatus :: Encode TaskDefinitionStatus where encode 
 
 -- | <p>The overrides associated with a task.</p>
 newtype TaskOverride = TaskOverride 
-  { "containerOverrides" :: NullOrUndefined (ContainerOverrides)
-  , "taskRoleArn" :: NullOrUndefined (String)
-  , "executionRoleArn" :: NullOrUndefined (String)
+  { "containerOverrides" :: Maybe (ContainerOverrides)
+  , "taskRoleArn" :: Maybe (String)
+  , "executionRoleArn" :: Maybe (String)
   }
 derive instance newtypeTaskOverride :: Newtype TaskOverride _
 derive instance repGenericTaskOverride :: Generic TaskOverride _
@@ -2864,12 +2863,12 @@ instance encodeTaskOverride :: Encode TaskOverride where encode = genericEncode 
 
 -- | Constructs TaskOverride from required parameters
 newTaskOverride :: TaskOverride
-newTaskOverride  = TaskOverride { "containerOverrides": (NullOrUndefined Nothing), "executionRoleArn": (NullOrUndefined Nothing), "taskRoleArn": (NullOrUndefined Nothing) }
+newTaskOverride  = TaskOverride { "containerOverrides": Nothing, "executionRoleArn": Nothing, "taskRoleArn": Nothing }
 
 -- | Constructs TaskOverride's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTaskOverride' :: ( { "containerOverrides" :: NullOrUndefined (ContainerOverrides) , "taskRoleArn" :: NullOrUndefined (String) , "executionRoleArn" :: NullOrUndefined (String) } -> {"containerOverrides" :: NullOrUndefined (ContainerOverrides) , "taskRoleArn" :: NullOrUndefined (String) , "executionRoleArn" :: NullOrUndefined (String) } ) -> TaskOverride
-newTaskOverride'  customize = (TaskOverride <<< customize) { "containerOverrides": (NullOrUndefined Nothing), "executionRoleArn": (NullOrUndefined Nothing), "taskRoleArn": (NullOrUndefined Nothing) }
+newTaskOverride' :: ( { "containerOverrides" :: Maybe (ContainerOverrides) , "taskRoleArn" :: Maybe (String) , "executionRoleArn" :: Maybe (String) } -> {"containerOverrides" :: Maybe (ContainerOverrides) , "taskRoleArn" :: Maybe (String) , "executionRoleArn" :: Maybe (String) } ) -> TaskOverride
+newTaskOverride'  customize = (TaskOverride <<< customize) { "containerOverrides": Nothing, "executionRoleArn": Nothing, "taskRoleArn": Nothing }
 
 
 
@@ -2943,7 +2942,7 @@ instance encodeUnsupportedFeatureException :: Encode UnsupportedFeatureException
 
 
 newtype UpdateContainerAgentRequest = UpdateContainerAgentRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "containerInstance" :: (String)
   }
 derive instance newtypeUpdateContainerAgentRequest :: Newtype UpdateContainerAgentRequest _
@@ -2954,17 +2953,17 @@ instance encodeUpdateContainerAgentRequest :: Encode UpdateContainerAgentRequest
 
 -- | Constructs UpdateContainerAgentRequest from required parameters
 newUpdateContainerAgentRequest :: String -> UpdateContainerAgentRequest
-newUpdateContainerAgentRequest _containerInstance = UpdateContainerAgentRequest { "containerInstance": _containerInstance, "cluster": (NullOrUndefined Nothing) }
+newUpdateContainerAgentRequest _containerInstance = UpdateContainerAgentRequest { "containerInstance": _containerInstance, "cluster": Nothing }
 
 -- | Constructs UpdateContainerAgentRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateContainerAgentRequest' :: String -> ( { "cluster" :: NullOrUndefined (String) , "containerInstance" :: (String) } -> {"cluster" :: NullOrUndefined (String) , "containerInstance" :: (String) } ) -> UpdateContainerAgentRequest
-newUpdateContainerAgentRequest' _containerInstance customize = (UpdateContainerAgentRequest <<< customize) { "containerInstance": _containerInstance, "cluster": (NullOrUndefined Nothing) }
+newUpdateContainerAgentRequest' :: String -> ( { "cluster" :: Maybe (String) , "containerInstance" :: (String) } -> {"cluster" :: Maybe (String) , "containerInstance" :: (String) } ) -> UpdateContainerAgentRequest
+newUpdateContainerAgentRequest' _containerInstance customize = (UpdateContainerAgentRequest <<< customize) { "containerInstance": _containerInstance, "cluster": Nothing }
 
 
 
 newtype UpdateContainerAgentResponse = UpdateContainerAgentResponse 
-  { "containerInstance" :: NullOrUndefined (ContainerInstance)
+  { "containerInstance" :: Maybe (ContainerInstance)
   }
 derive instance newtypeUpdateContainerAgentResponse :: Newtype UpdateContainerAgentResponse _
 derive instance repGenericUpdateContainerAgentResponse :: Generic UpdateContainerAgentResponse _
@@ -2974,17 +2973,17 @@ instance encodeUpdateContainerAgentResponse :: Encode UpdateContainerAgentRespon
 
 -- | Constructs UpdateContainerAgentResponse from required parameters
 newUpdateContainerAgentResponse :: UpdateContainerAgentResponse
-newUpdateContainerAgentResponse  = UpdateContainerAgentResponse { "containerInstance": (NullOrUndefined Nothing) }
+newUpdateContainerAgentResponse  = UpdateContainerAgentResponse { "containerInstance": Nothing }
 
 -- | Constructs UpdateContainerAgentResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateContainerAgentResponse' :: ( { "containerInstance" :: NullOrUndefined (ContainerInstance) } -> {"containerInstance" :: NullOrUndefined (ContainerInstance) } ) -> UpdateContainerAgentResponse
-newUpdateContainerAgentResponse'  customize = (UpdateContainerAgentResponse <<< customize) { "containerInstance": (NullOrUndefined Nothing) }
+newUpdateContainerAgentResponse' :: ( { "containerInstance" :: Maybe (ContainerInstance) } -> {"containerInstance" :: Maybe (ContainerInstance) } ) -> UpdateContainerAgentResponse
+newUpdateContainerAgentResponse'  customize = (UpdateContainerAgentResponse <<< customize) { "containerInstance": Nothing }
 
 
 
 newtype UpdateContainerInstancesStateRequest = UpdateContainerInstancesStateRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "containerInstances" :: (StringList)
   , "status" :: (ContainerInstanceStatus)
   }
@@ -2996,18 +2995,18 @@ instance encodeUpdateContainerInstancesStateRequest :: Encode UpdateContainerIns
 
 -- | Constructs UpdateContainerInstancesStateRequest from required parameters
 newUpdateContainerInstancesStateRequest :: StringList -> ContainerInstanceStatus -> UpdateContainerInstancesStateRequest
-newUpdateContainerInstancesStateRequest _containerInstances _status = UpdateContainerInstancesStateRequest { "containerInstances": _containerInstances, "status": _status, "cluster": (NullOrUndefined Nothing) }
+newUpdateContainerInstancesStateRequest _containerInstances _status = UpdateContainerInstancesStateRequest { "containerInstances": _containerInstances, "status": _status, "cluster": Nothing }
 
 -- | Constructs UpdateContainerInstancesStateRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateContainerInstancesStateRequest' :: StringList -> ContainerInstanceStatus -> ( { "cluster" :: NullOrUndefined (String) , "containerInstances" :: (StringList) , "status" :: (ContainerInstanceStatus) } -> {"cluster" :: NullOrUndefined (String) , "containerInstances" :: (StringList) , "status" :: (ContainerInstanceStatus) } ) -> UpdateContainerInstancesStateRequest
-newUpdateContainerInstancesStateRequest' _containerInstances _status customize = (UpdateContainerInstancesStateRequest <<< customize) { "containerInstances": _containerInstances, "status": _status, "cluster": (NullOrUndefined Nothing) }
+newUpdateContainerInstancesStateRequest' :: StringList -> ContainerInstanceStatus -> ( { "cluster" :: Maybe (String) , "containerInstances" :: (StringList) , "status" :: (ContainerInstanceStatus) } -> {"cluster" :: Maybe (String) , "containerInstances" :: (StringList) , "status" :: (ContainerInstanceStatus) } ) -> UpdateContainerInstancesStateRequest
+newUpdateContainerInstancesStateRequest' _containerInstances _status customize = (UpdateContainerInstancesStateRequest <<< customize) { "containerInstances": _containerInstances, "status": _status, "cluster": Nothing }
 
 
 
 newtype UpdateContainerInstancesStateResponse = UpdateContainerInstancesStateResponse 
-  { "containerInstances" :: NullOrUndefined (ContainerInstances)
-  , "failures" :: NullOrUndefined (Failures)
+  { "containerInstances" :: Maybe (ContainerInstances)
+  , "failures" :: Maybe (Failures)
   }
 derive instance newtypeUpdateContainerInstancesStateResponse :: Newtype UpdateContainerInstancesStateResponse _
 derive instance repGenericUpdateContainerInstancesStateResponse :: Generic UpdateContainerInstancesStateResponse _
@@ -3017,12 +3016,12 @@ instance encodeUpdateContainerInstancesStateResponse :: Encode UpdateContainerIn
 
 -- | Constructs UpdateContainerInstancesStateResponse from required parameters
 newUpdateContainerInstancesStateResponse :: UpdateContainerInstancesStateResponse
-newUpdateContainerInstancesStateResponse  = UpdateContainerInstancesStateResponse { "containerInstances": (NullOrUndefined Nothing), "failures": (NullOrUndefined Nothing) }
+newUpdateContainerInstancesStateResponse  = UpdateContainerInstancesStateResponse { "containerInstances": Nothing, "failures": Nothing }
 
 -- | Constructs UpdateContainerInstancesStateResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateContainerInstancesStateResponse' :: ( { "containerInstances" :: NullOrUndefined (ContainerInstances) , "failures" :: NullOrUndefined (Failures) } -> {"containerInstances" :: NullOrUndefined (ContainerInstances) , "failures" :: NullOrUndefined (Failures) } ) -> UpdateContainerInstancesStateResponse
-newUpdateContainerInstancesStateResponse'  customize = (UpdateContainerInstancesStateResponse <<< customize) { "containerInstances": (NullOrUndefined Nothing), "failures": (NullOrUndefined Nothing) }
+newUpdateContainerInstancesStateResponse' :: ( { "containerInstances" :: Maybe (ContainerInstances) , "failures" :: Maybe (Failures) } -> {"containerInstances" :: Maybe (ContainerInstances) , "failures" :: Maybe (Failures) } ) -> UpdateContainerInstancesStateResponse
+newUpdateContainerInstancesStateResponse'  customize = (UpdateContainerInstancesStateResponse <<< customize) { "containerInstances": Nothing, "failures": Nothing }
 
 
 
@@ -3037,15 +3036,15 @@ instance encodeUpdateInProgressException :: Encode UpdateInProgressException whe
 
 
 newtype UpdateServiceRequest = UpdateServiceRequest 
-  { "cluster" :: NullOrUndefined (String)
+  { "cluster" :: Maybe (String)
   , "service" :: (String)
-  , "desiredCount" :: NullOrUndefined (BoxedInteger)
-  , "taskDefinition" :: NullOrUndefined (String)
-  , "deploymentConfiguration" :: NullOrUndefined (DeploymentConfiguration)
-  , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration)
-  , "platformVersion" :: NullOrUndefined (String)
-  , "forceNewDeployment" :: NullOrUndefined (Boolean)
-  , "healthCheckGracePeriodSeconds" :: NullOrUndefined (BoxedInteger)
+  , "desiredCount" :: Maybe (BoxedInteger)
+  , "taskDefinition" :: Maybe (String)
+  , "deploymentConfiguration" :: Maybe (DeploymentConfiguration)
+  , "networkConfiguration" :: Maybe (NetworkConfiguration)
+  , "platformVersion" :: Maybe (String)
+  , "forceNewDeployment" :: Maybe (Boolean)
+  , "healthCheckGracePeriodSeconds" :: Maybe (BoxedInteger)
   }
 derive instance newtypeUpdateServiceRequest :: Newtype UpdateServiceRequest _
 derive instance repGenericUpdateServiceRequest :: Generic UpdateServiceRequest _
@@ -3055,17 +3054,17 @@ instance encodeUpdateServiceRequest :: Encode UpdateServiceRequest where encode 
 
 -- | Constructs UpdateServiceRequest from required parameters
 newUpdateServiceRequest :: String -> UpdateServiceRequest
-newUpdateServiceRequest _service = UpdateServiceRequest { "service": _service, "cluster": (NullOrUndefined Nothing), "deploymentConfiguration": (NullOrUndefined Nothing), "desiredCount": (NullOrUndefined Nothing), "forceNewDeployment": (NullOrUndefined Nothing), "healthCheckGracePeriodSeconds": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "taskDefinition": (NullOrUndefined Nothing) }
+newUpdateServiceRequest _service = UpdateServiceRequest { "service": _service, "cluster": Nothing, "deploymentConfiguration": Nothing, "desiredCount": Nothing, "forceNewDeployment": Nothing, "healthCheckGracePeriodSeconds": Nothing, "networkConfiguration": Nothing, "platformVersion": Nothing, "taskDefinition": Nothing }
 
 -- | Constructs UpdateServiceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateServiceRequest' :: String -> ( { "cluster" :: NullOrUndefined (String) , "service" :: (String) , "desiredCount" :: NullOrUndefined (BoxedInteger) , "taskDefinition" :: NullOrUndefined (String) , "deploymentConfiguration" :: NullOrUndefined (DeploymentConfiguration) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) , "platformVersion" :: NullOrUndefined (String) , "forceNewDeployment" :: NullOrUndefined (Boolean) , "healthCheckGracePeriodSeconds" :: NullOrUndefined (BoxedInteger) } -> {"cluster" :: NullOrUndefined (String) , "service" :: (String) , "desiredCount" :: NullOrUndefined (BoxedInteger) , "taskDefinition" :: NullOrUndefined (String) , "deploymentConfiguration" :: NullOrUndefined (DeploymentConfiguration) , "networkConfiguration" :: NullOrUndefined (NetworkConfiguration) , "platformVersion" :: NullOrUndefined (String) , "forceNewDeployment" :: NullOrUndefined (Boolean) , "healthCheckGracePeriodSeconds" :: NullOrUndefined (BoxedInteger) } ) -> UpdateServiceRequest
-newUpdateServiceRequest' _service customize = (UpdateServiceRequest <<< customize) { "service": _service, "cluster": (NullOrUndefined Nothing), "deploymentConfiguration": (NullOrUndefined Nothing), "desiredCount": (NullOrUndefined Nothing), "forceNewDeployment": (NullOrUndefined Nothing), "healthCheckGracePeriodSeconds": (NullOrUndefined Nothing), "networkConfiguration": (NullOrUndefined Nothing), "platformVersion": (NullOrUndefined Nothing), "taskDefinition": (NullOrUndefined Nothing) }
+newUpdateServiceRequest' :: String -> ( { "cluster" :: Maybe (String) , "service" :: (String) , "desiredCount" :: Maybe (BoxedInteger) , "taskDefinition" :: Maybe (String) , "deploymentConfiguration" :: Maybe (DeploymentConfiguration) , "networkConfiguration" :: Maybe (NetworkConfiguration) , "platformVersion" :: Maybe (String) , "forceNewDeployment" :: Maybe (Boolean) , "healthCheckGracePeriodSeconds" :: Maybe (BoxedInteger) } -> {"cluster" :: Maybe (String) , "service" :: (String) , "desiredCount" :: Maybe (BoxedInteger) , "taskDefinition" :: Maybe (String) , "deploymentConfiguration" :: Maybe (DeploymentConfiguration) , "networkConfiguration" :: Maybe (NetworkConfiguration) , "platformVersion" :: Maybe (String) , "forceNewDeployment" :: Maybe (Boolean) , "healthCheckGracePeriodSeconds" :: Maybe (BoxedInteger) } ) -> UpdateServiceRequest
+newUpdateServiceRequest' _service customize = (UpdateServiceRequest <<< customize) { "service": _service, "cluster": Nothing, "deploymentConfiguration": Nothing, "desiredCount": Nothing, "forceNewDeployment": Nothing, "healthCheckGracePeriodSeconds": Nothing, "networkConfiguration": Nothing, "platformVersion": Nothing, "taskDefinition": Nothing }
 
 
 
 newtype UpdateServiceResponse = UpdateServiceResponse 
-  { "service" :: NullOrUndefined (Service)
+  { "service" :: Maybe (Service)
   }
 derive instance newtypeUpdateServiceResponse :: Newtype UpdateServiceResponse _
 derive instance repGenericUpdateServiceResponse :: Generic UpdateServiceResponse _
@@ -3075,20 +3074,20 @@ instance encodeUpdateServiceResponse :: Encode UpdateServiceResponse where encod
 
 -- | Constructs UpdateServiceResponse from required parameters
 newUpdateServiceResponse :: UpdateServiceResponse
-newUpdateServiceResponse  = UpdateServiceResponse { "service": (NullOrUndefined Nothing) }
+newUpdateServiceResponse  = UpdateServiceResponse { "service": Nothing }
 
 -- | Constructs UpdateServiceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateServiceResponse' :: ( { "service" :: NullOrUndefined (Service) } -> {"service" :: NullOrUndefined (Service) } ) -> UpdateServiceResponse
-newUpdateServiceResponse'  customize = (UpdateServiceResponse <<< customize) { "service": (NullOrUndefined Nothing) }
+newUpdateServiceResponse' :: ( { "service" :: Maybe (Service) } -> {"service" :: Maybe (Service) } ) -> UpdateServiceResponse
+newUpdateServiceResponse'  customize = (UpdateServiceResponse <<< customize) { "service": Nothing }
 
 
 
 -- | <p>The Docker and Amazon ECS container agent version information about a container instance.</p>
 newtype VersionInfo = VersionInfo 
-  { "agentVersion" :: NullOrUndefined (String)
-  , "agentHash" :: NullOrUndefined (String)
-  , "dockerVersion" :: NullOrUndefined (String)
+  { "agentVersion" :: Maybe (String)
+  , "agentHash" :: Maybe (String)
+  , "dockerVersion" :: Maybe (String)
   }
 derive instance newtypeVersionInfo :: Newtype VersionInfo _
 derive instance repGenericVersionInfo :: Generic VersionInfo _
@@ -3098,19 +3097,19 @@ instance encodeVersionInfo :: Encode VersionInfo where encode = genericEncode op
 
 -- | Constructs VersionInfo from required parameters
 newVersionInfo :: VersionInfo
-newVersionInfo  = VersionInfo { "agentHash": (NullOrUndefined Nothing), "agentVersion": (NullOrUndefined Nothing), "dockerVersion": (NullOrUndefined Nothing) }
+newVersionInfo  = VersionInfo { "agentHash": Nothing, "agentVersion": Nothing, "dockerVersion": Nothing }
 
 -- | Constructs VersionInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVersionInfo' :: ( { "agentVersion" :: NullOrUndefined (String) , "agentHash" :: NullOrUndefined (String) , "dockerVersion" :: NullOrUndefined (String) } -> {"agentVersion" :: NullOrUndefined (String) , "agentHash" :: NullOrUndefined (String) , "dockerVersion" :: NullOrUndefined (String) } ) -> VersionInfo
-newVersionInfo'  customize = (VersionInfo <<< customize) { "agentHash": (NullOrUndefined Nothing), "agentVersion": (NullOrUndefined Nothing), "dockerVersion": (NullOrUndefined Nothing) }
+newVersionInfo' :: ( { "agentVersion" :: Maybe (String) , "agentHash" :: Maybe (String) , "dockerVersion" :: Maybe (String) } -> {"agentVersion" :: Maybe (String) , "agentHash" :: Maybe (String) , "dockerVersion" :: Maybe (String) } ) -> VersionInfo
+newVersionInfo'  customize = (VersionInfo <<< customize) { "agentHash": Nothing, "agentVersion": Nothing, "dockerVersion": Nothing }
 
 
 
 -- | <p>A data volume used in a task definition.</p>
 newtype Volume = Volume 
-  { "name" :: NullOrUndefined (String)
-  , "host" :: NullOrUndefined (HostVolumeProperties)
+  { "name" :: Maybe (String)
+  , "host" :: Maybe (HostVolumeProperties)
   }
 derive instance newtypeVolume :: Newtype Volume _
 derive instance repGenericVolume :: Generic Volume _
@@ -3120,19 +3119,19 @@ instance encodeVolume :: Encode Volume where encode = genericEncode options
 
 -- | Constructs Volume from required parameters
 newVolume :: Volume
-newVolume  = Volume { "host": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newVolume  = Volume { "host": Nothing, "name": Nothing }
 
 -- | Constructs Volume's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVolume' :: ( { "name" :: NullOrUndefined (String) , "host" :: NullOrUndefined (HostVolumeProperties) } -> {"name" :: NullOrUndefined (String) , "host" :: NullOrUndefined (HostVolumeProperties) } ) -> Volume
-newVolume'  customize = (Volume <<< customize) { "host": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newVolume' :: ( { "name" :: Maybe (String) , "host" :: Maybe (HostVolumeProperties) } -> {"name" :: Maybe (String) , "host" :: Maybe (HostVolumeProperties) } ) -> Volume
+newVolume'  customize = (Volume <<< customize) { "host": Nothing, "name": Nothing }
 
 
 
 -- | <p>Details on a data volume from another container in the same task definition.</p>
 newtype VolumeFrom = VolumeFrom 
-  { "sourceContainer" :: NullOrUndefined (String)
-  , "readOnly" :: NullOrUndefined (BoxedBoolean)
+  { "sourceContainer" :: Maybe (String)
+  , "readOnly" :: Maybe (BoxedBoolean)
   }
 derive instance newtypeVolumeFrom :: Newtype VolumeFrom _
 derive instance repGenericVolumeFrom :: Generic VolumeFrom _
@@ -3142,12 +3141,12 @@ instance encodeVolumeFrom :: Encode VolumeFrom where encode = genericEncode opti
 
 -- | Constructs VolumeFrom from required parameters
 newVolumeFrom :: VolumeFrom
-newVolumeFrom  = VolumeFrom { "readOnly": (NullOrUndefined Nothing), "sourceContainer": (NullOrUndefined Nothing) }
+newVolumeFrom  = VolumeFrom { "readOnly": Nothing, "sourceContainer": Nothing }
 
 -- | Constructs VolumeFrom's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newVolumeFrom' :: ( { "sourceContainer" :: NullOrUndefined (String) , "readOnly" :: NullOrUndefined (BoxedBoolean) } -> {"sourceContainer" :: NullOrUndefined (String) , "readOnly" :: NullOrUndefined (BoxedBoolean) } ) -> VolumeFrom
-newVolumeFrom'  customize = (VolumeFrom <<< customize) { "readOnly": (NullOrUndefined Nothing), "sourceContainer": (NullOrUndefined Nothing) }
+newVolumeFrom' :: ( { "sourceContainer" :: Maybe (String) , "readOnly" :: Maybe (BoxedBoolean) } -> {"sourceContainer" :: Maybe (String) , "readOnly" :: Maybe (BoxedBoolean) } ) -> VolumeFrom
+newVolumeFrom'  customize = (VolumeFrom <<< customize) { "readOnly": Nothing, "sourceContainer": Nothing }
 
 
 

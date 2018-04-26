@@ -60,7 +60,7 @@ Encode AssignPublicIp
 
 ``` purescript
 newtype Attachment
-  = Attachment { id :: NullOrUndefined (String), "type" :: NullOrUndefined (String), status :: NullOrUndefined (String), details :: NullOrUndefined (AttachmentDetails) }
+  = Attachment { id :: Maybe (String), "type" :: Maybe (String), status :: Maybe (String), details :: Maybe (AttachmentDetails) }
 ```
 
 <p>An object representing a container instance or task attachment.</p>
@@ -85,7 +85,7 @@ Constructs Attachment from required parameters
 #### `newAttachment'`
 
 ``` purescript
-newAttachment' :: ({ id :: NullOrUndefined (String), "type" :: NullOrUndefined (String), status :: NullOrUndefined (String), details :: NullOrUndefined (AttachmentDetails) } -> { id :: NullOrUndefined (String), "type" :: NullOrUndefined (String), status :: NullOrUndefined (String), details :: NullOrUndefined (AttachmentDetails) }) -> Attachment
+newAttachment' :: ({ id :: Maybe (String), "type" :: Maybe (String), status :: Maybe (String), details :: Maybe (AttachmentDetails) } -> { id :: Maybe (String), "type" :: Maybe (String), status :: Maybe (String), details :: Maybe (AttachmentDetails) }) -> Attachment
 ```
 
 Constructs Attachment's fields from required parameters
@@ -176,7 +176,7 @@ Encode Attachments
 
 ``` purescript
 newtype Attribute
-  = Attribute { name :: String, value :: NullOrUndefined (String), targetType :: NullOrUndefined (TargetType), targetId :: NullOrUndefined (String) }
+  = Attribute { name :: String, value :: Maybe (String), targetType :: Maybe (TargetType), targetId :: Maybe (String) }
 ```
 
 <p>An attribute is a name-value pair associated with an Amazon ECS object. Attributes enable you to extend the Amazon ECS data model by adding custom metadata to your resources. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html#attributes">Attributes</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -201,7 +201,7 @@ Constructs Attribute from required parameters
 #### `newAttribute'`
 
 ``` purescript
-newAttribute' :: String -> ({ name :: String, value :: NullOrUndefined (String), targetType :: NullOrUndefined (TargetType), targetId :: NullOrUndefined (String) } -> { name :: String, value :: NullOrUndefined (String), targetType :: NullOrUndefined (TargetType), targetId :: NullOrUndefined (String) }) -> Attribute
+newAttribute' :: String -> ({ name :: String, value :: Maybe (String), targetType :: Maybe (TargetType), targetId :: Maybe (String) } -> { name :: String, value :: Maybe (String), targetType :: Maybe (TargetType), targetId :: Maybe (String) }) -> Attribute
 ```
 
 Constructs Attribute's fields from required parameters
@@ -244,7 +244,7 @@ Encode Attributes
 
 ``` purescript
 newtype AwsVpcConfiguration
-  = AwsVpcConfiguration { subnets :: StringList, securityGroups :: NullOrUndefined (StringList), assignPublicIp :: NullOrUndefined (AssignPublicIp) }
+  = AwsVpcConfiguration { subnets :: StringList, securityGroups :: Maybe (StringList), assignPublicIp :: Maybe (AssignPublicIp) }
 ```
 
 <p>An object representing the networking details for a task or service.</p>
@@ -269,7 +269,7 @@ Constructs AwsVpcConfiguration from required parameters
 #### `newAwsVpcConfiguration'`
 
 ``` purescript
-newAwsVpcConfiguration' :: StringList -> ({ subnets :: StringList, securityGroups :: NullOrUndefined (StringList), assignPublicIp :: NullOrUndefined (AssignPublicIp) } -> { subnets :: StringList, securityGroups :: NullOrUndefined (StringList), assignPublicIp :: NullOrUndefined (AssignPublicIp) }) -> AwsVpcConfiguration
+newAwsVpcConfiguration' :: StringList -> ({ subnets :: StringList, securityGroups :: Maybe (StringList), assignPublicIp :: Maybe (AssignPublicIp) } -> { subnets :: StringList, securityGroups :: Maybe (StringList), assignPublicIp :: Maybe (AssignPublicIp) }) -> AwsVpcConfiguration
 ```
 
 Constructs AwsVpcConfiguration's fields from required parameters
@@ -328,7 +328,7 @@ Encode BoxedInteger
 
 ``` purescript
 newtype ClientException
-  = ClientException { message :: NullOrUndefined (String) }
+  = ClientException { message :: Maybe (String) }
 ```
 
 <p>These errors are usually caused by a client action, such as using an action or resource on behalf of a user that doesn't have permissions to use the action or resource, or specifying an identifier that is not valid.</p>
@@ -353,7 +353,7 @@ Constructs ClientException from required parameters
 #### `newClientException'`
 
 ``` purescript
-newClientException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> ClientException
+newClientException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> ClientException
 ```
 
 Constructs ClientException's fields from required parameters
@@ -362,7 +362,7 @@ Constructs ClientException's fields from required parameters
 
 ``` purescript
 newtype Cluster
-  = Cluster { clusterArn :: NullOrUndefined (String), clusterName :: NullOrUndefined (String), status :: NullOrUndefined (String), registeredContainerInstancesCount :: NullOrUndefined (Int), runningTasksCount :: NullOrUndefined (Int), pendingTasksCount :: NullOrUndefined (Int), activeServicesCount :: NullOrUndefined (Int), statistics :: NullOrUndefined (Statistics) }
+  = Cluster { clusterArn :: Maybe (String), clusterName :: Maybe (String), status :: Maybe (String), registeredContainerInstancesCount :: Maybe (Int), runningTasksCount :: Maybe (Int), pendingTasksCount :: Maybe (Int), activeServicesCount :: Maybe (Int), statistics :: Maybe (Statistics) }
 ```
 
 <p>A regional grouping of one or more container instances on which you can run task requests. Each account receives a default cluster the first time you use the Amazon ECS service, but you may also create other clusters. Clusters may contain more than one instance type simultaneously.</p>
@@ -387,7 +387,7 @@ Constructs Cluster from required parameters
 #### `newCluster'`
 
 ``` purescript
-newCluster' :: ({ clusterArn :: NullOrUndefined (String), clusterName :: NullOrUndefined (String), status :: NullOrUndefined (String), registeredContainerInstancesCount :: NullOrUndefined (Int), runningTasksCount :: NullOrUndefined (Int), pendingTasksCount :: NullOrUndefined (Int), activeServicesCount :: NullOrUndefined (Int), statistics :: NullOrUndefined (Statistics) } -> { clusterArn :: NullOrUndefined (String), clusterName :: NullOrUndefined (String), status :: NullOrUndefined (String), registeredContainerInstancesCount :: NullOrUndefined (Int), runningTasksCount :: NullOrUndefined (Int), pendingTasksCount :: NullOrUndefined (Int), activeServicesCount :: NullOrUndefined (Int), statistics :: NullOrUndefined (Statistics) }) -> Cluster
+newCluster' :: ({ clusterArn :: Maybe (String), clusterName :: Maybe (String), status :: Maybe (String), registeredContainerInstancesCount :: Maybe (Int), runningTasksCount :: Maybe (Int), pendingTasksCount :: Maybe (Int), activeServicesCount :: Maybe (Int), statistics :: Maybe (Statistics) } -> { clusterArn :: Maybe (String), clusterName :: Maybe (String), status :: Maybe (String), registeredContainerInstancesCount :: Maybe (Int), runningTasksCount :: Maybe (Int), pendingTasksCount :: Maybe (Int), activeServicesCount :: Maybe (Int), statistics :: Maybe (Statistics) }) -> Cluster
 ```
 
 Constructs Cluster's fields from required parameters
@@ -564,7 +564,7 @@ Encode Connectivity
 
 ``` purescript
 newtype Container
-  = Container { containerArn :: NullOrUndefined (String), taskArn :: NullOrUndefined (String), name :: NullOrUndefined (String), lastStatus :: NullOrUndefined (String), exitCode :: NullOrUndefined (BoxedInteger), reason :: NullOrUndefined (String), networkBindings :: NullOrUndefined (NetworkBindings), networkInterfaces :: NullOrUndefined (NetworkInterfaces), healthStatus :: NullOrUndefined (HealthStatus) }
+  = Container { containerArn :: Maybe (String), taskArn :: Maybe (String), name :: Maybe (String), lastStatus :: Maybe (String), exitCode :: Maybe (BoxedInteger), reason :: Maybe (String), networkBindings :: Maybe (NetworkBindings), networkInterfaces :: Maybe (NetworkInterfaces), healthStatus :: Maybe (HealthStatus) }
 ```
 
 <p>A Docker container that is part of a task.</p>
@@ -589,7 +589,7 @@ Constructs Container from required parameters
 #### `newContainer'`
 
 ``` purescript
-newContainer' :: ({ containerArn :: NullOrUndefined (String), taskArn :: NullOrUndefined (String), name :: NullOrUndefined (String), lastStatus :: NullOrUndefined (String), exitCode :: NullOrUndefined (BoxedInteger), reason :: NullOrUndefined (String), networkBindings :: NullOrUndefined (NetworkBindings), networkInterfaces :: NullOrUndefined (NetworkInterfaces), healthStatus :: NullOrUndefined (HealthStatus) } -> { containerArn :: NullOrUndefined (String), taskArn :: NullOrUndefined (String), name :: NullOrUndefined (String), lastStatus :: NullOrUndefined (String), exitCode :: NullOrUndefined (BoxedInteger), reason :: NullOrUndefined (String), networkBindings :: NullOrUndefined (NetworkBindings), networkInterfaces :: NullOrUndefined (NetworkInterfaces), healthStatus :: NullOrUndefined (HealthStatus) }) -> Container
+newContainer' :: ({ containerArn :: Maybe (String), taskArn :: Maybe (String), name :: Maybe (String), lastStatus :: Maybe (String), exitCode :: Maybe (BoxedInteger), reason :: Maybe (String), networkBindings :: Maybe (NetworkBindings), networkInterfaces :: Maybe (NetworkInterfaces), healthStatus :: Maybe (HealthStatus) } -> { containerArn :: Maybe (String), taskArn :: Maybe (String), name :: Maybe (String), lastStatus :: Maybe (String), exitCode :: Maybe (BoxedInteger), reason :: Maybe (String), networkBindings :: Maybe (NetworkBindings), networkInterfaces :: Maybe (NetworkInterfaces), healthStatus :: Maybe (HealthStatus) }) -> Container
 ```
 
 Constructs Container's fields from required parameters
@@ -598,7 +598,7 @@ Constructs Container's fields from required parameters
 
 ``` purescript
 newtype ContainerDefinition
-  = ContainerDefinition { name :: NullOrUndefined (String), image :: NullOrUndefined (String), cpu :: NullOrUndefined (Int), memory :: NullOrUndefined (BoxedInteger), memoryReservation :: NullOrUndefined (BoxedInteger), links :: NullOrUndefined (StringList), portMappings :: NullOrUndefined (PortMappingList), essential :: NullOrUndefined (BoxedBoolean), entryPoint :: NullOrUndefined (StringList), command :: NullOrUndefined (StringList), environment :: NullOrUndefined (EnvironmentVariables), mountPoints :: NullOrUndefined (MountPointList), volumesFrom :: NullOrUndefined (VolumeFromList), linuxParameters :: NullOrUndefined (LinuxParameters), hostname :: NullOrUndefined (String), user :: NullOrUndefined (String), workingDirectory :: NullOrUndefined (String), disableNetworking :: NullOrUndefined (BoxedBoolean), privileged :: NullOrUndefined (BoxedBoolean), readonlyRootFilesystem :: NullOrUndefined (BoxedBoolean), dnsServers :: NullOrUndefined (StringList), dnsSearchDomains :: NullOrUndefined (StringList), extraHosts :: NullOrUndefined (HostEntryList), dockerSecurityOptions :: NullOrUndefined (StringList), dockerLabels :: NullOrUndefined (DockerLabelsMap), ulimits :: NullOrUndefined (UlimitList), logConfiguration :: NullOrUndefined (LogConfiguration), healthCheck :: NullOrUndefined (HealthCheck) }
+  = ContainerDefinition { name :: Maybe (String), image :: Maybe (String), cpu :: Maybe (Int), memory :: Maybe (BoxedInteger), memoryReservation :: Maybe (BoxedInteger), links :: Maybe (StringList), portMappings :: Maybe (PortMappingList), essential :: Maybe (BoxedBoolean), entryPoint :: Maybe (StringList), command :: Maybe (StringList), environment :: Maybe (EnvironmentVariables), mountPoints :: Maybe (MountPointList), volumesFrom :: Maybe (VolumeFromList), linuxParameters :: Maybe (LinuxParameters), hostname :: Maybe (String), user :: Maybe (String), workingDirectory :: Maybe (String), disableNetworking :: Maybe (BoxedBoolean), privileged :: Maybe (BoxedBoolean), readonlyRootFilesystem :: Maybe (BoxedBoolean), dnsServers :: Maybe (StringList), dnsSearchDomains :: Maybe (StringList), extraHosts :: Maybe (HostEntryList), dockerSecurityOptions :: Maybe (StringList), dockerLabels :: Maybe (DockerLabelsMap), ulimits :: Maybe (UlimitList), logConfiguration :: Maybe (LogConfiguration), healthCheck :: Maybe (HealthCheck) }
 ```
 
 <p>Container definitions are used in task definitions to describe the different containers that are launched as part of a task.</p>
@@ -623,7 +623,7 @@ Constructs ContainerDefinition from required parameters
 #### `newContainerDefinition'`
 
 ``` purescript
-newContainerDefinition' :: ({ name :: NullOrUndefined (String), image :: NullOrUndefined (String), cpu :: NullOrUndefined (Int), memory :: NullOrUndefined (BoxedInteger), memoryReservation :: NullOrUndefined (BoxedInteger), links :: NullOrUndefined (StringList), portMappings :: NullOrUndefined (PortMappingList), essential :: NullOrUndefined (BoxedBoolean), entryPoint :: NullOrUndefined (StringList), command :: NullOrUndefined (StringList), environment :: NullOrUndefined (EnvironmentVariables), mountPoints :: NullOrUndefined (MountPointList), volumesFrom :: NullOrUndefined (VolumeFromList), linuxParameters :: NullOrUndefined (LinuxParameters), hostname :: NullOrUndefined (String), user :: NullOrUndefined (String), workingDirectory :: NullOrUndefined (String), disableNetworking :: NullOrUndefined (BoxedBoolean), privileged :: NullOrUndefined (BoxedBoolean), readonlyRootFilesystem :: NullOrUndefined (BoxedBoolean), dnsServers :: NullOrUndefined (StringList), dnsSearchDomains :: NullOrUndefined (StringList), extraHosts :: NullOrUndefined (HostEntryList), dockerSecurityOptions :: NullOrUndefined (StringList), dockerLabels :: NullOrUndefined (DockerLabelsMap), ulimits :: NullOrUndefined (UlimitList), logConfiguration :: NullOrUndefined (LogConfiguration), healthCheck :: NullOrUndefined (HealthCheck) } -> { name :: NullOrUndefined (String), image :: NullOrUndefined (String), cpu :: NullOrUndefined (Int), memory :: NullOrUndefined (BoxedInteger), memoryReservation :: NullOrUndefined (BoxedInteger), links :: NullOrUndefined (StringList), portMappings :: NullOrUndefined (PortMappingList), essential :: NullOrUndefined (BoxedBoolean), entryPoint :: NullOrUndefined (StringList), command :: NullOrUndefined (StringList), environment :: NullOrUndefined (EnvironmentVariables), mountPoints :: NullOrUndefined (MountPointList), volumesFrom :: NullOrUndefined (VolumeFromList), linuxParameters :: NullOrUndefined (LinuxParameters), hostname :: NullOrUndefined (String), user :: NullOrUndefined (String), workingDirectory :: NullOrUndefined (String), disableNetworking :: NullOrUndefined (BoxedBoolean), privileged :: NullOrUndefined (BoxedBoolean), readonlyRootFilesystem :: NullOrUndefined (BoxedBoolean), dnsServers :: NullOrUndefined (StringList), dnsSearchDomains :: NullOrUndefined (StringList), extraHosts :: NullOrUndefined (HostEntryList), dockerSecurityOptions :: NullOrUndefined (StringList), dockerLabels :: NullOrUndefined (DockerLabelsMap), ulimits :: NullOrUndefined (UlimitList), logConfiguration :: NullOrUndefined (LogConfiguration), healthCheck :: NullOrUndefined (HealthCheck) }) -> ContainerDefinition
+newContainerDefinition' :: ({ name :: Maybe (String), image :: Maybe (String), cpu :: Maybe (Int), memory :: Maybe (BoxedInteger), memoryReservation :: Maybe (BoxedInteger), links :: Maybe (StringList), portMappings :: Maybe (PortMappingList), essential :: Maybe (BoxedBoolean), entryPoint :: Maybe (StringList), command :: Maybe (StringList), environment :: Maybe (EnvironmentVariables), mountPoints :: Maybe (MountPointList), volumesFrom :: Maybe (VolumeFromList), linuxParameters :: Maybe (LinuxParameters), hostname :: Maybe (String), user :: Maybe (String), workingDirectory :: Maybe (String), disableNetworking :: Maybe (BoxedBoolean), privileged :: Maybe (BoxedBoolean), readonlyRootFilesystem :: Maybe (BoxedBoolean), dnsServers :: Maybe (StringList), dnsSearchDomains :: Maybe (StringList), extraHosts :: Maybe (HostEntryList), dockerSecurityOptions :: Maybe (StringList), dockerLabels :: Maybe (DockerLabelsMap), ulimits :: Maybe (UlimitList), logConfiguration :: Maybe (LogConfiguration), healthCheck :: Maybe (HealthCheck) } -> { name :: Maybe (String), image :: Maybe (String), cpu :: Maybe (Int), memory :: Maybe (BoxedInteger), memoryReservation :: Maybe (BoxedInteger), links :: Maybe (StringList), portMappings :: Maybe (PortMappingList), essential :: Maybe (BoxedBoolean), entryPoint :: Maybe (StringList), command :: Maybe (StringList), environment :: Maybe (EnvironmentVariables), mountPoints :: Maybe (MountPointList), volumesFrom :: Maybe (VolumeFromList), linuxParameters :: Maybe (LinuxParameters), hostname :: Maybe (String), user :: Maybe (String), workingDirectory :: Maybe (String), disableNetworking :: Maybe (BoxedBoolean), privileged :: Maybe (BoxedBoolean), readonlyRootFilesystem :: Maybe (BoxedBoolean), dnsServers :: Maybe (StringList), dnsSearchDomains :: Maybe (StringList), extraHosts :: Maybe (HostEntryList), dockerSecurityOptions :: Maybe (StringList), dockerLabels :: Maybe (DockerLabelsMap), ulimits :: Maybe (UlimitList), logConfiguration :: Maybe (LogConfiguration), healthCheck :: Maybe (HealthCheck) }) -> ContainerDefinition
 ```
 
 Constructs ContainerDefinition's fields from required parameters
@@ -648,7 +648,7 @@ Encode ContainerDefinitions
 
 ``` purescript
 newtype ContainerInstance
-  = ContainerInstance { containerInstanceArn :: NullOrUndefined (String), ec2InstanceId :: NullOrUndefined (String), version :: NullOrUndefined (Number), versionInfo :: NullOrUndefined (VersionInfo), remainingResources :: NullOrUndefined (Resources), registeredResources :: NullOrUndefined (Resources), status :: NullOrUndefined (String), agentConnected :: NullOrUndefined (Boolean), runningTasksCount :: NullOrUndefined (Int), pendingTasksCount :: NullOrUndefined (Int), agentUpdateStatus :: NullOrUndefined (AgentUpdateStatus), attributes :: NullOrUndefined (Attributes), registeredAt :: NullOrUndefined (Timestamp), attachments :: NullOrUndefined (Attachments) }
+  = ContainerInstance { containerInstanceArn :: Maybe (String), ec2InstanceId :: Maybe (String), version :: Maybe (Number), versionInfo :: Maybe (VersionInfo), remainingResources :: Maybe (Resources), registeredResources :: Maybe (Resources), status :: Maybe (String), agentConnected :: Maybe (Boolean), runningTasksCount :: Maybe (Int), pendingTasksCount :: Maybe (Int), agentUpdateStatus :: Maybe (AgentUpdateStatus), attributes :: Maybe (Attributes), registeredAt :: Maybe (Timestamp), attachments :: Maybe (Attachments) }
 ```
 
 <p>An EC2 instance that is running the Amazon ECS agent and has been registered with a cluster.</p>
@@ -673,7 +673,7 @@ Constructs ContainerInstance from required parameters
 #### `newContainerInstance'`
 
 ``` purescript
-newContainerInstance' :: ({ containerInstanceArn :: NullOrUndefined (String), ec2InstanceId :: NullOrUndefined (String), version :: NullOrUndefined (Number), versionInfo :: NullOrUndefined (VersionInfo), remainingResources :: NullOrUndefined (Resources), registeredResources :: NullOrUndefined (Resources), status :: NullOrUndefined (String), agentConnected :: NullOrUndefined (Boolean), runningTasksCount :: NullOrUndefined (Int), pendingTasksCount :: NullOrUndefined (Int), agentUpdateStatus :: NullOrUndefined (AgentUpdateStatus), attributes :: NullOrUndefined (Attributes), registeredAt :: NullOrUndefined (Timestamp), attachments :: NullOrUndefined (Attachments) } -> { containerInstanceArn :: NullOrUndefined (String), ec2InstanceId :: NullOrUndefined (String), version :: NullOrUndefined (Number), versionInfo :: NullOrUndefined (VersionInfo), remainingResources :: NullOrUndefined (Resources), registeredResources :: NullOrUndefined (Resources), status :: NullOrUndefined (String), agentConnected :: NullOrUndefined (Boolean), runningTasksCount :: NullOrUndefined (Int), pendingTasksCount :: NullOrUndefined (Int), agentUpdateStatus :: NullOrUndefined (AgentUpdateStatus), attributes :: NullOrUndefined (Attributes), registeredAt :: NullOrUndefined (Timestamp), attachments :: NullOrUndefined (Attachments) }) -> ContainerInstance
+newContainerInstance' :: ({ containerInstanceArn :: Maybe (String), ec2InstanceId :: Maybe (String), version :: Maybe (Number), versionInfo :: Maybe (VersionInfo), remainingResources :: Maybe (Resources), registeredResources :: Maybe (Resources), status :: Maybe (String), agentConnected :: Maybe (Boolean), runningTasksCount :: Maybe (Int), pendingTasksCount :: Maybe (Int), agentUpdateStatus :: Maybe (AgentUpdateStatus), attributes :: Maybe (Attributes), registeredAt :: Maybe (Timestamp), attachments :: Maybe (Attachments) } -> { containerInstanceArn :: Maybe (String), ec2InstanceId :: Maybe (String), version :: Maybe (Number), versionInfo :: Maybe (VersionInfo), remainingResources :: Maybe (Resources), registeredResources :: Maybe (Resources), status :: Maybe (String), agentConnected :: Maybe (Boolean), runningTasksCount :: Maybe (Int), pendingTasksCount :: Maybe (Int), agentUpdateStatus :: Maybe (AgentUpdateStatus), attributes :: Maybe (Attributes), registeredAt :: Maybe (Timestamp), attachments :: Maybe (Attachments) }) -> ContainerInstance
 ```
 
 Constructs ContainerInstance's fields from required parameters
@@ -714,7 +714,7 @@ Encode ContainerInstances
 
 ``` purescript
 newtype ContainerOverride
-  = ContainerOverride { name :: NullOrUndefined (String), command :: NullOrUndefined (StringList), environment :: NullOrUndefined (EnvironmentVariables), cpu :: NullOrUndefined (BoxedInteger), memory :: NullOrUndefined (BoxedInteger), memoryReservation :: NullOrUndefined (BoxedInteger) }
+  = ContainerOverride { name :: Maybe (String), command :: Maybe (StringList), environment :: Maybe (EnvironmentVariables), cpu :: Maybe (BoxedInteger), memory :: Maybe (BoxedInteger), memoryReservation :: Maybe (BoxedInteger) }
 ```
 
 <p>The overrides that should be sent to a container.</p>
@@ -739,7 +739,7 @@ Constructs ContainerOverride from required parameters
 #### `newContainerOverride'`
 
 ``` purescript
-newContainerOverride' :: ({ name :: NullOrUndefined (String), command :: NullOrUndefined (StringList), environment :: NullOrUndefined (EnvironmentVariables), cpu :: NullOrUndefined (BoxedInteger), memory :: NullOrUndefined (BoxedInteger), memoryReservation :: NullOrUndefined (BoxedInteger) } -> { name :: NullOrUndefined (String), command :: NullOrUndefined (StringList), environment :: NullOrUndefined (EnvironmentVariables), cpu :: NullOrUndefined (BoxedInteger), memory :: NullOrUndefined (BoxedInteger), memoryReservation :: NullOrUndefined (BoxedInteger) }) -> ContainerOverride
+newContainerOverride' :: ({ name :: Maybe (String), command :: Maybe (StringList), environment :: Maybe (EnvironmentVariables), cpu :: Maybe (BoxedInteger), memory :: Maybe (BoxedInteger), memoryReservation :: Maybe (BoxedInteger) } -> { name :: Maybe (String), command :: Maybe (StringList), environment :: Maybe (EnvironmentVariables), cpu :: Maybe (BoxedInteger), memory :: Maybe (BoxedInteger), memoryReservation :: Maybe (BoxedInteger) }) -> ContainerOverride
 ```
 
 Constructs ContainerOverride's fields from required parameters
@@ -764,7 +764,7 @@ Encode ContainerOverrides
 
 ``` purescript
 newtype ContainerStateChange
-  = ContainerStateChange { containerName :: NullOrUndefined (String), exitCode :: NullOrUndefined (BoxedInteger), networkBindings :: NullOrUndefined (NetworkBindings), reason :: NullOrUndefined (String), status :: NullOrUndefined (String) }
+  = ContainerStateChange { containerName :: Maybe (String), exitCode :: Maybe (BoxedInteger), networkBindings :: Maybe (NetworkBindings), reason :: Maybe (String), status :: Maybe (String) }
 ```
 
 <p>An object representing a change in state for a container.</p>
@@ -789,7 +789,7 @@ Constructs ContainerStateChange from required parameters
 #### `newContainerStateChange'`
 
 ``` purescript
-newContainerStateChange' :: ({ containerName :: NullOrUndefined (String), exitCode :: NullOrUndefined (BoxedInteger), networkBindings :: NullOrUndefined (NetworkBindings), reason :: NullOrUndefined (String), status :: NullOrUndefined (String) } -> { containerName :: NullOrUndefined (String), exitCode :: NullOrUndefined (BoxedInteger), networkBindings :: NullOrUndefined (NetworkBindings), reason :: NullOrUndefined (String), status :: NullOrUndefined (String) }) -> ContainerStateChange
+newContainerStateChange' :: ({ containerName :: Maybe (String), exitCode :: Maybe (BoxedInteger), networkBindings :: Maybe (NetworkBindings), reason :: Maybe (String), status :: Maybe (String) } -> { containerName :: Maybe (String), exitCode :: Maybe (BoxedInteger), networkBindings :: Maybe (NetworkBindings), reason :: Maybe (String), status :: Maybe (String) }) -> ContainerStateChange
 ```
 
 Constructs ContainerStateChange's fields from required parameters
@@ -830,7 +830,7 @@ Encode Containers
 
 ``` purescript
 newtype CreateClusterRequest
-  = CreateClusterRequest { clusterName :: NullOrUndefined (String) }
+  = CreateClusterRequest { clusterName :: Maybe (String) }
 ```
 
 ##### Instances
@@ -853,7 +853,7 @@ Constructs CreateClusterRequest from required parameters
 #### `newCreateClusterRequest'`
 
 ``` purescript
-newCreateClusterRequest' :: ({ clusterName :: NullOrUndefined (String) } -> { clusterName :: NullOrUndefined (String) }) -> CreateClusterRequest
+newCreateClusterRequest' :: ({ clusterName :: Maybe (String) } -> { clusterName :: Maybe (String) }) -> CreateClusterRequest
 ```
 
 Constructs CreateClusterRequest's fields from required parameters
@@ -862,7 +862,7 @@ Constructs CreateClusterRequest's fields from required parameters
 
 ``` purescript
 newtype CreateClusterResponse
-  = CreateClusterResponse { cluster :: NullOrUndefined (Cluster) }
+  = CreateClusterResponse { cluster :: Maybe (Cluster) }
 ```
 
 ##### Instances
@@ -885,7 +885,7 @@ Constructs CreateClusterResponse from required parameters
 #### `newCreateClusterResponse'`
 
 ``` purescript
-newCreateClusterResponse' :: ({ cluster :: NullOrUndefined (Cluster) } -> { cluster :: NullOrUndefined (Cluster) }) -> CreateClusterResponse
+newCreateClusterResponse' :: ({ cluster :: Maybe (Cluster) } -> { cluster :: Maybe (Cluster) }) -> CreateClusterResponse
 ```
 
 Constructs CreateClusterResponse's fields from required parameters
@@ -894,7 +894,7 @@ Constructs CreateClusterResponse's fields from required parameters
 
 ``` purescript
 newtype CreateServiceRequest
-  = CreateServiceRequest { cluster :: NullOrUndefined (String), serviceName :: String, taskDefinition :: String, loadBalancers :: NullOrUndefined (LoadBalancers), desiredCount :: BoxedInteger, clientToken :: NullOrUndefined (String), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), role :: NullOrUndefined (String), deploymentConfiguration :: NullOrUndefined (DeploymentConfiguration), placementConstraints :: NullOrUndefined (PlacementConstraints), placementStrategy :: NullOrUndefined (PlacementStrategies), networkConfiguration :: NullOrUndefined (NetworkConfiguration), healthCheckGracePeriodSeconds :: NullOrUndefined (BoxedInteger) }
+  = CreateServiceRequest { cluster :: Maybe (String), serviceName :: String, taskDefinition :: String, loadBalancers :: Maybe (LoadBalancers), desiredCount :: BoxedInteger, clientToken :: Maybe (String), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), role :: Maybe (String), deploymentConfiguration :: Maybe (DeploymentConfiguration), placementConstraints :: Maybe (PlacementConstraints), placementStrategy :: Maybe (PlacementStrategies), networkConfiguration :: Maybe (NetworkConfiguration), healthCheckGracePeriodSeconds :: Maybe (BoxedInteger) }
 ```
 
 ##### Instances
@@ -917,7 +917,7 @@ Constructs CreateServiceRequest from required parameters
 #### `newCreateServiceRequest'`
 
 ``` purescript
-newCreateServiceRequest' :: BoxedInteger -> String -> String -> ({ cluster :: NullOrUndefined (String), serviceName :: String, taskDefinition :: String, loadBalancers :: NullOrUndefined (LoadBalancers), desiredCount :: BoxedInteger, clientToken :: NullOrUndefined (String), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), role :: NullOrUndefined (String), deploymentConfiguration :: NullOrUndefined (DeploymentConfiguration), placementConstraints :: NullOrUndefined (PlacementConstraints), placementStrategy :: NullOrUndefined (PlacementStrategies), networkConfiguration :: NullOrUndefined (NetworkConfiguration), healthCheckGracePeriodSeconds :: NullOrUndefined (BoxedInteger) } -> { cluster :: NullOrUndefined (String), serviceName :: String, taskDefinition :: String, loadBalancers :: NullOrUndefined (LoadBalancers), desiredCount :: BoxedInteger, clientToken :: NullOrUndefined (String), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), role :: NullOrUndefined (String), deploymentConfiguration :: NullOrUndefined (DeploymentConfiguration), placementConstraints :: NullOrUndefined (PlacementConstraints), placementStrategy :: NullOrUndefined (PlacementStrategies), networkConfiguration :: NullOrUndefined (NetworkConfiguration), healthCheckGracePeriodSeconds :: NullOrUndefined (BoxedInteger) }) -> CreateServiceRequest
+newCreateServiceRequest' :: BoxedInteger -> String -> String -> ({ cluster :: Maybe (String), serviceName :: String, taskDefinition :: String, loadBalancers :: Maybe (LoadBalancers), desiredCount :: BoxedInteger, clientToken :: Maybe (String), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), role :: Maybe (String), deploymentConfiguration :: Maybe (DeploymentConfiguration), placementConstraints :: Maybe (PlacementConstraints), placementStrategy :: Maybe (PlacementStrategies), networkConfiguration :: Maybe (NetworkConfiguration), healthCheckGracePeriodSeconds :: Maybe (BoxedInteger) } -> { cluster :: Maybe (String), serviceName :: String, taskDefinition :: String, loadBalancers :: Maybe (LoadBalancers), desiredCount :: BoxedInteger, clientToken :: Maybe (String), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), role :: Maybe (String), deploymentConfiguration :: Maybe (DeploymentConfiguration), placementConstraints :: Maybe (PlacementConstraints), placementStrategy :: Maybe (PlacementStrategies), networkConfiguration :: Maybe (NetworkConfiguration), healthCheckGracePeriodSeconds :: Maybe (BoxedInteger) }) -> CreateServiceRequest
 ```
 
 Constructs CreateServiceRequest's fields from required parameters
@@ -926,7 +926,7 @@ Constructs CreateServiceRequest's fields from required parameters
 
 ``` purescript
 newtype CreateServiceResponse
-  = CreateServiceResponse { service :: NullOrUndefined (Service) }
+  = CreateServiceResponse { service :: Maybe (Service) }
 ```
 
 ##### Instances
@@ -949,7 +949,7 @@ Constructs CreateServiceResponse from required parameters
 #### `newCreateServiceResponse'`
 
 ``` purescript
-newCreateServiceResponse' :: ({ service :: NullOrUndefined (Service) } -> { service :: NullOrUndefined (Service) }) -> CreateServiceResponse
+newCreateServiceResponse' :: ({ service :: Maybe (Service) } -> { service :: Maybe (Service) }) -> CreateServiceResponse
 ```
 
 Constructs CreateServiceResponse's fields from required parameters
@@ -958,7 +958,7 @@ Constructs CreateServiceResponse's fields from required parameters
 
 ``` purescript
 newtype DeleteAttributesRequest
-  = DeleteAttributesRequest { cluster :: NullOrUndefined (String), attributes :: Attributes }
+  = DeleteAttributesRequest { cluster :: Maybe (String), attributes :: Attributes }
 ```
 
 ##### Instances
@@ -981,7 +981,7 @@ Constructs DeleteAttributesRequest from required parameters
 #### `newDeleteAttributesRequest'`
 
 ``` purescript
-newDeleteAttributesRequest' :: Attributes -> ({ cluster :: NullOrUndefined (String), attributes :: Attributes } -> { cluster :: NullOrUndefined (String), attributes :: Attributes }) -> DeleteAttributesRequest
+newDeleteAttributesRequest' :: Attributes -> ({ cluster :: Maybe (String), attributes :: Attributes } -> { cluster :: Maybe (String), attributes :: Attributes }) -> DeleteAttributesRequest
 ```
 
 Constructs DeleteAttributesRequest's fields from required parameters
@@ -990,7 +990,7 @@ Constructs DeleteAttributesRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteAttributesResponse
-  = DeleteAttributesResponse { attributes :: NullOrUndefined (Attributes) }
+  = DeleteAttributesResponse { attributes :: Maybe (Attributes) }
 ```
 
 ##### Instances
@@ -1013,7 +1013,7 @@ Constructs DeleteAttributesResponse from required parameters
 #### `newDeleteAttributesResponse'`
 
 ``` purescript
-newDeleteAttributesResponse' :: ({ attributes :: NullOrUndefined (Attributes) } -> { attributes :: NullOrUndefined (Attributes) }) -> DeleteAttributesResponse
+newDeleteAttributesResponse' :: ({ attributes :: Maybe (Attributes) } -> { attributes :: Maybe (Attributes) }) -> DeleteAttributesResponse
 ```
 
 Constructs DeleteAttributesResponse's fields from required parameters
@@ -1054,7 +1054,7 @@ Constructs DeleteClusterRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteClusterResponse
-  = DeleteClusterResponse { cluster :: NullOrUndefined (Cluster) }
+  = DeleteClusterResponse { cluster :: Maybe (Cluster) }
 ```
 
 ##### Instances
@@ -1077,7 +1077,7 @@ Constructs DeleteClusterResponse from required parameters
 #### `newDeleteClusterResponse'`
 
 ``` purescript
-newDeleteClusterResponse' :: ({ cluster :: NullOrUndefined (Cluster) } -> { cluster :: NullOrUndefined (Cluster) }) -> DeleteClusterResponse
+newDeleteClusterResponse' :: ({ cluster :: Maybe (Cluster) } -> { cluster :: Maybe (Cluster) }) -> DeleteClusterResponse
 ```
 
 Constructs DeleteClusterResponse's fields from required parameters
@@ -1086,7 +1086,7 @@ Constructs DeleteClusterResponse's fields from required parameters
 
 ``` purescript
 newtype DeleteServiceRequest
-  = DeleteServiceRequest { cluster :: NullOrUndefined (String), service :: String }
+  = DeleteServiceRequest { cluster :: Maybe (String), service :: String }
 ```
 
 ##### Instances
@@ -1109,7 +1109,7 @@ Constructs DeleteServiceRequest from required parameters
 #### `newDeleteServiceRequest'`
 
 ``` purescript
-newDeleteServiceRequest' :: String -> ({ cluster :: NullOrUndefined (String), service :: String } -> { cluster :: NullOrUndefined (String), service :: String }) -> DeleteServiceRequest
+newDeleteServiceRequest' :: String -> ({ cluster :: Maybe (String), service :: String } -> { cluster :: Maybe (String), service :: String }) -> DeleteServiceRequest
 ```
 
 Constructs DeleteServiceRequest's fields from required parameters
@@ -1118,7 +1118,7 @@ Constructs DeleteServiceRequest's fields from required parameters
 
 ``` purescript
 newtype DeleteServiceResponse
-  = DeleteServiceResponse { service :: NullOrUndefined (Service) }
+  = DeleteServiceResponse { service :: Maybe (Service) }
 ```
 
 ##### Instances
@@ -1141,7 +1141,7 @@ Constructs DeleteServiceResponse from required parameters
 #### `newDeleteServiceResponse'`
 
 ``` purescript
-newDeleteServiceResponse' :: ({ service :: NullOrUndefined (Service) } -> { service :: NullOrUndefined (Service) }) -> DeleteServiceResponse
+newDeleteServiceResponse' :: ({ service :: Maybe (Service) } -> { service :: Maybe (Service) }) -> DeleteServiceResponse
 ```
 
 Constructs DeleteServiceResponse's fields from required parameters
@@ -1150,7 +1150,7 @@ Constructs DeleteServiceResponse's fields from required parameters
 
 ``` purescript
 newtype Deployment
-  = Deployment { id :: NullOrUndefined (String), status :: NullOrUndefined (String), taskDefinition :: NullOrUndefined (String), desiredCount :: NullOrUndefined (Int), pendingCount :: NullOrUndefined (Int), runningCount :: NullOrUndefined (Int), createdAt :: NullOrUndefined (Timestamp), updatedAt :: NullOrUndefined (Timestamp), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), networkConfiguration :: NullOrUndefined (NetworkConfiguration) }
+  = Deployment { id :: Maybe (String), status :: Maybe (String), taskDefinition :: Maybe (String), desiredCount :: Maybe (Int), pendingCount :: Maybe (Int), runningCount :: Maybe (Int), createdAt :: Maybe (Timestamp), updatedAt :: Maybe (Timestamp), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), networkConfiguration :: Maybe (NetworkConfiguration) }
 ```
 
 <p>The details of an Amazon ECS service deployment.</p>
@@ -1175,7 +1175,7 @@ Constructs Deployment from required parameters
 #### `newDeployment'`
 
 ``` purescript
-newDeployment' :: ({ id :: NullOrUndefined (String), status :: NullOrUndefined (String), taskDefinition :: NullOrUndefined (String), desiredCount :: NullOrUndefined (Int), pendingCount :: NullOrUndefined (Int), runningCount :: NullOrUndefined (Int), createdAt :: NullOrUndefined (Timestamp), updatedAt :: NullOrUndefined (Timestamp), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), networkConfiguration :: NullOrUndefined (NetworkConfiguration) } -> { id :: NullOrUndefined (String), status :: NullOrUndefined (String), taskDefinition :: NullOrUndefined (String), desiredCount :: NullOrUndefined (Int), pendingCount :: NullOrUndefined (Int), runningCount :: NullOrUndefined (Int), createdAt :: NullOrUndefined (Timestamp), updatedAt :: NullOrUndefined (Timestamp), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), networkConfiguration :: NullOrUndefined (NetworkConfiguration) }) -> Deployment
+newDeployment' :: ({ id :: Maybe (String), status :: Maybe (String), taskDefinition :: Maybe (String), desiredCount :: Maybe (Int), pendingCount :: Maybe (Int), runningCount :: Maybe (Int), createdAt :: Maybe (Timestamp), updatedAt :: Maybe (Timestamp), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), networkConfiguration :: Maybe (NetworkConfiguration) } -> { id :: Maybe (String), status :: Maybe (String), taskDefinition :: Maybe (String), desiredCount :: Maybe (Int), pendingCount :: Maybe (Int), runningCount :: Maybe (Int), createdAt :: Maybe (Timestamp), updatedAt :: Maybe (Timestamp), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), networkConfiguration :: Maybe (NetworkConfiguration) }) -> Deployment
 ```
 
 Constructs Deployment's fields from required parameters
@@ -1184,7 +1184,7 @@ Constructs Deployment's fields from required parameters
 
 ``` purescript
 newtype DeploymentConfiguration
-  = DeploymentConfiguration { maximumPercent :: NullOrUndefined (BoxedInteger), minimumHealthyPercent :: NullOrUndefined (BoxedInteger) }
+  = DeploymentConfiguration { maximumPercent :: Maybe (BoxedInteger), minimumHealthyPercent :: Maybe (BoxedInteger) }
 ```
 
 <p>Optional deployment parameters that control how many tasks run during the deployment and the ordering of stopping and starting tasks.</p>
@@ -1209,7 +1209,7 @@ Constructs DeploymentConfiguration from required parameters
 #### `newDeploymentConfiguration'`
 
 ``` purescript
-newDeploymentConfiguration' :: ({ maximumPercent :: NullOrUndefined (BoxedInteger), minimumHealthyPercent :: NullOrUndefined (BoxedInteger) } -> { maximumPercent :: NullOrUndefined (BoxedInteger), minimumHealthyPercent :: NullOrUndefined (BoxedInteger) }) -> DeploymentConfiguration
+newDeploymentConfiguration' :: ({ maximumPercent :: Maybe (BoxedInteger), minimumHealthyPercent :: Maybe (BoxedInteger) } -> { maximumPercent :: Maybe (BoxedInteger), minimumHealthyPercent :: Maybe (BoxedInteger) }) -> DeploymentConfiguration
 ```
 
 Constructs DeploymentConfiguration's fields from required parameters
@@ -1234,7 +1234,7 @@ Encode Deployments
 
 ``` purescript
 newtype DeregisterContainerInstanceRequest
-  = DeregisterContainerInstanceRequest { cluster :: NullOrUndefined (String), containerInstance :: String, force :: NullOrUndefined (BoxedBoolean) }
+  = DeregisterContainerInstanceRequest { cluster :: Maybe (String), containerInstance :: String, force :: Maybe (BoxedBoolean) }
 ```
 
 ##### Instances
@@ -1257,7 +1257,7 @@ Constructs DeregisterContainerInstanceRequest from required parameters
 #### `newDeregisterContainerInstanceRequest'`
 
 ``` purescript
-newDeregisterContainerInstanceRequest' :: String -> ({ cluster :: NullOrUndefined (String), containerInstance :: String, force :: NullOrUndefined (BoxedBoolean) } -> { cluster :: NullOrUndefined (String), containerInstance :: String, force :: NullOrUndefined (BoxedBoolean) }) -> DeregisterContainerInstanceRequest
+newDeregisterContainerInstanceRequest' :: String -> ({ cluster :: Maybe (String), containerInstance :: String, force :: Maybe (BoxedBoolean) } -> { cluster :: Maybe (String), containerInstance :: String, force :: Maybe (BoxedBoolean) }) -> DeregisterContainerInstanceRequest
 ```
 
 Constructs DeregisterContainerInstanceRequest's fields from required parameters
@@ -1266,7 +1266,7 @@ Constructs DeregisterContainerInstanceRequest's fields from required parameters
 
 ``` purescript
 newtype DeregisterContainerInstanceResponse
-  = DeregisterContainerInstanceResponse { containerInstance :: NullOrUndefined (ContainerInstance) }
+  = DeregisterContainerInstanceResponse { containerInstance :: Maybe (ContainerInstance) }
 ```
 
 ##### Instances
@@ -1289,7 +1289,7 @@ Constructs DeregisterContainerInstanceResponse from required parameters
 #### `newDeregisterContainerInstanceResponse'`
 
 ``` purescript
-newDeregisterContainerInstanceResponse' :: ({ containerInstance :: NullOrUndefined (ContainerInstance) } -> { containerInstance :: NullOrUndefined (ContainerInstance) }) -> DeregisterContainerInstanceResponse
+newDeregisterContainerInstanceResponse' :: ({ containerInstance :: Maybe (ContainerInstance) } -> { containerInstance :: Maybe (ContainerInstance) }) -> DeregisterContainerInstanceResponse
 ```
 
 Constructs DeregisterContainerInstanceResponse's fields from required parameters
@@ -1330,7 +1330,7 @@ Constructs DeregisterTaskDefinitionRequest's fields from required parameters
 
 ``` purescript
 newtype DeregisterTaskDefinitionResponse
-  = DeregisterTaskDefinitionResponse { taskDefinition :: NullOrUndefined (TaskDefinition) }
+  = DeregisterTaskDefinitionResponse { taskDefinition :: Maybe (TaskDefinition) }
 ```
 
 ##### Instances
@@ -1353,7 +1353,7 @@ Constructs DeregisterTaskDefinitionResponse from required parameters
 #### `newDeregisterTaskDefinitionResponse'`
 
 ``` purescript
-newDeregisterTaskDefinitionResponse' :: ({ taskDefinition :: NullOrUndefined (TaskDefinition) } -> { taskDefinition :: NullOrUndefined (TaskDefinition) }) -> DeregisterTaskDefinitionResponse
+newDeregisterTaskDefinitionResponse' :: ({ taskDefinition :: Maybe (TaskDefinition) } -> { taskDefinition :: Maybe (TaskDefinition) }) -> DeregisterTaskDefinitionResponse
 ```
 
 Constructs DeregisterTaskDefinitionResponse's fields from required parameters
@@ -1362,7 +1362,7 @@ Constructs DeregisterTaskDefinitionResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeClustersRequest
-  = DescribeClustersRequest { clusters :: NullOrUndefined (StringList), include :: NullOrUndefined (ClusterFieldList) }
+  = DescribeClustersRequest { clusters :: Maybe (StringList), include :: Maybe (ClusterFieldList) }
 ```
 
 ##### Instances
@@ -1385,7 +1385,7 @@ Constructs DescribeClustersRequest from required parameters
 #### `newDescribeClustersRequest'`
 
 ``` purescript
-newDescribeClustersRequest' :: ({ clusters :: NullOrUndefined (StringList), include :: NullOrUndefined (ClusterFieldList) } -> { clusters :: NullOrUndefined (StringList), include :: NullOrUndefined (ClusterFieldList) }) -> DescribeClustersRequest
+newDescribeClustersRequest' :: ({ clusters :: Maybe (StringList), include :: Maybe (ClusterFieldList) } -> { clusters :: Maybe (StringList), include :: Maybe (ClusterFieldList) }) -> DescribeClustersRequest
 ```
 
 Constructs DescribeClustersRequest's fields from required parameters
@@ -1394,7 +1394,7 @@ Constructs DescribeClustersRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeClustersResponse
-  = DescribeClustersResponse { clusters :: NullOrUndefined (Clusters), failures :: NullOrUndefined (Failures) }
+  = DescribeClustersResponse { clusters :: Maybe (Clusters), failures :: Maybe (Failures) }
 ```
 
 ##### Instances
@@ -1417,7 +1417,7 @@ Constructs DescribeClustersResponse from required parameters
 #### `newDescribeClustersResponse'`
 
 ``` purescript
-newDescribeClustersResponse' :: ({ clusters :: NullOrUndefined (Clusters), failures :: NullOrUndefined (Failures) } -> { clusters :: NullOrUndefined (Clusters), failures :: NullOrUndefined (Failures) }) -> DescribeClustersResponse
+newDescribeClustersResponse' :: ({ clusters :: Maybe (Clusters), failures :: Maybe (Failures) } -> { clusters :: Maybe (Clusters), failures :: Maybe (Failures) }) -> DescribeClustersResponse
 ```
 
 Constructs DescribeClustersResponse's fields from required parameters
@@ -1426,7 +1426,7 @@ Constructs DescribeClustersResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeContainerInstancesRequest
-  = DescribeContainerInstancesRequest { cluster :: NullOrUndefined (String), containerInstances :: StringList }
+  = DescribeContainerInstancesRequest { cluster :: Maybe (String), containerInstances :: StringList }
 ```
 
 ##### Instances
@@ -1449,7 +1449,7 @@ Constructs DescribeContainerInstancesRequest from required parameters
 #### `newDescribeContainerInstancesRequest'`
 
 ``` purescript
-newDescribeContainerInstancesRequest' :: StringList -> ({ cluster :: NullOrUndefined (String), containerInstances :: StringList } -> { cluster :: NullOrUndefined (String), containerInstances :: StringList }) -> DescribeContainerInstancesRequest
+newDescribeContainerInstancesRequest' :: StringList -> ({ cluster :: Maybe (String), containerInstances :: StringList } -> { cluster :: Maybe (String), containerInstances :: StringList }) -> DescribeContainerInstancesRequest
 ```
 
 Constructs DescribeContainerInstancesRequest's fields from required parameters
@@ -1458,7 +1458,7 @@ Constructs DescribeContainerInstancesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeContainerInstancesResponse
-  = DescribeContainerInstancesResponse { containerInstances :: NullOrUndefined (ContainerInstances), failures :: NullOrUndefined (Failures) }
+  = DescribeContainerInstancesResponse { containerInstances :: Maybe (ContainerInstances), failures :: Maybe (Failures) }
 ```
 
 ##### Instances
@@ -1481,7 +1481,7 @@ Constructs DescribeContainerInstancesResponse from required parameters
 #### `newDescribeContainerInstancesResponse'`
 
 ``` purescript
-newDescribeContainerInstancesResponse' :: ({ containerInstances :: NullOrUndefined (ContainerInstances), failures :: NullOrUndefined (Failures) } -> { containerInstances :: NullOrUndefined (ContainerInstances), failures :: NullOrUndefined (Failures) }) -> DescribeContainerInstancesResponse
+newDescribeContainerInstancesResponse' :: ({ containerInstances :: Maybe (ContainerInstances), failures :: Maybe (Failures) } -> { containerInstances :: Maybe (ContainerInstances), failures :: Maybe (Failures) }) -> DescribeContainerInstancesResponse
 ```
 
 Constructs DescribeContainerInstancesResponse's fields from required parameters
@@ -1490,7 +1490,7 @@ Constructs DescribeContainerInstancesResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeServicesRequest
-  = DescribeServicesRequest { cluster :: NullOrUndefined (String), services :: StringList }
+  = DescribeServicesRequest { cluster :: Maybe (String), services :: StringList }
 ```
 
 ##### Instances
@@ -1513,7 +1513,7 @@ Constructs DescribeServicesRequest from required parameters
 #### `newDescribeServicesRequest'`
 
 ``` purescript
-newDescribeServicesRequest' :: StringList -> ({ cluster :: NullOrUndefined (String), services :: StringList } -> { cluster :: NullOrUndefined (String), services :: StringList }) -> DescribeServicesRequest
+newDescribeServicesRequest' :: StringList -> ({ cluster :: Maybe (String), services :: StringList } -> { cluster :: Maybe (String), services :: StringList }) -> DescribeServicesRequest
 ```
 
 Constructs DescribeServicesRequest's fields from required parameters
@@ -1522,7 +1522,7 @@ Constructs DescribeServicesRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeServicesResponse
-  = DescribeServicesResponse { services :: NullOrUndefined (Services), failures :: NullOrUndefined (Failures) }
+  = DescribeServicesResponse { services :: Maybe (Services), failures :: Maybe (Failures) }
 ```
 
 ##### Instances
@@ -1545,7 +1545,7 @@ Constructs DescribeServicesResponse from required parameters
 #### `newDescribeServicesResponse'`
 
 ``` purescript
-newDescribeServicesResponse' :: ({ services :: NullOrUndefined (Services), failures :: NullOrUndefined (Failures) } -> { services :: NullOrUndefined (Services), failures :: NullOrUndefined (Failures) }) -> DescribeServicesResponse
+newDescribeServicesResponse' :: ({ services :: Maybe (Services), failures :: Maybe (Failures) } -> { services :: Maybe (Services), failures :: Maybe (Failures) }) -> DescribeServicesResponse
 ```
 
 Constructs DescribeServicesResponse's fields from required parameters
@@ -1586,7 +1586,7 @@ Constructs DescribeTaskDefinitionRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeTaskDefinitionResponse
-  = DescribeTaskDefinitionResponse { taskDefinition :: NullOrUndefined (TaskDefinition) }
+  = DescribeTaskDefinitionResponse { taskDefinition :: Maybe (TaskDefinition) }
 ```
 
 ##### Instances
@@ -1609,7 +1609,7 @@ Constructs DescribeTaskDefinitionResponse from required parameters
 #### `newDescribeTaskDefinitionResponse'`
 
 ``` purescript
-newDescribeTaskDefinitionResponse' :: ({ taskDefinition :: NullOrUndefined (TaskDefinition) } -> { taskDefinition :: NullOrUndefined (TaskDefinition) }) -> DescribeTaskDefinitionResponse
+newDescribeTaskDefinitionResponse' :: ({ taskDefinition :: Maybe (TaskDefinition) } -> { taskDefinition :: Maybe (TaskDefinition) }) -> DescribeTaskDefinitionResponse
 ```
 
 Constructs DescribeTaskDefinitionResponse's fields from required parameters
@@ -1618,7 +1618,7 @@ Constructs DescribeTaskDefinitionResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeTasksRequest
-  = DescribeTasksRequest { cluster :: NullOrUndefined (String), tasks :: StringList }
+  = DescribeTasksRequest { cluster :: Maybe (String), tasks :: StringList }
 ```
 
 ##### Instances
@@ -1641,7 +1641,7 @@ Constructs DescribeTasksRequest from required parameters
 #### `newDescribeTasksRequest'`
 
 ``` purescript
-newDescribeTasksRequest' :: StringList -> ({ cluster :: NullOrUndefined (String), tasks :: StringList } -> { cluster :: NullOrUndefined (String), tasks :: StringList }) -> DescribeTasksRequest
+newDescribeTasksRequest' :: StringList -> ({ cluster :: Maybe (String), tasks :: StringList } -> { cluster :: Maybe (String), tasks :: StringList }) -> DescribeTasksRequest
 ```
 
 Constructs DescribeTasksRequest's fields from required parameters
@@ -1650,7 +1650,7 @@ Constructs DescribeTasksRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeTasksResponse
-  = DescribeTasksResponse { tasks :: NullOrUndefined (Tasks), failures :: NullOrUndefined (Failures) }
+  = DescribeTasksResponse { tasks :: Maybe (Tasks), failures :: Maybe (Failures) }
 ```
 
 ##### Instances
@@ -1673,7 +1673,7 @@ Constructs DescribeTasksResponse from required parameters
 #### `newDescribeTasksResponse'`
 
 ``` purescript
-newDescribeTasksResponse' :: ({ tasks :: NullOrUndefined (Tasks), failures :: NullOrUndefined (Failures) } -> { tasks :: NullOrUndefined (Tasks), failures :: NullOrUndefined (Failures) }) -> DescribeTasksResponse
+newDescribeTasksResponse' :: ({ tasks :: Maybe (Tasks), failures :: Maybe (Failures) } -> { tasks :: Maybe (Tasks), failures :: Maybe (Failures) }) -> DescribeTasksResponse
 ```
 
 Constructs DescribeTasksResponse's fields from required parameters
@@ -1698,7 +1698,7 @@ Encode DesiredStatus
 
 ``` purescript
 newtype Device
-  = Device { hostPath :: String, containerPath :: NullOrUndefined (String), permissions :: NullOrUndefined (DeviceCgroupPermissions) }
+  = Device { hostPath :: String, containerPath :: Maybe (String), permissions :: Maybe (DeviceCgroupPermissions) }
 ```
 
 <p>An object representing a container instance host device.</p>
@@ -1723,7 +1723,7 @@ Constructs Device from required parameters
 #### `newDevice'`
 
 ``` purescript
-newDevice' :: String -> ({ hostPath :: String, containerPath :: NullOrUndefined (String), permissions :: NullOrUndefined (DeviceCgroupPermissions) } -> { hostPath :: String, containerPath :: NullOrUndefined (String), permissions :: NullOrUndefined (DeviceCgroupPermissions) }) -> Device
+newDevice' :: String -> ({ hostPath :: String, containerPath :: Maybe (String), permissions :: Maybe (DeviceCgroupPermissions) } -> { hostPath :: String, containerPath :: Maybe (String), permissions :: Maybe (DeviceCgroupPermissions) }) -> Device
 ```
 
 Constructs Device's fields from required parameters
@@ -1780,7 +1780,7 @@ Encode DevicesList
 
 ``` purescript
 newtype DiscoverPollEndpointRequest
-  = DiscoverPollEndpointRequest { containerInstance :: NullOrUndefined (String), cluster :: NullOrUndefined (String) }
+  = DiscoverPollEndpointRequest { containerInstance :: Maybe (String), cluster :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1803,7 +1803,7 @@ Constructs DiscoverPollEndpointRequest from required parameters
 #### `newDiscoverPollEndpointRequest'`
 
 ``` purescript
-newDiscoverPollEndpointRequest' :: ({ containerInstance :: NullOrUndefined (String), cluster :: NullOrUndefined (String) } -> { containerInstance :: NullOrUndefined (String), cluster :: NullOrUndefined (String) }) -> DiscoverPollEndpointRequest
+newDiscoverPollEndpointRequest' :: ({ containerInstance :: Maybe (String), cluster :: Maybe (String) } -> { containerInstance :: Maybe (String), cluster :: Maybe (String) }) -> DiscoverPollEndpointRequest
 ```
 
 Constructs DiscoverPollEndpointRequest's fields from required parameters
@@ -1812,7 +1812,7 @@ Constructs DiscoverPollEndpointRequest's fields from required parameters
 
 ``` purescript
 newtype DiscoverPollEndpointResponse
-  = DiscoverPollEndpointResponse { endpoint :: NullOrUndefined (String), telemetryEndpoint :: NullOrUndefined (String) }
+  = DiscoverPollEndpointResponse { endpoint :: Maybe (String), telemetryEndpoint :: Maybe (String) }
 ```
 
 ##### Instances
@@ -1835,7 +1835,7 @@ Constructs DiscoverPollEndpointResponse from required parameters
 #### `newDiscoverPollEndpointResponse'`
 
 ``` purescript
-newDiscoverPollEndpointResponse' :: ({ endpoint :: NullOrUndefined (String), telemetryEndpoint :: NullOrUndefined (String) } -> { endpoint :: NullOrUndefined (String), telemetryEndpoint :: NullOrUndefined (String) }) -> DiscoverPollEndpointResponse
+newDiscoverPollEndpointResponse' :: ({ endpoint :: Maybe (String), telemetryEndpoint :: Maybe (String) } -> { endpoint :: Maybe (String), telemetryEndpoint :: Maybe (String) }) -> DiscoverPollEndpointResponse
 ```
 
 Constructs DiscoverPollEndpointResponse's fields from required parameters
@@ -1876,7 +1876,7 @@ Encode EnvironmentVariables
 
 ``` purescript
 newtype Failure
-  = Failure { arn :: NullOrUndefined (String), reason :: NullOrUndefined (String) }
+  = Failure { arn :: Maybe (String), reason :: Maybe (String) }
 ```
 
 <p>A failed resource.</p>
@@ -1901,7 +1901,7 @@ Constructs Failure from required parameters
 #### `newFailure'`
 
 ``` purescript
-newFailure' :: ({ arn :: NullOrUndefined (String), reason :: NullOrUndefined (String) } -> { arn :: NullOrUndefined (String), reason :: NullOrUndefined (String) }) -> Failure
+newFailure' :: ({ arn :: Maybe (String), reason :: Maybe (String) } -> { arn :: Maybe (String), reason :: Maybe (String) }) -> Failure
 ```
 
 Constructs Failure's fields from required parameters
@@ -1926,7 +1926,7 @@ Encode Failures
 
 ``` purescript
 newtype HealthCheck
-  = HealthCheck { command :: StringList, interval :: NullOrUndefined (BoxedInteger), timeout :: NullOrUndefined (BoxedInteger), retries :: NullOrUndefined (BoxedInteger), startPeriod :: NullOrUndefined (BoxedInteger) }
+  = HealthCheck { command :: StringList, interval :: Maybe (BoxedInteger), timeout :: Maybe (BoxedInteger), retries :: Maybe (BoxedInteger), startPeriod :: Maybe (BoxedInteger) }
 ```
 
 <p>An object representing a container health check. Health check parameters that are specified in a container definition override any Docker health checks that exist in the container image (such as those specified in a parent image or from the image's Dockerfile).</p>
@@ -1951,7 +1951,7 @@ Constructs HealthCheck from required parameters
 #### `newHealthCheck'`
 
 ``` purescript
-newHealthCheck' :: StringList -> ({ command :: StringList, interval :: NullOrUndefined (BoxedInteger), timeout :: NullOrUndefined (BoxedInteger), retries :: NullOrUndefined (BoxedInteger), startPeriod :: NullOrUndefined (BoxedInteger) } -> { command :: StringList, interval :: NullOrUndefined (BoxedInteger), timeout :: NullOrUndefined (BoxedInteger), retries :: NullOrUndefined (BoxedInteger), startPeriod :: NullOrUndefined (BoxedInteger) }) -> HealthCheck
+newHealthCheck' :: StringList -> ({ command :: StringList, interval :: Maybe (BoxedInteger), timeout :: Maybe (BoxedInteger), retries :: Maybe (BoxedInteger), startPeriod :: Maybe (BoxedInteger) } -> { command :: StringList, interval :: Maybe (BoxedInteger), timeout :: Maybe (BoxedInteger), retries :: Maybe (BoxedInteger), startPeriod :: Maybe (BoxedInteger) }) -> HealthCheck
 ```
 
 Constructs HealthCheck's fields from required parameters
@@ -2026,7 +2026,7 @@ Encode HostEntryList
 
 ``` purescript
 newtype HostVolumeProperties
-  = HostVolumeProperties { sourcePath :: NullOrUndefined (String) }
+  = HostVolumeProperties { sourcePath :: Maybe (String) }
 ```
 
 <p>Details on a container instance host volume.</p>
@@ -2051,7 +2051,7 @@ Constructs HostVolumeProperties from required parameters
 #### `newHostVolumeProperties'`
 
 ``` purescript
-newHostVolumeProperties' :: ({ sourcePath :: NullOrUndefined (String) } -> { sourcePath :: NullOrUndefined (String) }) -> HostVolumeProperties
+newHostVolumeProperties' :: ({ sourcePath :: Maybe (String) } -> { sourcePath :: Maybe (String) }) -> HostVolumeProperties
 ```
 
 Constructs HostVolumeProperties's fields from required parameters
@@ -2078,7 +2078,7 @@ Encode InvalidParameterException
 
 ``` purescript
 newtype KernelCapabilities
-  = KernelCapabilities { add :: NullOrUndefined (StringList), drop :: NullOrUndefined (StringList) }
+  = KernelCapabilities { add :: Maybe (StringList), drop :: Maybe (StringList) }
 ```
 
 <p>The Linux capabilities for the container that are added to or dropped from the default configuration provided by Docker. For more information on the default capabilities and the non-default available capabilities, see <a href="https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities">Runtime privilege and Linux capabilities</a> in the <i>Docker run reference</i>. For more detailed information on these Linux capabilities, see the <a href="http://man7.org/linux/man-pages/man7/capabilities.7.html">capabilities(7)</a> Linux manual page.</p>
@@ -2103,7 +2103,7 @@ Constructs KernelCapabilities from required parameters
 #### `newKernelCapabilities'`
 
 ``` purescript
-newKernelCapabilities' :: ({ add :: NullOrUndefined (StringList), drop :: NullOrUndefined (StringList) } -> { add :: NullOrUndefined (StringList), drop :: NullOrUndefined (StringList) }) -> KernelCapabilities
+newKernelCapabilities' :: ({ add :: Maybe (StringList), drop :: Maybe (StringList) } -> { add :: Maybe (StringList), drop :: Maybe (StringList) }) -> KernelCapabilities
 ```
 
 Constructs KernelCapabilities's fields from required parameters
@@ -2112,7 +2112,7 @@ Constructs KernelCapabilities's fields from required parameters
 
 ``` purescript
 newtype KeyValuePair
-  = KeyValuePair { name :: NullOrUndefined (String), value :: NullOrUndefined (String) }
+  = KeyValuePair { name :: Maybe (String), value :: Maybe (String) }
 ```
 
 <p>A key and value pair object.</p>
@@ -2137,7 +2137,7 @@ Constructs KeyValuePair from required parameters
 #### `newKeyValuePair'`
 
 ``` purescript
-newKeyValuePair' :: ({ name :: NullOrUndefined (String), value :: NullOrUndefined (String) } -> { name :: NullOrUndefined (String), value :: NullOrUndefined (String) }) -> KeyValuePair
+newKeyValuePair' :: ({ name :: Maybe (String), value :: Maybe (String) } -> { name :: Maybe (String), value :: Maybe (String) }) -> KeyValuePair
 ```
 
 Constructs KeyValuePair's fields from required parameters
@@ -2162,7 +2162,7 @@ Encode LaunchType
 
 ``` purescript
 newtype LinuxParameters
-  = LinuxParameters { capabilities :: NullOrUndefined (KernelCapabilities), devices :: NullOrUndefined (DevicesList), initProcessEnabled :: NullOrUndefined (BoxedBoolean) }
+  = LinuxParameters { capabilities :: Maybe (KernelCapabilities), devices :: Maybe (DevicesList), initProcessEnabled :: Maybe (BoxedBoolean) }
 ```
 
 <p>Linux-specific options that are applied to the container, such as Linux <a>KernelCapabilities</a>.</p>
@@ -2187,7 +2187,7 @@ Constructs LinuxParameters from required parameters
 #### `newLinuxParameters'`
 
 ``` purescript
-newLinuxParameters' :: ({ capabilities :: NullOrUndefined (KernelCapabilities), devices :: NullOrUndefined (DevicesList), initProcessEnabled :: NullOrUndefined (BoxedBoolean) } -> { capabilities :: NullOrUndefined (KernelCapabilities), devices :: NullOrUndefined (DevicesList), initProcessEnabled :: NullOrUndefined (BoxedBoolean) }) -> LinuxParameters
+newLinuxParameters' :: ({ capabilities :: Maybe (KernelCapabilities), devices :: Maybe (DevicesList), initProcessEnabled :: Maybe (BoxedBoolean) } -> { capabilities :: Maybe (KernelCapabilities), devices :: Maybe (DevicesList), initProcessEnabled :: Maybe (BoxedBoolean) }) -> LinuxParameters
 ```
 
 Constructs LinuxParameters's fields from required parameters
@@ -2196,7 +2196,7 @@ Constructs LinuxParameters's fields from required parameters
 
 ``` purescript
 newtype ListAttributesRequest
-  = ListAttributesRequest { cluster :: NullOrUndefined (String), targetType :: TargetType, attributeName :: NullOrUndefined (String), attributeValue :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) }
+  = ListAttributesRequest { cluster :: Maybe (String), targetType :: TargetType, attributeName :: Maybe (String), attributeValue :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) }
 ```
 
 ##### Instances
@@ -2219,7 +2219,7 @@ Constructs ListAttributesRequest from required parameters
 #### `newListAttributesRequest'`
 
 ``` purescript
-newListAttributesRequest' :: TargetType -> ({ cluster :: NullOrUndefined (String), targetType :: TargetType, attributeName :: NullOrUndefined (String), attributeValue :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) } -> { cluster :: NullOrUndefined (String), targetType :: TargetType, attributeName :: NullOrUndefined (String), attributeValue :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) }) -> ListAttributesRequest
+newListAttributesRequest' :: TargetType -> ({ cluster :: Maybe (String), targetType :: TargetType, attributeName :: Maybe (String), attributeValue :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) } -> { cluster :: Maybe (String), targetType :: TargetType, attributeName :: Maybe (String), attributeValue :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) }) -> ListAttributesRequest
 ```
 
 Constructs ListAttributesRequest's fields from required parameters
@@ -2228,7 +2228,7 @@ Constructs ListAttributesRequest's fields from required parameters
 
 ``` purescript
 newtype ListAttributesResponse
-  = ListAttributesResponse { attributes :: NullOrUndefined (Attributes), nextToken :: NullOrUndefined (String) }
+  = ListAttributesResponse { attributes :: Maybe (Attributes), nextToken :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2251,7 +2251,7 @@ Constructs ListAttributesResponse from required parameters
 #### `newListAttributesResponse'`
 
 ``` purescript
-newListAttributesResponse' :: ({ attributes :: NullOrUndefined (Attributes), nextToken :: NullOrUndefined (String) } -> { attributes :: NullOrUndefined (Attributes), nextToken :: NullOrUndefined (String) }) -> ListAttributesResponse
+newListAttributesResponse' :: ({ attributes :: Maybe (Attributes), nextToken :: Maybe (String) } -> { attributes :: Maybe (Attributes), nextToken :: Maybe (String) }) -> ListAttributesResponse
 ```
 
 Constructs ListAttributesResponse's fields from required parameters
@@ -2260,7 +2260,7 @@ Constructs ListAttributesResponse's fields from required parameters
 
 ``` purescript
 newtype ListClustersRequest
-  = ListClustersRequest { nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) }
+  = ListClustersRequest { nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) }
 ```
 
 ##### Instances
@@ -2283,7 +2283,7 @@ Constructs ListClustersRequest from required parameters
 #### `newListClustersRequest'`
 
 ``` purescript
-newListClustersRequest' :: ({ nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) } -> { nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) }) -> ListClustersRequest
+newListClustersRequest' :: ({ nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) } -> { nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) }) -> ListClustersRequest
 ```
 
 Constructs ListClustersRequest's fields from required parameters
@@ -2292,7 +2292,7 @@ Constructs ListClustersRequest's fields from required parameters
 
 ``` purescript
 newtype ListClustersResponse
-  = ListClustersResponse { clusterArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }
+  = ListClustersResponse { clusterArns :: Maybe (StringList), nextToken :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2315,7 +2315,7 @@ Constructs ListClustersResponse from required parameters
 #### `newListClustersResponse'`
 
 ``` purescript
-newListClustersResponse' :: ({ clusterArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) } -> { clusterArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }) -> ListClustersResponse
+newListClustersResponse' :: ({ clusterArns :: Maybe (StringList), nextToken :: Maybe (String) } -> { clusterArns :: Maybe (StringList), nextToken :: Maybe (String) }) -> ListClustersResponse
 ```
 
 Constructs ListClustersResponse's fields from required parameters
@@ -2324,7 +2324,7 @@ Constructs ListClustersResponse's fields from required parameters
 
 ``` purescript
 newtype ListContainerInstancesRequest
-  = ListContainerInstancesRequest { cluster :: NullOrUndefined (String), filter :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger), status :: NullOrUndefined (ContainerInstanceStatus) }
+  = ListContainerInstancesRequest { cluster :: Maybe (String), filter :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger), status :: Maybe (ContainerInstanceStatus) }
 ```
 
 ##### Instances
@@ -2347,7 +2347,7 @@ Constructs ListContainerInstancesRequest from required parameters
 #### `newListContainerInstancesRequest'`
 
 ``` purescript
-newListContainerInstancesRequest' :: ({ cluster :: NullOrUndefined (String), filter :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger), status :: NullOrUndefined (ContainerInstanceStatus) } -> { cluster :: NullOrUndefined (String), filter :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger), status :: NullOrUndefined (ContainerInstanceStatus) }) -> ListContainerInstancesRequest
+newListContainerInstancesRequest' :: ({ cluster :: Maybe (String), filter :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger), status :: Maybe (ContainerInstanceStatus) } -> { cluster :: Maybe (String), filter :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger), status :: Maybe (ContainerInstanceStatus) }) -> ListContainerInstancesRequest
 ```
 
 Constructs ListContainerInstancesRequest's fields from required parameters
@@ -2356,7 +2356,7 @@ Constructs ListContainerInstancesRequest's fields from required parameters
 
 ``` purescript
 newtype ListContainerInstancesResponse
-  = ListContainerInstancesResponse { containerInstanceArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }
+  = ListContainerInstancesResponse { containerInstanceArns :: Maybe (StringList), nextToken :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2379,7 +2379,7 @@ Constructs ListContainerInstancesResponse from required parameters
 #### `newListContainerInstancesResponse'`
 
 ``` purescript
-newListContainerInstancesResponse' :: ({ containerInstanceArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) } -> { containerInstanceArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }) -> ListContainerInstancesResponse
+newListContainerInstancesResponse' :: ({ containerInstanceArns :: Maybe (StringList), nextToken :: Maybe (String) } -> { containerInstanceArns :: Maybe (StringList), nextToken :: Maybe (String) }) -> ListContainerInstancesResponse
 ```
 
 Constructs ListContainerInstancesResponse's fields from required parameters
@@ -2388,7 +2388,7 @@ Constructs ListContainerInstancesResponse's fields from required parameters
 
 ``` purescript
 newtype ListServicesRequest
-  = ListServicesRequest { cluster :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger), launchType :: NullOrUndefined (LaunchType) }
+  = ListServicesRequest { cluster :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger), launchType :: Maybe (LaunchType) }
 ```
 
 ##### Instances
@@ -2411,7 +2411,7 @@ Constructs ListServicesRequest from required parameters
 #### `newListServicesRequest'`
 
 ``` purescript
-newListServicesRequest' :: ({ cluster :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger), launchType :: NullOrUndefined (LaunchType) } -> { cluster :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger), launchType :: NullOrUndefined (LaunchType) }) -> ListServicesRequest
+newListServicesRequest' :: ({ cluster :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger), launchType :: Maybe (LaunchType) } -> { cluster :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger), launchType :: Maybe (LaunchType) }) -> ListServicesRequest
 ```
 
 Constructs ListServicesRequest's fields from required parameters
@@ -2420,7 +2420,7 @@ Constructs ListServicesRequest's fields from required parameters
 
 ``` purescript
 newtype ListServicesResponse
-  = ListServicesResponse { serviceArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }
+  = ListServicesResponse { serviceArns :: Maybe (StringList), nextToken :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2443,7 +2443,7 @@ Constructs ListServicesResponse from required parameters
 #### `newListServicesResponse'`
 
 ``` purescript
-newListServicesResponse' :: ({ serviceArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) } -> { serviceArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }) -> ListServicesResponse
+newListServicesResponse' :: ({ serviceArns :: Maybe (StringList), nextToken :: Maybe (String) } -> { serviceArns :: Maybe (StringList), nextToken :: Maybe (String) }) -> ListServicesResponse
 ```
 
 Constructs ListServicesResponse's fields from required parameters
@@ -2452,7 +2452,7 @@ Constructs ListServicesResponse's fields from required parameters
 
 ``` purescript
 newtype ListTaskDefinitionFamiliesRequest
-  = ListTaskDefinitionFamiliesRequest { familyPrefix :: NullOrUndefined (String), status :: NullOrUndefined (TaskDefinitionFamilyStatus), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) }
+  = ListTaskDefinitionFamiliesRequest { familyPrefix :: Maybe (String), status :: Maybe (TaskDefinitionFamilyStatus), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) }
 ```
 
 ##### Instances
@@ -2475,7 +2475,7 @@ Constructs ListTaskDefinitionFamiliesRequest from required parameters
 #### `newListTaskDefinitionFamiliesRequest'`
 
 ``` purescript
-newListTaskDefinitionFamiliesRequest' :: ({ familyPrefix :: NullOrUndefined (String), status :: NullOrUndefined (TaskDefinitionFamilyStatus), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) } -> { familyPrefix :: NullOrUndefined (String), status :: NullOrUndefined (TaskDefinitionFamilyStatus), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) }) -> ListTaskDefinitionFamiliesRequest
+newListTaskDefinitionFamiliesRequest' :: ({ familyPrefix :: Maybe (String), status :: Maybe (TaskDefinitionFamilyStatus), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) } -> { familyPrefix :: Maybe (String), status :: Maybe (TaskDefinitionFamilyStatus), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) }) -> ListTaskDefinitionFamiliesRequest
 ```
 
 Constructs ListTaskDefinitionFamiliesRequest's fields from required parameters
@@ -2484,7 +2484,7 @@ Constructs ListTaskDefinitionFamiliesRequest's fields from required parameters
 
 ``` purescript
 newtype ListTaskDefinitionFamiliesResponse
-  = ListTaskDefinitionFamiliesResponse { families :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }
+  = ListTaskDefinitionFamiliesResponse { families :: Maybe (StringList), nextToken :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2507,7 +2507,7 @@ Constructs ListTaskDefinitionFamiliesResponse from required parameters
 #### `newListTaskDefinitionFamiliesResponse'`
 
 ``` purescript
-newListTaskDefinitionFamiliesResponse' :: ({ families :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) } -> { families :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }) -> ListTaskDefinitionFamiliesResponse
+newListTaskDefinitionFamiliesResponse' :: ({ families :: Maybe (StringList), nextToken :: Maybe (String) } -> { families :: Maybe (StringList), nextToken :: Maybe (String) }) -> ListTaskDefinitionFamiliesResponse
 ```
 
 Constructs ListTaskDefinitionFamiliesResponse's fields from required parameters
@@ -2516,7 +2516,7 @@ Constructs ListTaskDefinitionFamiliesResponse's fields from required parameters
 
 ``` purescript
 newtype ListTaskDefinitionsRequest
-  = ListTaskDefinitionsRequest { familyPrefix :: NullOrUndefined (String), status :: NullOrUndefined (TaskDefinitionStatus), sort :: NullOrUndefined (SortOrder), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) }
+  = ListTaskDefinitionsRequest { familyPrefix :: Maybe (String), status :: Maybe (TaskDefinitionStatus), sort :: Maybe (SortOrder), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) }
 ```
 
 ##### Instances
@@ -2539,7 +2539,7 @@ Constructs ListTaskDefinitionsRequest from required parameters
 #### `newListTaskDefinitionsRequest'`
 
 ``` purescript
-newListTaskDefinitionsRequest' :: ({ familyPrefix :: NullOrUndefined (String), status :: NullOrUndefined (TaskDefinitionStatus), sort :: NullOrUndefined (SortOrder), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) } -> { familyPrefix :: NullOrUndefined (String), status :: NullOrUndefined (TaskDefinitionStatus), sort :: NullOrUndefined (SortOrder), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger) }) -> ListTaskDefinitionsRequest
+newListTaskDefinitionsRequest' :: ({ familyPrefix :: Maybe (String), status :: Maybe (TaskDefinitionStatus), sort :: Maybe (SortOrder), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) } -> { familyPrefix :: Maybe (String), status :: Maybe (TaskDefinitionStatus), sort :: Maybe (SortOrder), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger) }) -> ListTaskDefinitionsRequest
 ```
 
 Constructs ListTaskDefinitionsRequest's fields from required parameters
@@ -2548,7 +2548,7 @@ Constructs ListTaskDefinitionsRequest's fields from required parameters
 
 ``` purescript
 newtype ListTaskDefinitionsResponse
-  = ListTaskDefinitionsResponse { taskDefinitionArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }
+  = ListTaskDefinitionsResponse { taskDefinitionArns :: Maybe (StringList), nextToken :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2571,7 +2571,7 @@ Constructs ListTaskDefinitionsResponse from required parameters
 #### `newListTaskDefinitionsResponse'`
 
 ``` purescript
-newListTaskDefinitionsResponse' :: ({ taskDefinitionArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) } -> { taskDefinitionArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }) -> ListTaskDefinitionsResponse
+newListTaskDefinitionsResponse' :: ({ taskDefinitionArns :: Maybe (StringList), nextToken :: Maybe (String) } -> { taskDefinitionArns :: Maybe (StringList), nextToken :: Maybe (String) }) -> ListTaskDefinitionsResponse
 ```
 
 Constructs ListTaskDefinitionsResponse's fields from required parameters
@@ -2580,7 +2580,7 @@ Constructs ListTaskDefinitionsResponse's fields from required parameters
 
 ``` purescript
 newtype ListTasksRequest
-  = ListTasksRequest { cluster :: NullOrUndefined (String), containerInstance :: NullOrUndefined (String), family :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger), startedBy :: NullOrUndefined (String), serviceName :: NullOrUndefined (String), desiredStatus :: NullOrUndefined (DesiredStatus), launchType :: NullOrUndefined (LaunchType) }
+  = ListTasksRequest { cluster :: Maybe (String), containerInstance :: Maybe (String), family :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger), startedBy :: Maybe (String), serviceName :: Maybe (String), desiredStatus :: Maybe (DesiredStatus), launchType :: Maybe (LaunchType) }
 ```
 
 ##### Instances
@@ -2603,7 +2603,7 @@ Constructs ListTasksRequest from required parameters
 #### `newListTasksRequest'`
 
 ``` purescript
-newListTasksRequest' :: ({ cluster :: NullOrUndefined (String), containerInstance :: NullOrUndefined (String), family :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger), startedBy :: NullOrUndefined (String), serviceName :: NullOrUndefined (String), desiredStatus :: NullOrUndefined (DesiredStatus), launchType :: NullOrUndefined (LaunchType) } -> { cluster :: NullOrUndefined (String), containerInstance :: NullOrUndefined (String), family :: NullOrUndefined (String), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (BoxedInteger), startedBy :: NullOrUndefined (String), serviceName :: NullOrUndefined (String), desiredStatus :: NullOrUndefined (DesiredStatus), launchType :: NullOrUndefined (LaunchType) }) -> ListTasksRequest
+newListTasksRequest' :: ({ cluster :: Maybe (String), containerInstance :: Maybe (String), family :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger), startedBy :: Maybe (String), serviceName :: Maybe (String), desiredStatus :: Maybe (DesiredStatus), launchType :: Maybe (LaunchType) } -> { cluster :: Maybe (String), containerInstance :: Maybe (String), family :: Maybe (String), nextToken :: Maybe (String), maxResults :: Maybe (BoxedInteger), startedBy :: Maybe (String), serviceName :: Maybe (String), desiredStatus :: Maybe (DesiredStatus), launchType :: Maybe (LaunchType) }) -> ListTasksRequest
 ```
 
 Constructs ListTasksRequest's fields from required parameters
@@ -2612,7 +2612,7 @@ Constructs ListTasksRequest's fields from required parameters
 
 ``` purescript
 newtype ListTasksResponse
-  = ListTasksResponse { taskArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }
+  = ListTasksResponse { taskArns :: Maybe (StringList), nextToken :: Maybe (String) }
 ```
 
 ##### Instances
@@ -2635,7 +2635,7 @@ Constructs ListTasksResponse from required parameters
 #### `newListTasksResponse'`
 
 ``` purescript
-newListTasksResponse' :: ({ taskArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) } -> { taskArns :: NullOrUndefined (StringList), nextToken :: NullOrUndefined (String) }) -> ListTasksResponse
+newListTasksResponse' :: ({ taskArns :: Maybe (StringList), nextToken :: Maybe (String) } -> { taskArns :: Maybe (StringList), nextToken :: Maybe (String) }) -> ListTasksResponse
 ```
 
 Constructs ListTasksResponse's fields from required parameters
@@ -2644,7 +2644,7 @@ Constructs ListTasksResponse's fields from required parameters
 
 ``` purescript
 newtype LoadBalancer
-  = LoadBalancer { targetGroupArn :: NullOrUndefined (String), loadBalancerName :: NullOrUndefined (String), containerName :: NullOrUndefined (String), containerPort :: NullOrUndefined (BoxedInteger) }
+  = LoadBalancer { targetGroupArn :: Maybe (String), loadBalancerName :: Maybe (String), containerName :: Maybe (String), containerPort :: Maybe (BoxedInteger) }
 ```
 
 <p>Details on a load balancer that is used with a service.</p>
@@ -2669,7 +2669,7 @@ Constructs LoadBalancer from required parameters
 #### `newLoadBalancer'`
 
 ``` purescript
-newLoadBalancer' :: ({ targetGroupArn :: NullOrUndefined (String), loadBalancerName :: NullOrUndefined (String), containerName :: NullOrUndefined (String), containerPort :: NullOrUndefined (BoxedInteger) } -> { targetGroupArn :: NullOrUndefined (String), loadBalancerName :: NullOrUndefined (String), containerName :: NullOrUndefined (String), containerPort :: NullOrUndefined (BoxedInteger) }) -> LoadBalancer
+newLoadBalancer' :: ({ targetGroupArn :: Maybe (String), loadBalancerName :: Maybe (String), containerName :: Maybe (String), containerPort :: Maybe (BoxedInteger) } -> { targetGroupArn :: Maybe (String), loadBalancerName :: Maybe (String), containerName :: Maybe (String), containerPort :: Maybe (BoxedInteger) }) -> LoadBalancer
 ```
 
 Constructs LoadBalancer's fields from required parameters
@@ -2694,7 +2694,7 @@ Encode LoadBalancers
 
 ``` purescript
 newtype LogConfiguration
-  = LogConfiguration { logDriver :: LogDriver, options :: NullOrUndefined (LogConfigurationOptionsMap) }
+  = LogConfiguration { logDriver :: LogDriver, options :: Maybe (LogConfigurationOptionsMap) }
 ```
 
 <p>Log configuration options to send to a custom log driver for the container.</p>
@@ -2719,7 +2719,7 @@ Constructs LogConfiguration from required parameters
 #### `newLogConfiguration'`
 
 ``` purescript
-newLogConfiguration' :: LogDriver -> ({ logDriver :: LogDriver, options :: NullOrUndefined (LogConfigurationOptionsMap) } -> { logDriver :: LogDriver, options :: NullOrUndefined (LogConfigurationOptionsMap) }) -> LogConfiguration
+newLogConfiguration' :: LogDriver -> ({ logDriver :: LogDriver, options :: Maybe (LogConfigurationOptionsMap) } -> { logDriver :: LogDriver, options :: Maybe (LogConfigurationOptionsMap) }) -> LogConfiguration
 ```
 
 Constructs LogConfiguration's fields from required parameters
@@ -2778,7 +2778,7 @@ Encode MissingVersionException
 
 ``` purescript
 newtype MountPoint
-  = MountPoint { sourceVolume :: NullOrUndefined (String), containerPath :: NullOrUndefined (String), readOnly :: NullOrUndefined (BoxedBoolean) }
+  = MountPoint { sourceVolume :: Maybe (String), containerPath :: Maybe (String), readOnly :: Maybe (BoxedBoolean) }
 ```
 
 <p>Details on a volume mount point that is used in a container definition.</p>
@@ -2803,7 +2803,7 @@ Constructs MountPoint from required parameters
 #### `newMountPoint'`
 
 ``` purescript
-newMountPoint' :: ({ sourceVolume :: NullOrUndefined (String), containerPath :: NullOrUndefined (String), readOnly :: NullOrUndefined (BoxedBoolean) } -> { sourceVolume :: NullOrUndefined (String), containerPath :: NullOrUndefined (String), readOnly :: NullOrUndefined (BoxedBoolean) }) -> MountPoint
+newMountPoint' :: ({ sourceVolume :: Maybe (String), containerPath :: Maybe (String), readOnly :: Maybe (BoxedBoolean) } -> { sourceVolume :: Maybe (String), containerPath :: Maybe (String), readOnly :: Maybe (BoxedBoolean) }) -> MountPoint
 ```
 
 Constructs MountPoint's fields from required parameters
@@ -2828,7 +2828,7 @@ Encode MountPointList
 
 ``` purescript
 newtype NetworkBinding
-  = NetworkBinding { bindIP :: NullOrUndefined (String), containerPort :: NullOrUndefined (BoxedInteger), hostPort :: NullOrUndefined (BoxedInteger), protocol :: NullOrUndefined (TransportProtocol) }
+  = NetworkBinding { bindIP :: Maybe (String), containerPort :: Maybe (BoxedInteger), hostPort :: Maybe (BoxedInteger), protocol :: Maybe (TransportProtocol) }
 ```
 
 <p>Details on the network bindings between a container and its host container instance. After a task reaches the <code>RUNNING</code> status, manual and automatic host and container port assignments are visible in the <code>networkBindings</code> section of <a>DescribeTasks</a> API responses.</p>
@@ -2853,7 +2853,7 @@ Constructs NetworkBinding from required parameters
 #### `newNetworkBinding'`
 
 ``` purescript
-newNetworkBinding' :: ({ bindIP :: NullOrUndefined (String), containerPort :: NullOrUndefined (BoxedInteger), hostPort :: NullOrUndefined (BoxedInteger), protocol :: NullOrUndefined (TransportProtocol) } -> { bindIP :: NullOrUndefined (String), containerPort :: NullOrUndefined (BoxedInteger), hostPort :: NullOrUndefined (BoxedInteger), protocol :: NullOrUndefined (TransportProtocol) }) -> NetworkBinding
+newNetworkBinding' :: ({ bindIP :: Maybe (String), containerPort :: Maybe (BoxedInteger), hostPort :: Maybe (BoxedInteger), protocol :: Maybe (TransportProtocol) } -> { bindIP :: Maybe (String), containerPort :: Maybe (BoxedInteger), hostPort :: Maybe (BoxedInteger), protocol :: Maybe (TransportProtocol) }) -> NetworkBinding
 ```
 
 Constructs NetworkBinding's fields from required parameters
@@ -2878,7 +2878,7 @@ Encode NetworkBindings
 
 ``` purescript
 newtype NetworkConfiguration
-  = NetworkConfiguration { awsvpcConfiguration :: NullOrUndefined (AwsVpcConfiguration) }
+  = NetworkConfiguration { awsvpcConfiguration :: Maybe (AwsVpcConfiguration) }
 ```
 
 <p>An object representing the network configuration for a task or service.</p>
@@ -2903,7 +2903,7 @@ Constructs NetworkConfiguration from required parameters
 #### `newNetworkConfiguration'`
 
 ``` purescript
-newNetworkConfiguration' :: ({ awsvpcConfiguration :: NullOrUndefined (AwsVpcConfiguration) } -> { awsvpcConfiguration :: NullOrUndefined (AwsVpcConfiguration) }) -> NetworkConfiguration
+newNetworkConfiguration' :: ({ awsvpcConfiguration :: Maybe (AwsVpcConfiguration) } -> { awsvpcConfiguration :: Maybe (AwsVpcConfiguration) }) -> NetworkConfiguration
 ```
 
 Constructs NetworkConfiguration's fields from required parameters
@@ -2912,7 +2912,7 @@ Constructs NetworkConfiguration's fields from required parameters
 
 ``` purescript
 newtype NetworkInterface
-  = NetworkInterface { attachmentId :: NullOrUndefined (String), privateIpv4Address :: NullOrUndefined (String), ipv6Address :: NullOrUndefined (String) }
+  = NetworkInterface { attachmentId :: Maybe (String), privateIpv4Address :: Maybe (String), ipv6Address :: Maybe (String) }
 ```
 
 <p>An object representing the Elastic Network Interface for tasks that use the <code>awsvpc</code> network mode.</p>
@@ -2937,7 +2937,7 @@ Constructs NetworkInterface from required parameters
 #### `newNetworkInterface'`
 
 ``` purescript
-newNetworkInterface' :: ({ attachmentId :: NullOrUndefined (String), privateIpv4Address :: NullOrUndefined (String), ipv6Address :: NullOrUndefined (String) } -> { attachmentId :: NullOrUndefined (String), privateIpv4Address :: NullOrUndefined (String), ipv6Address :: NullOrUndefined (String) }) -> NetworkInterface
+newNetworkInterface' :: ({ attachmentId :: Maybe (String), privateIpv4Address :: Maybe (String), ipv6Address :: Maybe (String) } -> { attachmentId :: Maybe (String), privateIpv4Address :: Maybe (String), ipv6Address :: Maybe (String) }) -> NetworkInterface
 ```
 
 Constructs NetworkInterface's fields from required parameters
@@ -2996,7 +2996,7 @@ Encode NoUpdateAvailableException
 
 ``` purescript
 newtype PlacementConstraint
-  = PlacementConstraint { "type" :: NullOrUndefined (PlacementConstraintType), expression :: NullOrUndefined (String) }
+  = PlacementConstraint { "type" :: Maybe (PlacementConstraintType), expression :: Maybe (String) }
 ```
 
 <p>An object representing a constraint on task placement. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -3021,7 +3021,7 @@ Constructs PlacementConstraint from required parameters
 #### `newPlacementConstraint'`
 
 ``` purescript
-newPlacementConstraint' :: ({ "type" :: NullOrUndefined (PlacementConstraintType), expression :: NullOrUndefined (String) } -> { "type" :: NullOrUndefined (PlacementConstraintType), expression :: NullOrUndefined (String) }) -> PlacementConstraint
+newPlacementConstraint' :: ({ "type" :: Maybe (PlacementConstraintType), expression :: Maybe (String) } -> { "type" :: Maybe (PlacementConstraintType), expression :: Maybe (String) }) -> PlacementConstraint
 ```
 
 Constructs PlacementConstraint's fields from required parameters
@@ -3078,7 +3078,7 @@ Encode PlacementStrategies
 
 ``` purescript
 newtype PlacementStrategy
-  = PlacementStrategy { "type" :: NullOrUndefined (PlacementStrategyType), field :: NullOrUndefined (String) }
+  = PlacementStrategy { "type" :: Maybe (PlacementStrategyType), field :: Maybe (String) }
 ```
 
 <p>The task placement strategy for a task or service. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html">Task Placement Strategies</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -3103,7 +3103,7 @@ Constructs PlacementStrategy from required parameters
 #### `newPlacementStrategy'`
 
 ``` purescript
-newPlacementStrategy' :: ({ "type" :: NullOrUndefined (PlacementStrategyType), field :: NullOrUndefined (String) } -> { "type" :: NullOrUndefined (PlacementStrategyType), field :: NullOrUndefined (String) }) -> PlacementStrategy
+newPlacementStrategy' :: ({ "type" :: Maybe (PlacementStrategyType), field :: Maybe (String) } -> { "type" :: Maybe (PlacementStrategyType), field :: Maybe (String) }) -> PlacementStrategy
 ```
 
 Constructs PlacementStrategy's fields from required parameters
@@ -3164,7 +3164,7 @@ Encode PlatformUnknownException
 
 ``` purescript
 newtype PortMapping
-  = PortMapping { containerPort :: NullOrUndefined (BoxedInteger), hostPort :: NullOrUndefined (BoxedInteger), protocol :: NullOrUndefined (TransportProtocol) }
+  = PortMapping { containerPort :: Maybe (BoxedInteger), hostPort :: Maybe (BoxedInteger), protocol :: Maybe (TransportProtocol) }
 ```
 
 <p>Port mappings allow containers to access ports on the host container instance to send or receive traffic. Port mappings are specified as part of the container definition.</p> <p>If using containers in a task with the <code>awsvpc</code> or <code>host</code> network mode, exposed ports should be specified using <code>containerPort</code>. The <code>hostPort</code> can be left blank or it must be the same value as the <code>containerPort</code>.</p> <p>After a task reaches the <code>RUNNING</code> status, manual and automatic host and container port assignments are visible in the <code>networkBindings</code> section of <a>DescribeTasks</a> API responses.</p>
@@ -3189,7 +3189,7 @@ Constructs PortMapping from required parameters
 #### `newPortMapping'`
 
 ``` purescript
-newPortMapping' :: ({ containerPort :: NullOrUndefined (BoxedInteger), hostPort :: NullOrUndefined (BoxedInteger), protocol :: NullOrUndefined (TransportProtocol) } -> { containerPort :: NullOrUndefined (BoxedInteger), hostPort :: NullOrUndefined (BoxedInteger), protocol :: NullOrUndefined (TransportProtocol) }) -> PortMapping
+newPortMapping' :: ({ containerPort :: Maybe (BoxedInteger), hostPort :: Maybe (BoxedInteger), protocol :: Maybe (TransportProtocol) } -> { containerPort :: Maybe (BoxedInteger), hostPort :: Maybe (BoxedInteger), protocol :: Maybe (TransportProtocol) }) -> PortMapping
 ```
 
 Constructs PortMapping's fields from required parameters
@@ -3214,7 +3214,7 @@ Encode PortMappingList
 
 ``` purescript
 newtype PutAttributesRequest
-  = PutAttributesRequest { cluster :: NullOrUndefined (String), attributes :: Attributes }
+  = PutAttributesRequest { cluster :: Maybe (String), attributes :: Attributes }
 ```
 
 ##### Instances
@@ -3237,7 +3237,7 @@ Constructs PutAttributesRequest from required parameters
 #### `newPutAttributesRequest'`
 
 ``` purescript
-newPutAttributesRequest' :: Attributes -> ({ cluster :: NullOrUndefined (String), attributes :: Attributes } -> { cluster :: NullOrUndefined (String), attributes :: Attributes }) -> PutAttributesRequest
+newPutAttributesRequest' :: Attributes -> ({ cluster :: Maybe (String), attributes :: Attributes } -> { cluster :: Maybe (String), attributes :: Attributes }) -> PutAttributesRequest
 ```
 
 Constructs PutAttributesRequest's fields from required parameters
@@ -3246,7 +3246,7 @@ Constructs PutAttributesRequest's fields from required parameters
 
 ``` purescript
 newtype PutAttributesResponse
-  = PutAttributesResponse { attributes :: NullOrUndefined (Attributes) }
+  = PutAttributesResponse { attributes :: Maybe (Attributes) }
 ```
 
 ##### Instances
@@ -3269,7 +3269,7 @@ Constructs PutAttributesResponse from required parameters
 #### `newPutAttributesResponse'`
 
 ``` purescript
-newPutAttributesResponse' :: ({ attributes :: NullOrUndefined (Attributes) } -> { attributes :: NullOrUndefined (Attributes) }) -> PutAttributesResponse
+newPutAttributesResponse' :: ({ attributes :: Maybe (Attributes) } -> { attributes :: Maybe (Attributes) }) -> PutAttributesResponse
 ```
 
 Constructs PutAttributesResponse's fields from required parameters
@@ -3278,7 +3278,7 @@ Constructs PutAttributesResponse's fields from required parameters
 
 ``` purescript
 newtype RegisterContainerInstanceRequest
-  = RegisterContainerInstanceRequest { cluster :: NullOrUndefined (String), instanceIdentityDocument :: NullOrUndefined (String), instanceIdentityDocumentSignature :: NullOrUndefined (String), totalResources :: NullOrUndefined (Resources), versionInfo :: NullOrUndefined (VersionInfo), containerInstanceArn :: NullOrUndefined (String), attributes :: NullOrUndefined (Attributes) }
+  = RegisterContainerInstanceRequest { cluster :: Maybe (String), instanceIdentityDocument :: Maybe (String), instanceIdentityDocumentSignature :: Maybe (String), totalResources :: Maybe (Resources), versionInfo :: Maybe (VersionInfo), containerInstanceArn :: Maybe (String), attributes :: Maybe (Attributes) }
 ```
 
 ##### Instances
@@ -3301,7 +3301,7 @@ Constructs RegisterContainerInstanceRequest from required parameters
 #### `newRegisterContainerInstanceRequest'`
 
 ``` purescript
-newRegisterContainerInstanceRequest' :: ({ cluster :: NullOrUndefined (String), instanceIdentityDocument :: NullOrUndefined (String), instanceIdentityDocumentSignature :: NullOrUndefined (String), totalResources :: NullOrUndefined (Resources), versionInfo :: NullOrUndefined (VersionInfo), containerInstanceArn :: NullOrUndefined (String), attributes :: NullOrUndefined (Attributes) } -> { cluster :: NullOrUndefined (String), instanceIdentityDocument :: NullOrUndefined (String), instanceIdentityDocumentSignature :: NullOrUndefined (String), totalResources :: NullOrUndefined (Resources), versionInfo :: NullOrUndefined (VersionInfo), containerInstanceArn :: NullOrUndefined (String), attributes :: NullOrUndefined (Attributes) }) -> RegisterContainerInstanceRequest
+newRegisterContainerInstanceRequest' :: ({ cluster :: Maybe (String), instanceIdentityDocument :: Maybe (String), instanceIdentityDocumentSignature :: Maybe (String), totalResources :: Maybe (Resources), versionInfo :: Maybe (VersionInfo), containerInstanceArn :: Maybe (String), attributes :: Maybe (Attributes) } -> { cluster :: Maybe (String), instanceIdentityDocument :: Maybe (String), instanceIdentityDocumentSignature :: Maybe (String), totalResources :: Maybe (Resources), versionInfo :: Maybe (VersionInfo), containerInstanceArn :: Maybe (String), attributes :: Maybe (Attributes) }) -> RegisterContainerInstanceRequest
 ```
 
 Constructs RegisterContainerInstanceRequest's fields from required parameters
@@ -3310,7 +3310,7 @@ Constructs RegisterContainerInstanceRequest's fields from required parameters
 
 ``` purescript
 newtype RegisterContainerInstanceResponse
-  = RegisterContainerInstanceResponse { containerInstance :: NullOrUndefined (ContainerInstance) }
+  = RegisterContainerInstanceResponse { containerInstance :: Maybe (ContainerInstance) }
 ```
 
 ##### Instances
@@ -3333,7 +3333,7 @@ Constructs RegisterContainerInstanceResponse from required parameters
 #### `newRegisterContainerInstanceResponse'`
 
 ``` purescript
-newRegisterContainerInstanceResponse' :: ({ containerInstance :: NullOrUndefined (ContainerInstance) } -> { containerInstance :: NullOrUndefined (ContainerInstance) }) -> RegisterContainerInstanceResponse
+newRegisterContainerInstanceResponse' :: ({ containerInstance :: Maybe (ContainerInstance) } -> { containerInstance :: Maybe (ContainerInstance) }) -> RegisterContainerInstanceResponse
 ```
 
 Constructs RegisterContainerInstanceResponse's fields from required parameters
@@ -3342,7 +3342,7 @@ Constructs RegisterContainerInstanceResponse's fields from required parameters
 
 ``` purescript
 newtype RegisterTaskDefinitionRequest
-  = RegisterTaskDefinitionRequest { family :: String, taskRoleArn :: NullOrUndefined (String), executionRoleArn :: NullOrUndefined (String), networkMode :: NullOrUndefined (NetworkMode), containerDefinitions :: ContainerDefinitions, volumes :: NullOrUndefined (VolumeList), placementConstraints :: NullOrUndefined (TaskDefinitionPlacementConstraints), requiresCompatibilities :: NullOrUndefined (CompatibilityList), cpu :: NullOrUndefined (String), memory :: NullOrUndefined (String) }
+  = RegisterTaskDefinitionRequest { family :: String, taskRoleArn :: Maybe (String), executionRoleArn :: Maybe (String), networkMode :: Maybe (NetworkMode), containerDefinitions :: ContainerDefinitions, volumes :: Maybe (VolumeList), placementConstraints :: Maybe (TaskDefinitionPlacementConstraints), requiresCompatibilities :: Maybe (CompatibilityList), cpu :: Maybe (String), memory :: Maybe (String) }
 ```
 
 ##### Instances
@@ -3365,7 +3365,7 @@ Constructs RegisterTaskDefinitionRequest from required parameters
 #### `newRegisterTaskDefinitionRequest'`
 
 ``` purescript
-newRegisterTaskDefinitionRequest' :: ContainerDefinitions -> String -> ({ family :: String, taskRoleArn :: NullOrUndefined (String), executionRoleArn :: NullOrUndefined (String), networkMode :: NullOrUndefined (NetworkMode), containerDefinitions :: ContainerDefinitions, volumes :: NullOrUndefined (VolumeList), placementConstraints :: NullOrUndefined (TaskDefinitionPlacementConstraints), requiresCompatibilities :: NullOrUndefined (CompatibilityList), cpu :: NullOrUndefined (String), memory :: NullOrUndefined (String) } -> { family :: String, taskRoleArn :: NullOrUndefined (String), executionRoleArn :: NullOrUndefined (String), networkMode :: NullOrUndefined (NetworkMode), containerDefinitions :: ContainerDefinitions, volumes :: NullOrUndefined (VolumeList), placementConstraints :: NullOrUndefined (TaskDefinitionPlacementConstraints), requiresCompatibilities :: NullOrUndefined (CompatibilityList), cpu :: NullOrUndefined (String), memory :: NullOrUndefined (String) }) -> RegisterTaskDefinitionRequest
+newRegisterTaskDefinitionRequest' :: ContainerDefinitions -> String -> ({ family :: String, taskRoleArn :: Maybe (String), executionRoleArn :: Maybe (String), networkMode :: Maybe (NetworkMode), containerDefinitions :: ContainerDefinitions, volumes :: Maybe (VolumeList), placementConstraints :: Maybe (TaskDefinitionPlacementConstraints), requiresCompatibilities :: Maybe (CompatibilityList), cpu :: Maybe (String), memory :: Maybe (String) } -> { family :: String, taskRoleArn :: Maybe (String), executionRoleArn :: Maybe (String), networkMode :: Maybe (NetworkMode), containerDefinitions :: ContainerDefinitions, volumes :: Maybe (VolumeList), placementConstraints :: Maybe (TaskDefinitionPlacementConstraints), requiresCompatibilities :: Maybe (CompatibilityList), cpu :: Maybe (String), memory :: Maybe (String) }) -> RegisterTaskDefinitionRequest
 ```
 
 Constructs RegisterTaskDefinitionRequest's fields from required parameters
@@ -3374,7 +3374,7 @@ Constructs RegisterTaskDefinitionRequest's fields from required parameters
 
 ``` purescript
 newtype RegisterTaskDefinitionResponse
-  = RegisterTaskDefinitionResponse { taskDefinition :: NullOrUndefined (TaskDefinition) }
+  = RegisterTaskDefinitionResponse { taskDefinition :: Maybe (TaskDefinition) }
 ```
 
 ##### Instances
@@ -3397,7 +3397,7 @@ Constructs RegisterTaskDefinitionResponse from required parameters
 #### `newRegisterTaskDefinitionResponse'`
 
 ``` purescript
-newRegisterTaskDefinitionResponse' :: ({ taskDefinition :: NullOrUndefined (TaskDefinition) } -> { taskDefinition :: NullOrUndefined (TaskDefinition) }) -> RegisterTaskDefinitionResponse
+newRegisterTaskDefinitionResponse' :: ({ taskDefinition :: Maybe (TaskDefinition) } -> { taskDefinition :: Maybe (TaskDefinition) }) -> RegisterTaskDefinitionResponse
 ```
 
 Constructs RegisterTaskDefinitionResponse's fields from required parameters
@@ -3422,7 +3422,7 @@ Encode RequiresAttributes
 
 ``` purescript
 newtype Resource
-  = Resource { name :: NullOrUndefined (String), "type" :: NullOrUndefined (String), doubleValue :: NullOrUndefined (Number), longValue :: NullOrUndefined (Number), integerValue :: NullOrUndefined (Int), stringSetValue :: NullOrUndefined (StringList) }
+  = Resource { name :: Maybe (String), "type" :: Maybe (String), doubleValue :: Maybe (Number), longValue :: Maybe (Number), integerValue :: Maybe (Int), stringSetValue :: Maybe (StringList) }
 ```
 
 <p>Describes the resources available for a container instance.</p>
@@ -3447,7 +3447,7 @@ Constructs Resource from required parameters
 #### `newResource'`
 
 ``` purescript
-newResource' :: ({ name :: NullOrUndefined (String), "type" :: NullOrUndefined (String), doubleValue :: NullOrUndefined (Number), longValue :: NullOrUndefined (Number), integerValue :: NullOrUndefined (Int), stringSetValue :: NullOrUndefined (StringList) } -> { name :: NullOrUndefined (String), "type" :: NullOrUndefined (String), doubleValue :: NullOrUndefined (Number), longValue :: NullOrUndefined (Number), integerValue :: NullOrUndefined (Int), stringSetValue :: NullOrUndefined (StringList) }) -> Resource
+newResource' :: ({ name :: Maybe (String), "type" :: Maybe (String), doubleValue :: Maybe (Number), longValue :: Maybe (Number), integerValue :: Maybe (Int), stringSetValue :: Maybe (StringList) } -> { name :: Maybe (String), "type" :: Maybe (String), doubleValue :: Maybe (Number), longValue :: Maybe (Number), integerValue :: Maybe (Int), stringSetValue :: Maybe (StringList) }) -> Resource
 ```
 
 Constructs Resource's fields from required parameters
@@ -3472,7 +3472,7 @@ Encode Resources
 
 ``` purescript
 newtype RunTaskRequest
-  = RunTaskRequest { cluster :: NullOrUndefined (String), taskDefinition :: String, overrides :: NullOrUndefined (TaskOverride), count :: NullOrUndefined (BoxedInteger), startedBy :: NullOrUndefined (String), group :: NullOrUndefined (String), placementConstraints :: NullOrUndefined (PlacementConstraints), placementStrategy :: NullOrUndefined (PlacementStrategies), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), networkConfiguration :: NullOrUndefined (NetworkConfiguration) }
+  = RunTaskRequest { cluster :: Maybe (String), taskDefinition :: String, overrides :: Maybe (TaskOverride), count :: Maybe (BoxedInteger), startedBy :: Maybe (String), group :: Maybe (String), placementConstraints :: Maybe (PlacementConstraints), placementStrategy :: Maybe (PlacementStrategies), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), networkConfiguration :: Maybe (NetworkConfiguration) }
 ```
 
 ##### Instances
@@ -3495,7 +3495,7 @@ Constructs RunTaskRequest from required parameters
 #### `newRunTaskRequest'`
 
 ``` purescript
-newRunTaskRequest' :: String -> ({ cluster :: NullOrUndefined (String), taskDefinition :: String, overrides :: NullOrUndefined (TaskOverride), count :: NullOrUndefined (BoxedInteger), startedBy :: NullOrUndefined (String), group :: NullOrUndefined (String), placementConstraints :: NullOrUndefined (PlacementConstraints), placementStrategy :: NullOrUndefined (PlacementStrategies), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), networkConfiguration :: NullOrUndefined (NetworkConfiguration) } -> { cluster :: NullOrUndefined (String), taskDefinition :: String, overrides :: NullOrUndefined (TaskOverride), count :: NullOrUndefined (BoxedInteger), startedBy :: NullOrUndefined (String), group :: NullOrUndefined (String), placementConstraints :: NullOrUndefined (PlacementConstraints), placementStrategy :: NullOrUndefined (PlacementStrategies), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), networkConfiguration :: NullOrUndefined (NetworkConfiguration) }) -> RunTaskRequest
+newRunTaskRequest' :: String -> ({ cluster :: Maybe (String), taskDefinition :: String, overrides :: Maybe (TaskOverride), count :: Maybe (BoxedInteger), startedBy :: Maybe (String), group :: Maybe (String), placementConstraints :: Maybe (PlacementConstraints), placementStrategy :: Maybe (PlacementStrategies), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), networkConfiguration :: Maybe (NetworkConfiguration) } -> { cluster :: Maybe (String), taskDefinition :: String, overrides :: Maybe (TaskOverride), count :: Maybe (BoxedInteger), startedBy :: Maybe (String), group :: Maybe (String), placementConstraints :: Maybe (PlacementConstraints), placementStrategy :: Maybe (PlacementStrategies), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), networkConfiguration :: Maybe (NetworkConfiguration) }) -> RunTaskRequest
 ```
 
 Constructs RunTaskRequest's fields from required parameters
@@ -3504,7 +3504,7 @@ Constructs RunTaskRequest's fields from required parameters
 
 ``` purescript
 newtype RunTaskResponse
-  = RunTaskResponse { tasks :: NullOrUndefined (Tasks), failures :: NullOrUndefined (Failures) }
+  = RunTaskResponse { tasks :: Maybe (Tasks), failures :: Maybe (Failures) }
 ```
 
 ##### Instances
@@ -3527,7 +3527,7 @@ Constructs RunTaskResponse from required parameters
 #### `newRunTaskResponse'`
 
 ``` purescript
-newRunTaskResponse' :: ({ tasks :: NullOrUndefined (Tasks), failures :: NullOrUndefined (Failures) } -> { tasks :: NullOrUndefined (Tasks), failures :: NullOrUndefined (Failures) }) -> RunTaskResponse
+newRunTaskResponse' :: ({ tasks :: Maybe (Tasks), failures :: Maybe (Failures) } -> { tasks :: Maybe (Tasks), failures :: Maybe (Failures) }) -> RunTaskResponse
 ```
 
 Constructs RunTaskResponse's fields from required parameters
@@ -3536,7 +3536,7 @@ Constructs RunTaskResponse's fields from required parameters
 
 ``` purescript
 newtype ServerException
-  = ServerException { message :: NullOrUndefined (String) }
+  = ServerException { message :: Maybe (String) }
 ```
 
 <p>These errors are usually caused by a server issue.</p>
@@ -3561,7 +3561,7 @@ Constructs ServerException from required parameters
 #### `newServerException'`
 
 ``` purescript
-newServerException' :: ({ message :: NullOrUndefined (String) } -> { message :: NullOrUndefined (String) }) -> ServerException
+newServerException' :: ({ message :: Maybe (String) } -> { message :: Maybe (String) }) -> ServerException
 ```
 
 Constructs ServerException's fields from required parameters
@@ -3570,7 +3570,7 @@ Constructs ServerException's fields from required parameters
 
 ``` purescript
 newtype Service
-  = Service { serviceArn :: NullOrUndefined (String), serviceName :: NullOrUndefined (String), clusterArn :: NullOrUndefined (String), loadBalancers :: NullOrUndefined (LoadBalancers), status :: NullOrUndefined (String), desiredCount :: NullOrUndefined (Int), runningCount :: NullOrUndefined (Int), pendingCount :: NullOrUndefined (Int), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), taskDefinition :: NullOrUndefined (String), deploymentConfiguration :: NullOrUndefined (DeploymentConfiguration), deployments :: NullOrUndefined (Deployments), roleArn :: NullOrUndefined (String), events :: NullOrUndefined (ServiceEvents), createdAt :: NullOrUndefined (Timestamp), placementConstraints :: NullOrUndefined (PlacementConstraints), placementStrategy :: NullOrUndefined (PlacementStrategies), networkConfiguration :: NullOrUndefined (NetworkConfiguration), healthCheckGracePeriodSeconds :: NullOrUndefined (BoxedInteger) }
+  = Service { serviceArn :: Maybe (String), serviceName :: Maybe (String), clusterArn :: Maybe (String), loadBalancers :: Maybe (LoadBalancers), status :: Maybe (String), desiredCount :: Maybe (Int), runningCount :: Maybe (Int), pendingCount :: Maybe (Int), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), taskDefinition :: Maybe (String), deploymentConfiguration :: Maybe (DeploymentConfiguration), deployments :: Maybe (Deployments), roleArn :: Maybe (String), events :: Maybe (ServiceEvents), createdAt :: Maybe (Timestamp), placementConstraints :: Maybe (PlacementConstraints), placementStrategy :: Maybe (PlacementStrategies), networkConfiguration :: Maybe (NetworkConfiguration), healthCheckGracePeriodSeconds :: Maybe (BoxedInteger) }
 ```
 
 <p>Details on a service within a cluster</p>
@@ -3595,7 +3595,7 @@ Constructs Service from required parameters
 #### `newService'`
 
 ``` purescript
-newService' :: ({ serviceArn :: NullOrUndefined (String), serviceName :: NullOrUndefined (String), clusterArn :: NullOrUndefined (String), loadBalancers :: NullOrUndefined (LoadBalancers), status :: NullOrUndefined (String), desiredCount :: NullOrUndefined (Int), runningCount :: NullOrUndefined (Int), pendingCount :: NullOrUndefined (Int), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), taskDefinition :: NullOrUndefined (String), deploymentConfiguration :: NullOrUndefined (DeploymentConfiguration), deployments :: NullOrUndefined (Deployments), roleArn :: NullOrUndefined (String), events :: NullOrUndefined (ServiceEvents), createdAt :: NullOrUndefined (Timestamp), placementConstraints :: NullOrUndefined (PlacementConstraints), placementStrategy :: NullOrUndefined (PlacementStrategies), networkConfiguration :: NullOrUndefined (NetworkConfiguration), healthCheckGracePeriodSeconds :: NullOrUndefined (BoxedInteger) } -> { serviceArn :: NullOrUndefined (String), serviceName :: NullOrUndefined (String), clusterArn :: NullOrUndefined (String), loadBalancers :: NullOrUndefined (LoadBalancers), status :: NullOrUndefined (String), desiredCount :: NullOrUndefined (Int), runningCount :: NullOrUndefined (Int), pendingCount :: NullOrUndefined (Int), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), taskDefinition :: NullOrUndefined (String), deploymentConfiguration :: NullOrUndefined (DeploymentConfiguration), deployments :: NullOrUndefined (Deployments), roleArn :: NullOrUndefined (String), events :: NullOrUndefined (ServiceEvents), createdAt :: NullOrUndefined (Timestamp), placementConstraints :: NullOrUndefined (PlacementConstraints), placementStrategy :: NullOrUndefined (PlacementStrategies), networkConfiguration :: NullOrUndefined (NetworkConfiguration), healthCheckGracePeriodSeconds :: NullOrUndefined (BoxedInteger) }) -> Service
+newService' :: ({ serviceArn :: Maybe (String), serviceName :: Maybe (String), clusterArn :: Maybe (String), loadBalancers :: Maybe (LoadBalancers), status :: Maybe (String), desiredCount :: Maybe (Int), runningCount :: Maybe (Int), pendingCount :: Maybe (Int), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), taskDefinition :: Maybe (String), deploymentConfiguration :: Maybe (DeploymentConfiguration), deployments :: Maybe (Deployments), roleArn :: Maybe (String), events :: Maybe (ServiceEvents), createdAt :: Maybe (Timestamp), placementConstraints :: Maybe (PlacementConstraints), placementStrategy :: Maybe (PlacementStrategies), networkConfiguration :: Maybe (NetworkConfiguration), healthCheckGracePeriodSeconds :: Maybe (BoxedInteger) } -> { serviceArn :: Maybe (String), serviceName :: Maybe (String), clusterArn :: Maybe (String), loadBalancers :: Maybe (LoadBalancers), status :: Maybe (String), desiredCount :: Maybe (Int), runningCount :: Maybe (Int), pendingCount :: Maybe (Int), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), taskDefinition :: Maybe (String), deploymentConfiguration :: Maybe (DeploymentConfiguration), deployments :: Maybe (Deployments), roleArn :: Maybe (String), events :: Maybe (ServiceEvents), createdAt :: Maybe (Timestamp), placementConstraints :: Maybe (PlacementConstraints), placementStrategy :: Maybe (PlacementStrategies), networkConfiguration :: Maybe (NetworkConfiguration), healthCheckGracePeriodSeconds :: Maybe (BoxedInteger) }) -> Service
 ```
 
 Constructs Service's fields from required parameters
@@ -3604,7 +3604,7 @@ Constructs Service's fields from required parameters
 
 ``` purescript
 newtype ServiceEvent
-  = ServiceEvent { id :: NullOrUndefined (String), createdAt :: NullOrUndefined (Timestamp), message :: NullOrUndefined (String) }
+  = ServiceEvent { id :: Maybe (String), createdAt :: Maybe (Timestamp), message :: Maybe (String) }
 ```
 
 <p>Details on an event associated with a service.</p>
@@ -3629,7 +3629,7 @@ Constructs ServiceEvent from required parameters
 #### `newServiceEvent'`
 
 ``` purescript
-newServiceEvent' :: ({ id :: NullOrUndefined (String), createdAt :: NullOrUndefined (Timestamp), message :: NullOrUndefined (String) } -> { id :: NullOrUndefined (String), createdAt :: NullOrUndefined (Timestamp), message :: NullOrUndefined (String) }) -> ServiceEvent
+newServiceEvent' :: ({ id :: Maybe (String), createdAt :: Maybe (Timestamp), message :: Maybe (String) } -> { id :: Maybe (String), createdAt :: Maybe (Timestamp), message :: Maybe (String) }) -> ServiceEvent
 ```
 
 Constructs ServiceEvent's fields from required parameters
@@ -3722,7 +3722,7 @@ Encode SortOrder
 
 ``` purescript
 newtype StartTaskRequest
-  = StartTaskRequest { cluster :: NullOrUndefined (String), taskDefinition :: String, overrides :: NullOrUndefined (TaskOverride), containerInstances :: StringList, startedBy :: NullOrUndefined (String), group :: NullOrUndefined (String), networkConfiguration :: NullOrUndefined (NetworkConfiguration) }
+  = StartTaskRequest { cluster :: Maybe (String), taskDefinition :: String, overrides :: Maybe (TaskOverride), containerInstances :: StringList, startedBy :: Maybe (String), group :: Maybe (String), networkConfiguration :: Maybe (NetworkConfiguration) }
 ```
 
 ##### Instances
@@ -3745,7 +3745,7 @@ Constructs StartTaskRequest from required parameters
 #### `newStartTaskRequest'`
 
 ``` purescript
-newStartTaskRequest' :: StringList -> String -> ({ cluster :: NullOrUndefined (String), taskDefinition :: String, overrides :: NullOrUndefined (TaskOverride), containerInstances :: StringList, startedBy :: NullOrUndefined (String), group :: NullOrUndefined (String), networkConfiguration :: NullOrUndefined (NetworkConfiguration) } -> { cluster :: NullOrUndefined (String), taskDefinition :: String, overrides :: NullOrUndefined (TaskOverride), containerInstances :: StringList, startedBy :: NullOrUndefined (String), group :: NullOrUndefined (String), networkConfiguration :: NullOrUndefined (NetworkConfiguration) }) -> StartTaskRequest
+newStartTaskRequest' :: StringList -> String -> ({ cluster :: Maybe (String), taskDefinition :: String, overrides :: Maybe (TaskOverride), containerInstances :: StringList, startedBy :: Maybe (String), group :: Maybe (String), networkConfiguration :: Maybe (NetworkConfiguration) } -> { cluster :: Maybe (String), taskDefinition :: String, overrides :: Maybe (TaskOverride), containerInstances :: StringList, startedBy :: Maybe (String), group :: Maybe (String), networkConfiguration :: Maybe (NetworkConfiguration) }) -> StartTaskRequest
 ```
 
 Constructs StartTaskRequest's fields from required parameters
@@ -3754,7 +3754,7 @@ Constructs StartTaskRequest's fields from required parameters
 
 ``` purescript
 newtype StartTaskResponse
-  = StartTaskResponse { tasks :: NullOrUndefined (Tasks), failures :: NullOrUndefined (Failures) }
+  = StartTaskResponse { tasks :: Maybe (Tasks), failures :: Maybe (Failures) }
 ```
 
 ##### Instances
@@ -3777,7 +3777,7 @@ Constructs StartTaskResponse from required parameters
 #### `newStartTaskResponse'`
 
 ``` purescript
-newStartTaskResponse' :: ({ tasks :: NullOrUndefined (Tasks), failures :: NullOrUndefined (Failures) } -> { tasks :: NullOrUndefined (Tasks), failures :: NullOrUndefined (Failures) }) -> StartTaskResponse
+newStartTaskResponse' :: ({ tasks :: Maybe (Tasks), failures :: Maybe (Failures) } -> { tasks :: Maybe (Tasks), failures :: Maybe (Failures) }) -> StartTaskResponse
 ```
 
 Constructs StartTaskResponse's fields from required parameters
@@ -3802,7 +3802,7 @@ Encode Statistics
 
 ``` purescript
 newtype StopTaskRequest
-  = StopTaskRequest { cluster :: NullOrUndefined (String), task :: String, reason :: NullOrUndefined (String) }
+  = StopTaskRequest { cluster :: Maybe (String), task :: String, reason :: Maybe (String) }
 ```
 
 ##### Instances
@@ -3825,7 +3825,7 @@ Constructs StopTaskRequest from required parameters
 #### `newStopTaskRequest'`
 
 ``` purescript
-newStopTaskRequest' :: String -> ({ cluster :: NullOrUndefined (String), task :: String, reason :: NullOrUndefined (String) } -> { cluster :: NullOrUndefined (String), task :: String, reason :: NullOrUndefined (String) }) -> StopTaskRequest
+newStopTaskRequest' :: String -> ({ cluster :: Maybe (String), task :: String, reason :: Maybe (String) } -> { cluster :: Maybe (String), task :: String, reason :: Maybe (String) }) -> StopTaskRequest
 ```
 
 Constructs StopTaskRequest's fields from required parameters
@@ -3834,7 +3834,7 @@ Constructs StopTaskRequest's fields from required parameters
 
 ``` purescript
 newtype StopTaskResponse
-  = StopTaskResponse { task :: NullOrUndefined (Task) }
+  = StopTaskResponse { task :: Maybe (Task) }
 ```
 
 ##### Instances
@@ -3857,7 +3857,7 @@ Constructs StopTaskResponse from required parameters
 #### `newStopTaskResponse'`
 
 ``` purescript
-newStopTaskResponse' :: ({ task :: NullOrUndefined (Task) } -> { task :: NullOrUndefined (Task) }) -> StopTaskResponse
+newStopTaskResponse' :: ({ task :: Maybe (Task) } -> { task :: Maybe (Task) }) -> StopTaskResponse
 ```
 
 Constructs StopTaskResponse's fields from required parameters
@@ -3882,7 +3882,7 @@ Encode StringList
 
 ``` purescript
 newtype SubmitContainerStateChangeRequest
-  = SubmitContainerStateChangeRequest { cluster :: NullOrUndefined (String), task :: NullOrUndefined (String), containerName :: NullOrUndefined (String), status :: NullOrUndefined (String), exitCode :: NullOrUndefined (BoxedInteger), reason :: NullOrUndefined (String), networkBindings :: NullOrUndefined (NetworkBindings) }
+  = SubmitContainerStateChangeRequest { cluster :: Maybe (String), task :: Maybe (String), containerName :: Maybe (String), status :: Maybe (String), exitCode :: Maybe (BoxedInteger), reason :: Maybe (String), networkBindings :: Maybe (NetworkBindings) }
 ```
 
 ##### Instances
@@ -3905,7 +3905,7 @@ Constructs SubmitContainerStateChangeRequest from required parameters
 #### `newSubmitContainerStateChangeRequest'`
 
 ``` purescript
-newSubmitContainerStateChangeRequest' :: ({ cluster :: NullOrUndefined (String), task :: NullOrUndefined (String), containerName :: NullOrUndefined (String), status :: NullOrUndefined (String), exitCode :: NullOrUndefined (BoxedInteger), reason :: NullOrUndefined (String), networkBindings :: NullOrUndefined (NetworkBindings) } -> { cluster :: NullOrUndefined (String), task :: NullOrUndefined (String), containerName :: NullOrUndefined (String), status :: NullOrUndefined (String), exitCode :: NullOrUndefined (BoxedInteger), reason :: NullOrUndefined (String), networkBindings :: NullOrUndefined (NetworkBindings) }) -> SubmitContainerStateChangeRequest
+newSubmitContainerStateChangeRequest' :: ({ cluster :: Maybe (String), task :: Maybe (String), containerName :: Maybe (String), status :: Maybe (String), exitCode :: Maybe (BoxedInteger), reason :: Maybe (String), networkBindings :: Maybe (NetworkBindings) } -> { cluster :: Maybe (String), task :: Maybe (String), containerName :: Maybe (String), status :: Maybe (String), exitCode :: Maybe (BoxedInteger), reason :: Maybe (String), networkBindings :: Maybe (NetworkBindings) }) -> SubmitContainerStateChangeRequest
 ```
 
 Constructs SubmitContainerStateChangeRequest's fields from required parameters
@@ -3914,7 +3914,7 @@ Constructs SubmitContainerStateChangeRequest's fields from required parameters
 
 ``` purescript
 newtype SubmitContainerStateChangeResponse
-  = SubmitContainerStateChangeResponse { acknowledgment :: NullOrUndefined (String) }
+  = SubmitContainerStateChangeResponse { acknowledgment :: Maybe (String) }
 ```
 
 ##### Instances
@@ -3937,7 +3937,7 @@ Constructs SubmitContainerStateChangeResponse from required parameters
 #### `newSubmitContainerStateChangeResponse'`
 
 ``` purescript
-newSubmitContainerStateChangeResponse' :: ({ acknowledgment :: NullOrUndefined (String) } -> { acknowledgment :: NullOrUndefined (String) }) -> SubmitContainerStateChangeResponse
+newSubmitContainerStateChangeResponse' :: ({ acknowledgment :: Maybe (String) } -> { acknowledgment :: Maybe (String) }) -> SubmitContainerStateChangeResponse
 ```
 
 Constructs SubmitContainerStateChangeResponse's fields from required parameters
@@ -3946,7 +3946,7 @@ Constructs SubmitContainerStateChangeResponse's fields from required parameters
 
 ``` purescript
 newtype SubmitTaskStateChangeRequest
-  = SubmitTaskStateChangeRequest { cluster :: NullOrUndefined (String), task :: NullOrUndefined (String), status :: NullOrUndefined (String), reason :: NullOrUndefined (String), containers :: NullOrUndefined (ContainerStateChanges), attachments :: NullOrUndefined (AttachmentStateChanges), pullStartedAt :: NullOrUndefined (Timestamp), pullStoppedAt :: NullOrUndefined (Timestamp), executionStoppedAt :: NullOrUndefined (Timestamp) }
+  = SubmitTaskStateChangeRequest { cluster :: Maybe (String), task :: Maybe (String), status :: Maybe (String), reason :: Maybe (String), containers :: Maybe (ContainerStateChanges), attachments :: Maybe (AttachmentStateChanges), pullStartedAt :: Maybe (Timestamp), pullStoppedAt :: Maybe (Timestamp), executionStoppedAt :: Maybe (Timestamp) }
 ```
 
 ##### Instances
@@ -3969,7 +3969,7 @@ Constructs SubmitTaskStateChangeRequest from required parameters
 #### `newSubmitTaskStateChangeRequest'`
 
 ``` purescript
-newSubmitTaskStateChangeRequest' :: ({ cluster :: NullOrUndefined (String), task :: NullOrUndefined (String), status :: NullOrUndefined (String), reason :: NullOrUndefined (String), containers :: NullOrUndefined (ContainerStateChanges), attachments :: NullOrUndefined (AttachmentStateChanges), pullStartedAt :: NullOrUndefined (Timestamp), pullStoppedAt :: NullOrUndefined (Timestamp), executionStoppedAt :: NullOrUndefined (Timestamp) } -> { cluster :: NullOrUndefined (String), task :: NullOrUndefined (String), status :: NullOrUndefined (String), reason :: NullOrUndefined (String), containers :: NullOrUndefined (ContainerStateChanges), attachments :: NullOrUndefined (AttachmentStateChanges), pullStartedAt :: NullOrUndefined (Timestamp), pullStoppedAt :: NullOrUndefined (Timestamp), executionStoppedAt :: NullOrUndefined (Timestamp) }) -> SubmitTaskStateChangeRequest
+newSubmitTaskStateChangeRequest' :: ({ cluster :: Maybe (String), task :: Maybe (String), status :: Maybe (String), reason :: Maybe (String), containers :: Maybe (ContainerStateChanges), attachments :: Maybe (AttachmentStateChanges), pullStartedAt :: Maybe (Timestamp), pullStoppedAt :: Maybe (Timestamp), executionStoppedAt :: Maybe (Timestamp) } -> { cluster :: Maybe (String), task :: Maybe (String), status :: Maybe (String), reason :: Maybe (String), containers :: Maybe (ContainerStateChanges), attachments :: Maybe (AttachmentStateChanges), pullStartedAt :: Maybe (Timestamp), pullStoppedAt :: Maybe (Timestamp), executionStoppedAt :: Maybe (Timestamp) }) -> SubmitTaskStateChangeRequest
 ```
 
 Constructs SubmitTaskStateChangeRequest's fields from required parameters
@@ -3978,7 +3978,7 @@ Constructs SubmitTaskStateChangeRequest's fields from required parameters
 
 ``` purescript
 newtype SubmitTaskStateChangeResponse
-  = SubmitTaskStateChangeResponse { acknowledgment :: NullOrUndefined (String) }
+  = SubmitTaskStateChangeResponse { acknowledgment :: Maybe (String) }
 ```
 
 ##### Instances
@@ -4001,7 +4001,7 @@ Constructs SubmitTaskStateChangeResponse from required parameters
 #### `newSubmitTaskStateChangeResponse'`
 
 ``` purescript
-newSubmitTaskStateChangeResponse' :: ({ acknowledgment :: NullOrUndefined (String) } -> { acknowledgment :: NullOrUndefined (String) }) -> SubmitTaskStateChangeResponse
+newSubmitTaskStateChangeResponse' :: ({ acknowledgment :: Maybe (String) } -> { acknowledgment :: Maybe (String) }) -> SubmitTaskStateChangeResponse
 ```
 
 Constructs SubmitTaskStateChangeResponse's fields from required parameters
@@ -4044,7 +4044,7 @@ Encode TargetType
 
 ``` purescript
 newtype Task
-  = Task { taskArn :: NullOrUndefined (String), clusterArn :: NullOrUndefined (String), taskDefinitionArn :: NullOrUndefined (String), containerInstanceArn :: NullOrUndefined (String), overrides :: NullOrUndefined (TaskOverride), lastStatus :: NullOrUndefined (String), desiredStatus :: NullOrUndefined (String), cpu :: NullOrUndefined (String), memory :: NullOrUndefined (String), containers :: NullOrUndefined (Containers), startedBy :: NullOrUndefined (String), version :: NullOrUndefined (Number), stoppedReason :: NullOrUndefined (String), connectivity :: NullOrUndefined (Connectivity), connectivityAt :: NullOrUndefined (Timestamp), pullStartedAt :: NullOrUndefined (Timestamp), pullStoppedAt :: NullOrUndefined (Timestamp), executionStoppedAt :: NullOrUndefined (Timestamp), createdAt :: NullOrUndefined (Timestamp), startedAt :: NullOrUndefined (Timestamp), stoppingAt :: NullOrUndefined (Timestamp), stoppedAt :: NullOrUndefined (Timestamp), group :: NullOrUndefined (String), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), attachments :: NullOrUndefined (Attachments), healthStatus :: NullOrUndefined (HealthStatus) }
+  = Task { taskArn :: Maybe (String), clusterArn :: Maybe (String), taskDefinitionArn :: Maybe (String), containerInstanceArn :: Maybe (String), overrides :: Maybe (TaskOverride), lastStatus :: Maybe (String), desiredStatus :: Maybe (String), cpu :: Maybe (String), memory :: Maybe (String), containers :: Maybe (Containers), startedBy :: Maybe (String), version :: Maybe (Number), stoppedReason :: Maybe (String), connectivity :: Maybe (Connectivity), connectivityAt :: Maybe (Timestamp), pullStartedAt :: Maybe (Timestamp), pullStoppedAt :: Maybe (Timestamp), executionStoppedAt :: Maybe (Timestamp), createdAt :: Maybe (Timestamp), startedAt :: Maybe (Timestamp), stoppingAt :: Maybe (Timestamp), stoppedAt :: Maybe (Timestamp), group :: Maybe (String), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), attachments :: Maybe (Attachments), healthStatus :: Maybe (HealthStatus) }
 ```
 
 <p>Details on a task in a cluster.</p>
@@ -4069,7 +4069,7 @@ Constructs Task from required parameters
 #### `newTask'`
 
 ``` purescript
-newTask' :: ({ taskArn :: NullOrUndefined (String), clusterArn :: NullOrUndefined (String), taskDefinitionArn :: NullOrUndefined (String), containerInstanceArn :: NullOrUndefined (String), overrides :: NullOrUndefined (TaskOverride), lastStatus :: NullOrUndefined (String), desiredStatus :: NullOrUndefined (String), cpu :: NullOrUndefined (String), memory :: NullOrUndefined (String), containers :: NullOrUndefined (Containers), startedBy :: NullOrUndefined (String), version :: NullOrUndefined (Number), stoppedReason :: NullOrUndefined (String), connectivity :: NullOrUndefined (Connectivity), connectivityAt :: NullOrUndefined (Timestamp), pullStartedAt :: NullOrUndefined (Timestamp), pullStoppedAt :: NullOrUndefined (Timestamp), executionStoppedAt :: NullOrUndefined (Timestamp), createdAt :: NullOrUndefined (Timestamp), startedAt :: NullOrUndefined (Timestamp), stoppingAt :: NullOrUndefined (Timestamp), stoppedAt :: NullOrUndefined (Timestamp), group :: NullOrUndefined (String), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), attachments :: NullOrUndefined (Attachments), healthStatus :: NullOrUndefined (HealthStatus) } -> { taskArn :: NullOrUndefined (String), clusterArn :: NullOrUndefined (String), taskDefinitionArn :: NullOrUndefined (String), containerInstanceArn :: NullOrUndefined (String), overrides :: NullOrUndefined (TaskOverride), lastStatus :: NullOrUndefined (String), desiredStatus :: NullOrUndefined (String), cpu :: NullOrUndefined (String), memory :: NullOrUndefined (String), containers :: NullOrUndefined (Containers), startedBy :: NullOrUndefined (String), version :: NullOrUndefined (Number), stoppedReason :: NullOrUndefined (String), connectivity :: NullOrUndefined (Connectivity), connectivityAt :: NullOrUndefined (Timestamp), pullStartedAt :: NullOrUndefined (Timestamp), pullStoppedAt :: NullOrUndefined (Timestamp), executionStoppedAt :: NullOrUndefined (Timestamp), createdAt :: NullOrUndefined (Timestamp), startedAt :: NullOrUndefined (Timestamp), stoppingAt :: NullOrUndefined (Timestamp), stoppedAt :: NullOrUndefined (Timestamp), group :: NullOrUndefined (String), launchType :: NullOrUndefined (LaunchType), platformVersion :: NullOrUndefined (String), attachments :: NullOrUndefined (Attachments), healthStatus :: NullOrUndefined (HealthStatus) }) -> Task
+newTask' :: ({ taskArn :: Maybe (String), clusterArn :: Maybe (String), taskDefinitionArn :: Maybe (String), containerInstanceArn :: Maybe (String), overrides :: Maybe (TaskOverride), lastStatus :: Maybe (String), desiredStatus :: Maybe (String), cpu :: Maybe (String), memory :: Maybe (String), containers :: Maybe (Containers), startedBy :: Maybe (String), version :: Maybe (Number), stoppedReason :: Maybe (String), connectivity :: Maybe (Connectivity), connectivityAt :: Maybe (Timestamp), pullStartedAt :: Maybe (Timestamp), pullStoppedAt :: Maybe (Timestamp), executionStoppedAt :: Maybe (Timestamp), createdAt :: Maybe (Timestamp), startedAt :: Maybe (Timestamp), stoppingAt :: Maybe (Timestamp), stoppedAt :: Maybe (Timestamp), group :: Maybe (String), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), attachments :: Maybe (Attachments), healthStatus :: Maybe (HealthStatus) } -> { taskArn :: Maybe (String), clusterArn :: Maybe (String), taskDefinitionArn :: Maybe (String), containerInstanceArn :: Maybe (String), overrides :: Maybe (TaskOverride), lastStatus :: Maybe (String), desiredStatus :: Maybe (String), cpu :: Maybe (String), memory :: Maybe (String), containers :: Maybe (Containers), startedBy :: Maybe (String), version :: Maybe (Number), stoppedReason :: Maybe (String), connectivity :: Maybe (Connectivity), connectivityAt :: Maybe (Timestamp), pullStartedAt :: Maybe (Timestamp), pullStoppedAt :: Maybe (Timestamp), executionStoppedAt :: Maybe (Timestamp), createdAt :: Maybe (Timestamp), startedAt :: Maybe (Timestamp), stoppingAt :: Maybe (Timestamp), stoppedAt :: Maybe (Timestamp), group :: Maybe (String), launchType :: Maybe (LaunchType), platformVersion :: Maybe (String), attachments :: Maybe (Attachments), healthStatus :: Maybe (HealthStatus) }) -> Task
 ```
 
 Constructs Task's fields from required parameters
@@ -4078,7 +4078,7 @@ Constructs Task's fields from required parameters
 
 ``` purescript
 newtype TaskDefinition
-  = TaskDefinition { taskDefinitionArn :: NullOrUndefined (String), containerDefinitions :: NullOrUndefined (ContainerDefinitions), family :: NullOrUndefined (String), taskRoleArn :: NullOrUndefined (String), executionRoleArn :: NullOrUndefined (String), networkMode :: NullOrUndefined (NetworkMode), revision :: NullOrUndefined (Int), volumes :: NullOrUndefined (VolumeList), status :: NullOrUndefined (TaskDefinitionStatus), requiresAttributes :: NullOrUndefined (RequiresAttributes), placementConstraints :: NullOrUndefined (TaskDefinitionPlacementConstraints), compatibilities :: NullOrUndefined (CompatibilityList), requiresCompatibilities :: NullOrUndefined (CompatibilityList), cpu :: NullOrUndefined (String), memory :: NullOrUndefined (String) }
+  = TaskDefinition { taskDefinitionArn :: Maybe (String), containerDefinitions :: Maybe (ContainerDefinitions), family :: Maybe (String), taskRoleArn :: Maybe (String), executionRoleArn :: Maybe (String), networkMode :: Maybe (NetworkMode), revision :: Maybe (Int), volumes :: Maybe (VolumeList), status :: Maybe (TaskDefinitionStatus), requiresAttributes :: Maybe (RequiresAttributes), placementConstraints :: Maybe (TaskDefinitionPlacementConstraints), compatibilities :: Maybe (CompatibilityList), requiresCompatibilities :: Maybe (CompatibilityList), cpu :: Maybe (String), memory :: Maybe (String) }
 ```
 
 <p>Details of a task definition.</p>
@@ -4103,7 +4103,7 @@ Constructs TaskDefinition from required parameters
 #### `newTaskDefinition'`
 
 ``` purescript
-newTaskDefinition' :: ({ taskDefinitionArn :: NullOrUndefined (String), containerDefinitions :: NullOrUndefined (ContainerDefinitions), family :: NullOrUndefined (String), taskRoleArn :: NullOrUndefined (String), executionRoleArn :: NullOrUndefined (String), networkMode :: NullOrUndefined (NetworkMode), revision :: NullOrUndefined (Int), volumes :: NullOrUndefined (VolumeList), status :: NullOrUndefined (TaskDefinitionStatus), requiresAttributes :: NullOrUndefined (RequiresAttributes), placementConstraints :: NullOrUndefined (TaskDefinitionPlacementConstraints), compatibilities :: NullOrUndefined (CompatibilityList), requiresCompatibilities :: NullOrUndefined (CompatibilityList), cpu :: NullOrUndefined (String), memory :: NullOrUndefined (String) } -> { taskDefinitionArn :: NullOrUndefined (String), containerDefinitions :: NullOrUndefined (ContainerDefinitions), family :: NullOrUndefined (String), taskRoleArn :: NullOrUndefined (String), executionRoleArn :: NullOrUndefined (String), networkMode :: NullOrUndefined (NetworkMode), revision :: NullOrUndefined (Int), volumes :: NullOrUndefined (VolumeList), status :: NullOrUndefined (TaskDefinitionStatus), requiresAttributes :: NullOrUndefined (RequiresAttributes), placementConstraints :: NullOrUndefined (TaskDefinitionPlacementConstraints), compatibilities :: NullOrUndefined (CompatibilityList), requiresCompatibilities :: NullOrUndefined (CompatibilityList), cpu :: NullOrUndefined (String), memory :: NullOrUndefined (String) }) -> TaskDefinition
+newTaskDefinition' :: ({ taskDefinitionArn :: Maybe (String), containerDefinitions :: Maybe (ContainerDefinitions), family :: Maybe (String), taskRoleArn :: Maybe (String), executionRoleArn :: Maybe (String), networkMode :: Maybe (NetworkMode), revision :: Maybe (Int), volumes :: Maybe (VolumeList), status :: Maybe (TaskDefinitionStatus), requiresAttributes :: Maybe (RequiresAttributes), placementConstraints :: Maybe (TaskDefinitionPlacementConstraints), compatibilities :: Maybe (CompatibilityList), requiresCompatibilities :: Maybe (CompatibilityList), cpu :: Maybe (String), memory :: Maybe (String) } -> { taskDefinitionArn :: Maybe (String), containerDefinitions :: Maybe (ContainerDefinitions), family :: Maybe (String), taskRoleArn :: Maybe (String), executionRoleArn :: Maybe (String), networkMode :: Maybe (NetworkMode), revision :: Maybe (Int), volumes :: Maybe (VolumeList), status :: Maybe (TaskDefinitionStatus), requiresAttributes :: Maybe (RequiresAttributes), placementConstraints :: Maybe (TaskDefinitionPlacementConstraints), compatibilities :: Maybe (CompatibilityList), requiresCompatibilities :: Maybe (CompatibilityList), cpu :: Maybe (String), memory :: Maybe (String) }) -> TaskDefinition
 ```
 
 Constructs TaskDefinition's fields from required parameters
@@ -4128,7 +4128,7 @@ Encode TaskDefinitionFamilyStatus
 
 ``` purescript
 newtype TaskDefinitionPlacementConstraint
-  = TaskDefinitionPlacementConstraint { "type" :: NullOrUndefined (TaskDefinitionPlacementConstraintType), expression :: NullOrUndefined (String) }
+  = TaskDefinitionPlacementConstraint { "type" :: Maybe (TaskDefinitionPlacementConstraintType), expression :: Maybe (String) }
 ```
 
 <p>An object representing a constraint on task placement in the task definition.</p> <p>If you are using the Fargate launch type, task placement constraints are not supported.</p> <p>For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-constraints.html">Task Placement Constraints</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</p>
@@ -4153,7 +4153,7 @@ Constructs TaskDefinitionPlacementConstraint from required parameters
 #### `newTaskDefinitionPlacementConstraint'`
 
 ``` purescript
-newTaskDefinitionPlacementConstraint' :: ({ "type" :: NullOrUndefined (TaskDefinitionPlacementConstraintType), expression :: NullOrUndefined (String) } -> { "type" :: NullOrUndefined (TaskDefinitionPlacementConstraintType), expression :: NullOrUndefined (String) }) -> TaskDefinitionPlacementConstraint
+newTaskDefinitionPlacementConstraint' :: ({ "type" :: Maybe (TaskDefinitionPlacementConstraintType), expression :: Maybe (String) } -> { "type" :: Maybe (TaskDefinitionPlacementConstraintType), expression :: Maybe (String) }) -> TaskDefinitionPlacementConstraint
 ```
 
 Constructs TaskDefinitionPlacementConstraint's fields from required parameters
@@ -4210,7 +4210,7 @@ Encode TaskDefinitionStatus
 
 ``` purescript
 newtype TaskOverride
-  = TaskOverride { containerOverrides :: NullOrUndefined (ContainerOverrides), taskRoleArn :: NullOrUndefined (String), executionRoleArn :: NullOrUndefined (String) }
+  = TaskOverride { containerOverrides :: Maybe (ContainerOverrides), taskRoleArn :: Maybe (String), executionRoleArn :: Maybe (String) }
 ```
 
 <p>The overrides associated with a task.</p>
@@ -4235,7 +4235,7 @@ Constructs TaskOverride from required parameters
 #### `newTaskOverride'`
 
 ``` purescript
-newTaskOverride' :: ({ containerOverrides :: NullOrUndefined (ContainerOverrides), taskRoleArn :: NullOrUndefined (String), executionRoleArn :: NullOrUndefined (String) } -> { containerOverrides :: NullOrUndefined (ContainerOverrides), taskRoleArn :: NullOrUndefined (String), executionRoleArn :: NullOrUndefined (String) }) -> TaskOverride
+newTaskOverride' :: ({ containerOverrides :: Maybe (ContainerOverrides), taskRoleArn :: Maybe (String), executionRoleArn :: Maybe (String) } -> { containerOverrides :: Maybe (ContainerOverrides), taskRoleArn :: Maybe (String), executionRoleArn :: Maybe (String) }) -> TaskOverride
 ```
 
 Constructs TaskOverride's fields from required parameters
@@ -4360,7 +4360,7 @@ Encode UnsupportedFeatureException
 
 ``` purescript
 newtype UpdateContainerAgentRequest
-  = UpdateContainerAgentRequest { cluster :: NullOrUndefined (String), containerInstance :: String }
+  = UpdateContainerAgentRequest { cluster :: Maybe (String), containerInstance :: String }
 ```
 
 ##### Instances
@@ -4383,7 +4383,7 @@ Constructs UpdateContainerAgentRequest from required parameters
 #### `newUpdateContainerAgentRequest'`
 
 ``` purescript
-newUpdateContainerAgentRequest' :: String -> ({ cluster :: NullOrUndefined (String), containerInstance :: String } -> { cluster :: NullOrUndefined (String), containerInstance :: String }) -> UpdateContainerAgentRequest
+newUpdateContainerAgentRequest' :: String -> ({ cluster :: Maybe (String), containerInstance :: String } -> { cluster :: Maybe (String), containerInstance :: String }) -> UpdateContainerAgentRequest
 ```
 
 Constructs UpdateContainerAgentRequest's fields from required parameters
@@ -4392,7 +4392,7 @@ Constructs UpdateContainerAgentRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateContainerAgentResponse
-  = UpdateContainerAgentResponse { containerInstance :: NullOrUndefined (ContainerInstance) }
+  = UpdateContainerAgentResponse { containerInstance :: Maybe (ContainerInstance) }
 ```
 
 ##### Instances
@@ -4415,7 +4415,7 @@ Constructs UpdateContainerAgentResponse from required parameters
 #### `newUpdateContainerAgentResponse'`
 
 ``` purescript
-newUpdateContainerAgentResponse' :: ({ containerInstance :: NullOrUndefined (ContainerInstance) } -> { containerInstance :: NullOrUndefined (ContainerInstance) }) -> UpdateContainerAgentResponse
+newUpdateContainerAgentResponse' :: ({ containerInstance :: Maybe (ContainerInstance) } -> { containerInstance :: Maybe (ContainerInstance) }) -> UpdateContainerAgentResponse
 ```
 
 Constructs UpdateContainerAgentResponse's fields from required parameters
@@ -4424,7 +4424,7 @@ Constructs UpdateContainerAgentResponse's fields from required parameters
 
 ``` purescript
 newtype UpdateContainerInstancesStateRequest
-  = UpdateContainerInstancesStateRequest { cluster :: NullOrUndefined (String), containerInstances :: StringList, status :: ContainerInstanceStatus }
+  = UpdateContainerInstancesStateRequest { cluster :: Maybe (String), containerInstances :: StringList, status :: ContainerInstanceStatus }
 ```
 
 ##### Instances
@@ -4447,7 +4447,7 @@ Constructs UpdateContainerInstancesStateRequest from required parameters
 #### `newUpdateContainerInstancesStateRequest'`
 
 ``` purescript
-newUpdateContainerInstancesStateRequest' :: StringList -> ContainerInstanceStatus -> ({ cluster :: NullOrUndefined (String), containerInstances :: StringList, status :: ContainerInstanceStatus } -> { cluster :: NullOrUndefined (String), containerInstances :: StringList, status :: ContainerInstanceStatus }) -> UpdateContainerInstancesStateRequest
+newUpdateContainerInstancesStateRequest' :: StringList -> ContainerInstanceStatus -> ({ cluster :: Maybe (String), containerInstances :: StringList, status :: ContainerInstanceStatus } -> { cluster :: Maybe (String), containerInstances :: StringList, status :: ContainerInstanceStatus }) -> UpdateContainerInstancesStateRequest
 ```
 
 Constructs UpdateContainerInstancesStateRequest's fields from required parameters
@@ -4456,7 +4456,7 @@ Constructs UpdateContainerInstancesStateRequest's fields from required parameter
 
 ``` purescript
 newtype UpdateContainerInstancesStateResponse
-  = UpdateContainerInstancesStateResponse { containerInstances :: NullOrUndefined (ContainerInstances), failures :: NullOrUndefined (Failures) }
+  = UpdateContainerInstancesStateResponse { containerInstances :: Maybe (ContainerInstances), failures :: Maybe (Failures) }
 ```
 
 ##### Instances
@@ -4479,7 +4479,7 @@ Constructs UpdateContainerInstancesStateResponse from required parameters
 #### `newUpdateContainerInstancesStateResponse'`
 
 ``` purescript
-newUpdateContainerInstancesStateResponse' :: ({ containerInstances :: NullOrUndefined (ContainerInstances), failures :: NullOrUndefined (Failures) } -> { containerInstances :: NullOrUndefined (ContainerInstances), failures :: NullOrUndefined (Failures) }) -> UpdateContainerInstancesStateResponse
+newUpdateContainerInstancesStateResponse' :: ({ containerInstances :: Maybe (ContainerInstances), failures :: Maybe (Failures) } -> { containerInstances :: Maybe (ContainerInstances), failures :: Maybe (Failures) }) -> UpdateContainerInstancesStateResponse
 ```
 
 Constructs UpdateContainerInstancesStateResponse's fields from required parameters
@@ -4506,7 +4506,7 @@ Encode UpdateInProgressException
 
 ``` purescript
 newtype UpdateServiceRequest
-  = UpdateServiceRequest { cluster :: NullOrUndefined (String), service :: String, desiredCount :: NullOrUndefined (BoxedInteger), taskDefinition :: NullOrUndefined (String), deploymentConfiguration :: NullOrUndefined (DeploymentConfiguration), networkConfiguration :: NullOrUndefined (NetworkConfiguration), platformVersion :: NullOrUndefined (String), forceNewDeployment :: NullOrUndefined (Boolean), healthCheckGracePeriodSeconds :: NullOrUndefined (BoxedInteger) }
+  = UpdateServiceRequest { cluster :: Maybe (String), service :: String, desiredCount :: Maybe (BoxedInteger), taskDefinition :: Maybe (String), deploymentConfiguration :: Maybe (DeploymentConfiguration), networkConfiguration :: Maybe (NetworkConfiguration), platformVersion :: Maybe (String), forceNewDeployment :: Maybe (Boolean), healthCheckGracePeriodSeconds :: Maybe (BoxedInteger) }
 ```
 
 ##### Instances
@@ -4529,7 +4529,7 @@ Constructs UpdateServiceRequest from required parameters
 #### `newUpdateServiceRequest'`
 
 ``` purescript
-newUpdateServiceRequest' :: String -> ({ cluster :: NullOrUndefined (String), service :: String, desiredCount :: NullOrUndefined (BoxedInteger), taskDefinition :: NullOrUndefined (String), deploymentConfiguration :: NullOrUndefined (DeploymentConfiguration), networkConfiguration :: NullOrUndefined (NetworkConfiguration), platformVersion :: NullOrUndefined (String), forceNewDeployment :: NullOrUndefined (Boolean), healthCheckGracePeriodSeconds :: NullOrUndefined (BoxedInteger) } -> { cluster :: NullOrUndefined (String), service :: String, desiredCount :: NullOrUndefined (BoxedInteger), taskDefinition :: NullOrUndefined (String), deploymentConfiguration :: NullOrUndefined (DeploymentConfiguration), networkConfiguration :: NullOrUndefined (NetworkConfiguration), platformVersion :: NullOrUndefined (String), forceNewDeployment :: NullOrUndefined (Boolean), healthCheckGracePeriodSeconds :: NullOrUndefined (BoxedInteger) }) -> UpdateServiceRequest
+newUpdateServiceRequest' :: String -> ({ cluster :: Maybe (String), service :: String, desiredCount :: Maybe (BoxedInteger), taskDefinition :: Maybe (String), deploymentConfiguration :: Maybe (DeploymentConfiguration), networkConfiguration :: Maybe (NetworkConfiguration), platformVersion :: Maybe (String), forceNewDeployment :: Maybe (Boolean), healthCheckGracePeriodSeconds :: Maybe (BoxedInteger) } -> { cluster :: Maybe (String), service :: String, desiredCount :: Maybe (BoxedInteger), taskDefinition :: Maybe (String), deploymentConfiguration :: Maybe (DeploymentConfiguration), networkConfiguration :: Maybe (NetworkConfiguration), platformVersion :: Maybe (String), forceNewDeployment :: Maybe (Boolean), healthCheckGracePeriodSeconds :: Maybe (BoxedInteger) }) -> UpdateServiceRequest
 ```
 
 Constructs UpdateServiceRequest's fields from required parameters
@@ -4538,7 +4538,7 @@ Constructs UpdateServiceRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateServiceResponse
-  = UpdateServiceResponse { service :: NullOrUndefined (Service) }
+  = UpdateServiceResponse { service :: Maybe (Service) }
 ```
 
 ##### Instances
@@ -4561,7 +4561,7 @@ Constructs UpdateServiceResponse from required parameters
 #### `newUpdateServiceResponse'`
 
 ``` purescript
-newUpdateServiceResponse' :: ({ service :: NullOrUndefined (Service) } -> { service :: NullOrUndefined (Service) }) -> UpdateServiceResponse
+newUpdateServiceResponse' :: ({ service :: Maybe (Service) } -> { service :: Maybe (Service) }) -> UpdateServiceResponse
 ```
 
 Constructs UpdateServiceResponse's fields from required parameters
@@ -4570,7 +4570,7 @@ Constructs UpdateServiceResponse's fields from required parameters
 
 ``` purescript
 newtype VersionInfo
-  = VersionInfo { agentVersion :: NullOrUndefined (String), agentHash :: NullOrUndefined (String), dockerVersion :: NullOrUndefined (String) }
+  = VersionInfo { agentVersion :: Maybe (String), agentHash :: Maybe (String), dockerVersion :: Maybe (String) }
 ```
 
 <p>The Docker and Amazon ECS container agent version information about a container instance.</p>
@@ -4595,7 +4595,7 @@ Constructs VersionInfo from required parameters
 #### `newVersionInfo'`
 
 ``` purescript
-newVersionInfo' :: ({ agentVersion :: NullOrUndefined (String), agentHash :: NullOrUndefined (String), dockerVersion :: NullOrUndefined (String) } -> { agentVersion :: NullOrUndefined (String), agentHash :: NullOrUndefined (String), dockerVersion :: NullOrUndefined (String) }) -> VersionInfo
+newVersionInfo' :: ({ agentVersion :: Maybe (String), agentHash :: Maybe (String), dockerVersion :: Maybe (String) } -> { agentVersion :: Maybe (String), agentHash :: Maybe (String), dockerVersion :: Maybe (String) }) -> VersionInfo
 ```
 
 Constructs VersionInfo's fields from required parameters
@@ -4604,7 +4604,7 @@ Constructs VersionInfo's fields from required parameters
 
 ``` purescript
 newtype Volume
-  = Volume { name :: NullOrUndefined (String), host :: NullOrUndefined (HostVolumeProperties) }
+  = Volume { name :: Maybe (String), host :: Maybe (HostVolumeProperties) }
 ```
 
 <p>A data volume used in a task definition.</p>
@@ -4629,7 +4629,7 @@ Constructs Volume from required parameters
 #### `newVolume'`
 
 ``` purescript
-newVolume' :: ({ name :: NullOrUndefined (String), host :: NullOrUndefined (HostVolumeProperties) } -> { name :: NullOrUndefined (String), host :: NullOrUndefined (HostVolumeProperties) }) -> Volume
+newVolume' :: ({ name :: Maybe (String), host :: Maybe (HostVolumeProperties) } -> { name :: Maybe (String), host :: Maybe (HostVolumeProperties) }) -> Volume
 ```
 
 Constructs Volume's fields from required parameters
@@ -4638,7 +4638,7 @@ Constructs Volume's fields from required parameters
 
 ``` purescript
 newtype VolumeFrom
-  = VolumeFrom { sourceContainer :: NullOrUndefined (String), readOnly :: NullOrUndefined (BoxedBoolean) }
+  = VolumeFrom { sourceContainer :: Maybe (String), readOnly :: Maybe (BoxedBoolean) }
 ```
 
 <p>Details on a data volume from another container in the same task definition.</p>
@@ -4663,7 +4663,7 @@ Constructs VolumeFrom from required parameters
 #### `newVolumeFrom'`
 
 ``` purescript
-newVolumeFrom' :: ({ sourceContainer :: NullOrUndefined (String), readOnly :: NullOrUndefined (BoxedBoolean) } -> { sourceContainer :: NullOrUndefined (String), readOnly :: NullOrUndefined (BoxedBoolean) }) -> VolumeFrom
+newVolumeFrom' :: ({ sourceContainer :: Maybe (String), readOnly :: Maybe (BoxedBoolean) } -> { sourceContainer :: Maybe (String), readOnly :: Maybe (BoxedBoolean) }) -> VolumeFrom
 ```
 
 Constructs VolumeFrom's fields from required parameters
